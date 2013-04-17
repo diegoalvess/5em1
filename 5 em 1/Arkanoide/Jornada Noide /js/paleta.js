@@ -11,10 +11,10 @@ function Paleta()
 		console.log("carregamento pela classe PALETA" + loaded);
 	};
 	
-	this.size_x = 200;
-    this.size_y = 20;
-    this.position_x = (tela_larg_W - this.size_x)/2;
-    this.position_y = (tela_larg_H - this.size_y - 2);
+	this.tamanho_x = 200;
+    this.tamanho_y = 20;
+    this.posicao_x = (tela_larg_W - this.tamanho_x)/2;
+    this.posicao_y = (tela_larg_H - this.tamanho_y - 2);
     this.velocity_x = 3.5;
     this.velocity_y = 3.5;
     this.velocity_MAX = 15;
@@ -23,23 +23,23 @@ function Paleta()
     {
     	if(direita)
     	{
-    		this.position_x += this.velocity_x;
+    		this.posicao_x += this.velocity_x;
     	}
     	if(esquerda)
     	{
-    		this.position_x -= this.velocity_x;
+    		this.posicao_x -= this.velocity_x;
     	}
     
      //MANTENDO PALETA PRETA NO CAMPO
-      	if(this.position_x < 50) 
+      	if(this.posicao_x < 50) 
        	{
-      		this.position_x = 50;
+      		this.posicao_x = 50;
        	}
              	
   
-       	if(this.position_x > 850 - this.size_x)
+       	if(this.posicao_x > 850 - this.tamanho_x)
        	{
-       		this.position_x = 850 - this.size_x;
+       		this.posicao_x = 850 - this.tamanho_x;
         }
     
        
