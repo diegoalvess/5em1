@@ -149,22 +149,22 @@
              	paleta.update();
 				if (direita == true)
 				{
-					paleta.position_x += paleta.velocity_x;
+					paleta.posicao_x += paleta.velocity_x;
 				}
 			
 				if (esquerda == true)
 				{
-					paleta.position_x -= paleta.velocity_x;
+					paleta.posicao_x -= paleta.velocity_x;
 				}
 				
 				
     			<!--MOVENDO A BOLA 
     			{
-    				bola.position_x += bola.velocity_x;	
-    				bola.position_y += bola.velocity_y;	
+    				bola.posicao_x += bola.velocity_x;	
+    				bola.posicao_y += bola.velocity_y;	
     	
     			<!--MANTENDO BOLA NO CAMPO
-    			bola.update();
+    			bola.update(paleta.posicao_x+paleta.tamanho_x/2);
     			
 	
    			 }
@@ -172,14 +172,14 @@
    			<!--COLISAO PALETA
 			{
 			if(Collide(
-				bola.position_x,
-				bola.position_y,
-				bola.size_x,
-				bola.size_y,
-				paleta.position_x,
-				paleta.position_y,
-				paleta.size_x,
-				paleta.size_y))
+				bola.posicao_x,
+				bola.posicao_y,
+				bola.tamanho_x,
+				bola.tamanho_y,
+				paleta.posicao_x,
+				paleta.posicao_y,
+				paleta.tamanho_x,
+				paleta.tamanho_y))
 			{
 				if(bola.velocity_y < bola.velocity_MAX)
 				{
@@ -206,10 +206,10 @@
 						if(listablocos[i].visible)
 						{
 							if(Collide(
-								bola.position_x,
-								bola.position_y,
-								bola.size_x,
-								bola.size_y,
+								bola.posicao_x,
+								bola.posicao_y,
+								bola.tamanho_x,
+								bola.tamanho_y,
 								listablocos[i].psc_X,
 								listablocos[i].psc_Y,
 								listablocos[i].tam_X,
@@ -238,8 +238,8 @@
              	
              	<!--DESENHANDO NA TELA
              	screen.drawImage(tela_imagem, tela_tamanho_W, tela_tamanho_H);
-             	screen.drawImage(paleta.img, paleta.position_x, paleta.position_y);
-             	screen.drawImage(bola.img, bola.position_x, bola.position_y);
+             	screen.drawImage(paleta.img, paleta.posicao_x, paleta.posicao_y);
+             	screen.drawImage(bola.img, bola.posicao_x, bola.posicao_y);
              	
              	
              	<!--DESENHANDO BLOCOS
@@ -286,6 +286,12 @@
 				{
 					direita = true;//verdadeiro
 				}
+				
+				if(key.keyCode == "32")
+				{
+					bola.followplayer = false;
+				}	
+				
 			
 			}
              
