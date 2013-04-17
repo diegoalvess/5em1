@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+
+<html> 
+
+        <head>
+                
+                <title>
+                
+                Spacebbok
+                                
+                </title>
+        
+        	<script src="js/tiro.js"></script>
+        	<script src="js/nave.js"></script>
+        	<script src="js/inimigos.js"></script>
+        	<script src="js/pause.js"></script>
+
+        
+        </head>
+        <center>
+        <body>
+                
+                <br/>
+        
+                <canvas width="1024" height="750" id="main" style="border:12px solid #330033;"></canvas>
+        </body>
+        
+        
+        <script>
+        
+        //TELA//
+        var canvas = document.getElementById("main");
+        var screen = canvas.getContext("2d");
+        
+        //LARGURA E ALTURA DA TELA//
+        var largura_tela_w = 1024
+        var altura_tela_h = 750
+
+              
+                
+        var CENA = {
+  			GAME: 0,
+  			PAUSA: 1
+		};
+		
+		var currentPause = CENA.GAME;
+		var pause = new Pause();
+		
+		
+        
+        //VARIAVEIS DO FUNDO//
+        var fundo_imagem = new Image() ;
+        var fundo_carregada = false;
+        var fundo_tamanho_w = 1024;
+        var fundo_tamanho_h = 750;
+        var fundo_posicao_x = 0;
+        var fundo_posicao_y = 0;
+        
+        //VARIAVEL DO PONTO//
+        var pontos = 0
+        
+        //VARIAVEIS DO SOM//
+        var efeito_sonoro = new Audio();
+        efeito_sonoro.src = "song/esposao.mp3";
+        efeito_sonoro.load();
+        
+        //PAUSA O JOGO//
+        var paused = true;
+        
+        // VAR DO ESPAÇO
+		var apertou_espaco = false;
+		var soltou_espaco = true;
+		var apertando_espaco = false;
+		
+		//VAR DO DESCER E INVERTER DIREÇÃO
+		var godownandreversedirection = false;
+        
+        //VARIAVEIS DA NAVE//
+    	var nave = new Nave(largura_tela_w);
+        
+        //VARIAVEIS DAS SETAS//
+        var direita = false;
+        var esquerda = false;
+        
+        //VARIAVEIS DA TIRO//
+        var tiro = new Array();
+                
+        //VARIAVEIS DO BLOCO VERMELHO//
+        var inimigos = new Array();
+        
+        for(var i = 0; i < 10; i++)
+        {
+        	
+        	inimigos[i] = new Inimigo("imgs/inimigo1.png", 2);
+        	inimigos[i].posicao_y = 100        	
+        	inimigos[i].posicao_x = 200 + (i * (inimigos[i].tamanho_w + 10 ));
+        	
+        }        
+        
+        for(var i = 0; i < 10; i++)
+        {
+        	
+        	inimigos[i+10] = new Inimigo("imgs/inimigo2.png", 2);
+        	inimigos[i+10].posicao_y = 150        	
+        	inimigos[i+10].posicao_x = 200 + (i * (inimigos[i+10].tamanho_w +10));
+        	
+        }
+        
+        for(var i = 0; i < 10; i++)
+        {
+        	
+        	inimigos[i+20] = new Inimigo("imgs/inimigo3.png", 2);
+        	inimigos[i+20].posicao_y = 200        	
+        	inimigos[i+20].posicao_x = 200 + (i * (inimigos[i+20].tamanho_w + 10));
+        	
+        }
+        
+        for(var i = 0; i < 10; i++)
+        {
+        	
+        	inimigos[i+30] = new Inimigo("imgs/inimigo4.png", 2);
+        	inimigos[i+30].posicao_y = 250        	
+        	inimigos[i+30].posicao_x = 200 + (i * (inimigos[i+30].tamanho_w + 10));
+        	
+        }
+        
+       for(var i = 0; i < 10; i++)
+        {
+        	
+        	inimigos[i+40] = new Inimigo("imgs/inimigo5.png", 2);
+        	inimigos[i+40].posicao_y = 300        	
+        	inimigos[i+40].posicao_x = 200 + (i * (inimigos[i+40].tamanho_w + 10));
+        	
+        }
+        
+        
+
+
+			Load(); //CARREGAR//
+
+
+
+function Load()
+{    
+			fundo_imagem.src="imgs/fundo.png";
+			fundo_imagem.onload = 
+			function() { fundo_carregada = true; console.log("fundo_carregada"); };
+	
+			console.log("load");
+	
+			//SE CARREGOU A IMAGEM//
+  			  if((true))
+				{
+    			console.log("carreguei");
+       			Loop();
+				}
+ 			   else //SE NÃO//
+  			  {
+  			  	console.log("nao carreguei");
+  				setTimeout (Load, 30 );
+    			}
+}
+		
+
+function Update()
+{
+	//console.log("update");
+	//O CLICAR COM O MOUSE, PAUSA//
+		
+	if(!paused)
+	{
+		return
+	}
+	
+	nave.update();	
+	
+	if(apertou_espaco)
+	{
+		//CRIA UM TIRO//
+		tiro.push(new Tiro(nave.posicao_x+nave.tamanho_w/2, nave.posicao_y));
+	}
+			
+	
+	//ATIRAR//
+	for(var i = 0; i < tiro.length; i++)
+	{
+		tiro[i].update();
+	}
+	
+	
+	
+	for(var i = 0; i < inimigos.length; i++)
+	{
+		for(var j = 0; j < tiro.length; j++)
+		{
+			if(inimigos[i].visible&&tiro[j].visible)
+			{
+				//TIRO COLIDIR COM OS INIMIGOS//
+				if(Collide(
+        			tiro[j].posicao_x,
+        			tiro[j].posicao_y,
+        			tiro[j].tamanho_w,
+        			tiro[j].tamanho_h,
+        			inimigos[i].posicao_x,
+        			inimigos[i].posicao_y,
+        			inimigos[i].tamanho_w,
+        			inimigos[i].tamanho_h))
+        		{
+        			tiro[j].visible = false;
+        			
+        			inimigos[i].hp--; //DIMINUIR ENERGIA DO BLOCO//
+        			
+        			if(inimigos[i].hp <=0)		
+					{
+						inimigos[i].visible = false;
+						pontos++;
+					}
+        			efeito_sonoro.play();
+        		}
+			}
+		}
+	}
+	
+	for(var i = 0; i < inimigos.length; i++)
+	{
+		inimigos[i].update();
+		
+		//teste se algum bloco visivel bateu no canto da direita
+		if(inimigos[i].visible)
+		{
+			if(inimigos[i].posicao_x + inimigos[i].tamanho_w > largura_tela_w )
+			{
+				godownandreversedirection = true;				
+			}
+		
+			//teste se algum bloco visivel bateu no canto da esquerda				
+			if(inimigos[i].posicao_x < 0 )
+			{
+				godownandreversedirection = true;			
+			}
+		}
+	}//fecha for
+	
+	//dizendo o que a variavel de descer e inverter os inimigos vai fazer	
+	if(godownandreversedirection == true)
+	{
+		//
+		for(var i = 0; i < inimigos.length; i++)
+		{
+			inimigos[i].posicao_y += 20;
+			
+			if(inimigos[i].velocidade_x > 0)
+			{
+				inimigos[i].velocidade_x++;
+			}
+			else
+			{
+				inimigos[i].velocidade_x--;	
+			}
+			
+			inimigos[i].velocidade_x *= -1;
+			
+			godownandreversedirection = false;
+
+		}
+	}
+
+	
+
+	
+	apertou_espaco = false;
+			
+}	
+	
+
+//DESENHAR//
+function Draw() 
+{
+		//console.log("draw");
+                
+    //DESENHAR O PAUSE
+    switch(currentPause)
+	{
+		case CENA.PAUSA:
+        screen.drawImage(pause.img, pause.posicao_x, pause.posicao_y);
+				
+		break;
+		
+		case CENA.GAME:
+		
+		
+		clear(); //LIMPAR//
+        
+        //DESENHOS NO JOGO//
+        screen.drawImage(fundo_imagem, 0, 0);
+        screen.drawImage(nave.img, nave.posicao_x, nave.posicao_y);
+        
+        //DESENHO DOS BLOCOINIMIGOS//
+        for(var i = 0; i < inimigos.length; i++)
+        {
+        	if(inimigos[i].visible)
+        	screen.drawImage(inimigos[i].img, inimigos[i].posicao_x, inimigos[i].posicao_y);
+        }
+        
+        //DESENHO DOS TIROS//
+        for(var i = 0; i < tiro.length; i++)
+        {
+        	if(tiro[i].visible)
+        	screen.drawImage(tiro[i].img, tiro[i].posicao_x, tiro[i].posicao_y);
+        }
+        
+        //DESENHO DOS PONTOS NO CAMPO//
+        screen.font = "45px Arial";
+        screen.fillStyle="#ffffff";
+        screen.fillText(pontos, 140, 40);
+
+		
+		break;
+	}
+
+                   
+}
+	
+//LIMPAR//
+function clear()
+	{
+    	screen.clearRect(0,0,1024,750);
+    }
+    
+
+function Loop()
+{
+	//console.log("loop");
+        
+    Update();
+    Draw();
+    setTimeout(Loop, 30);
+}
+			window.addEventListener("keydown", key_down, true);
+			window.addEventListener("keyup", key_up, true);
+			window.addEventListener("keypress", key_press, true);
+			window.addEventListener('mousedown', mouse_down, true);			
+			
+function key_press(key)
+{
+	//console.log(key.keyCode);	
+}
+
+function key_down(key)
+{
+	
+	if(key.keyCode == 39 )//direita
+	{
+		direita = true;
+	}
+	
+	if(key.keyCode == 37 )//esquerda
+	{
+		esquerda = true;
+	}
+	
+	if(key.keyCode == 32 )//barra de espaco
+	{
+		apertando_espaco = true;
+		
+		if(soltou_espaco)
+		{
+			soltou_espaco = false;
+			apertou_espaco = true;
+		}
+	}
+}
+
+function key_up(key)
+{
+	
+	if(key.keyCode == 39 )//direita
+	{
+		direita = false;
+	}
+	
+	if(key.keyCode == 37 )//esquerda
+	{
+		esquerda = false;
+	}
+	
+	if(key.keyCode == 32 )//barra de espaco
+	{
+		apertando_espaco = false;
+		apertou_espaco = false;
+		soltou_espaco = true;
+	}
+	
+}
+
+function mouse_down(mouse)
+{
+	console.log("down X " + mouse.x + " down Y " + mouse.y );
+	
+	switch(currentPause)
+	{
+		case CENA.PAUSA:
+		
+		currentPause = CENA.GAME;
+		
+		
+		//logica de pause
+		paused = !paused; //PAUSAR E NÃO PAUSAR//
+		
+		
+		break;
+		
+		case CENA.GAME:
+	
+		currentPause = CENA.PAUSA;		
+		
+		paused = !paused;
+		
+		break;
+	}
+	
+			
+}
+
+
+//FAZ AlGO VOLTAR QUANDO COLIDE//
+function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
+{
+	if((x1+w1<x2) //SE RECT1 ESQUERDO RECT2//
+		||(x1>x2+w2) //SE RECT1 DIREITO RECT2//
+		||(y1+h1<y2) //SE RECT1 CIMA RECT2//
+		||(y1>y2+h2)) //SE RECT1 BAIXO RECT2//
+	{
+		return false; //NÃO COLIDIU//
+	}
+	else	
+	{
+		return true; //COLIDIU//
+	}
+}
+        
+        </script>
+        </center>
+</html>

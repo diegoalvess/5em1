@@ -1,0 +1,336 @@
+<!DOCTYPE>
+
+<html>
+
+	<head>
+	
+		<title>
+		
+			Jornada Noid
+			
+		</title>
+		
+					
+		<script src="js/paleta.js"></script>	
+		<script src="js/ball.js"></script>
+		<script src="js/bloco.js"></script>
+		
+	</head>
+	
+	<body>
+	<center>
+		Jornada Noid
+		
+		</br>
+			<canvas width="900" height="700" id="main" style="border:0px" ></canvas>
+		
+						
+		<script>
+		
+		var canvas = document.getElementById("main");
+		var screen = canvas.getContext("2d");
+
+		<!-- VAR TELA
+		var tela_imagem = new Image();
+		var tela_carregada = false;
+		var tela_tamanho_W = 0;
+		var tela_tamanho_H = 0;
+		var tela_larg_W = 900;
+		var tela_larg_H = 700;
+		
+		<!--VARIAVEL BALL
+		var bola = new Ball();
+		
+		<!--VARIAVEL PALETA
+		var paleta = new Paleta();
+		
+    	<!-- VARIAVEL TECLA
+         var direita = false;
+	     var esquerda = false;
+	     
+		var listablocos = new Array();		
+		
+		
+		<!--MOSTRANDO BLOCO
+		for(var i = 0; i < 10; i++)
+		{				
+			
+			listablocos[i] = new Bloco("imgs/bloco5.png", 1);				
+			listablocos[i].psc_Y = 100
+ 			listablocos[i].psc_X = 120 + (i * (listablocos[i].tam_X + 5)) 
+ 			
+		}
+	
+		
+		
+		for(var i = 0; i < 10; i++)
+		{
+		
+			listablocos[i+10] = new Bloco("imgs/bloco4.png", 1);
+			listablocos[i+10].psc_Y = 120
+			listablocos[i+10].psc_X = 120 + (i * (listablocos[i+10].tam_X + 5)) 
+			
+		}	
+		
+		for(var i = 0; i < 10; i++)
+		{
+		
+			listablocos[i+20] = new Bloco("imgs/bloco3.png", 1);
+			listablocos[i+20].psc_Y = 140
+			listablocos[i+20].psc_X = 120 + (i * (listablocos[i+20].tam_X + 5)) 
+			
+		}
+		
+		for(var i = 0; i < 10; i++)
+		{
+		
+			listablocos[i+30] = new Bloco("imgs/bloco2.png", 1);
+			listablocos[i+30].psc_Y = 160
+			listablocos[i+30].psc_X = 120 + (i * (listablocos[i+30].tam_X + 5)) 
+			
+		}
+		
+		for(var i = 0; i < 10; i++)
+		{
+		
+			listablocos[i+40] = new Bloco("imgs/bloco1.png", 1);
+			listablocos[i+40].psc_Y = 180
+			listablocos[i+40].psc_X = 120 + (i * (listablocos[i+40].tam_X + 5)) 
+			
+		}		
+
+		Load();
+             
+             <!--CARREGAMENTO DA IMAGEM
+             function Load()
+             {
+             	
+             	tela_imagem.src="imgs/tela.png";
+             	 tela_imagem.onload =
+             	 function() { tela_carregada = true; console.log("tela_carregada"); };
+             	 
+             	 paleta.img.src="imgs/paleta.png";
+             	 paleta.img.onload =
+             	 function() { paleta.loaded = true; console.log("paleta.loaded"); };
+             	 
+             	 bola.img.src="imgs/bola.png";
+             	 bola.img.onload =
+             	 function() { bola.loaded = true; console.log("bola.loaded"); };
+             	 
+          	 
+             	 console.log("load");
+             	 
+             	 <!--se carregou imagem// 
+             	 if((tela_carregada)&&(paleta.loaded)&&(bola.loaded))
+             	 {
+             	 	 //faz entrar no loop do jogo//
+             	     Loop();
+             	 }
+             	 else 
+             	 {
+             	 	setTimeout (Load, 30);
+             	 }	
+             }
+
+		
+		function Update()
+		{
+             	console.log("update");
+             	
+             		for(var i = 0; i < listablocos.length; i++)
+             		{
+             			if(listablocos[i].hp <=0)
+						{
+							listablocos[i].visible = false;
+						}
+             		}
+             		
+              	<!-- PALETA MEXENDO
+             	paleta.update();
+				if (direita == true)
+				{
+					paleta.position_x += paleta.velocity_x;
+				}
+			
+				if (esquerda == true)
+				{
+					paleta.position_x -= paleta.velocity_x;
+				}
+				
+				
+    			<!--MOVENDO A BOLA 
+    			{
+    				bola.position_x += bola.velocity_x;	
+    				bola.position_y += bola.velocity_y;	
+    	
+    			<!--MANTENDO BOLA NO CAMPO
+    			bola.update();
+    			
+	
+   			 }
+   			
+   			<!--COLISAO PALETA
+			{
+			if(Collide(
+				bola.position_x,
+				bola.position_y,
+				bola.size_x,
+				bola.size_y,
+				paleta.position_x,
+				paleta.position_y,
+				paleta.size_x,
+				paleta.size_y))
+			{
+				if(bola.velocity_y < bola.velocity_MAX)
+				{
+					bola.velocity_y += 1;
+				}
+				bola.velocity_y *= -1;
+				}
+	
+			}
+			
+			<!--COLISAO BLOCOS
+			//remove os blocos destruidos da tela
+             		for(var i = 0; i < listablocos.length; i++)
+             		{
+             			if(listablocos[i].hp <=0)
+							{
+								listablocos[i].visible = false;
+							}
+             		}
+             		
+             		//testa a colisao com cada bloco
+            		for(var i = 0; i < listablocos.length; i++)
+					{
+						if(listablocos[i].visible)
+						{
+							if(Collide(
+								bola.position_x,
+								bola.position_y,
+								bola.size_x,
+								bola.size_y,
+								listablocos[i].psc_X,
+								listablocos[i].psc_Y,
+								listablocos[i].tam_X,
+								listablocos[i].tam_Y))
+							{
+								if(bola.velocity_y < bola.velocity_MAX)
+								{
+									bola.velocity_y += 1;
+								}
+								bola.velocity_y *= -1;
+					  			listablocos[i].hp--;
+					  			//pontos+=listablocos[i].points;
+
+							}
+	
+						}
+		
+					}
+		}
+		
+			function Draw()
+           {
+             	console.log("draw");
+             	
+             	clear();
+             	
+             	<!--DESENHANDO NA TELA
+             	screen.drawImage(tela_imagem, tela_tamanho_W, tela_tamanho_H);
+             	screen.drawImage(paleta.img, paleta.position_x, paleta.position_y);
+             	screen.drawImage(bola.img, bola.position_x, bola.position_y);
+             	
+             	
+             	<!--DESENHANDO BLOCOS
+           		for(var i = 0; i < listablocos.length; i++)
+				{
+					if(listablocos[i].visible)
+					screen.drawImage(listablocos[i].bloco_imagem, listablocos[i].psc_X, listablocos[i].psc_Y);	
+				}
+				
+				
+				
+				             	
+             	function clear()
+             	{
+             		screen.clearRect(0,0,900,700);
+             	}             	
+
+		}
+		
+             function Loop()
+             {
+             	console.log("loop");
+             	
+             	Update();
+             	
+             	Draw();
+             	setTimeout(Loop, 30);
+             }
+		
+		Load();
+
+			window.addEventListener("keydown",key_down,true);
+			window.addEventListener("keyup",key_up,true);
+             
+             
+             function key_down(key)
+             {
+             	if(key.keyCode=="37")
+				{
+					esquerda = true;//verdadeiro
+				}
+			
+				if(key.keyCode=="39")
+				{
+					direita = true;//verdadeiro
+				}
+			
+			}
+             
+             function key_up(key)
+            { 
+             	if(key.keyCode=="37")
+				{
+					esquerda = false;
+				}
+			
+				if(key.keyCode=="39")
+				{
+					direita = false;//verdadeiro
+				}	
+			}
+			
+			<!-- COLISAO
+			 
+			function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
+		{
+					
+			if((x1+w1<x2)//rect1 esquerda de rect
+			||(x1>x2+w2)//rect1 direita de rect2
+			||(y1+h1<y2)//rect1 acima de rect2
+			||(y1>y2+h2)//rect1 abaixo de rect2
+			)
+			{
+				return false; //nao colidiu						
+			}
+			
+			else 
+			{
+				return true; //colidiu
+			}
+			
+		
+			
+		}
+	
+	
+
+
+			
+		</script>
+	</center>
+	</body>
+	
+</html>
