@@ -36,5 +36,38 @@ function Paleta()
        	{
        		this.posicao_x = 850 - this.tamanho_x;
         }
-    };
+
+    	//Teclad desceu
+    	this.key_down=function(key)
+    	{
+			if(this.player_tecla == "setas")
+    		{
+    			if(key.keyCode == 39)
+    			{
+    				this.direita = true;
+    			}
+    			else if(key.keyCode == 37)
+    			{
+    				this.esquerda = true;
+    			}
+    		} 
+    	};
+    
+   		//Tecla subiu
+   		this.key_up=function(key)
+    	{
+    		if(this.player_tecla == "setas")
+    		{
+    			if(key.keyCode == 39)
+    			{
+    				this.direita = false;
+    			}
+    			else if(key.keyCode == 37)
+    			{
+    				this.esquerda = false;
+    			}
+    		}  		
+   		} 
+		
+	}//Fim do update;	
 }
