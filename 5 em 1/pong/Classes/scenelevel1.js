@@ -41,7 +41,7 @@ function SceneLevel1()
     	inimigo.update();
     	
     	//Desenhando Bola
-    	bola.draw();
+    	bola.update();
     	
     };
     

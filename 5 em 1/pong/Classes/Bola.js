@@ -10,37 +10,16 @@ function Bola()
     this.posicao_x = 0
     this.posicao_y = 0
     this.velocidade_x = 5;
-    this.velocidade_y = -5;
+    this.velocidade_y = 5;
     
     this.update=function()
     {
-    	/*
-    	//MOVENDO A BOLA
+    	//Movendo a bola
     	this.posicao_x += this.velocidade_x;	
-
-    	this.posicao_y += this.velocidade_y;	
-    	
-    	//COLIDINDO A BOLA
-    	if(this.posicao_x < 50)
-		{
-			this.velocidade_x *=-1;	
-		}
+    	this.posicao_y += this.velocidade_y;
 		
-    	if(this.position_y > 45)
-		{
-			this.velocidade_y *=-1;	
-		}
-				
-    	if(this.posicao_x > 850 - this.tamanho_x)//TO DO REFACTOR
-		{
-			this.velocidade_x *=-1;	
-		}
-				
-    	if(this.posicao_y > 0 - this.tamanho_y)//TO DO REFACTOR
-		{
-			this.velocidade_y *=-1;	
-		}
-		*/
+    	//Colidindo com as bordas
+		this.saindodatela();
     };
     
     this.draw=function()
@@ -48,4 +27,33 @@ function Bola()
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y)
     };
     
+	//Colisão para não sair da tela
+    this.saindodatela=function()
+    {
+    	//saida pela direita
+    	if(this.posicao_x < 0)
+    	{
+    		this.posicao_x = 0;
+    	}
+    	
+    	//saida por cima
+    	if(this.posicao_y < 0)
+    	{
+    		this.posicao_y = 0;
+    	}
+    	
+    	//saida pela esquerda
+    	if(this.posicao_x > tela_tamanho_x - this.tamanho_x)
+    	{
+    		this.posicao_x = tela_tamanho_x - this.tamanho_x;
+    	}
+    	
+    	//saida por baixo
+    	if(this.posicao_y > tela_tamanho_y - this.tamanho_y)
+    	{
+    		this.posicao_y = tela_tamanho_y- this.tamanho_y;
+			this.velocity_x *=-1;
+    	}
+    }
+	
  }
