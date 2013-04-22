@@ -11,8 +11,7 @@ function SceneLevel1()
 	
 	//Pause
 	var paused = true;
-
-		
+	
 	//Wave
 	var wave1 = new Array();
 		

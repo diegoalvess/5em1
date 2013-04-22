@@ -36,14 +36,6 @@ function Paleta(player_tecla)
     //movendo player
     this.movendo=function()
     {
-    	if(this.direita)
-    	{
-    		this.posicao_x += this.velocidade_x;
-    	}
-    	if(this.esquerda)
-    	{
-    		this.posicao_x -= this.velocidade_x;
-    	}
     	if(this.sobe)
     	{
     		this.posicao_y -= this.velocidade_y;
