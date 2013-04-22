@@ -7,8 +7,8 @@ function Bola()
 	
     this.tamanho_x = 40;
     this.tamanho_y = 40;
-    this.posicao_x = 0
-    this.posicao_y = 0
+    this.posicao_x = tela_tamanho_x/2
+    this.posicao_y = tela_tamanho_y/2
     this.velocidade_x = 5;
     this.velocidade_y = 5;
     
@@ -34,25 +34,32 @@ function Bola()
     	if(this.posicao_x < 0)
     	{
     		this.posicao_x = 0;
+			//Fazendo bola bater e voltar
+			this.velocidade_x *=-1;
     	}
     	
     	//saida por cima
     	if(this.posicao_y < 0)
     	{
     		this.posicao_y = 0;
+			//Fazendo bola bater e voltar
+			this.velocidade_y *=-1;
     	}
     	
     	//saida pela esquerda
     	if(this.posicao_x > tela_tamanho_x - this.tamanho_x)
     	{
     		this.posicao_x = tela_tamanho_x - this.tamanho_x;
+			//Fazendo bola bater e voltar
+			this.velocidade_x *=-1;
     	}
     	
     	//saida por baixo
     	if(this.posicao_y > tela_tamanho_y - this.tamanho_y)
     	{
     		this.posicao_y = tela_tamanho_y- this.tamanho_y;
-			this.velocity_x *=-1;
+			//Fazendo bola bater e voltar
+			this.velocidade_y *=-1;
     	}
     }
 	
