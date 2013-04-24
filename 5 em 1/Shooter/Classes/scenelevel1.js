@@ -1,4 +1,4 @@
-function SceneLevel1()
+;function SceneLevel1()
 {
 	//Player
 	var player = new Player("setas");	
@@ -11,6 +11,9 @@ function SceneLevel1()
 	
 	//Pause
 	var paused = true;
+	
+	//Sorteio do Tiros Inimigos
+	var sorteio = 0.01
 		
 	//Wave1
 	var wave1 = new Array();
@@ -41,7 +44,7 @@ function SceneLevel1()
     var wave3 = new Array();
 	for(var i = 0 ; i < 10; i++) 
     {
-    	wave3[i] = new Inimigo("Imagens/inimigos/Inimigo3.png");
+    	wave3[i] = new Inimigo("Imagens/inimigos/Inimigo4.png");
     	wave3[i].posicao_x = 1400*3;
     	wave3[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     }
@@ -146,6 +149,16 @@ function SceneLevel1()
     	for(var i = 0 ; i < waves.length; i++)
     	{
     		waves[i].update();
+    		
+    		if(waves[i].posicao_x < tamanho_tela_x && waves[i].posicao_x > 0)
+    		{
+    			if(Math.random()< sorteio)
+    			{
+    				Tiros_inimigos.push(new Tiro(waves[i].posicao_x, waves[i].posicao_y + waves[i].tamanho_y/2, -15));
+    						
+    			}
+    		}
+
    		}
    		   	
     	//Tiros
@@ -160,7 +173,9 @@ function SceneLevel1()
     		Tiros_inimigos[i].update();
     	}
     	
-    	    	
+
+    	
+    //	PLAYER COLIDINDO COM OS INIMIGOS 	
     for(var i = 0; i < waves.length; i++)
 	{
 		if(waves[i].visible&&player.visible)
@@ -173,27 +188,25 @@ function SceneLevel1()
         			waves[i].posicao_x,
         			waves[i].posicao_y,
         			waves[i].tamanho_x,
-        			waves[i].tamanho_y
-			))
+        			waves[i].tamanho_y))
 			{
-			player.current_energy--;
+				player.current_energy--;
 
-			if(player.current_energy <= 0)
-			{
-				player.visible = false;
-				//Remover tiros quando o player morre (bug existente)
-				//player.Tiros.visible = false;
-			}
+				if(player.current_energy <= 0)
+				{
+					player.visible = false;
+					//Remover tiros quando o player morre (bug existente)
+					//player.Tiros.visible = false;
+				}
 		
 			}
 		}
 	
-		
+		//TIRO DO PLAYER COLIDINDO COM OS INIMIGOS
 		for(var j = 0; j < player.Tiros.length; j++)
 		{
 			if(waves[i].visible&&player.Tiros[j].visible)
 			{	
-				//TIRO COLIDIR COM OS INIMIGOS//
 				if(Collide(
         			player.Tiros[j].posicao_x,
         			player.Tiros[j].posicao_y,
@@ -206,22 +219,58 @@ function SceneLevel1()
         		{
         			player.Tiros[j].visible = false;
         			
-        			waves[i].hp--; //DIMINUIR ENERGIA DO BLOCO//
+        			waves[i].hp--; 
         			
         			if(waves[i].hp <=0)		
 					{
 						waves[i].visible = false;
 					}
+					//Removendo o tiro da lista
+					if(player.Tiros[j].visible == false)
+					{
+						player.Tiros.splice(j, 1);
+					}
 							
     			
         		}
 			}
+		}		
+		
+		//TIRO DO INIMIGO COLIDINDO COM PLAYER	
+		for(var j = 0; j < Tiros_inimigos.length; j++)
+		{
+			if(player.visible&&Tiros_inimigos[j].visible)
+			{	
+				if(Collide(
+        			Tiros_inimigos[j].posicao_x,
+        			Tiros_inimigos[j].posicao_y,
+        			Tiros_inimigos[j].tamanho_x,
+        			Tiros_inimigos[j].tamanho_y,
+        			player.posicao_x,
+        			player.posicao_y,
+        			player.tamanho_x,
+        			player.tamanho_y))
+        			
+        		{
+        			Tiros_inimigos[j].visible = false;
+        			
+        			player.current_energy--; 
+        			
+        			if(player.current_energy <=0)		
+					{
+						player.visible = false;
+					}
+					
+					//Removendo o tiro da lista
+					if(Tiros_inimigos[j].visible == false)
+					{
+						Tiros_inimigos.splice(j, 1);
+					}
+
+        		}
+			}
 			
-			//Removendo o tiro da lista
-			if(player.Tiros[j].visible == false)
-			{
-				player.Tiros.splice(j, 1);
-			}	
+	
 		}//fecha o for do Player
 		
 		
@@ -309,10 +358,10 @@ function SceneLevel1()
 		}
 		
 		//Teste do tiro do inimigo
-		if (key.keyCode == 113 )
+		/*if (key.keyCode == 113 )
 		{
 			Tiros_inimigos.push(new Tiro(waves[0].posicao_x, waves[0].posicao_y + waves[0].tamanho_y/2, -15));		
-		}
+		}*/
 		
 	}
 	
