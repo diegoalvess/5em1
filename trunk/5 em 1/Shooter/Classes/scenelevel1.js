@@ -11,11 +11,9 @@ function SceneLevel1()
 	
 	//Pause
 	var paused = true;
-	
-	//Wave
-	var wave1 = new Array();
 		
 	//Wave1
+	var wave1 = new Array();
 	for(var i = 0 ; i < 10; i++) 
     {
     	wave1[i] = new Inimigo("Imagens/inimigos/Inimigo1.png");
@@ -313,8 +311,7 @@ function SceneLevel1()
 		//Teste do tiro do inimigo
 		if (key.keyCode == 113 )
 		{
-			Tiros_inimigos.push(new Tiro(waves[0].posicao_x, waves[0].posicao_y + waves[0].tamanho_y/2, -15));
-			
+			Tiros_inimigos.push(new Tiro(waves[0].posicao_x, waves[0].posicao_y + waves[0].tamanho_y/2, -15));		
 		}
 		
 	}

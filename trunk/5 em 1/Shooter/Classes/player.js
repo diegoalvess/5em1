@@ -112,9 +112,9 @@ function Player(player_tecla)
     	}
     	
     	//saida por baixo
-    	if(this.position_y > tamanho_tela_y - this.tamanho_y)
+    	if(this.posicao_y > tamanho_tela_y - this.tamanho_y)
     	{
-    		this.position_y = tamanho_tela_y - this.tamanho_y;
+    		this.posicao_y = tamanho_tela_y - this.tamanho_y;
     	}
     }
     
