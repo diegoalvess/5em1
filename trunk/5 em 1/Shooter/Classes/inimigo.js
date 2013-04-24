@@ -26,9 +26,8 @@ function Inimigo(source,hp)
     {
     	this.posicao_x -= this.velocidade_x;
     	//this.posicao_y += this.velocidade_y;
-
-   	
     	
+    	    	
     };
     
     this.draw=function()

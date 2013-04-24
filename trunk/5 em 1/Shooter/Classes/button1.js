@@ -29,14 +29,11 @@ function Button(arquivo, tam_x, tam_y, pos_x, pos_y)
    	//variável de clique do botão
     this.clicou = function(mouse)
     {
-    	console.log("MOUSE X: " + mouse.x + " MOUSE Y " + mouse.y);
     	
-    	console.log("IMAGEM: " + this.imagem.src + " POS X " + this.posicao_x + " POS Y " + this.posicao_y + " TAM X " + this.tamanho_x + " TAM Y " + this.tamanho_y);
-    	    	
     	//colisão
     	if(Collide(
-    		mouse.x-512,
-    		mouse.y-12,
+    		mouse.x-588,
+    		mouse.y-28,
     		1,
     		1,
     		this.posicao_x,
