@@ -24,7 +24,6 @@ function Player(player_tecla)
 	this.direita = false;
 	this.sobe = false;
 	this.desce = false;
-	
 	this.soltou_espaco = true;
 	this.apertou_espaco = false;
 	
