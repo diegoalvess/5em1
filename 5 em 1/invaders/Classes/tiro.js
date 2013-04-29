@@ -1,4 +1,4 @@
-function Tiro(posicao_x, posicao_y, velocidade_x)
+function Tiro(posicao_x, posicao_y)
 {
 	this.imagem = new Image();
 	this.imagem.src="Imagens/tiro.png";
@@ -12,14 +12,14 @@ function Tiro(posicao_x, posicao_y, velocidade_x)
 	
 	this.tamanho_x = 3;
 	this.tamanho_y = 15;
-	this.posicao_x = 0
-	this.posicao_y = 0
+	this.posicao_x = posicao_x;
+	this.posicao_y = posicao_y;
 	this.velocidade_x = 0;
 	this.velocidade_y = -10;
 
 	this.update=function()
 	{
-		//TIRO MOVER//
+		//Movendo o tiro
 		this.posicao_x += this.velocidade_x;
 		this.posicao_y += this.velocidade_y;
 	

@@ -320,8 +320,7 @@
      
  	 //Tecla desceu
     this.key_down=function(key)
-    {
-    	
+    {    	
 		player.key_down(key);
     };
     

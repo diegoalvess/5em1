@@ -2,40 +2,61 @@ function SceneLevel1()
 {
 	//Player
 	var player = new Player("setas");	
-		
-	//Blocos
-	var blocos1 = new Array();	
-	for(var i = 0; i < 10; i++)
-    {	
-        blocos1[i] = new Bloco("imagens/bloco.png");
-        blocos1[i].posicao_y = 100        	
-        blocos1[i].posicao_x = 200 + (i * (blocos1[i].tamanho_w + 10 ));  	
-    }
 	
-	var blocos2 = new Array();
-	for(var i = 0; i < 10; i++)
-    {	
-        blocos2[i] = new Bloco("imagens/bloco.png");
-        blocos2[i].posicao_y = 100        	
-        blocos2[i].posicao_x = 200 + (i * (blocos2[i].tamanho_w + 10 ));  	
-    }
-	
-	var blocos3 = new Array();
-	for(var i = 0; i < 10; i++)
-    {	
-        blocos3[i] = new Bloco("imagens/bloco.png");
-        blocos3[i].posicao_y = 100        	
-        blocos3[i].posicao_x = 200 + (i * (blocos3[i].tamanho_w + 10 ));  	
-    }
-	
-	//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
-    var blocos = blocos1.concat(blocos2, blocos3)//wave4, wave5, wave6, wave7, wave8, wave9, wave10);
-
 	//Pause
 	var paused = true;
    
     //Colocando a imagem de background
     var background = new Background("Imagens/FundoBackground.png");
+	
+	//Blocos1
+	var blocos1 = new Array();	
+	for(var i = 0; i < 10; i++)
+    {	
+        blocos1[i] = new Bloco("Imagens/bloco1.png");
+        blocos1[i].posicao_y = 100        	
+        blocos1[i].posicao_x = 200 + (i * (blocos1[i].tamanho_x + 10 ));  	
+    }
+	
+	//Blocos2
+	var blocos2 = new Array();
+	for(var i = 0; i < 10; i++)
+    {	
+        blocos2[i] = new Bloco("Imagens/bloco2.png");
+        blocos2[i].posicao_y = 160       	
+        blocos2[i].posicao_x = 200 + (i * (blocos2[i].tamanho_x + 10 ));  	
+    }
+	
+	//Blocos3
+	var blocos3 = new Array();
+	for(var i = 0; i < 10; i++)
+    {	
+        blocos3[i] = new Bloco("Imagens/bloco3.png");
+        blocos3[i].posicao_y = 220     	
+        blocos3[i].posicao_x = 200 + (i * (blocos3[i].tamanho_x + 10 ));  	
+    }
+    
+    //Blocos4
+	var blocos4 = new Array();
+	for(var i = 0; i < 10; i++)
+    {	
+        blocos4[i] = new Bloco("Imagens/bloco4.png");
+        blocos4[i].posicao_y = 280      	
+        blocos4[i].posicao_x = 200 + (i * (blocos4[i].tamanho_x + 10 ));  	
+    }
+     
+    //Blocos5
+	var blocos5 = new Array();
+	for(var i = 0; i < 10; i++)
+    {	
+        blocos5[i] = new Bloco("Imagens/bloco5.png");
+        blocos5[i].posicao_y = 340 	
+        blocos5[i].posicao_x = 200 + (i * (blocos5[i].tamanho_x + 10 ));  	
+    }
+	
+	//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
+    var blocos = blocos1.concat(blocos2, blocos3, blocos4, blocos5)
+
 	
     //Efeito sonoro
     //this.efeito_sonoro = new Audio();
@@ -64,6 +85,13 @@ function SceneLevel1()
     	{
     		blocos[i].update();
    		}
+   		
+   		//Tiro
+		for(var i = 0; i < player.Tiros.length ; i++)
+    	{
+    		player.Tiros[i].update();
+    	}
+    	
     };
     
     this.draw=function()
@@ -79,6 +107,12 @@ function SceneLevel1()
     	{
     		blocos[i].draw();    		 
    		} 
+   		
+   		//Tiro
+   		for(var i = 0; i < player.Tiros.length ; i++)
+    	{
+    		player.Tiros[i].draw();
+    	}
 		
     };
     
@@ -90,7 +124,7 @@ function SceneLevel1()
      
  	 //Tecla desceu
     this.key_down=function(key)
-    {
+    {    	
 		player.key_down(key);
     };
     
@@ -103,16 +137,16 @@ function SceneLevel1()
 	//Função de colisão
 	function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
 	{
-		if((x1+w1<x2) //SE RECT1 ESQUERDO RECT2//
-			||(x1>x2+w2) //SE RECT1 DIREITO RECT2//
-			||(y1+h1<y2) //SE RECT1 CIMA RECT2//
-			||(y1>y2+h2)) //SE RECT1 BAIXO RECT2//
+		if((x1+w1<x2) 
+			||(x1>x2+w2) 
+			||(y1+h1<y2) 
+			||(y1>y2+h2)) 
 		{
-			return false; //NÃO COLIDIU//
+			return false; 
 		}
 		else	
 		{
-			return true; //COLIDIU//
+			return true; 
 		}
 	}	
 }
