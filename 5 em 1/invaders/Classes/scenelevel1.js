@@ -4,14 +4,32 @@ function SceneLevel1()
 	var player = new Player("setas");	
 		
 	//Blocos
-	var blocos = new Bloco();
-	
+	var blocos1 = new Array();	
 	for(var i = 0; i < 10; i++)
     {	
-        blocos[i] = new Bloco("imagens/bloco.png");
-        blocos[i].posicao_y = 100        	
-        blocos[i].posicao_x = 200 + (i * (blocos[i].tamanho_w + 10 ));  	
+        blocos1[i] = new Bloco("imagens/bloco.png");
+        blocos1[i].posicao_y = 100        	
+        blocos1[i].posicao_x = 200 + (i * (blocos1[i].tamanho_w + 10 ));  	
     }
+	
+	var blocos2 = new Array();
+	for(var i = 0; i < 10; i++)
+    {	
+        blocos2[i] = new Bloco("imagens/bloco.png");
+        blocos2[i].posicao_y = 100        	
+        blocos2[i].posicao_x = 200 + (i * (blocos2[i].tamanho_w + 10 ));  	
+    }
+	
+	var blocos3 = new Array();
+	for(var i = 0; i < 10; i++)
+    {	
+        blocos3[i] = new Bloco("imagens/bloco.png");
+        blocos3[i].posicao_y = 100        	
+        blocos3[i].posicao_x = 200 + (i * (blocos3[i].tamanho_w + 10 ));  	
+    }
+	
+	//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
+    var blocos = blocos1.concat(blocos2, blocos3)//wave4, wave5, wave6, wave7, wave8, wave9, wave10);
 
 	//Pause
 	var paused = true;
@@ -41,8 +59,11 @@ function SceneLevel1()
     	//Player
     	player.update();
     	
-		//Bloco
-		blocos.update();			
+		//Inimigo
+    	for(var i = 0 ; i < blocos.length; i++)
+    	{
+    		blocos[i].update();
+   		}
     };
     
     this.draw=function()
@@ -53,8 +74,12 @@ function SceneLevel1()
     	//Desenhando player
     	player.draw();
     	
-		//Desenhando bloco
-		blocos.draw();
+		//Desenhando inimigos
+    	for(var i = 0 ; i < blocos.length; i++)
+    	{
+    		blocos[i].draw();    		 
+   		} 
+		
     };
     
     this.mouse_down=function(mouse)
