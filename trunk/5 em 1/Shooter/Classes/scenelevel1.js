@@ -14,6 +14,8 @@
 	
 	//Sorteio do Tiros Inimigos
 	var sorteio = 0.01
+	
+	var visible = true;
 		
 	//Wave1
 	var wave1 = new Array();
@@ -150,18 +152,20 @@
     	{
     		waves[i].update();
     		
-    		if(waves[i].posicao_x < tamanho_tela_x && waves[i].posicao_x > 0)
+			if(waves[i].posicao_x < tamanho_tela_x && waves[i].posicao_x > 0)
     		{
-    			if(Math.random()< sorteio)
+    			if(waves[i].visible)
     			{
-    				Tiros_inimigos.push(new Tiro(waves[i].posicao_x, waves[i].posicao_y + waves[i].tamanho_y/2, -15));
-    						
+    				if(Math.random()< sorteio)
+    				{
+    					Tiros_inimigos.push(new Tiro(waves[i].posicao_x, waves[i].posicao_y + waves[i].tamanho_y/2, -15));
+    				}
     			}
     		}
-
+    		
    		}
    		   	
-    	//Tiros
+    	//Tiros Player
     	for(var i = 0; i < player.Tiros.length ; i++)
     	{
     		player.Tiros[i].update();
@@ -191,12 +195,12 @@
         			waves[i].tamanho_y))
 			{
 				player.current_energy--;
-
+				
+				waves[i].visible = false;
+				
 				if(player.current_energy <= 0)
 				{
 					player.visible = false;
-					//Remover tiros quando o player morre (bug existente)
-					//player.Tiros.visible = false;
 				}
 		
 			}
@@ -219,9 +223,9 @@
         		{
         			player.Tiros[j].visible = false;
         			
-        			waves[i].hp--; 
+        			waves[i].current_energy -= player.Tiros[j].dano;; 
         			
-        			if(waves[i].hp <=0)		
+        			if(waves[i].current_energy <=0)		
 					{
 						waves[i].visible = false;
 					}
@@ -253,8 +257,9 @@
         			
         		{
         			Tiros_inimigos[j].visible = false;
+        
         			
-        			player.current_energy--; 
+        			player.current_energy -= Tiros_inimigos[j].dano; 
         			
         			if(player.current_energy <=0)		
 					{
@@ -266,6 +271,8 @@
 					{
 						Tiros_inimigos.splice(j, 1);
 					}
+					
+				
 
         		}
 			}

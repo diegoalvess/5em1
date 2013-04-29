@@ -46,8 +46,7 @@ function SceneMenu()
     {   	
     	//para mudar da tela pra algum lugar coloque o comando aqui
     	//this.efeito_sonoro.pause();	
-    	console.log("PASSEI AQUI");	
-    	
+    	    	
     	//função do clique para o botão mudar de cena
     	if(this.botao_comecar.clicou(mouse))
     	{
