@@ -36,9 +36,10 @@ function Player(player_tecla)
 		this.saindodatela();   
 		
 		if(this.apertou_espaco)
-    	{
+    	{	
 			//this.efeito_sonoro.play();
-    		this.tiros.push(new Tiro(this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2, 15));  
+    		this.Tiros.push(new Tiro(this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2));
+    		console.log("APERTEI ESPACO");  
     	}
 		
 		this.apertou_espaco = false; 	
@@ -60,8 +61,6 @@ function Player(player_tecla)
     	{
     		this.posicao_x -= this.velocidade_x;
     	}
-		
-		this.apertou_espaco = false;
     }
     
 	//Colisão para não sair da tela
@@ -95,7 +94,7 @@ function Player(player_tecla)
 	//Tecla desceu
     this.key_down=function(key)
     {
-		if(this.player_tecla == "setas")
+    	if(this.player_tecla == "setas")
     	{
     		if(key.keyCode == 39)
     		{
@@ -121,7 +120,7 @@ function Player(player_tecla)
     
     //Tecla subiu
     this.key_up=function(key)
-    {
+    {       
     	if(this.player_tecla == "setas")
     	{
     		if(key.keyCode == 39)

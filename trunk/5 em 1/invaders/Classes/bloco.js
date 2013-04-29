@@ -1,10 +1,10 @@
 function Bloco(source, hp)
 {
 	this.imagem = new Image();
-	this.imagem.src="Imagens/Bloco.png"
+	this.imagem.src= source;
 	this.carregada = false;
-	this.visible = true; //BLOCO FICA VISIVEL//
-	this.hp = hp; //ENERGIA DO BLOCO//
+	this.visible = true;
+	this.hp = hp;
 	this.pontos = this.hp*2;
 		
 	//Fazendo inimigos descerem na tela
@@ -24,6 +24,7 @@ function Bloco(source, hp)
 	
 	this.update=function()
 	{
+		//Fazendo blocos andarem
 		this.posicao_y += this.velocidade_y;
 		this.posicao_x += this.velocidade_x;
 		
@@ -43,17 +44,15 @@ function Bloco(source, hp)
     	if(this.posicao_x < 0)
     	{
     		this.posicao_x = 0;
-    		//godownandreversedirection = false;
+    		godownandreversedirection = false;
     	}
     	
     	//saida pela direita
     	if(this.posicao_x > tela_tamanho_x - this.tamanho_x)
     	{
     		this.posicao_x = tela_tamanho_x - this.tamanho_x;
-    		//godownandreversedirection = false;
+    		godownandreversedirection = false;
     	}
     }
-    
-    
   
 }
