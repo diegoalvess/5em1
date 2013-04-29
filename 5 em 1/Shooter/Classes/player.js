@@ -49,8 +49,11 @@ function Player(player_tecla)
     	
     	if(this.apertou_espaco)
     	{
-			this.efeito_sonoro.play();
-    		this.Tiros.push(new Tiro(this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2, 15));  
+    		if(this.visible)
+    		{
+				this.efeito_sonoro.play();
+    			this.Tiros.push(new Tiro(this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2, 15));  
+    		}
     	}
     	
     	this.apertou_espaco = false;

@@ -12,7 +12,12 @@ function Inimigo(source,hp)
     this.velocidade_x = 10;
 	this.velocidade_y = 5;
 	
-	this.hp = 1;
+	
+	this.max_energy = 10; 
+	this.current_energy = this.max_energy;
+	
+
+
 	
 	//this.pontos = this.hp*2;
 		
@@ -25,9 +30,7 @@ function Inimigo(source,hp)
     this.update=function()
     {
     	this.posicao_x -= this.velocidade_x;
-    	//this.posicao_y += this.velocidade_y;
-    	
-    	    	
+    	//this.posicao_y += this.velocidade_y;    	    	
     };
     
     this.draw=function()

@@ -39,13 +39,8 @@ function SceneCreditos()
     	if(this.botao_voltar.clicou(mouse))
     	{
     		currentScene = SCENE.MENU;
-    		this.efeito_sonoro.pause();	
+    			
     	}
     };
-    
-    
-    this.key_down=function(key)
-    {
 
-    };
 }
