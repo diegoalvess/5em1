@@ -15,7 +15,7 @@ function Player(player_tecla)
 	this.tamanho_y = 40;
 	this.posicao_x = tela_tamanho_x/2 - this.tamanho_y/2;
 	this.posicao_y = 700;
-	this.velocidade_x = 5;
+	this.velocidade_x = 10;
 	this.visible = true;
 
 	//Teclas 
@@ -52,14 +52,16 @@ function Player(player_tecla)
     //movendo player
     this.movendo=function()
     {
-    	if(this.sobe)
+		if(this.direita)
     	{
-    		this.posicao_y -= this.velocidade_y;
+    		this.posicao_x += this.velocidade_x;
     	}
-    	if(this.desce)
+    	if(this.esquerda)
     	{
-    		this.posicao_y += this.velocidade_y;
+    		this.posicao_x -= this.velocidade_x;
     	}
+		
+		this.apertou_espaco = false;
     }
     
 	//Colisão para não sair da tela

@@ -9,21 +9,57 @@ function SceneLevel1()
 	//Bola
 	var bola = new Bola();
 	
-	//Blocos
-	var bloco = new Bloco();
-	
 	//Pause
 	var paused = true;
    
     //Colocando a imagem de background
     var background = new Background("Imagens/FundoBackground.png");
 	
-
     //Efeito sonoro
     //this.efeito_sonoro = new Audio();
     //this.efeito_sonoro.src = "Sons/Som1.mp3"
     //this.efeito_sonoro.load();
     
+	//Array de blocos
+	//Blocos1 - blocos do lado do player
+	var bloco1 = new Array();
+	for(var i = 0 ; i < 2; i++) 
+    {
+    	bloco1[i] = new Bloco("Imagens/Bloco.png");
+    	bloco1[i].posicao_x = 150;
+    	bloco1[i].posicao_y = tela_tamanho_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
+    }
+	
+	//Blocos2 - blocos do lado do inimigo
+	var bloco2 = new Array();
+	for(var i = 0 ; i < 2; i++) 
+    {
+    	bloco2[i] = new Bloco("Imagens/Bloco.png");
+    	bloco2[i].posicao_x = 1000;
+    	bloco2[i].posicao_y = tela_tamanho_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
+    }
+	
+	//Bloco3 - blocos das laterais
+	var bloco3 = new Array();
+	for(var i = 0 ; i < 2; i++) 
+    {
+    	bloco3[i] = new Bloco("Imagens/Bloco.png");
+    	bloco3[i].posicao_x = tela_tamanho_x/2;
+    	bloco3[i].posicao_y = tela_tamanho_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
+    }
+	
+	//Bloco4 - blocos centrais
+	var bloco4 = new Array();
+	for(var i = 0 ; i < 2; i++) 
+    {
+    	bloco4[i] = new Bloco("Imagens/Bloco.png");
+    	bloco4[i].posicao_x = tela_tamanho_x/2;
+    	bloco4[i].posicao_y = (tela_tamanho_y/2-50) + (i * 0); //numero depois de * espacamento entre os inimigos
+    }
+	
+	//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
+	var blocos = bloco1.concat(bloco2, bloco3, bloco4);
+	
     this.update=function()
     {
     	//Pause
@@ -48,7 +84,10 @@ function SceneLevel1()
     	bola.update();
 		
 		//Bloco
-		bloco.update();
+		for(var i = 0 ; i < blocos.length; i++)
+    	{
+    		blocos[i].update();
+   		}
 		
 		//Paleta Inimigo Se movimentando de acordo com a bola
 		if (bola.posicao_y > inimigo.posicao_y )
@@ -93,20 +132,22 @@ function SceneLevel1()
 				}
 		
 		//Fazendo colisão da bola com os blocos
-		if( Collide( bola.posicao_x,
-					bola.posicao_y,
-					bola.tamanho_x,
-					bola.tamanho_y,
-					bloco.posicao_x,
-					bloco.posicao_y,
-					bloco.tamanho_x,
-					bloco.tamanho_y ) ) //se a bola colidiu com o bloco
-				{
-					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
-					//bola.velocidade_x ++;
-					bola.velocidade_x *= -1;
-				}
-				
+		if(blocos[i])
+		{
+			if( Collide( bola.posicao_x,
+						bola.posicao_y,
+						bola.tamanho_x,
+						bola.tamanho_y,
+						blocos[i].posicao_x,
+						blocos[i].posicao_y,
+						blocos[i].tamanho_x,
+						blocos[i].tamanho_y ) ) //se a bola colidiu com o bloco
+					{
+						//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
+						//bola.velocidade_x ++;
+						bola.velocidade_x *= -1;
+					}
+		}
     };
     
     this.draw=function()
@@ -122,9 +163,12 @@ function SceneLevel1()
     	
     	//Desenhando bola
     	bola.draw();
-    	
+		  	
 		//Desenhando bloco
-		bloco.draw();
+		for(var i = 0 ; i < blocos.length; i++)
+    	{
+    		blocos[i].draw();    		 
+   		} 
     };
     
     

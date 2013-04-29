@@ -1,7 +1,7 @@
-function Bloco()
+function Bloco(source)
 {
 	this.imagem = new Image();
-	this.imagem.src="Imagens/Bloco.png";
+	this.imagem.src= source;
 	this.loaded = false;
 	this.visible = true;
 	
@@ -10,8 +10,8 @@ function Bloco()
 	
 	this.tamanho_x = 50;
     this.tamanho_y = 100;
-    this.posicao_x = 200
-    this.posicao_y = 100
+    this.posicao_x = 0
+    this.posicao_y = 0
     this.velocidade_x = 0;
     this.velocidade_y = 0;
 	
