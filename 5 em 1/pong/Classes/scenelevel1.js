@@ -16,9 +16,15 @@ function SceneLevel1()
     var background = new Background("Imagens/FundoBackground.png");
 	
     //Efeito sonoro
-    //this.efeito_sonoro = new Audio();
-    //this.efeito_sonoro.src = "Sons/Som1.mp3"
-    //this.efeito_sonoro.load();
+	//Player
+    this.efeito_sonoroplayer = new Audio();
+    this.efeito_sonoroplayer.src = "Sons/player.mp3"
+    this.efeito_sonoroplayer.load();
+	
+	//Fundo
+	this.efeito_sonorofundo = new Audio();
+	this.efeito_sonorofundo.src = "Sons/Fundo.mp3"
+	this.efeito_sonorofundo.load();
     
 	//Array de blocos
 	//Blocos1 - blocos do lado do player
@@ -39,7 +45,7 @@ function SceneLevel1()
     	bloco2[i].posicao_y = tela_tamanho_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
     }
 	
-	//Bloco3 - blocos das laterais
+	//Bloco3 - blocos centrais laterais
 	var bloco3 = new Array();
 	for(var i = 0 ; i < 2; i++) 
     {
@@ -48,7 +54,7 @@ function SceneLevel1()
     	bloco3[i].posicao_y = tela_tamanho_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
     }
 	
-	//Bloco4 - blocos centrais
+	//Bloco4 - blocos centrais meio
 	var bloco4 = new Array();
 	for(var i = 0 ; i < 2; i++) 
     {
@@ -68,9 +74,6 @@ function SceneLevel1()
     		return;  	
     	}
 		
-		//Som
-    	//this.efeito_sonoro.play();
-    	
     	//Background se movendo
     	background.update();
     	
@@ -82,6 +85,9 @@ function SceneLevel1()
     	
     	//Bola
     	bola.update();
+		
+		//Som de Fundo
+		this.efeito_sonorofundo.play();
 		
 		//Bloco
 		for(var i = 0 ; i < blocos.length; i++)
@@ -114,6 +120,9 @@ function SceneLevel1()
 					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
 					//bola.velocidade_x ++;
 					bola.velocidade_x *= -1;
+					
+					//Som
+					this.efeito_sonoroplayer.play();
 				}
 		
     	//Fazendo colisão da bola com a paleta Inimigo
@@ -129,10 +138,13 @@ function SceneLevel1()
 					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
 					//bola.velocidade_x ++;
 					bola.velocidade_x *= -1;
+					
+					//Som
+					this.efeito_sonoroplayer.play();
 				}
 		
 		//Fazendo colisão da bola com os blocos
-		if(blocos[i])
+		for(var i = 0 ; i < blocos.length; i++)
 		{
 			if( Collide( bola.posicao_x,
 						bola.posicao_y,
@@ -146,6 +158,9 @@ function SceneLevel1()
 						//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
 						//bola.velocidade_x ++;
 						bola.velocidade_x *= -1;
+						
+						//Som
+						this.efeito_sonoroplayer.play();
 					}
 		}
     };

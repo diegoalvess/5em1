@@ -16,6 +16,11 @@ function Bola()
     this.velocidade_x = 5;
     this.velocidade_y = 5;
 
+	//Som de colisão
+	this.efeito_sonoro = new Audio();
+    this.efeito_sonoro.src = "Sons/borda.mp3"
+    this.efeito_sonoro.load();
+	
     this.update=function()
     {
     	//Movendo a bola
@@ -38,6 +43,10 @@ function Bola()
     	if(this.posicao_x < 0)
     	{
     		this.posicao_x = 0;
+			
+			//Efeito de som
+			this.efeito_sonoro.play();
+			
 			//Fazendo bola bater e voltar
 			this.velocidade_x *=-1;
     	}
@@ -46,6 +55,10 @@ function Bola()
     	if(this.posicao_y < 0)
     	{
     		this.posicao_y = 0;
+			
+			//Efeito de som
+			this.efeito_sonoro.play();
+			
 			//Fazendo bola bater e voltar
 			this.velocidade_y *=-1;
     	}
@@ -54,6 +67,10 @@ function Bola()
     	if(this.posicao_x > tela_tamanho_x - this.tamanho_x)
     	{
     		this.posicao_x = tela_tamanho_x - this.tamanho_x;
+			
+			//Efeito de som
+			this.efeito_sonoro.play();
+			
 			//Fazendo bola bater e voltar
 			this.velocidade_x *=-1;
     	}
@@ -62,6 +79,10 @@ function Bola()
     	if(this.posicao_y > tela_tamanho_y - this.tamanho_y)
     	{
     		this.posicao_y = tela_tamanho_y- this.tamanho_y;
+			
+			//Efeito de som
+			this.efeito_sonoro.play();
+			
 			//Fazendo bola bater e voltar
 			this.velocidade_y *=-1;
     	}
