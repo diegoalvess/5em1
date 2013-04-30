@@ -7,10 +7,10 @@ function Bloco(source, hp)
 
 	this.loaded = false;
 	this.visible = true;
-
+	
 	this.hp = hp;
 	this.pontos = this.hp*2
-
+	
 
 	this.bloco_imagem.onload = function()			
 	{
@@ -28,7 +28,14 @@ function Bloco(source, hp)
 
 	this.update=function()
 	{
-		this.psc_X += this.velo_Y;	
+		//this.psc_X += this.velo_Y;	
 	};
+	
+	this.draw=function()
+	{
+		if(this.visible)
+    	screen.drawImage(this.bloco_imagem, this.psc_X, this.psc_Y)
+	};
+	
 			
 }

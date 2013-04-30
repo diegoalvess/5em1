@@ -9,16 +9,22 @@
 			Jornada Noid
 			
 		</title>
-		
-					
+							
 		<script src="js/paleta.js"></script>	
 		<script src="js/ball.js"></script>
 		<script src="js/bloco.js"></script>
+		<script src="js/fase1.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/background.js"></script>
+		<!--<script src="js/creditos.js"></script> -->
+		<script src="js/fim_ganhou.js"></script>
+		<!--<script src="js/fim_perdeu.js"></script> --> 
 		
 	</head>
 	
 	<body>
 	<center>
+		
 		Jornada Noid
 		
 		</br>
@@ -29,313 +35,179 @@
 		
 		var canvas = document.getElementById("main");
 		var screen = canvas.getContext("2d");
-
-		<!-- VAR TELA
-		var tela_imagem = new Image();
-		var tela_carregada = false;
-		var tela_tamanho_W = 0;
-		var tela_tamanho_H = 0;
-		var tela_larg_W = 900;
-		var tela_larg_H = 700;
 		
-		<!--VARIAVEL BALL
-		var bola = new Ball();
+		//Tamanho da tela
+		var tela_tamanho_x = 900;
+		var tela_tamanho_y = 700;
 		
-		<!--VARIAVEL PALETA
-		var paleta = new Paleta();
+		var menu = new SceneMenu();
 		
-    	<!-- VARIAVEL TECLA
-         var direita = false;
-	     var esquerda = false;
-	     
-		var listablocos = new Array();		
+		var jogo = new SceneLevel1();
 		
+		var venceu = new SceneGanhou();
 		
-		<!--MOSTRANDO BLOCO
-		for(var i = 0; i < 10; i++)
-		{				
-			
-			listablocos[i] = new Bloco("imgs/bloco5.png", 1);				
-			listablocos[i].psc_Y = 100
- 			listablocos[i].psc_X = 120 + (i * (listablocos[i].tam_X + 5)) 
- 			
-		}
-	
+		//FLUXO DE TELAS
+		var SCENE = { MENU: 0, JOGO:1, GANHOU:2}
 		
-		
-		for(var i = 0; i < 10; i++)
-		{
-		
-			listablocos[i+10] = new Bloco("imgs/bloco4.png", 1);
-			listablocos[i+10].psc_Y = 120
-			listablocos[i+10].psc_X = 120 + (i * (listablocos[i+10].tam_X + 5)) 
-			
-		}	
-		
-		for(var i = 0; i < 10; i++)
-		{
-		
-			listablocos[i+20] = new Bloco("imgs/bloco3.png", 1);
-			listablocos[i+20].psc_Y = 140
-			listablocos[i+20].psc_X = 120 + (i * (listablocos[i+20].tam_X + 5)) 
-			
-		}
-		
-		for(var i = 0; i < 10; i++)
-		{
-		
-			listablocos[i+30] = new Bloco("imgs/bloco2.png", 1);
-			listablocos[i+30].psc_Y = 160
-			listablocos[i+30].psc_X = 120 + (i * (listablocos[i+30].tam_X + 5)) 
-			
-		}
-		
-		for(var i = 0; i < 10; i++)
-		{
-		
-			listablocos[i+40] = new Bloco("imgs/bloco1.png", 1);
-			listablocos[i+40].psc_Y = 180
-			listablocos[i+40].psc_X = 120 + (i * (listablocos[i+40].tam_X + 5)) 
-			
-		}		
+		//PARA MUDAR A TELA QUE COMEÇA PARA A PROXIMA
+		var currentScene = SCENE.MENU;
 
 		Load();
              
-             <!--CARREGAMENTO DA IMAGEM
+            
              function Load()
              {
-             	
-             	tela_imagem.src="imgs/tela.png";
-             	 tela_imagem.onload =
-             	 function() { tela_carregada = true; console.log("tela_carregada"); };
-             	 
-             	 paleta.img.src="imgs/paleta.png";
-             	 paleta.img.onload =
-             	 function() { paleta.loaded = true; console.log("paleta.loaded"); };
-             	 
-             	 bola.img.src="imgs/bola.png";
-             	 bola.img.onload =
-             	 function() { bola.loaded = true; console.log("bola.loaded"); };
-             	 
-          	 
-             	 console.log("load");
-             	 
-             	 <!--se carregou imagem// 
-             	 if((tela_carregada)&&(paleta.loaded)&&(bola.loaded))
-             	 {
-             	 	 //faz entrar no loop do jogo//
-             	     Loop();
-             	 }
-             	 else 
-             	 {
-             	 	setTimeout (Load, 30);
-             	 }	
+             	Loop();
              }
 
 		
 		function Update()
 		{
-             	console.log("update");
-             	
-             		for(var i = 0; i < listablocos.length; i++)
-             		{
-             			if(listablocos[i].hp <=0)
-						{
-							listablocos[i].visible = false;
-						}
-             		}
-             		
-              	<!-- PALETA MEXENDO
-             	paleta.update();
-				if (direita == true)
+			console.log("dthdghd");
+           switch(currentScene)
+           {
+           		//Menu
+				case SCENE.MENU:
 				{
-					paleta.posicao_x += paleta.velocity_x;
+					menu.update();
 				}
-			
-				if (esquerda == true)
-				{
-					paleta.posicao_x -= paleta.velocity_x;
-				}
+				break;
 				
-				
-    			<!--MOVENDO A BOLA 
-    			{
-    				bola.posicao_x += bola.velocity_x;	
-    				bola.posicao_y += bola.velocity_y;	
-    	
-    			<!--MANTENDO BOLA NO CAMPO
-    			bola.update(paleta.posicao_x+paleta.tamanho_x/2);
-    			
-	
-   			 }
-   			
-   			<!--COLISAO PALETA
-			{
-			if(Collide(
-				bola.posicao_x,
-				bola.posicao_y,
-				bola.tamanho_x,
-				bola.tamanho_y,
-				paleta.posicao_x,
-				paleta.posicao_y,
-				paleta.tamanho_x,
-				paleta.tamanho_y))
-			{
-				if(bola.velocity_y < bola.velocity_MAX)
+				//level1
+				case SCENE.JOGO:
 				{
-					bola.velocity_y += 1;
+					jogo.update();
 				}
-				bola.velocity_y *= -1;
+				break;
+				
+				case SCENE.GANHOU:
+				{
+					venceu.update();
 				}
-	
-			}
-			
-			<!--COLISAO BLOCOS
-			//remove os blocos destruidos da tela
-             		for(var i = 0; i < listablocos.length; i++)
-             		{
-             			if(listablocos[i].hp <=0)
-							{
-								listablocos[i].visible = false;
-							}
-             		}
-             		
-             		//testa a colisao com cada bloco
-            		for(var i = 0; i < listablocos.length; i++)
-					{
-						if(listablocos[i].visible)
-						{
-							if(Collide(
-								bola.posicao_x,
-								bola.posicao_y,
-								bola.tamanho_x,
-								bola.tamanho_y,
-								listablocos[i].psc_X,
-								listablocos[i].psc_Y,
-								listablocos[i].tam_X,
-								listablocos[i].tam_Y))
-							{
-								if(bola.velocity_y < bola.velocity_MAX)
-								{
-									bola.velocity_y += 1;
-								}
-								bola.velocity_y *= -1;
-					  			listablocos[i].hp--;
-					  			//pontos+=listablocos[i].points;
-
-							}
-	
-						}
-		
-					}
-		}
+				break;
+           	
+           	}//FIM DO SWITCH  	
+				
+		}//FIM DO UPDATE
 		
 			function Draw()
            {
-             	console.log("draw");
-             	
-             	clear();
-             	
-             	<!--DESENHANDO NA TELA
-             	screen.drawImage(tela_imagem, tela_tamanho_W, tela_tamanho_H);
-             	screen.drawImage(paleta.img, paleta.posicao_x, paleta.posicao_y);
-             	screen.drawImage(bola.img, bola.posicao_x, bola.posicao_y);
-             	
-             	
-             	<!--DESENHANDO BLOCOS
-           		for(var i = 0; i < listablocos.length; i++)
+           	
+           		screen.clearRect(0,0, tela_tamanho_x , tela_tamanho_y)
+             	switch(currentScene)
+           		{
+           		//Menu
+				case SCENE.MENU:
 				{
-					if(listablocos[i].visible)
-					screen.drawImage(listablocos[i].bloco_imagem, listablocos[i].psc_X, listablocos[i].psc_Y);	
+					menu.draw();
 				}
+				break;
 				
+				//level1
+				case SCENE.JOGO:
+				{
+					jogo.draw();
+				}
+				break;
 				
-				
-				             	
-             	function clear()
-             	{
-             		screen.clearRect(0,0,900,700);
-             	}             	
-
-		}
+				case SCENE.GANHOU:
+				{
+					venceu.draw();
+				}
+				break;
+           	
+           	}//FIM DO SWITCH  
+             	
+         }//FIM DO DRAW
 		
              function Loop()
              {
-             	console.log("loop");
-             	
              	Update();
              	
              	Draw();
              	setTimeout(Loop, 30);
              }
 		
-		Load();
+	
 
-			window.addEventListener("keydown",key_down,true);
-			window.addEventListener("keyup",key_up,true);
+		//FAZENDO O MOUSE FUNCIONAR.
+		//window.addEventListener('mousemove', mouse_move, true);
+		//window.addEventListener('mouseup', mouse_up, true);
+		window.addEventListener('mousedown', mouse_down, true);
              
-             
-             function key_down(key)
-             {
-             	if(key.keyCode=="37")
-				{
-					esquerda = true;//verdadeiro
-				}
-			
-				if(key.keyCode=="39")
-				{
-					direita = true;//verdadeiro
-				}
-				
-				if(key.keyCode == "32")
-				{
-					bola.followplayer = false;
-				}	
-				
-			
-			}
-             
-             function key_up(key)
-            { 
-             	if(key.keyCode=="37")
-				{
-					esquerda = false;
-				}
-			
-				if(key.keyCode=="39")
-				{
-					direita = false;//verdadeiro
-				}	
-			}
-			
-			<!-- COLISAO
-			 
-			function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
+        function mouse_move(mouse)
 		{
-					
-			if((x1+w1<x2)//rect1 esquerda de rect
-			||(x1>x2+w2)//rect1 direita de rect2
-			||(y1+h1<y2)//rect1 acima de rect2
-			||(y1>y2+h2)//rect1 abaixo de rect2
-			)
-			{
-				return false; //nao colidiu						
-			}
-			
-			else 
-			{
-				return true; //colidiu
-			}
-			
-		
-			
+	
 		}
+		
+		function mouse_up(mouse)
+		{
 	
-	
+		}
 
-
+         function mouse_down(mouse)
+		{
+			switch(currentScene)
+			{
+				case SCENE.MENU:
+				{
+					menu.mouse_down(mouse);
+				}
+				break;
+				
+				case SCENE.JOGO:
+				{
+				}
+				break;
+				
+			}//FIM DO SWITCH
+		}   
+		
+		//FAZENDO A TECLA FUNCIONAR FUNCIONAR.
+		window.addEventListener('keyup', key_up, true);
+		window.addEventListener('keydown', key_down, true);
+			function key_up (key)
+			{
+				switch(currentScene)
+				{
+					case SCENE.MENU:
 			
-		</script>
+			
+			
+					break;
+				
+					case SCENE.JOGO:
+					{
+						jogo.key_up(key);
+					}
+					break;
+				
+				}//FIM DO SWITCH
+			}
+			
+			function key_down (key)
+			{
+				switch(currentScene)
+				{
+					case SCENE.MENU:
+					
+						
+					
+					break;
+				
+					case SCENE.JOGO:
+					{
+						jogo.key_down(key);
+					}
+					break;
+				
+				}//FIM DO SWITCH
+			}
+			
+			
+			
+			
+	</script>
 	</center>
 	</body>
 	
