@@ -68,7 +68,6 @@ function Ball()
     
    this.draw = function()
     {
-    	console.log("NOS VAI GANHAR")
     	if(this.visible)
     	screen.drawImage(this.img, this.posicao_x, this.posicao_y);
     
