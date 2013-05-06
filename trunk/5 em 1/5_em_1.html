@@ -5,35 +5,18 @@
 	<head>
 		<title>
                 
-        QUE SEJA
+        5 em 1
                 
         </title>
                 
 		<script src="js/introducao.js"></script>
 		<script src="js/creditos.js"></script>
-		<script src="js/nivel1.js"></script>
-		<script src="js/nivel2.js"></script>
-		<script src="js/nivel3.js"></script>
-		<script src="js/nivel4.js"></script>
-		<script src="js/botao_Pong.js"></script>
-		<script src="js/botao_Arkanoid.js"></script>
-		<script src="js/botao_Invaders.js"></script>
-		<script src="js/botao_Shooter.js"></script>
-		<script src="js/botao_voltar.js"></script>
-		<script src="js/botao_creditos.js"></script>
-		
+		<script src="js/botao.js"></script>	
 		        
    </head>
         
    <body>
-        
-    5_em_1 
-        
-   		<br/>
-        
-        	<canvas width="1336" height="768" id="main" style="border:8px solid #000000;"></canvas>
-        	
-        
+   <canvas width="1024" height="768" id="main" style="border:8px solid #000000;"></canvas>
    </body>
         
    	<script> 
@@ -44,7 +27,7 @@
    	
         
    	//LARGURA E ALTURA DA TELA//
-   	var largura_tela_w = 1336
+   	var largura_tela_w = 1024
    	var altura_tela_h = 768
         
     //VARIAVEIS DO PAUSE//    
@@ -57,20 +40,16 @@
 	var creditos = new Cena_Creditos();
 	
 	//VARIAVEL DO JOGO//
-	var nivel1 = new Cena_Jogo();
-	var nivel2 = new Cena_Jogo1();
-	var nivel3 = new Cena_Jogo2();
-	var nivel4 = new Cena_Jogo3();
-	
+	//...
+		
 	//VARIAVEL PARA TROCAS DE CENA//
-	var CENAS = { INTRO: 0, CREDITOS: 1, JOGO: 2, JOGO1: 3, JOGO2: 4, JOGO3: 5, JOGO4: 6, JOGO5: 7 } //Fluxo das telas//
+	var CENAS = { INTRO: 0, CREDITOS: 1, PONG: 2, ARKANOID: 3, INVADERS: 4, SHOOTER: 5, QUINTOJOGO: 6 } //Fluxo das telas//
 	
 	//VARIAVEL DE CENA ATUAL//
-	var Cena_atual = CENAS.INTRO; //Para mudar aonde o jogo comeca, ou seja qual cena, mude aqui//
+	var cena_atual = CENAS.INTRO; //Para mudar aonde o jogo comeca, ou seja qual cena, mude aqui//
 	
 	//VARIAVEL DO JOGO ATUAL//
-	//var Jogo_atual = CENAS.JOGO;
-
+	//var jogo_atual = CENAS.JOGO;
 
 	load();
 
@@ -110,8 +89,10 @@
 
 	function update()
 	{	
-		switch(Cena_atual) //TROCAS DE CENAS//
+		switch(cena_atual) //TROCAS DE CENAS//
 		{
+			//pause...
+			
 			case CENAS.INTRO:
 			{
 				introducao.update();	
@@ -122,61 +103,33 @@
 				creditos.update();
 			}
 			break;
-			case CENAS.JOGO:
+			/*case CENAS.PONG:
 			{
-				nivel1.update();
+				pong.update();
 			}
 			break;
-			case CENAS.JOGO1:
+			case CENAS.ARKANOID:
 			{
-				nivel2.update();
+				arkanoid.update();
 			}
 			break;
-			case CENAS.JOGO2:
+			case CENAS.INVADERS:
 			{
-				nivel3.update();
+				invaders.update();
 			}
 			break;
-			case CENAS.JOGO3:
+			case CENAS.SHOOTER:
 			{
-				nivel4.update();
+				shooter.update();
 			}
 			break;
+			case CENAS.QUINTOJOGO:
+			{
+				quintojogo.update();
+			}
+			break;*/
 		}
 		
-		/*switch(Jogo_atual)
-		{
-			case CENAS.JOGO:
-			{
-				introducao.update();	
-			}
-			break;
-			case CENAS.CREDITOS:
-			{
-				creditos.update();
-			}
-			break;
-			case CENAS.JOGO:
-			{
-				nivel1.update();
-			}
-			break;
-			case CENAS.JOGO1:
-			{
-				nivel2.update();
-			}
-			break;
-			case CENAS.JOGO2:
-			{
-				nivel3.update();
-			}
-			break;
-			case CENAS.JOGO3:
-			{
-				nivel4.update();
-			}
-			break;
-		}*/
 	}
 
 
@@ -184,11 +137,11 @@
 	{
 		clear();
 
-		switch(Cena_atual)
+		switch(cena_atual)
 		{
 			case CENAS.INTRO:
 			{
-				introducao.draw();
+				introducao.draw();	
 			}
 			break;
 			case CENAS.CREDITOS:
@@ -196,26 +149,32 @@
 				creditos.draw();
 			}
 			break;
-			case CENAS.JOGO:
+			/*case CENAS.PONG:
 			{
-				nivel1.draw();
+				pong.draw();
 			}
 			break;
-			case CENAS.JOGO1:
+			case CENAS.ARKANOID:
 			{
-				nivel2.draw();
+				arkanoid.draw();
 			}
 			break;
-			case CENAS.JOGO2:
+			case CENAS.INVADERS:
 			{
-				nivel3.draw();
+				invaders.draw();
 			}
 			break;
-			case CENAS.JOGO3:
+			case CENAS.SHOOTER:
 			{
-				nivel4.draw();
+				shooter.draw();
 			}
 			break;
+			case CENAS.QUINTOJOGO:
+			{
+				quintojogo.draw();
+			}
+			break;*/
+
 		}
 
 	}
@@ -235,48 +194,54 @@
 
 	function key_down(key)
 	{
-		switch(Cena_atual)
+		switch(cena_atual)
 		{
 			case CENAS.INTRO:
 			{
-				introducao.key_down(key);
+				introducao.key_down(key);	
 			}
 			break;
 			case CENAS.CREDITOS:
 			{
-				creditos.key_down(key);
+				creditos.key_down(key);	
 			}
 			break;
-			case CENAS.JOGO:
+			/*case CENAS.PONG:
 			{
-				nivel1.key_down(key);
+				pong.key_down(key);	
 			}
 			break;
-			case CENAS.JOGO1:
+			case CENAS.ARKANOID:
 			{
-				nivel2.key_down(key);
+				arkanoid.key_down(key);	
 			}
 			break;
-			case CENAS.JOGO2:
+			case CENAS.INVADERS:
 			{
-				nivel3.key_down(key);
+				invaders.key_down(key);	
 			}
 			break;
-			case CENAS.JOGO3:
+			case CENAS.SHOOTER:
 			{
-				nivel4.key_down(key);
+				shooter.key_down(key);	
 			}
 			break;
+			case CENAS.QUINTOJOGO:
+			{
+				quintojogo.key_down(key);	
+			}
+			break;*/
+
 		}
 	}
 
 	function key_up(key)
 	{
-		switch(Cena_atual)
+		switch(cena_atual)
 		{
 			case CENAS.INTRO:
 			{
-				introducao.key_up(key);
+				introducao.key_up(key);	
 			}
 			break;
 			case CENAS.CREDITOS:
@@ -284,26 +249,32 @@
 				creditos.key_up(key);
 			}
 			break;
-			case CENAS.JOGO:
+			/*case CENAS.PONG:
 			{
-				nivel1.key_up(key);
+				pong.key_up(key);
 			}
 			break;
-			case CENAS.JOGO1:
+			case CENAS.ARKANOID:
 			{
-				nivel2.key_up(key);
+				arkanoid.key_up(key);
 			}
 			break;
-			case CENAS.JOGO2:
+			case CENAS.INVADERS:
 			{
-				nivel3.key_up(key);
+				invaders.key_up(key);
 			}
 			break;
-			case CENAS.JOGO3:
+			case CENAS.SHOOTER:
 			{
-				nivel4.key_up(key);
+				shooter.key_up(key);
 			}
 			break;
+			case CENAS.QUINTOJOGO:
+			{
+				quintojogo.key_up(key);
+			}
+			break;*/
+
 		}
 	}
 	function mouse_move(mouse)
@@ -319,11 +290,11 @@
 
 	function mouse_down(mouse)
 	{
-		switch(Cena_atual)
+		switch(cena_atual)
 		{
 			case CENAS.INTRO:
 			{
-				introducao.mouse_down(mouse);
+				introducao.mouse_down(mouse);	
 			}
 			break;
 			case CENAS.CREDITOS:
@@ -331,26 +302,32 @@
 				creditos.mouse_down(mouse);
 			}
 			break;
-			case CENAS.JOGO:
+			/*case CENAS.PONG:
 			{
-				nivel1.mouse_down(mouse);
+				pong.mouse_down(mouse);
 			}
 			break;
-			case CENAS.JOGO1:
+			case CENAS.ARKANOID:
 			{
-				nivel2.mouse_down(mouse);
+				arkanoid.mouse_down(mouse);
 			}
 			break;
-			case CENAS.JOGO2:
+			case CENAS.INVADERS:
 			{
-				nivel3.mouse_down(mouse);
+				invaders.mouse_down(mouse);
 			}
 			break;
-			case CENAS.JOGO3:
+			case CENAS.SHOOTER:
 			{
-				nivel4.mouse_down(mouse);
+				shooter.mouse_down(mouse);
 			}
 			break;
+			case CENAS.QUINTOJOGO:
+			{
+				quintojogo.mouse_down(mouse);
+			}
+			break;*/
+
 		}
 	}
 

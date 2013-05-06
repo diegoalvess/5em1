@@ -1,14 +1,14 @@
-function Botao_Pong()
+function Botao(arquivo, tam_x, tam_y)
 {
 	this.imagem = new Image();
-	this.imagem.src = "imgs/botaocomecar.png"; //imagem do botao//
+	this.imagem.src = arquivo; //imagem do botao//
 	this.loaded = false;
 	
 	//TAMANHO//
-	this.tamanho_x = 302;
-    this.tamanho_y = 85;
-    this.posicao_x = 580;
-    this.posicao_y = 250;
+	this.tamanho_x = tam_x;
+    this.tamanho_y = tam_y;
+    this.posicao_x = 0;
+    this.posicao_y = 0;
 
 	this.imagem.onload = function()
 	{
@@ -31,8 +31,8 @@ function Botao_Pong()
     {
     	//COLISAO//
     	if(Collide(
-    		mouse.x-20,
-    		mouse.y-35,
+    		mouse.x,
+    		mouse.y,
     		1,
     		1,
     		this.posicao_x,

@@ -1,21 +1,14 @@
 function Cena_Creditos()
 {
-	this.imagem = new Image();
+	this.fundo = new Image();
+	this.fundo.src="imgs/fundo.png";//IMAGEM DE FUNDO//
 	this.loaded = false;
 	
-	//TAMANHO//
-	this.tamanho_x = 1500;
-    this.tamanho_y = 1366;
-    this.posicao_x = 0;
-    this.posicao_y = 0;
+	this.botao_voltar = new Botao("imgs/botaovoltar.png", 70, 70);
+	this.botao_voltar.posicao_x = 512;
+    this.botao_voltar.posicao_y = 700;
     
-    //IMAGEM DO BOTAO//
-    this.botao_voltar = new Botao_voltar;
     
-    this.imagem.onload = function()
-	{
-		loaded = true; 
-	};
 	
 	this.update=function()
    	{
@@ -24,12 +17,11 @@ function Cena_Creditos()
    
    	this.draw=function()
    	{
-   		screen.font = "20px Comic Sans MS";
-		screen.fillStyle="#000000";
-		screen.fillText("CREDITOS", 20, 20);
+   		screen.drawImage(this.fundo, 0, 0);
+   		
+   		this.botao_voltar.draw();
+   				
 		
-		//desenho do  botao//
-		this.botao_voltar.draw();
    	};
    
    
@@ -38,7 +30,7 @@ function Cena_Creditos()
    		//função do clique para o botão mudar de cena//
    		if(this.botao_voltar.clicou(mouse))
     	{
-    		Cena_atual = CENAS.INTRO;
+    		cena_atual = CENAS.INTRO;
     	}
    	};
    
