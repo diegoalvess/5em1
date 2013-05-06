@@ -53,7 +53,7 @@ function Paleta()
        
     this.draw = function()
     {
-    	
+    	console.log("fsefefef")
     	if(this.visible)
     	screen.drawImage(this.img, this.posicao_x, this.posicao_y);
     
