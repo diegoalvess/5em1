@@ -9,6 +9,10 @@ function Cena_Intro()
     this.botao_credito.posicao_x = 512;
     this.botao_credito.posicao_y = 700;
     
+    this.botao_shooter = new Botao("imgs/botaoshooter.png", 196, 51);
+    this.botao_shooter.posicao_x = 512;
+    this.botao_shooter.posicao_y = 600;
+    
     //this.botao_Pong = new Botao_Pong;
     //this.botao_Arkanoid = new Botao_Arkanoid;
     //this.botao_Invaders = new Botao_Invaders;
@@ -36,7 +40,7 @@ function Cena_Intro()
     	//this.botao_Pong.draw();
     	//this.botao_Arkanoid.draw();
     	//this.botao_Invaders.draw();
-    	//this.botao_Shooter.draw();
+    	this.botao_shooter.draw();
 		
 		
 		
@@ -63,12 +67,13 @@ function Cena_Intro()
     	if(this.botao_Invaders.clicou(mouse))
     	{
     		Cena_atual = CENAS.JOGO2;
-    	}
-    	
-    	if(this.botao_Shooter.clicou(mouse))
-    	{
-    		Cena_atual = CENAS.JOGO3;
     	}*/
+    	
+    	if(this.botao_shooter.clicou(mouse))
+    	{
+    		console.log("AAAAAAAA")
+    		cena_atual = CENAS.SHOOTER;
+    	}
     	
     };
    
