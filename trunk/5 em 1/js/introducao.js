@@ -9,14 +9,18 @@ function Cena_Intro()
     this.botao_credito.posicao_x = 512;
     this.botao_credito.posicao_y = 700;
     
-    this.botao_shooter = new Botao("imgs/botaoshooter.png", 196, 51);
-    this.botao_shooter.posicao_x = 512;
+    this.botao_shooter = new Botao("imgs/botaoshooter.png", 295, 82);
+    this.botao_shooter.posicao_x = 460;
     this.botao_shooter.posicao_y = 600;
     
     //this.botao_Pong = new Botao_Pong;
-    //this.botao_Arkanoid = new Botao_Arkanoid;
-    //this.botao_Invaders = new Botao_Invaders;
-    //this.botao_Shooter = new Botao_Shooter;	
+    
+    this.botao_arkanoid = new Botao("imgs/botaoarkanoid.png", 295, 82);
+    this.botao_arkanoid.posicao_x = 460;
+    this.botao_arkanoid.posicao_y = 500;
+    
+    //this.botao_Invaders = new Botao
+    //this.botao_Shooter = new Botao	
 	
 		
 	
@@ -38,7 +42,7 @@ function Cena_Intro()
 		//DESENHO DOS BOTOES//
     	this.botao_credito.draw();
     	//this.botao_Pong.draw();
-    	//this.botao_Arkanoid.draw();
+    	this.botao_arkanoid.draw();
     	//this.botao_Invaders.draw();
     	this.botao_shooter.draw();
 		
@@ -51,22 +55,23 @@ function Cena_Intro()
     	
     	if(this.botao_credito.clicou(mouse))
     	{
+    		console.log("AAAAAAAA")
     		cena_atual = CENAS.CREDITOS;		
     	}
     	
-    	/*if(this.botao_Pong.clicou(mouse))
+    	if(this.botao_arkanoid.clicou(mouse))
     	{
-    		Cena_atual = CENAS.JOGO;
+    		cena_atual = CENAS.ARKANOID;
     	}
     	
-    	if(this.botao_Arkanoid.clicou(mouse))
+    	/*if(this.botao_pong.clicou(mouse))
     	{
-    		Cena_atual = CENAS.JOGO1;
+    		Cena_atual = CENAS.PONG;
     	}
-    	
-    	if(this.botao_Invaders.clicou(mouse))
+    		
+    	if(this.botao_invaders.clicou(mouse))
     	{
-    		Cena_atual = CENAS.JOGO2;
+    		Cena_atual = CENAS.INVADERS;
     	}*/
     	
     	if(this.botao_shooter.clicou(mouse))
