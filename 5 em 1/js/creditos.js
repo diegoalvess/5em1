@@ -5,7 +5,7 @@ function Cena_Creditos()
 	this.loaded = false;
 	
 	this.botao_voltar = new Botao("imgs/botaovoltar.png", 70, 70);
-	this.botao_voltar.posicao_x = 512;
+	this.botao_voltar.posicao_x = 570;
     this.botao_voltar.posicao_y = 700;
     
     
