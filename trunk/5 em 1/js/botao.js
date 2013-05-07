@@ -31,7 +31,7 @@ function Botao(arquivo, tam_x, tam_y)
     {
     	//COLISAO//
     	if(Collide(
-    		mouse.x-20,
+    		mouse.x,
     		mouse.y,
     		1,
     		1,

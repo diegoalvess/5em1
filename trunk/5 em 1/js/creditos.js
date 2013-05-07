@@ -1,7 +1,7 @@
 function Cena_Creditos()
 {
 	this.fundo = new Image();
-	this.fundo.src="imgs/fundo.png";//IMAGEM DE FUNDO//
+	this.fundo.src="imgs/creditosindex.png";//IMAGEM DE FUNDO//
 	this.loaded = false;
 	
 	this.botao_voltar = new Botao("imgs/botaovoltar.png", 70, 70);
@@ -35,6 +35,12 @@ function Cena_Creditos()
    	};
    
    	this.key_down=function(key)
+   
+   	{
+   		
+   	};
+   
+   	this.key_up=function(key)
    
    	{
    		
