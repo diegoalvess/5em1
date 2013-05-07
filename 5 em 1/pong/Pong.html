@@ -1,0 +1,362 @@
+<!DOCTYPE>
+
+<html>
+
+	<head>
+	
+		<center>
+		<tite>
+		Pong
+		</tite>
+		</center>
+		
+		<!--FAZENDO A IMPORTACAO DO ARQUIVO JAVA SCRIP 'JS' NO HTML--!>
+		<script src="Classes/Paleta.js"></script>
+		<script src="Classes/Bola.js"></script>
+		<script src="Classes/PaletaInimigo.js"></script>
+		<script src="Classes/scenecreditos.js"></script>
+		<script src="Classes/sceneintroducao.js"></script>
+		<script src="Classes/scenelevel1.js"></script>
+		<script src="Classes/menu.js"></script>
+		<script src="Classes/fimganhou.js"></script>
+		<script src="Classes/fimperdeu.js"></script>
+		<script src="Classes/Background.js"></script>
+		<script src="Classes/Bloco.js"></script>
+		
+		
+	</head>
+	
+	<body>
+	
+		<!--Centralizando o canvas na tela do jogo --!>
+		<center>
+		</br>
+		<canvas width="1200" height="800" id="main" style="border:1px solid #000000;" ></canvas>
+		</center>
+			
+			
+		<script>
+				
+		//Desenhando o canvas na tela	
+		var canvas = document.getElementById("main");
+		var screen = canvas.getContext("2d");
+		
+		//Tamanho da tela
+		var tela_tamanho_x = 1200;
+		var tela_tamanho_y = 800;
+		
+		//Pausa
+		var paused = true;
+		
+		//Introducao
+		var introducao = new SceneIntroducao();
+	
+		//Creditos
+		var creditos = new SceneCreditos();
+
+		//Level
+		var level1 = new SceneLevel1();
+		
+		//FimGanhou 
+		var fimganhou = new SceneGanhou();
+		
+		//FimPerdeu
+		var fimperdeu = new ScenePerdeu();
+		
+		//Menu
+		var menu = new SceneMenu();
+	
+		//Fluxo das telas
+		var SCENE = { INTRODUCAO: 0, CREDITOS: 1, LEVEL1: 2, FIMGANHOU: 3, FIMPERDEU: 4, MENU: 5 }
+		
+		//Para mudar aonde o jogo comeca, ou seja qual cena, mude aqui
+		var currentScene = SCENE.MENU;
+
+		//Pontos
+		var pontos_direita = 0;
+		var pontos_esquerda = 0;
+		
+		load();
+		
+		function load()
+		{	
+			if((true))
+			{	
+				loop();
+			}
+				
+			else
+			{
+				setTimeout(load, 30);
+			}	
+		}
+		
+		function loop()
+		{
+			update();
+			draw();
+			setTimeout(loop, 30);
+		}	
+		
+		function update()
+		{	
+			switch(currentScene)
+			{
+				//introducao
+				case SCENE.INTRODUCAO:
+				{
+					introducao.update();		
+				}
+				break;
+				
+				//creditos
+				case SCENE.CREDITOS:
+				{
+					creditos.update();
+				}
+				break;
+				
+				//level1
+				case SCENE.LEVEL1:
+				{
+					level1.update();
+				}
+				break;
+				
+				//FimGanhou
+				case SCENE.FIMGANHOU:
+				{
+					fimganhou.update();
+				}
+				break;
+				
+				//FimPerdeu
+				case SCENE.FIMPERDEU:
+				{
+					fimperdeu.update();
+				}
+				break;
+				
+				//Menu
+				case SCENE.MENU:
+				{
+					menu.update();
+				}
+				break;
+				
+			}
+			
+		}
+
+		function draw()
+		{
+	
+			switch(currentScene)
+			{
+				case SCENE.INTRODUCAO:
+				{
+					introducao.draw();
+				}
+				break;
+				
+				case SCENE.CREDITOS:
+				{
+					creditos.draw();
+				}
+				break;
+				
+				case SCENE.LEVEL1:
+				{
+					level1.draw();
+				}
+				break;
+				
+				case SCENE.FIMGANHOU:
+				{
+					fimganhou.draw();
+				}
+				break;
+				
+				case SCENE.FIMPERDEU:
+				{
+					fimperdeu.draw();
+				}
+				break;
+				
+				case SCENE.MENU:
+				{
+					menu.draw();
+				}
+				break;
+				
+			}
+			
+		}
+									
+		//Funcionando teclado e mouse.
+		window.addEventListener('keydown', key_down, true);
+		window.addEventListener('keyup', key_up, true);
+		window.addEventListener('mousemove', mouse_move, true);
+		window.addEventListener('mouseup', mouse_up, true);
+		window.addEventListener('mousedown', mouse_down, true);
+		
+		function key_down(key)
+		{
+			switch(currentScene)
+			{
+				case SCENE.INTRODUCAO:
+				{
+					introducao.key_down(key);
+				}
+				break;
+				
+				case SCENE.CREDITOS:
+				{
+					creditos.key_down(key);
+				}
+				break;
+				
+				case SCENE.LEVEL1:
+				{
+					level1.key_down(key);
+				}
+				break;
+				
+				case SCENE.FIMGANHOU:
+				{
+					fimganhou.key_down();
+				}
+				break;
+				
+				case SCENE.FIMPERDEU:
+				{
+					fimperdeu.key_down();
+				}
+				break;
+				
+				case SCENE.MENU:
+				{
+					menu.key_down();
+				}
+				break;
+				
+			}
+			
+		}
+
+		function key_up(key)
+		{
+			switch(currentScene)
+			{
+				case SCENE.INTRODUCAO:
+				{
+					introducao.key_up(key);
+				}
+				break;
+				
+				case SCENE.CREDITOS:
+				{
+					creditos.key_up(key);
+				}
+				break;
+				
+				case SCENE.LEVEL1:
+				{
+					level1.key_up(key);
+				}
+				break;
+				
+				case SCENE.FIMGANHOU:
+				{
+					fimganhou.key_up();
+				}
+				break;
+				
+				case SCENE.FIMPERDEU:
+				{
+					fimperdeu.key_up();
+				}
+				break;
+				
+				case SCENE.MENU:
+				{
+					menu.key_up();
+				}
+				break;
+			}
+		}
+
+		function mouse_move(mouse)
+		{
+	
+		}
+
+		function mouse_up(mouse)
+		{
+	
+		}
+
+		function mouse_down(mouse)
+		{
+			switch(currentScene)
+			{
+				case SCENE.INTRODUCAO:
+				{
+					introducao.mouse_down(mouse);
+				}
+				break;
+				
+				case SCENE.CREDITOS:
+				{
+					creditos.mouse_down(mouse);
+				}
+				break;
+				
+				case SCENE.LEVEL1:
+				{
+					level1.mouse_down(mouse);
+				}
+				break;
+				
+				case SCENE.FIMPERDEU:
+				{
+					fimperdeu.mouse_down(mouse);
+				}
+				break;
+				
+				case SCENE.FIMGANHOU:
+				{
+					fimganhou.mouse_down(mouse);
+				}
+				break;
+				
+				case SCENE.MENU:
+				{
+					menu.mouse_down(mouse);
+				}
+				break;
+				
+			}
+		}
+		
+		<!--Retornar se um rect colidir com outro
+		function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
+		{
+				if((x1+w1<x2)//se rect1 esquerda rect2
+				||(x1>x2+w2)//se rect1 direida rect2
+				||(y1+h1<y2)//se rect1 acima rect2
+				||(y1>y2+h2))//se rect1 abaixo rect2				
+				{
+					return false;//nao colidiu
+				}				
+				else
+				{
+					return true;//colidiu
+				}
+		}
+			
+		</script>
+		
+		</body>
+	
+</html>

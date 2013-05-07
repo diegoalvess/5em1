@@ -1,7 +1,7 @@
 function Cena_Intro()
 {
 	this.fundo = new Image();
-	this.fundo.src="imgs/fundo.png";//IMAGEM DE FUNDO//
+	this.fundo.src="imgs/fundoindex.png";//IMAGEM DE FUNDO//
 	this.loaded = false;
 		
     
@@ -9,6 +9,9 @@ function Cena_Intro()
     this.botao_credito.posicao_x = 512;
     this.botao_credito.posicao_y = 700;
     
+
+    this.botao_shooter = new Botao("imgs/botaoshooter.png", 295, 82);
+    this.botao_shooter.posicao_x = 512;
     this.botao_shooter = new Botao("imgs/botaoshooter.png", 295, 82);
     this.botao_shooter.posicao_x = 460;
     this.botao_shooter.posicao_y = 600;
