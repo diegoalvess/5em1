@@ -44,15 +44,43 @@ function Bloco(source, hp)
     	if(this.posicao_x < 0)
     	{
     		this.posicao_x = 0;
-    		godownandreversedirection = false;
+    		godownandreversedirection = true;
     	}
     	
     	//saida pela direita
     	if(this.posicao_x > tela_tamanho_x - this.tamanho_x)
     	{
     		this.posicao_x = tela_tamanho_x - this.tamanho_x;
-    		godownandreversedirection = false;
+    		godownandreversedirection = true;
     	}
-    }
+    
+
+	
+	//dizendo o que a variavel de descer e inverter os inimigos vai fazer	
+		if(godownandreversedirection == true)
+		{					
+				if(this.posicao_x > tela_tamanho_x)
+				{
+					this.velocidade_x+= 1;
+				}
+				
+				
+				if(this.posicao_y <= 0)
+				{
+					
+					this.velocidade_x-= 1;
+				}
+								
+				if(godownandreversedirection = true)
+				{
+					this.posicao_y += 20;
+					this.velocidade_x *=-1;
+				}	
+			
+				godownandreversedirection = false;
+		}
+	
+  	};
+
   
 }
