@@ -9,51 +9,100 @@
                 
         </title>
                 
-		<script src="js/introducao.js"></script>
-		<script src="js/creditos.js"></script>
-		<script src="js/botao.js"></script>	
+
+		<script src="js/scene_intro.js"></script>
+		<script src="js/scene_credit.js"></script>
+		<script src="js/button.js"></script>
+		<script src="js/background.js"></script>
+		
+		<!--pong--!>
+		<script src="js/game_1/game_1_background.js"></script>
+		<script src="js/game_1/game_1_ball.js"></script>
+		<script src="js/game_1/game_1_pallete.js"></script>
+		<script src="js/game_1/game_1_scene_game_over.js"></script>
+		<script src="js/game_1/game_1_scene_intro.js"></script>
+		<script src="js/game_1/game_1_scene_level_1.js"></script>
+		<script src="js/game_1/game_1_scene_menu.js"></script>
+		<script src="js/game_1/game_1_scene_the_end.js"></script>
+		<script src="js/game_1/game_1.js"></script>
+
+		<!--arkanoid--!>
+		<!--<script src="js/game_2/game_2_background.js"></script>
+		<script src="js/game_2/game_2_scene_game_over.js"></script>
+		<script src="js/game_2/game_2_scene_intro.js"></script>
+		<script src="js/game_2/game_2_scene_level_1.js"></script>
+		<script src="js/game_2/game_2_scene_menu.js"></script>
+		<script src="js/game_2/game_2_scene_the_end.js"></script>
+		<script src="js/game_2/game_2.js"></script>--!>
+		
+		<!--invaders--!>
+		<!--<script src="js/game_3/game_3_background.js"></script>
+		<script src="js/game_3/game_3_pallete.js"></script>
+		<script src="js/game_3/game_3_scene_game_over.js"></script>
+		<script src="js/game_3/game_3_scene_intro.js"></script>
+		<script src="js/game_3/game_3_scene_level_1.js"></script>
+		<script src="js/game_3/game_3_scene_menu.js"></script>
+		<script src="js/game_3/game_3_scene_the_end.js"></script>
+		<script src="js/game_3/game_3.js"></script>--!>
+		
+		
+		<!--shooter--!> 
+		<script src="js/game_4/game_4_sceneintroducao.js"></script>
+		<script src="js/game_4/game_4_background.js"></script>
+		<script src="js/game_4/game_4_background2.js"></script>
+		<script src="js/game_4/game_4_fimganhou.js"></script>
+		<script src="js/game_4/game_4_player.js"></script>
+		<script src="js/game_4/game_4_inimigo.js"></script>
+		<script src="js/game_4/game_4_scenecreditos.js"></script>
+		<script src="js/game_4/game_4_scenelevel1.js"></script>
+		<script src="js/game_4/game_4_fimperdeu.js"></script>
+		<script src="js/game_4/game_4_interface.js"></script>
+		<script src="js/game_4/game_4_menu.js"></script>
+		<script src="js/game_4/game_4_animacao.js"></script>
+		<script src="js/game_4/game_4_tiro.js"></script>
+		<script src="js/game_4/game_4.js"></script>
+
+
+		
+		<!--quinto jogo--!>
+		<!--<script src="js/game_5/game_5_background.js"></script>
+		<script src="js/game_5/game_5_scene_game_over.js"></script>
+		<script src="js/game_5/game_5_scene_intro.js"></script>
+		<script src="js/game_5/game_5_scene_level_1.js"></script>
+		<script src="js/game_5/game_5_scene_menu.js"></script>
+		<script src="js/game_5/game_5_scene_the_end.js"></script>
+		<script src="js/game_5/game_5.js"></script>--!>		
+
 		        
    </head>
         
    <body>
-   <center>
-   <br>
-   <canvas width="1024" height="768" id="main" style="border:8px solid #000000;"></canvas>
-   </center>
+   <canvas width="1024" height="768" id="main" style="border:1px solid #000000;"></canvas>
    </body>
         
    	<script> 
         
-   	//TELA//
    	var canvas = document.getElementById("main");
    	var screen = canvas.getContext("2d");
    	
+   	var tamanho_tela_y = 1024;
+   	var tamanho_tela_x = 768;
         
-   	//LARGURA E ALTURA DA TELA//
-   	var largura_tela_w = 1024
-   	var altura_tela_h = 768
+    var paused = false;
         
-    //VARIAVEIS DO PAUSE//    
-	var paused = false;
+    var intro = new SceneIntro();
 	
-	//VARIAVEL DA INTRODUCAO//
-	var introducao = new Cena_Intro();
+	var credit = new SceneCredit();
 	
-	//VARIAVEL DOS CREDITOS//
-	var creditos = new Cena_Creditos();
+	var game_1 = new Game_1();
 	
-	//VARIAVEL DO JOGO//
-	//...
-		
-	//VARIAVEL PARA TROCAS DE CENA//
-	var CENAS = { INTRO: 0, CREDITOS: 1, PONG: 2, ARKANOID: 3, INVADERS: 4, SHOOTER: 5, QUINTOJOGO: 6 } //Fluxo das telas//
+	var game_4 = new Game_4();
 	
-	//VARIAVEL DE CENA ATUAL//
-	var cena_atual = CENAS.INTRO; //Para mudar aonde o jogo comeca, ou seja qual cena, mude aqui//
 	
-	//VARIAVEL DO JOGO ATUAL//
-	//var jogo_atual = CENAS.JOGO;
-
+	var SCENE = { INTRO: 0, CREDITS: 1, GAME_1: 2, GAME_2: 3, GAME_3: 4, GAME_4: 5, GAME_5: 6 }
+	
+	var currentScene = SCENE.INTRO;
+	
 	load();
 
 	function load()
@@ -64,73 +113,68 @@
 		{
 			console.log("carreguei");
 
-		loop();
+			loop();
 		}
 		else
 		{
-		console.log("nao carreguei");
+			console.log("nao carreguei");
 
-		setTimeout(load, 30 );
+			setTimeout(load, 30 );
 		}
 	}
 
 	
 	function loop()
 	{
-	
-
-		//O LOOP CHAMA UPDATE E DRAW//
-
 		update();
 
 		draw();
 
 		setTimeout(loop, 30 );
-
 	}
 
 
 	function update()
 	{	
-		switch(cena_atual) //TROCAS DE CENAS//
+		switch(currentScene)
 		{
 			//pause...
 			
-			case CENAS.INTRO:
+			case SCENE.INTRO:
 			{
-				introducao.update();	
+				intro.update();	
 			}
 			break;
-			case CENAS.CREDITOS:
+			case SCENE.CREDIT:
 			{
-				creditos.update();
+				credit.update();
 			}
 			break;
-			/*case CENAS.PONG:
+			case SCENE.GAME_1:
 			{
-				pong.update();
+				game_1.update();
 			}
 			break;
-			case CENAS.ARKANOID:
+			case SCENE.GAME_2:
 			{
-				arkanoid.update();
+				game_2.update();
 			}
 			break;
-			case CENAS.INVADERS:
+			case SCENE.GAME_3:
 			{
-				invaders.update();
+				game_3.update();
 			}
 			break;
-			case CENAS.SHOOTER:
+			case SCENE.GAME_4:
 			{
-				shooter.update();
+				game_4.update();
 			}
 			break;
-			case CENAS.QUINTOJOGO:
+			case SCENE.GAME_5:
 			{
-				quintojogo.update();
+				game_5.update();
 			}
-			break;*/
+			break;
 		}
 		
 	}
@@ -140,52 +184,50 @@
 	{
 		clear();
 
-		switch(cena_atual)
-		{
-			case CENAS.INTRO:
+		switch(currentScene)
+		{	
+			case SCENE.INTRO:
 			{
-				introducao.draw();	
+				intro.draw();	
 			}
 			break;
-			case CENAS.CREDITOS:
+			case SCENE.CREDIT:
 			{
-				creditos.draw();
+				credit.draw();
 			}
 			break;
-			/*case CENAS.PONG:
+			case SCENE.GAME_1:
 			{
-				pong.draw();
+				game_1.draw();
 			}
 			break;
-			case CENAS.ARKANOID:
+			case SCENE.GAME_2:
 			{
-				arkanoid.draw();
+				game_2.draw();
 			}
 			break;
-			case CENAS.INVADERS:
+			case SCENE.GAME_3:
 			{
-				invaders.draw();
+				game_3.draw();
 			}
 			break;
-			case CENAS.SHOOTER:
+			case SCENE.GAME_4:
 			{
-				shooter.draw();
+				game_4.draw();
 			}
 			break;
-			case CENAS.QUINTOJOGO:
+			case SCENE.GAME_5:
 			{
-				quintojogo.draw();
+				game_5.draw();
 			}
-			break;*/
-
+			break;
 		}
 
 	}
 
-
 	function clear()
 	{
-		screen.clearRect(0,0,600,800);
+		screen.clearRect(0,0,tamanho_tela_y,tamanho_tela_x);
 	}
 
 	window.addEventListener('keydown', key_down, true);
@@ -194,89 +236,88 @@
 	window.addEventListener('mouseup', mouse_up, true);
 	window.addEventListener('mousedown', mouse_down, true);
 
-
 	function key_down(key)
 	{
-		switch(cena_atual)
+		switch(currentScene)
 		{
-			case CENAS.INTRO:
+			case SCENE.INTRO:
 			{
-				introducao.key_down(key);	
+				intro.key_down(key);	
 			}
 			break;
-			case CENAS.CREDITOS:
+			case SCENE.CREDIT:
 			{
-				creditos.key_down(key);	
+				credit.key_down(key);
 			}
 			break;
-			/*case CENAS.PONG:
+			case SCENE.GAME_1:
 			{
-				pong.key_down(key);	
+				game_1.key_down(key);	
 			}
 			break;
-			case CENAS.ARKANOID:
+			case SCENE.GAME_2:
 			{
-				arkanoid.key_down(key);	
+				game_2.key_down(key);	
 			}
 			break;
-			case CENAS.INVADERS:
+			case SCENE.GAME_3:
 			{
-				invaders.key_down(key);	
+				game_3.key_down(key);	
 			}
 			break;
-			case CENAS.SHOOTER:
+			case SCENE.GAME_4:
 			{
-				shooter.key_down(key);	
+				game_4.key_down(key);	
 			}
 			break;
-			case CENAS.QUINTOJOGO:
+			case SCENE.GAME_5:
 			{
-				quintojogo.key_down(key);	
+				game_5.key_down(key);	
 			}
-			break;*/
+			break;
 
 		}
 	}
 
 	function key_up(key)
 	{
-		switch(cena_atual)
-		{
-			case CENAS.INTRO:
+		switch(currentScene)
+		{			
+			case SCENE.INTRO:
 			{
-				introducao.key_up(key);	
+				intro.key_up(key);
 			}
 			break;
-			case CENAS.CREDITOS:
+			case SCENE.CREDIT:
 			{
-				creditos.key_up(key);
+				credit.key_up(key);
 			}
 			break;
-			/*case CENAS.PONG:
+			case SCENE.GAME_1:
 			{
-				pong.key_up(key);
+				game_1.key_up(key);
 			}
 			break;
-			case CENAS.ARKANOID:
+			case SCENE.GAME_1:
 			{
-				arkanoid.key_up(key);
+				game_2.key_up(key);
 			}
 			break;
-			case CENAS.INVADERS:
+			case SCENE.GAME_1:
 			{
-				invaders.key_up(key);
+				game_3.key_up(key);
 			}
 			break;
-			case CENAS.SHOOTER:
+			case SCENE.GAME_1:
 			{
-				shooter.key_up(key);
+				game_4.key_up(key);
 			}
 			break;
-			case CENAS.QUINTOJOGO:
+			case SCENE.GAME_1:
 			{
-				quintojogo.key_up(key);
+				game_5.key_up(key);
 			}
-			break;*/
+			break;
 
 		}
 	}
@@ -293,44 +334,43 @@
 
 	function mouse_down(mouse)
 	{
-		switch(cena_atual)
+		switch(currentScene)
 		{
-			case CENAS.INTRO:
+			case SCENE.INTRO:
 			{
-				console.log("asad")
-				introducao.mouse_down(mouse);	
+				intro.mouse_down(mouse);
 			}
 			break;
-			case CENAS.CREDITOS:
+			case SCENE.CREDIT:
 			{
-				creditos.mouse_down(mouse);
+				credit.mouse_down(mouse);
 			}
 			break;
-			/*case CENAS.PONG:
+			case SCENE.GAME_1:
 			{
-				pong.mouse_down(mouse);
+				game_1.mouse_down(mouse);
 			}
 			break;
-			case CENAS.ARKANOID:
+			case SCENE.GAME_2:
 			{
-				arkanoid.mouse_down(mouse);
+				game_2.mouse_down(mouse);
 			}
 			break;
-			case CENAS.INVADERS:
+			case SCENE.GAME_3:
 			{
-				invaders.mouse_down(mouse);
+				game_3.mouse_down(mouse);
 			}
 			break;
-			case CENAS.SHOOTER:
+			case SCENE.GAME_4:
 			{
-				shooter.mouse_down(mouse);
+				game_4.mouse_down(mouse);
 			}
 			break;
-			case CENAS.QUINTOJOGO:
+			case SCENE.GAME_5:
 			{
-				quintojogo.mouse_down(mouse);
+				game_5.mouse_down(mouse);
 			}
-			break;*/
+			break;
 
 		}
 	}
@@ -349,6 +389,21 @@
 		{
 			return true;//colidiu
 		}
+	}
+	
+	function include(filename)
+	{
+		console.log("2");
+		
+		
+		var head = document.getElementsByTagName('head')[0];
+		
+		console.log(head);
+
+		script = document.createElement('script');
+		script.src = filename;
+
+		head.appendChild(script);
 	}
 
 
