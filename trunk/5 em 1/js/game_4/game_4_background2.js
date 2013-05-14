@@ -10,8 +10,8 @@ function Background2(source)
 		loaded = true; 
 	};
 	
-	this.tamanho_x = 4098;
-    this.tamanho_y = 1366;
+	this.tamanho_x = 2048;
+    this.tamanho_y = 1024;
     this.posicao_x = 0;
     this.posicao_y = 0;
     this.velocidade_x = -10;
