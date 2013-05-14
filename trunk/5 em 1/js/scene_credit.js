@@ -22,6 +22,8 @@ function SceneCredit()
 		screen.fillText("CREDIT", 20, 20);
    		
    		this.button_back.draw();
+   				
+		
    	};
    
    
@@ -29,7 +31,7 @@ function SceneCredit()
    	{
    		if(this.button_back.clicked(mouse))
     	{
-    		currentScene = SCENE.MENU;
+    		currentScene = SCENE.INTRO;
     	}
    	};
    
