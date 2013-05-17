@@ -19,7 +19,7 @@ function SceneIntroducao()
     
     this.update=function()
     {
-    	console.log("sfjhf");
+
     };
     
     this.draw=function()

@@ -1,4 +1,3 @@
-
 function Bloco(source, hp)
 {
 	this.bloco_imagem = new Image();

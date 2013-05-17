@@ -1,142 +1,141 @@
 ;function SceneLevel1()
 {	
 	//Player
-	var player = new Player("setas");	
+	this.player = new Player("setas");	
 	
 	//Barra de energia
-	var interface = new Interface();
+	this.interface = new Interface();
 	
 	//Tiro
-	var Tiros_inimigos = new Array();
+	this.Tiros_inimigos = new Array();
 	
 	//Pause
-	var paused = true;
+	this.paused = false;
 	
 	//Sorteio do Tiros Inimigos
-	var sorteio = 0.01
+	this.sorteio = 0.01;
 	
-	var visible = true;
+	//
+	this.visible = true;
 		
 	//Wave1
-	var wave1 = new Array();
+	this.wave1 = new Array();
 	for(var i = 0 ; i < 10; i++) 
     {
-    	wave1[i] = new Inimigo("imgs/game_4/inimigos/Inimigo1.png");
-    	wave1[i].posicao_x = 1400;
-    	wave1[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave1[i] = new Inimigo("imgs/game_4/inimigos/Inimigo1.png");
+    	this.wave1[i].posicao_x = 1400;
+    	this.wave1[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     	//wave1[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
 	
 	//Wave2
-	var wave2 = new Array();
+	this.wave2 = new Array();
 	for(var i = 0 ; i < 5; i++) 
     {
-    	wave2[i] = new Inimigo("imgs/game_4/inimigos/Inimigo2.png");
-    	wave2[i].posicao_x = 1400*2 + (i * 60);
-    	wave2[i].posicao_y = (tamanho_tela_y/2) + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave2[i] = new Inimigo("imgs/game_4/inimigos/Inimigo2.png");
+    	this.wave2[i].posicao_x = 1400*2 + (i * 60);
+    	this.wave2[i].posicao_y = (tamanho_tela_y/2) + (i * 60); //numero depois de * espacamento entre os inimigos
     }
     
 	for(var i = 5 ; i < 9; i++) 
     {
-    	wave2[i] = new Inimigo("imgs/game_4/inimigos/Inimigo2.png");
-    	wave2[i].posicao_x = (1400*2)-240 + (i * 60);
-    	wave2[i].posicao_y = ((tamanho_tela_y/2)+240) - (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave2[i] = new Inimigo("imgs/game_4/inimigos/Inimigo2.png");
+    	this.wave2[i].posicao_x = (1400*2)-240 + (i * 60);
+    	this.wave2[i].posicao_y = ((tamanho_tela_y/2)+240) - (i * 60); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave3
-    var wave3 = new Array();
+    this.wave3 = new Array();
 	for(var i = 0 ; i < 5; i++) 
     {
-    	wave3[i] = new Inimigo("imgs/game_4/inimigos/Inimigo4.png");
-    	wave3[i].posicao_x = 1400 - ( i * 120 );
-    	wave3[i].posicao_y = tamanho_tela_y/10; //numero depois de * espacamento entre os inimigos
+    	this.wave3[i] = new Inimigo("imgs/game_4/inimigos/Inimigo4.png");
+    	this.wave3[i].posicao_x = (1400*3) - ( i * 120 );
+    	this.wave3[i].posicao_y = tamanho_tela_y/10; //numero depois de * espacamento entre os inimigos
     }
     
 	for(var i = 0 ; i < 5; i++) 
     {
-    	wave3[i+5] = new Inimigo("imgs/game_4/inimigos/Inimigo4.png");
-    	wave3[i+5].posicao_x = 1500 - ( i * 120 );
-    	wave3[i+5].posicao_y = tamanho_tela_y/10*9; //numero depois de * espacamento entre os inimigos
-    	wave3[i+5].currentBehaviour = BEHAVIOUR.UPANDDOWN;
+    	this.wave3[i+5] = new Inimigo("imgs/game_4/inimigos/Inimigo4.png");
+    	this.wave3[i+5].posicao_x = (1500*3) - ( i * 120 );
+    	this.wave3[i+5].posicao_y = tamanho_tela_y/10*9; //numero depois de * espacamento entre os inimigos
+    	this.wave3[i+5].currentBehaviour = BEHAVIOUR.UPANDDOWN;
 
     }
     
-    
-    
 	//Wave4
-    var wave4 = new Array();
+    this.wave4 = new Array();
     for(var i = 0 ; i < 10; i++) 
     {
-    	wave4[i] = new Inimigo("imgs/game_4/inimigos/Inimigo4.png");
-    	wave4[i].posicao_x = 1400*4;
-    	wave4[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave4[i] = new Inimigo("imgs/game_4/inimigos/Inimigo4.png");
+    	this.wave4[i].posicao_x = 1400*4;
+    	this.wave4[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave5
-    var wave5 = new Array();
+    this.wave5 = new Array();
     for(var i = 0 ; i < 10; i++) 
     {
-    	wave5[i] = new Inimigo("imgs/game_4/inimigos/Inimigo5.png");
-    	wave5[i].posicao_x = 1400*5;
-    	wave5[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave5[i] = new Inimigo("imgs/game_4/inimigos/Inimigo5.png");
+    	this.wave5[i].posicao_x = 1400*5;
+    	this.wave5[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave6
-    var wave6 = new Array();
+    this.wave6 = new Array();
     for(var i = 0 ; i < 10; i++) 
     {
-    	wave6[i] = new Inimigo("imgs/game_4/inimigos/Inimigo6.png");
-    	wave6[i].posicao_x = 1400*6;
-    	wave6[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave6[i] = new Inimigo("imgs/game_4/inimigos/Inimigo6.png");
+    	this.wave6[i].posicao_x = 1400*6;
+    	this.wave6[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave7
-    var wave7 = new Array();
+    this.wave7 = new Array();
     for(var i = 0 ; i < 10; i++) 
     {
-    	wave7[i] = new Inimigo("imgs/game_4/inimigos/Inimigo7.png");
-    	wave7[i].posicao_x = 1400*7;
-    	wave7[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave7[i] = new Inimigo("imgs/game_4/inimigos/Inimigo7.png");
+    	this.wave7[i].posicao_x = 1400*7;
+    	this.wave7[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave8
-    var wave8 = new Array();
+    this.wave8 = new Array();
     for(var i = 0 ; i < 10; i++) 
     {
-    	wave8[i] = new Inimigo("imgs/game_4/inimigos/Inimigo8.png");
-    	wave8[i].posicao_x = 1400*8;
-    	wave8[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave8[i] = new Inimigo("imgs/game_4/inimigos/Inimigo8.png");
+    	this.wave8[i].posicao_x = 1400*8;
+    	this.wave8[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave9
-    var wave9 = new Array();
+    this.wave9 = new Array();
     for(var i = 0 ; i < 10; i++) 
     {
-    	wave9[i] = new Inimigo("imgs/game_4/inimigos/Inimigo9.png");
-    	wave9[i].posicao_x = 1400*9;
-    	wave9[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave9[i] = new Inimigo("imgs/game_4/inimigos/Inimigo9.png");
+    	this.wave9[i].posicao_x = 1400*9;
+    	this.wave9[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     }
 	
 	//Wave10
-    var wave10 = new Array();
+    this.wave10 = new Array();
     for(var i = 0 ; i < 10; i++) 
     {
-    	wave10[i] = new Inimigo("imgs/game_4/inimigos/Inimigo10.png");
-    	wave10[i].posicao_x = 1400*10;
-    	wave10[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave10[i] = new Inimigo("imgs/game_4/inimigos/Inimigo10.png");
+    	this.wave10[i].posicao_x = 1400*10;
+    	this.wave10[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
     }
 	
     //Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
-    //var waves = wave1.concat(wave2, wave3, wave4, wave5, wave6, wave7, wave8, wave9, wave10);
+    this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10);
     
-    var waves = wave3.concat();
+    //var waves = wave3.concat();
     
     //Background
-    var background = new Background("imgs/game_4/FundoBackground.png");
-    background.posicao_y = tamanho_tela_x - background.tamanho_y;
+    this.background = new Background("imgs/game_4/FundoBackground.png", 2732, 768, -15);
+    this.background.posicao_x = tamanho_tela_x - this.background.tamanho_x;
     
-    var background2 = new Background2("imgs/game_4/FundoBackground2.png");
-    background2.posicao_y = tamanho_tela_x - background.tamanho_y;
+    this.background2 = new Background("imgs/game_4/FundoBackground2.png", 4098, 768, -10);
+    this.background2.posicao_x = tamanho_tela_x - this.background2.tamanho_x;
     
     //Efeito sonoro
     this.efeito_sonoro = new Audio();
@@ -147,32 +146,32 @@
     {
     	if(!paused)
     	{
-    		return    	
+    		return; 	
     	}
 
-    	this.efeito_sonoro.play();
+    	//this.efeito_sonoro.play();
     	
     	//Background se movendo
-    	background.update();
+    	this.background.update();
     	
     	//Background2 se movendo
-    	background2.update();
+    	this.background2.update();
     	
     	//Player
-    	player.update();
+    	this.player.update();
     	
     	//Inimigo
-    	for(var i = 0 ; i < waves.length; i++)
+    	for(var i = 0 ; i < this.waves.length; i++)
     	{
-    		waves[i].update();
+    		this.waves[i].update();
     		
-			if(waves[i].posicao_x < tamanho_tela_x && waves[i].posicao_x > 0)
+			if(this.waves[i].posicao_x < tamanho_tela_x && this.waves[i].posicao_x > 0)
     		{
-    			if(waves[i].visible)
+    			if(this.waves[i].visible)
     			{
-    				if(Math.random()< sorteio)
+    				if(Math.random()< this.sorteio)
     				{
-    					Tiros_inimigos.push(new Tiro(waves[i].posicao_x, waves[i].posicao_y + waves[i].tamanho_y/2, -15));
+    					this.Tiros_inimigos.push(new Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/2, -15));
     				}
     			}
     		}
@@ -180,73 +179,73 @@
    		}
    		   	
     	//Tiros Player
-    	for(var i = 0; i < player.Tiros.length ; i++)
+    	for(var i = 0; i < this.player.Tiros.length ; i++)
     	{
-    		player.Tiros[i].update();
+    		this.player.Tiros[i].update();
     	}
     	
     	//Tiros inimigos
-    	for(var i = 0; i < Tiros_inimigos.length ; i++)
+    	for(var i = 0; i < this.Tiros_inimigos.length ; i++)
     	{
-    		Tiros_inimigos[i].update();
+    		this.Tiros_inimigos[i].update();
     	}
     	
 
     	
     //	PLAYER COLIDINDO COM OS INIMIGOS 	
-    for(var i = 0; i < waves.length; i++)
+    for(var i = 0; i < this.waves.length; i++)
 	{
-		if(waves[i].visible&&player.visible)
+		if(this.waves[i].visible&&this.player.visible)
 		{
 				if(Collide(
-					player.posicao_x,
-        			player.posicao_y,
-        			player.tamanho_x,
-        			player.tamanho_y,
-        			waves[i].posicao_x,
-        			waves[i].posicao_y,
-        			waves[i].tamanho_x,
-        			waves[i].tamanho_y))
+					this.player.posicao_x,
+        			this.player.posicao_y,
+        			this.player.tamanho_x,
+        			this.player.tamanho_y,
+        			this.waves[i].posicao_x,
+        			this.waves[i].posicao_y,
+        			this.waves[i].tamanho_x,
+        			this.waves[i].tamanho_y))
 			{
-				player.current_energy--;
+				this.player.current_energy--;
 				
-				waves[i].visible = false;
+				this.waves[i].visible = false;
 				
-				if(player.current_energy <= 0)
+				if(this.player.current_energy <= 0)
 				{
-					player.visible = false;
+					this.player.visible = false;
 				}
 		
 			}
 		}
 	
 		//TIRO DO PLAYER COLIDINDO COM OS INIMIGOS
-		for(var j = 0; j < player.Tiros.length; j++)
+		for(var j = 0; j < this.player.Tiros.length; j++)
 		{
-			if(waves[i].visible&&player.Tiros[j].visible)
+			if(this.waves[i].visible&&this.player.Tiros[j].visible)
 			{	
 				if(Collide(
-        			player.Tiros[j].posicao_x,
-        			player.Tiros[j].posicao_y,
-        			player.Tiros[j].tamanho_x,
-        			player.Tiros[j].tamanho_y,
-        			waves[i].posicao_x,
-        			waves[i].posicao_y,
-        			waves[i].tamanho_x,
-        			waves[i].tamanho_y))
+        			this.player.Tiros[j].posicao_x,
+        			this.player.Tiros[j].posicao_y,
+        			this.player.Tiros[j].tamanho_x,
+        			this.player.Tiros[j].tamanho_y,
+        			this.waves[i].posicao_x,
+        			this.waves[i].posicao_y,
+        			this.waves[i].tamanho_x,
+        			this.waves[i].tamanho_y))
         		{
-        			player.Tiros[j].visible = false;
+        			this.player.Tiros[j].visible = false;
         			
-        			waves[i].current_energy -= player.Tiros[j].dano;; 
+        			this.waves[i].current_energy -= this.player.Tiros[j].dano;; 
         			
-        			if(waves[i].current_energy <=0)		
+        			if(this.waves[i].current_energy <=0)		
 					{
-						waves[i].visible = false;
+						this.waves[i].visible = false;
 					}
 					//Removendo o tiro da lista
-					if(player.Tiros[j].visible == false)
+					if(this.player.Tiros[j].visible == false)
 					{
-						player.Tiros.splice(j, 1);
+						this.player.Tiros.splice(j, 1);
 					}
 							
     			
@@ -255,39 +254,35 @@
 		}		
 		
 		//TIRO DO INIMIGO COLIDINDO COM PLAYER	
-		for(var j = 0; j < Tiros_inimigos.length; j++)
+		for(var j = 0; j < this.Tiros_inimigos.length; j++)
 		{
-			if(player.visible&&Tiros_inimigos[j].visible)
+			if(this.player.visible&&this.Tiros_inimigos[j].visible)
 			{	
 				if(Collide(
-        			Tiros_inimigos[j].posicao_x,
-        			Tiros_inimigos[j].posicao_y,
-        			Tiros_inimigos[j].tamanho_x,
-        			Tiros_inimigos[j].tamanho_y,
-        			player.posicao_x,
-        			player.posicao_y,
-        			player.tamanho_x,
-        			player.tamanho_y))
+        			this.Tiros_inimigos[j].posicao_x,
+        			this.Tiros_inimigos[j].posicao_y,
+        			this.Tiros_inimigos[j].tamanho_x,
+        			this.Tiros_inimigos[j].tamanho_y,
+        			this.player.posicao_x,
+        			this.player.posicao_y,
+        			this.player.tamanho_x,
+        			this.player.tamanho_y))
         			
         		{
-        			Tiros_inimigos[j].visible = false;
-        
+        			this.Tiros_inimigos[j].visible = false;
+                			
+        			this.player.current_energy -= this.Tiros_inimigos[j].dano; 
         			
-        			player.current_energy -= Tiros_inimigos[j].dano; 
-        			
-        			if(player.current_energy <=0)		
+        			if(this.player.current_energy <=0)		
 					{
-						player.visible = false;
+						this.player.visible = false;
 					}
 					
 					//Removendo o tiro da lista
-					if(Tiros_inimigos[j].visible == false)
+					if(this.Tiros_inimigos[j].visible == false)
 					{
-						Tiros_inimigos.splice(j, 1);
+						this.Tiros_inimigos.splice(j, 1);
 					}
-					
-				
-
         		}
 			}
 			
@@ -302,34 +297,34 @@
     this.draw=function()
     { 	
     	//Desenhando fundo
-    	background.draw();
+    	this.background.draw();
     	
     	//Desenhando Fundo paralax
-    	background2.draw();
+    	this.background2.draw();
     	
     	//Desenhando player
-    	player.draw();
+    	this.player.draw();
     	
     	//Desenhando inimigos
-    	for(var i = 0 ; i < waves.length; i++)
+    	for(var i = 0 ; i < this.waves.length; i++)
     	{
-    		waves[i].draw();    		 
+    		this.waves[i].draw();    		 
    		}   	
    		
     	//Desenhando Tiros
-		for(var i = 0; i < player.Tiros.length ; i++)
+		for(var i = 0; i < this.player.Tiros.length ; i++)
     	{
-    		player.Tiros[i].draw();
+    		this.player.Tiros[i].draw();
     	}
     	
 		//Desenhando Tiros dos inimigos
-    	for(var i = 0; i < Tiros_inimigos.length ; i++)
+    	for(var i = 0; i < this.Tiros_inimigos.length ; i++)
     	{
-    		Tiros_inimigos[i].draw();
+    		this.Tiros_inimigos[i].draw();
     	}
 
 		//Desenhando barra de energia
-    	interface.draw(player.max_energy, player.current_energy, player.lives); 
+    	this.interface.draw(this.player.max_energy, this.player.current_energy, this.player.lives); 
     };
     
     
@@ -342,46 +337,23 @@
  	 //Tecla desceu
     this.key_down=function(key)
     {    	
-		player.key_down(key);
+		this.player.key_down(key);
     };
     
     //Tecla subiu
     this.key_up=function(key)
     {
-    	player.key_up(key);
+    	this.player.key_up(key);
 	};
 	
-	function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
-	{
-		if((x1+w1<x2) //SE RECT1 ESQUERDO RECT2//
-			||(x1>x2+w2) //SE RECT1 DIREITO RECT2//
-			||(y1+h1<y2) //SE RECT1 CIMA RECT2//
-			||(y1>y2+h2)) //SE RECT1 BAIXO RECT2//
-		{
-			return false; //NÃO COLIDIU//
-		}
-		else	
-		{
-			return true; //COLIDIU//
-		}
-	}
-
 	window.addEventListener('keypress', key_press, true);
-			
-
-
+		
 	function key_press(key)
 	{
 		if (key.keyCode == 112 )
 		{
-			paused = !paused;
+			this.paused = !paused;
 		}
-		
-		//Teste do tiro do inimigo
-		/*if (key.keyCode == 113 )
-		{
-			Tiros_inimigos.push(new Tiro(waves[0].posicao_x, waves[0].posicao_y + waves[0].tamanho_y/2, -15));		
-		}*/
 		
 	}
 	

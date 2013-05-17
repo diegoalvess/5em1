@@ -17,7 +17,7 @@ function Button(arquivo, tam_x, tam_y, pos_x, pos_y)
     
     this.update=function()
     {
-    	
+    	console.log("Botao")
     };
     
     this.draw=function()

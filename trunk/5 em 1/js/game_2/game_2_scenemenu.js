@@ -16,8 +16,7 @@ function SceneMenu()
     this.efeito_sonoro.load();
     
     //variavel e imagem dos bot�es
-   	this.botao_comecar = new Button("imgs/game_2/comecar_teste.png", 302, 82, 350, 300);
-    //this.botao_creditos = new Button("Imagens/botaocredito.png", 302, 85, 630, 480);
+   	this.botao_comecar = new Button("imgs/game_4/botaocomecar.png", 302, 85, 580, 300);    //this.botao_creditos = new Button("Imagens/botaocredito.png", 302, 85, 630, 480);
     this.botao_instru = new Button("imgs/game_2/instrucao_teste.png", 235, 57, 350, 550);
     
     this.imagem.onload = function()

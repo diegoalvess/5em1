@@ -5,8 +5,8 @@ function SceneGanhou()
 	this.loaded = false;
     
 
-    this.tamanho_x = 1500;
-    this.tamanho_y = 1366;
+    this.tamanho_x = 1024;
+    this.tamanho_y = 768;
 
     this.posicao_x = 0;
     this.posicao_y = 0;

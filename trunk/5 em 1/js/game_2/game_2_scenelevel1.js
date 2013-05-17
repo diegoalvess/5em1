@@ -1,89 +1,89 @@
 function SceneLevel1()
 {
 	//Player
-	var player = new Paleta();	
+	this.player = new Paleta();	
 	
 	 //Colocando a imagem de background
-    var background = new Background();
+    this.background = new Background();
 	
 	//Bola
-	var bola = new Ball();
+	this.bola = new Ball();
 	
 	//Blocos
-	var listablocos1 = new Array();
+	this.listablocos1 = new Array();
 	
-	var listablocos2 = new Array();
+	this.listablocos2 = new Array();
 	
-	var listablocos3 = new Array();
+	this.listablocos3 = new Array();
 	
-	var listablocos4 = new Array();
+	this.listablocos4 = new Array();
 	
-	var listablocos5 = new Array();
+	this.listablocos5 = new Array();
 	
-	var listas;
+	this.listas;
 	
 	//Pause
-	var paused = true;
+	this.paused = true;
 	
 	//	PONTOS
-	var pontos = 0;
+	this.pontos = 0;
 	
 	// VIDAS
-	var vidas = 3;
+	this.vidas = 3;
 	
 	// TELA DE QUANDO GANHA
-	var tela_de_ganhou = new SceneGanhou();
+	this.tela_de_ganhou = new SceneGanhou();
 
 	// TELA DE QUANDO PERDE
-	var tela_do_derrotado = new ScenePerdeu();
+	this.tela_do_derrotado = new ScenePerdeu();
 		
 	this.reset=function()
 	{
 		//criação dos blocos
 		for(var i = 0; i < 10; i++)
 		{	
-			listablocos1[i] = new Bloco("imgs/game_2/bloco5.png", 5);				
-			listablocos1[i].psc_Y = 100
- 			listablocos1[i].psc_X = 120 + (i * (listablocos1[i].tam_X + 5)); 			
+			this.listablocos1[i] = new Bloco("imgs/game_2/bloco5.png", 5);				
+			this.listablocos1[i].psc_Y = 100
+ 			this.listablocos1[i].psc_X = 120 + (i * (this.listablocos1[i].tam_X + 5)); 			
 		}		
 		
 		for(var i = 0; i < 10; i++)
 		{
-			listablocos2[i] = new Bloco("imgs/game_2/bloco4.png", 4);
-			listablocos2[i].psc_Y = 120
-			listablocos2[i].psc_X = 120 + (i * (listablocos2[i].tam_X + 5)) 	
+			this.listablocos2[i] = new Bloco("imgs/game_2/bloco4.png", 4);
+			this.listablocos2[i].psc_Y = 120
+			this.listablocos2[i].psc_X = 120 + (i * (this.listablocos2[i].tam_X + 5)) 	
 		}	
 		
 		for(var i = 0; i < 10; i++)
 		{
-			listablocos3[i] = new Bloco("imgs/game_2/bloco3.png", 3);
-			listablocos3[i].psc_Y = 140
-			listablocos3[i].psc_X = 120 + (i * (listablocos3[i].tam_X + 5)) 
+			this.listablocos3[i] = new Bloco("imgs/game_2/bloco3.png", 3);
+			this.listablocos3[i].psc_Y = 140
+			this.listablocos3[i].psc_X = 120 + (i * (this.listablocos3[i].tam_X + 5)) 
 		}
 		
 		for(var i = 0; i < 10; i++)
 		{
-			listablocos4[i] = new Bloco("imgs/game_2/bloco2.png", 2);
-			listablocos4[i].psc_Y = 160
-			listablocos4[i].psc_X = 120 + (i * (listablocos4[i].tam_X + 5)) 
+			this.listablocos4[i] = new Bloco("imgs/game_2/bloco2.png", 2);
+			this.listablocos4[i].psc_Y = 160
+			this.listablocos4[i].psc_X = 120 + (i * (this.listablocos4[i].tam_X + 5)) 
 		}
 		
 		for(var i = 0; i < 10; i++)
 		{
-			listablocos5[i] = new Bloco("imgs/game_2/bloco1.png", 1);
-			listablocos5[i].psc_Y = 180
-			listablocos5[i].psc_X = 120 + (i * (listablocos5[i].tam_X + 5)) 
+			this.listablocos5[i] = new Bloco("imgs/game_2/bloco1.png", 1);
+			this.listablocos5[i].psc_Y = 180
+			this.listablocos5[i].psc_X = 120 + (i * (listablocos5[i].tam_X + 5)) 
 		}
    
-   		listas = listablocos1.concat(listablocos2,listablocos3,listablocos4,listablocos5);
+   		this.listas = this.listablocos1.concat(this.listablocos2,this.listablocos3,this.listablocos4,this.listablocos5);
    		
-   		bola;
+   		this.bola;
    		
-   		pontos = 0;
+   		this.pontos = 0;
    		
-   		vidas = 3;
+   		this.vidas = 3;
    		
-   		player;
+   		this.player;
 	};
 	
 	this.reset();
@@ -102,86 +102,87 @@ function SceneLevel1()
     	//this.efeito_sonoro.play();
     	
     	//Background se movendo
-    	background.update();
+    	this.background.update();
     	
     	//Player
-    	player.update();
+    	this.player.update();
     	
     	//Bola
     	//MOVENDO A BOLA 
     	//MANTENDO BOLA NO PLAYER
-    	bola.update(player.posicao_x+player.tamanho_x/2);
+    	this.bola.update(this.player.posicao_x+this.player.tamanho_x/2);
     	
 		//LISTA DOS BLOCOS
-		for(var i = 0 ; i <listas.length; i++)
+		for(var i = 0 ; i <this.listas.length; i++)
 		{
-			listas[i].update(); 
+			this.listas[i].update(); 
 		}
 		
 		//Fazendo colis�o da bola com a paleta player
 			
 		if(Collide(
-				bola.posicao_x,
-				bola.posicao_y,
-				bola.tamanho_x,
-				bola.tamanho_y,
-				player.posicao_x,
-				player.posicao_y,
-				player.tamanho_x,
-				player.tamanho_y))
+					this.bola.posicao_x,
+					this.bola.posicao_y,
+					this.bola.tamanho_x,
+					this.bola.tamanho_y,
+					this.player.posicao_x,
+					this.player.posicao_y,
+					this.player.tamanho_x,
+					this.player.tamanho_y))
 			{
-				if(bola.velocity_y )//< bola.velocity_MAX)
+				if(this.bola.velocity_y )//< bola.velocity_MAX)
 				{
-					bola.velocity_y += 1;
+					this.bola.velocity_y += 1;
 				}
-				bola.velocity_y *= -1;
+				this.bola.velocity_y *= -1;
 			}
 			
 		
 		
 		//COLISAO COM OS BLOCOS
-		for(var i = 0 ; i < listas.length; i++)
+		for(var i = 0 ; i < this.listas.length; i++)
 			{
-				if(listas[i].visible)
+				if(this.listas[i].visible)
 				{
-					if(Collide(bola.posicao_x,
-							   bola.posicao_y,
-							   bola.tamanho_x,
-						       bola.tamanho_y,
-						       listas[i].psc_X,
-							   listas[i].psc_Y,
-							   listas[i].tam_X,
-							   listas[i].tam_Y))
+					if(Collide(
+								this.bola.posicao_x,
+							   	this.bola.posicao_y,
+							   	this.bola.tamanho_x,
+						       	this.bola.tamanho_y,
+						       	this.listas[i].psc_X,
+							   	this.listas[i].psc_Y,
+							   	this.listas[i].tam_X,
+							   	this.listas[i].tam_Y))
 						{
-							listas[i].hp--;
-							if(listas[i].hp <=0)
+							this.listas[i].hp--;
+							if(this.listas[i].hp <=0)
 							{
-								listas[i].visible = false;
-								pontos++;
+								this.listas[i].visible = false;
+								this.pontos++;
 			
 									//FAZENDO APARECER A TELA DE VENCEDOR
-									if(pontos >= 50)
+									if(this.pontos >= 50)
 									{
-										game_2.currentScene = game_2.SCENE.FIMGANHOU;
+										this.game_2.currentScene = this.game_2.SCENE.FIMGANHOU;
 									}
 							}
 														
-							bola.velocity_y *= -1;
+							this.bola.velocity_y *= -1;
 														
 						}
 				}
 			}
 			
 			//FAZENDO A VIDA DIMINUIR E VOLTAR PARA A PALETA
-			if(bola.posicao_y > 700 - bola.tamanho_y)
+			if(this.bola.posicao_y > 700 - this.bola.tamanho_y)
 			{
-				vidas--;
-				bola.followplayer = true;					
+				this.vidas--;
+				this.bola.followplayer = true;					
 				
 				//FAZENDO O A TELA DE PERDEDOR APARECER 0 
-				if(vidas <= 0)
+				if(this.vidas <= 0)
 				{
-					game_2.currentScene = game_2.SCENE.FIMPERDEU;
+					this.game_2.currentScene = this.game_2.SCENE.FIMPERDEU;
 					this.reset();
 										
 				}
@@ -196,21 +197,21 @@ function SceneLevel1()
     this.draw=function()
     { 	
     	//Desenhando fundo
-    	background.draw();
+    	this.background.draw();
     	
     	//Desenhando player
-    	player.draw();
+    	this.player.draw();
     	
     	//Desenhando bola
-    	bola.draw();
+    	this.bola.draw();
     	
-    	//listas.draw();
+    	//this.listas.draw();
     	
     	
     	//DESENHANDO TODOS OS BLOCOS
-    	for(var i = 0 ; i <listas.length; i++)
+    	for(var i = 0 ; i <this.listas.length; i++)
 		{
-			listas[i].draw();		
+			this.listas[i].draw();		
  		}
  		
  		//DESENHANDO PONTOS NA TELA
@@ -246,19 +247,19 @@ function SceneLevel1()
  	
     this.key_down=function(key)
     {
-		player.key_down(key);
+		this.player.key_down(key);
     
     
     	if(key.keyCode == "32")
 		{
-			bola.followplayer = false;
+			this.bola.followplayer = false;
 		}	
     
     };
     
     this.key_up=function(key)
     {
-    	player.key_up(key);
+    	this.player.key_up(key);
 	};	
 	
 	//COLISAO
@@ -283,7 +284,7 @@ function SceneLevel1()
 	{
 		if (key.keyCode == 112 )
 		{
-			paused = !paused;
+			this.paused = !paused;
 		}
 	}
 	

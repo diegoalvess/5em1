@@ -131,4 +131,67 @@ function Game_4()
 								
 			}
 		}		
+		
+		this.key_down = function(key)
+		{
+			switch(this.currentScene)
+			{
+				case this.SCENE.INTRODUCAO:
+				{
+					this.introducao.key_down(key);
+				}
+				break;
+				
+				case this.SCENE.LEVEL_1:
+				{
+					this.level1.key_down(key);
+				}
+				break;
+				
+				case this.SCENE.FIMPERDEU:
+				{
+					this.fimperdeu.key_down(key);
+				}
+				break;
+				
+				case SCENE.FIMGANHOU:
+				{
+					this.fimganhou.key_down(key);
+				}
+				break;
+								
+			}
+		}
+				
+		this.key_up = function(key)
+		{
+			
+			switch(this.currentScene)
+			{
+				case this.SCENE.INTRODUCAO:
+				{
+					this.introducao.key_up(key);
+				}
+				break;
+				
+				case this.SCENE.LEVEL_1:
+				{
+					this.level1.key_up(key);
+				}
+				break;
+				
+				case this.SCENE.FIMPERDEU:
+				{
+					this.fimperdeu.key_up(key);
+				}
+				break;
+				
+				case SCENE.FIMGANHOU:
+				{
+					this.fimganhou.key_up(key);
+				}
+				break;
+								
+			}
+		}
 }

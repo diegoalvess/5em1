@@ -143,5 +143,20 @@ function Game_2 ()
 				break;
 								
 			}
-		}		
+		}
+		
+		this.mouse_up = function(mouse)
+		{
+			
+		};
+		
+		this.key_down = function(key)
+		{
+		
+		};
+		
+		this.key_up = function(key)
+		{
+		
+		};		
 }
