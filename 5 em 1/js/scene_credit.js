@@ -15,14 +15,8 @@ function SceneCredit()
    
    	this.draw=function()
    	{
-   		//screen.drawImage(this.background, 0, 0);
-   		
-   		screen.font = "20px Comic Sans MS";
-		screen.fillStyle="#000000";
-		screen.fillText("CREDIT", 20, 20);
-   		
-   		this.button_back.draw();
-   				
+   		screen.drawImage(this.background, 0, 0);   		
+   		this.button_back.draw();  				
 		
    	};
    

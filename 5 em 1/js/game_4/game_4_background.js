@@ -1,4 +1,4 @@
-function Background(source)
+function Background(source, tx, ty, vx)
 {
 	this.imagem = new Image();
 	this.imagem.src = source;
@@ -10,11 +10,11 @@ function Background(source)
 		loaded = true; 
 	};
 	
-	this.tamanho_x = 2048;
-    this.tamanho_y = 1024;
+	this.tamanho_x = tx;
+    this.tamanho_y = ty;
     this.posicao_x = 0;
     this.posicao_y = 0;
-    this.velocidade_x = -15;
+    this.velocidade_x = vx;
     this.velocidade_y = 0;
     
     this.update=function()

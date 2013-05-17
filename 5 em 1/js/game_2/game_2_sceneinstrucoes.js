@@ -1,7 +1,7 @@
 function SceneInstrucoes()
 {
 	this.imagem = new Image();
-	this.imagem.src = "imgs/game_2/intro.png"//FAZER IMAGEM PARA INSTRUCAO
+	this.imagem.src = "imgs/game_2/Intro.png"//FAZER IMAGEM PARA INSTRUCAO
 	this.loaded = false;
 	this.tamanho_x = 1024;
     this.tamanho_y = 768;
@@ -16,8 +16,8 @@ function SceneInstrucoes()
     
     
     //imagem dos botoes												TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
-   	this.botao_play = new Button("imgs/game_2/botao_passado_pelo_mouse.png", tamanho_tela_x/2, tamanho_tela_y-70 );
-    
+   	this.botao_play = new Button("imgs/game_2/botao_passado_pelo_mouse.png", 251, 82, 200, 500 );
+   	    
     
     this.imagem.onload = function()
 	{
@@ -26,7 +26,7 @@ function SceneInstrucoes()
     
     this.update=function()
     {
-    	
+    	console.log("aaaa")
     };
     
     this.draw=function()
@@ -55,7 +55,10 @@ function SceneInstrucoes()
     };
     
     
-    
+	this.key_up=function(key)
+    {
+		
+    }; 
     
 	
 }

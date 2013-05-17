@@ -36,12 +36,8 @@ function SceneIntro()
    
    	this.draw=function()
 	{
-		//screen.drawImage(this.background, 0, 0);
-		
-		screen.font = "20px Comic Sans MS";
-		screen.fillStyle="#000000";
-		screen.fillText("INTRO", 20, 20);
-		
+		screen.drawImage(this.background, 0, 0);
+			
 		this.button_credit.draw();
 		this.button_game_1.draw();
 		this.button_game_2.draw();
@@ -92,12 +88,12 @@ function SceneIntro()
    	
    	this.mouse_up=function(mouse)
   	{
-  		console.log("INTRO mouse X " + mouse.x + " mouse Y " + mouse.y );
+
   	};
   
   	this.key_up=function(key)
   	{
-  		console.log("INTRO keyCode " + key.keyCode );
+
   	};
   	
    
