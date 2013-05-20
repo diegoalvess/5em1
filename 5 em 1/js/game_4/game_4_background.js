@@ -1,4 +1,4 @@
-function Background(source, tx, ty, vx)
+function Game4Background(source, tx, ty, vx)
 {
 	this.imagem = new Image();
 	this.imagem.src = source;

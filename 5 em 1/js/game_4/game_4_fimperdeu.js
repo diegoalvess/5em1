@@ -1,12 +1,12 @@
-function ScenePerdeu()
+function Game4ScenePerdeu()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_4/Fimperdeu.png"
 	this.loaded = false;
     
 
-    this.tamanho_x = 1024;
-    this.tamanho_y = 768;
+    this.tamanho_x = 800;
+    this.tamanho_y = 600;
 
     this.posicao_x = 0;
     this.posicao_y = 0;
@@ -39,8 +39,17 @@ function ScenePerdeu()
     	this.efeito_sonoro.pause();
     };
     
+    this.mouse_up=function(mouse)
+	{
+		
+	};
     
     this.key_down=function(key)
+    {
+		
+    };
+        
+    this.key_up=function(key)
     {
 		
     };

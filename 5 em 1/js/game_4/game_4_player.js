@@ -1,4 +1,4 @@
-function Player(player_tecla)
+function Game4Player(player_tecla)
 
 {
 	this.imagem = new Image();
@@ -32,7 +32,7 @@ function Player(player_tecla)
     this.efeito_sonoro.src = "sounds/game_4/Tiro.mp3"
     this.efeito_sonoro.load();
      
-    this.max_energy = 100; 
+    this.max_energy = 1; 
 	this.current_energy = this.max_energy;
 	
 	this.lives = 3;
@@ -52,7 +52,7 @@ function Player(player_tecla)
     		if(this.visible)
     		{
 				this.efeito_sonoro.play();
-    			this.Tiros.push(new Tiro(this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2, 15));  
+    			this.Tiros.push(new Game4Tiro(this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2, 15));  
     		}
     	}
     	
@@ -123,10 +123,9 @@ function Player(player_tecla)
     //Tecla desceu
     this.key_down=function(key)
     {
-    	console.log("Clara Maia 4");
 
 
-		if(this.player_tecla == "setas")
+		if(this.player_tecla)
     	{
     		if(key.keyCode == 39)
     		{

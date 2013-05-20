@@ -1,4 +1,4 @@
-function Inimigo(source,hp)
+function Game4Inimigo(source,hp)
 {
 	this.imagem = new Image();
 	this.imagem.src = source;

@@ -1,4 +1,4 @@
-function Interface()
+function Game4Interface()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_4/barra de energia.png";
