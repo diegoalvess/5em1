@@ -1,12 +1,12 @@
-function SceneIntroducao()
+function Game4SceneIntroducao()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_4/Introducao.png"
 	this.loaded = false;
     
 
-    this.tamanho_x = 1024;
-    this.tamanho_y = 768;
+    this.tamanho_x = 800;
+    this.tamanho_y = 600;
 
     this.posicao_x = 0;
     this.posicao_y = 0;

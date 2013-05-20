@@ -1,12 +1,12 @@
-function SceneGanhou()
+function Game4SceneGanhou()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_4/Fimganhou.png"
 	this.loaded = false;
     
 
-    this.tamanho_x = 1024;
-    this.tamanho_y = 768;
+    this.tamanho_x = 800;
+    this.tamanho_y = 600;
 
     this.posicao_x = 0;
     this.posicao_y = 0;
@@ -33,8 +33,18 @@ function SceneGanhou()
     	//currentScene = SCENE.[adicionar tela aqui depois];
     };
     
+    this.mouse_up=function(mouse)
+	{
+		
+	};
+    
     
     this.key_down=function(key)
+    {
+		
+    };
+        
+    this.key_up=function(key)
     {
 		
     };

@@ -5,22 +5,19 @@ function Game_4()
 
 				
 		//Pausa
-		this.paused = false;
+		//this.paused = false;
 		
 		//Introducao
-		this.introducao = new SceneIntroducao();
-
-		//Creditos
-		//this.creditos = new SceneCreditos();
+		this.introducao = new Game4SceneIntroducao();
 
 		//Level
 		this.level1 = new Game4SceneLevel1();
 		
 		//FimGanhou 
-		this.fimganhou = new SceneGanhou();
+		this.fimganhou = new Game4SceneGanhou();
 		
 		//FimPerdeu
-		this.fimperdeu = new ScenePerdeu();
+		this.fimperdeu = new Game4ScenePerdeu();
 		
 		//Menu
 		//this.menu = new SceneMenu();
@@ -117,15 +114,15 @@ function Game_4()
 				}
 				break;
 				
-				case this.SCENE.FIMPERDEU:
+				case this.SCENE.FIMGANHOU:
 				{
-					this.fimperdeu.mouse_down(mouse);
+					this.fimganhou.mouse_down(mouse);
 				}
 				break;
 				
-				case SCENE.FIMGANHOU:
+				case SCENE.FIMFIMPERDEU:
 				{
-					this.fimganhou.mouse_down(mouse);
+					this.fimperdeu.mouse_down(mouse);
 				}
 				break;
 								
@@ -144,21 +141,20 @@ function Game_4()
 				
 				case this.SCENE.LEVEL_1:
 				{
-					console.log("Clara Maia 1");
 
 					this.level1.key_down(key);
 				}
 				break;
 				
-				case this.SCENE.FIMPERDEU:
+				case this.SCENE.FIMGANHOU:
 				{
-					this.fimperdeu.key_down(key);
+					this.fimganhou.key_down(key);
 				}
 				break;
 				
-				case SCENE.FIMGANHOU:
+				case SCENE.FIMPERDEU:
 				{
-					this.fimganhou.key_down(key);
+					this.fimperdeu.key_down(key);
 				}
 				break;
 								
@@ -182,15 +178,15 @@ function Game_4()
 				}
 				break;
 				
-				case this.SCENE.FIMPERDEU:
+				case this.SCENE.FIMGANHOU:
 				{
-					this.fimperdeu.key_up(key);
+					this.fimganhou.key_up(key);
 				}
 				break;
 				
-				case SCENE.FIMGANHOU:
+				case SCENE.FIMPERDEU:
 				{
-					this.fimganhou.key_up(key);
+					this.fimperdeu.key_up(key);
 				}
 				break;
 								

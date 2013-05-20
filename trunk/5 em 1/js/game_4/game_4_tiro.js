@@ -1,4 +1,4 @@
-function Tiro(posicao_x, posicao_y, velocidade_x)
+function Game4Tiro(posicao_x, posicao_y, velocidade_x)
 {	
 	this.imagem = new Image();
 	this.imagem.src="imgs/game_4/Tiro.png";
