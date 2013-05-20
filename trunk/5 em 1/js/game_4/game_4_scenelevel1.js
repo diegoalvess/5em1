@@ -38,7 +38,7 @@ function Game4SceneLevel1()
     {
     	this.wave1[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo1.png");
     	this.wave1[i].posicao_x = 1400;
-    	this.wave1[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave1[i].posicao_y = tamanho_tela_y/10 + (i * 50); //numero depois de * espacamento entre os inimigos
     	//wave1[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
 	
@@ -48,14 +48,14 @@ function Game4SceneLevel1()
     {
     	this.wave2[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo2.png");
     	this.wave2[i].posicao_x = 1400*2 + (i * 60);
-    	this.wave2[i].posicao_y = (tamanho_tela_y/2) + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave2[i].posicao_y = (tamanho_tela_y/2) + (i * 50); //numero depois de * espacamento entre os inimigos
     }
     
 	for(var i = 5 ; i < 9; i++) 
     {
     	this.wave2[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo2.png");
     	this.wave2[i].posicao_x = (1400*2)-240 + (i * 60);
-    	this.wave2[i].posicao_y = ((tamanho_tela_y/2)+240) - (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave2[i].posicao_y = ((tamanho_tela_y/2)+240) - (i * 50); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave3
@@ -82,7 +82,7 @@ function Game4SceneLevel1()
     {
     	this.wave4[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo4.png");
     	this.wave4[i].posicao_x = 1400*4;
-    	this.wave4[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave4[i].posicao_y = tamanho_tela_y/10 + (i * 50); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave5
@@ -91,7 +91,7 @@ function Game4SceneLevel1()
     {
     	this.wave5[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo5.png");
     	this.wave5[i].posicao_x = 1400*5;
-    	this.wave5[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave5[i].posicao_y = tamanho_tela_y/10 + (i * 50); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave6
@@ -100,7 +100,7 @@ function Game4SceneLevel1()
     {
     	this.wave6[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo6.png");
     	this.wave6[i].posicao_x = 1400*6;
-    	this.wave6[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave6[i].posicao_y = tamanho_tela_y/10 + (i * 50); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave7
@@ -109,7 +109,7 @@ function Game4SceneLevel1()
     {
     	this.wave7[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo7.png");
     	this.wave7[i].posicao_x = 1400*7;
-    	this.wave7[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave7[i].posicao_y = tamanho_tela_y/10 + (i * 50); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave8
@@ -118,7 +118,7 @@ function Game4SceneLevel1()
     {
     	this.wave8[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo8.png");
     	this.wave8[i].posicao_x = 1400*8;
-    	this.wave8[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave8[i].posicao_y = tamanho_tela_y/10 + (i * 50); //numero depois de * espacamento entre os inimigos
     }
     
 	//Wave9
@@ -127,7 +127,7 @@ function Game4SceneLevel1()
     {
     	this.wave9[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo9.png");
     	this.wave9[i].posicao_x = 1400*9;
-    	this.wave9[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave9[i].posicao_y = tamanho_tela_y/10 + (i * 50); //numero depois de * espacamento entre os inimigos
     }
 	
 	//Wave10
@@ -136,7 +136,7 @@ function Game4SceneLevel1()
     {
     	this.wave10[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo10.png");
     	this.wave10[i].posicao_x = 1400*10;
-    	this.wave10[i].posicao_y = tamanho_tela_y/10 + (i * 60); //numero depois de * espacamento entre os inimigos
+    	this.wave10[i].posicao_y = tamanho_tela_y/10 + (i * 50); //numero depois de * espacamento entre os inimigos
     }
 	
     //Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
@@ -158,7 +158,7 @@ function Game4SceneLevel1()
     	this.background.update();
     	
     	//Background2 se movendo
-    	//this.background2.update();
+    	this.background2.update();
     	
     	//Player
     	this.player.update();
