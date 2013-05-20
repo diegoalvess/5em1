@@ -48,7 +48,6 @@ function SceneIntro()
    
    	this.mouse_down=function(mouse)
    	{   		
-   		console.log("X "+mouse.x+" Y "+mouse.y);
     	
     	if(this.button_credit.clicked(mouse))
     	{
