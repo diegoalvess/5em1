@@ -1,4 +1,4 @@
-function SceneMenu()
+function Game2SceneMenu()
 {
 	this.imagem = new Image();//BACKGROUND
 	this.imagem.src = "imgs/game_2/Menu_teste.png"

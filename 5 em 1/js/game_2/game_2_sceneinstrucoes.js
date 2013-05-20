@@ -1,4 +1,4 @@
-function SceneInstrucoes()
+function Game2SceneInstrucoes()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_2/Intro.png"//FAZER IMAGEM PARA INSTRUCAO
@@ -16,7 +16,7 @@ function SceneInstrucoes()
     
     
     //imagem dos botoes												TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
-   	this.botao_play = new Button("imgs/game_2/botao_passado_pelo_mouse.png", 251, 82, 200, 500 );
+   	this.botao_play = new Game2Button("imgs/game_2/botao_passado_pelo_mouse.png", 251, 82, 200, 500 );
    	    
     
     this.imagem.onload = function()
@@ -43,7 +43,7 @@ function SceneInstrucoes()
     	//para mudar da tela pra algum lugar coloque o comando aqui
     	//fun��o do clique para o bot�o mudar de cena
     	
-    		game_2.currentScene = game_2.SCENE.LEVEL1;
+    	game_2.currentScene = game_2.SCENE.LEVEL_1;
     	
     	    	
     }

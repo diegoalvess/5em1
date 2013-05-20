@@ -1,4 +1,4 @@
-;function SceneLevel1()
+function Game4SceneLevel1()
 {	
 	//Player
 	this.player = new Player("setas");	
@@ -10,7 +10,7 @@
 	this.Tiros_inimigos = new Array();
 	
 	//Pause
-	this.paused = false;
+	this.paused = true;
 	
 	//Sorteio do Tiros Inimigos
 	this.sorteio = 0.01;
@@ -144,18 +144,19 @@
     
     this.update=function()
     {
-    	if(!paused)
+    	if(this.paused)
     	{
     		return; 	
     	}
-
+		
+				
     	//this.efeito_sonoro.play();
     	
     	//Background se movendo
     	this.background.update();
     	
     	//Background2 se movendo
-    	this.background2.update();
+    	//this.background2.update();
     	
     	//Player
     	this.player.update();
@@ -337,6 +338,12 @@
  	 //Tecla desceu
     this.key_down=function(key)
     {    	
+    	if (key.keyCode == 80)
+		{
+			console.log("Clara Maia 20");
+			this.paused = !this.paused;
+		}
+		
 		this.player.key_down(key);
     };
     
@@ -346,15 +353,16 @@
     	this.player.key_up(key);
 	};
 	
-	window.addEventListener('keypress', key_press, true);
+	/*window.addEventListener('keypress', key_press, true);
 		
 	function key_press(key)
 	{
-		if (key.keyCode == 112 )
+		if (key.keyCode == 80)
 		{
-			this.paused = !paused;
-		}
+			console.log("Clara Maia 20");
+			this.paused = false;
+		}	
 		
-	}
+	}*/
 	
 }

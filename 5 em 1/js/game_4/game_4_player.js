@@ -123,6 +123,9 @@ function Player(player_tecla)
     //Tecla desceu
     this.key_down=function(key)
     {
+    	console.log("Clara Maia 4");
+
+
 		if(this.player_tecla == "setas")
     	{
     		if(key.keyCode == 39)

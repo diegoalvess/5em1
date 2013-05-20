@@ -1,4 +1,4 @@
-function SceneGanhou()
+function Game2SceneGanhou()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_2/Win.png"

@@ -1,5 +1,4 @@
-
-function Game_2 ()
+function Game_2()
 {
 			
 //http://www.maujor.com/blog/2012/07/16/api-fullscreen/
@@ -9,19 +8,19 @@ function Game_2 ()
 		this.paused = false;
 		
 		//Introducao
-		this.instrucoes = new SceneInstrucoes();
+		this.instrucoes = new Game2SceneInstrucoes();
 
 		//Creditos
 		//this.creditos = new SceneCreditos();
 
 		//Level
-		this.level1 = new SceneLevel1();
+		this.level1 = new Game2SceneLevel1();
 		
 		//FimGanhou 
-		this.fimganhou = new SceneGanhou();
+		this.fimganhou = new Game2SceneGanhou();
 		
 		//FimPerdeu
-		this.fimperdeu = new ScenePerdeu();
+		this.fimperdeu = new Game2ScenePerdeu();
 		
 		//Menu
 		//this.menu = new SceneMenu();
@@ -147,16 +146,16 @@ function Game_2 ()
 		
 		this.mouse_up = function(mouse)
 		{
-			
+			//
 		};
 		
 		this.key_down = function(key)
 		{
-		
+		//
 		};
 		
 		this.key_up = function(key)
 		{
-		
+		//
 		};		
 }
