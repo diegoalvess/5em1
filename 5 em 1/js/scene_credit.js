@@ -1,7 +1,7 @@
 function SceneCredit()
 {
 	this.background = new Image();
-	this.background.src="imgs/background.png";
+	this.background.src="imgs/menucreditos.png";
 	this.loaded = false;		
 	
     this.button_back = new Button("imgs/button_back.png", 70, 70);
