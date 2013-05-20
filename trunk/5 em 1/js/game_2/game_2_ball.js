@@ -1,5 +1,5 @@
 //ball.js
-function Ball()
+function Game2Ball()
 {
 	this.img = new Image();
 	this.img.src="imgs/game_2/bola.png";

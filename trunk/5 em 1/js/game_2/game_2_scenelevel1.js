@@ -1,13 +1,13 @@
-function SceneLevel1()
+function Game2SceneLevel1()
 {
 	//Player
-	this.player = new Paleta();	
+	this.player = new Game2Paleta();	
 	
 	 //Colocando a imagem de background
-    this.background = new Background();
+    this.background = new Game2Background();
 	
 	//Bola
-	this.bola = new Ball();
+	this.bola = new Game2Ball();
 	
 	//Blocos
 	this.listablocos1 = new Array();
@@ -30,60 +30,51 @@ function SceneLevel1()
 	
 	// VIDAS
 	this.vidas = 3;
-	
-	// TELA DE QUANDO GANHA
-	this.tela_de_ganhou = new SceneGanhou();
-
-	// TELA DE QUANDO PERDE
-	this.tela_do_derrotado = new ScenePerdeu();
-		
+				
 	this.reset=function()
 	{
 		//criação dos blocos
 		for(var i = 0; i < 10; i++)
 		{	
-			this.listablocos1[i] = new Bloco("imgs/game_2/bloco5.png", 5);				
+			this.listablocos1[i] = new Game2Bloco("imgs/game_2/bloco5.png", 5);				
 			this.listablocos1[i].psc_Y = 100
  			this.listablocos1[i].psc_X = 120 + (i * (this.listablocos1[i].tam_X + 5)); 			
 		}		
 		
 		for(var i = 0; i < 10; i++)
 		{
-			this.listablocos2[i] = new Bloco("imgs/game_2/bloco4.png", 4);
+			this.listablocos2[i] = new Game2Bloco("imgs/game_2/bloco4.png", 4);
 			this.listablocos2[i].psc_Y = 120
 			this.listablocos2[i].psc_X = 120 + (i * (this.listablocos2[i].tam_X + 5)) 	
 		}	
 		
 		for(var i = 0; i < 10; i++)
 		{
-			this.listablocos3[i] = new Bloco("imgs/game_2/bloco3.png", 3);
+			this.listablocos3[i] = new Game2Bloco("imgs/game_2/bloco3.png", 3);
 			this.listablocos3[i].psc_Y = 140
 			this.listablocos3[i].psc_X = 120 + (i * (this.listablocos3[i].tam_X + 5)) 
 		}
 		
 		for(var i = 0; i < 10; i++)
 		{
-			this.listablocos4[i] = new Bloco("imgs/game_2/bloco2.png", 2);
+			this.listablocos4[i] = new Game2Bloco("imgs/game_2/bloco2.png", 2);
 			this.listablocos4[i].psc_Y = 160
 			this.listablocos4[i].psc_X = 120 + (i * (this.listablocos4[i].tam_X + 5)) 
 		}
 		
 		for(var i = 0; i < 10; i++)
 		{
-			this.listablocos5[i] = new Bloco("imgs/game_2/bloco1.png", 1);
+			this.listablocos5[i] = new Game2Bloco("imgs/game_2/bloco1.png", 1);
 			this.listablocos5[i].psc_Y = 180
-			this.listablocos5[i].psc_X = 120 + (i * (listablocos5[i].tam_X + 5)) 
+			this.listablocos5[i].psc_X = 120 + (i * (this.listablocos5[i].tam_X + 5)) 
 		}
    
    		this.listas = this.listablocos1.concat(this.listablocos2,this.listablocos3,this.listablocos4,this.listablocos5);
-   		
-   		this.bola;
-   		
+   		   		
    		this.pontos = 0;
    		
    		this.vidas = 3;
    		
-   		this.player;
 	};
 	
 	this.reset();
@@ -218,11 +209,11 @@ function SceneLevel1()
  		 //DESENHO DOS PONTOS NO CAMPO//
         screen.font = "45px Arial";
         screen.fillStyle="#FF0000";
-        screen.fillText("Pontos " + pontos, 140, 40);
+        screen.fillText("Pontos " + this.pontos, 140, 40);
         
         screen.font = "45px Arial";
         screen.fillStyle="#FF0000";
-        screen.fillText("Vidas " + vidas, 540, 40);
+        screen.fillText("Vidas " + this.vidas, 540, 40);
         
         
 		

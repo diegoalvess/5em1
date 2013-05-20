@@ -1,5 +1,4 @@
-//paleta.js
-function Paleta()
+function Game2Paleta()
 {
 	this.img = new Image();
 	this.img.src="imgs/game_2/paleta.png";

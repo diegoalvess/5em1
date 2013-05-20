@@ -1,4 +1,4 @@
-function ScenePerdeu()
+function Game2ScenePerdeu()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_2/gameover.png"

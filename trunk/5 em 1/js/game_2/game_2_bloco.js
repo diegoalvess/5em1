@@ -1,4 +1,4 @@
-function Bloco(source, hp)
+function Game2Bloco(source, hp)
 {
 	this.bloco_imagem = new Image();
 	this.bloco_imagem.src = source;

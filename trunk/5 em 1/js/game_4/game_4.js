@@ -14,7 +14,7 @@ function Game_4()
 		//this.creditos = new SceneCreditos();
 
 		//Level
-		this.level1 = new SceneLevel1();
+		this.level1 = new Game4SceneLevel1();
 		
 		//FimGanhou 
 		this.fimganhou = new SceneGanhou();
@@ -144,6 +144,8 @@ function Game_4()
 				
 				case this.SCENE.LEVEL_1:
 				{
+					console.log("Clara Maia 1");
+
 					this.level1.key_down(key);
 				}
 				break;

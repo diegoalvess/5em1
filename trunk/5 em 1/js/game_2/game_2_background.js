@@ -1,4 +1,4 @@
-function Background()
+function Game2Background()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_2/background1.png";
