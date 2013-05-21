@@ -27,8 +27,8 @@ function Button(file, size_x, size_y)
     this.clicked = function(mouse)
     {
     	if(Collide(
-    		mouse.x-880,
-    		mouse.y-10,
+    		mouse.x,
+    		mouse.y,
     		1,
     		1,
     		this.position_x,

@@ -11,6 +11,11 @@ function Game4ScenePerdeu()
     this.posicao_x = 0;
     this.posicao_y = 0;
     
+    this.button_back = new Button("imgs/button_back.png", 160, 75);
+    this.button_back.position_x = 500;
+    this.button_back.position_y = 500;
+
+    
     //Som
     this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_4/GameOver.mp3"
@@ -23,20 +28,25 @@ function Game4ScenePerdeu()
     
     this.update=function()
     {
-    	this.efeito_sonoro.play();
+    	//this.efeito_sonoro.play();
     };
     
     this.draw=function()
     {  	
     	screen.drawImage(this.imagem, 0, 0)
+    	this.button_back.draw();
     };
     
     
     this.mouse_down=function(mouse)
-    {   	
-    	//para mudar da tela pra algum lugar coloque o comando aqui
-    	//currentScene = SCENE.[adicionar tela aqui depois];
+    {   
     	this.efeito_sonoro.pause();
+    	if(this.button_back.clicked(mouse))
+    	{
+    		currentScene = SCENE.INTRO;
+    		game_4.currentScene = game_4.SCENE.INTRO;
+    	}
+    	
     };
     
     this.mouse_up=function(mouse)
