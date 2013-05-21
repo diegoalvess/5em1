@@ -10,7 +10,7 @@ function Game1SceneLevel1()
 	this.bola = new Game1Bola();
 	
 	//Pause
-	this.paused = true;
+	this.paused = false;
    
     //Colocando a imagem de background
     this.background = new Game1Background("imgs/game_1/FundoBackground.png");
@@ -63,7 +63,7 @@ function Game1SceneLevel1()
     this.update=function()
     {
     	//Pause
-    	if(!paused)
+    	if(paused)
     	{
     		return;  	
     	}

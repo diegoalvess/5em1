@@ -157,9 +157,6 @@ function Game4SceneLevel1()
     	//Background se movendo
     	this.background.update();
     	
-    	//Background2 se movendo
-    	//this.background2.update();
-    	
     	//Player
     	this.player.update();
     	
@@ -303,9 +300,6 @@ function Game4SceneLevel1()
     { 	
     	//Desenhando fundo
     	this.background.draw();
-    	
-    	//Desenhando Fundo paralax
-    	this.background2.draw();
     	
     	//Desenhando player
     	this.player.draw();
