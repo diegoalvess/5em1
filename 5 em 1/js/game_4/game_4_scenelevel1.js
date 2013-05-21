@@ -1,6 +1,11 @@
 function Game4SceneLevel1()
-{	
-	//Player
+{		
+	
+	    
+	this.reset=function()
+	{
+		
+		//Player
 	this.player = new Game4Player("setas");	
 	
 	//Barra de energia
@@ -10,15 +15,14 @@ function Game4SceneLevel1()
 	this.Tiros_inimigos = new Array();
 	
 	//Pause
-	this.paused = true;
+	this.paused = false;
 	
 	//Sorteio do Tiros Inimigos
 	this.sorteio = 0.01;
 	
 	//
-	this.visible = true;
-	
-	    
+	this.visible = true;	
+		    
     //Background
     this.background = new Game4Background("imgs/game_4/FundoBackground.png", 1600, 600, -15);
     this.background.posicao_x = tamanho_tela_x - this.background.tamanho_x;
@@ -30,8 +34,7 @@ function Game4SceneLevel1()
     this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_4/Som1.mp3"
     this.efeito_sonoro.load();
-    
-		
+	
 	//Wave1
 	this.wave1 = new Array();
 	for(var i = 0 ; i < 10; i++) 
@@ -141,22 +144,31 @@ function Game4SceneLevel1()
 	
     //Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
     this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10);
-    
-    //var waves = wave3.concat();
-
+        
+    };//Reset
+	
+	this.reset();
+	
     this.update=function()
     {
+
     	if(this.paused)
     	{
     		return; 	
     	}
 		
 				
-    	//this.efeito_sonoro.play();
+    	this.efeito_sonoro.play();
     	
     	//Background se movendo
     	this.background.update();
     	
+<<<<<<< .mine
+    	//Background2 se movendo
+    	this.background2.update();
+    	
+=======
+>>>>>>> .r69
     	//Player
     	this.player.update();
     	
@@ -349,17 +361,4 @@ function Game4SceneLevel1()
     {
     	this.player.key_up(key);
 	};
-	
-	/*window.addEventListener('keypress', key_press, true);
-		
-	function key_press(key)
-	{
-		if (key.keyCode == 80)
-		{
-			console.log("Clara Maia 20");
-			this.paused = false;
-		}	
-		
-	}*/
-	
 }
