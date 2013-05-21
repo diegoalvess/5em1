@@ -61,15 +61,15 @@ function Game1Paleta (player_tecla)
     	}
     	
     	//saida pela esquerda
-    	if(this.posicao_x > tela_tamanho_x - this.tamanho_x)
+    	if(this.posicao_x > tamanho_tela_x - this.tamanho_x)
     	{
-    		this.posicao_x = tela_tamanho_x - this.tamanho_x;
+    		this.posicao_x = tamanho_tela_x - this.tamanho_x;
     	}
     	
     	//saida por baixo
-    	if(this.posicao_y > tela_tamanho_y - this.tamanho_y)
+    	if(this.posicao_y > tamanho_tela_y - this.tamanho_y)
     	{
-    		this.posicao_y = tela_tamanho_y- this.tamanho_y;
+    		this.posicao_y = tamanho_tela_y - this.tamanho_y;
     	}
     }
     

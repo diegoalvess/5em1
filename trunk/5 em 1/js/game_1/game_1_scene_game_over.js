@@ -13,7 +13,7 @@ function Game1ScenePerdeu()
     
     //Som
     this.efeito_sonoro = new Audio();
-    this.efeito_sonoro.src = "Sons/GameOver.mp3"
+    this.efeito_sonoro.src = "sounds/game_1/GameOver.mp3"
     this.efeito_sonoro.load();
     
     this.imagem.onload = function()

@@ -9,18 +9,18 @@ function Game1Bola()
 	this.image.src="imgs/game_1/ball.png";
 	this.loaded = false;
 
-    this.size_x = 40;
-    this.size_y = 40;
-    this.position_x = 40
-    this.position_y = 40
-    this.velocity_x = 5;
-    this.velocity_y = 5;
+    this.tamanho_x = 40;
+    this.tamanho_y = 40;
+    this.posicao_x = 40
+    this.posicao_y = 40
+    this.velocidade_x = 5;
+    this.velocidade_y = 5;
 
     this.update=function()
     {
     	//Movendo a bola
-    	this.position_x += this.velocity_x;
-    	this.position_y += this.velocity_y;
+    	this.posicao_x += this.velocidade_x;
+    	this.posicao_y += this.velocidade_y;
 
     	//Colidindo com as bordas
 		this.saindodatela();
@@ -28,42 +28,42 @@ function Game1Bola()
 
     this.draw=function()
     {
-    	screen.drawImage(this.image, this.position_x, this.position_y)
+    	screen.drawImage(this.image, this.posicao_x, this.posicao_y)
     };
 
 	//Colisão para não sair da tela
     this.saindodatela=function()
     {
     	//saida pela direita
-    	if(this.position_x < 0)
+    	if(this.posicao_x < 0)
     	{
-    		this.position_x = 0;
+    		this.posicao_x = 0;
 			//Fazendo bola bater e voltar
-			this.velocity_x *=-1;
+			this.velocidade_x *=-1;
     	}
 
     	//saida por cima
-    	if(this.position_y < 0)
+    	if(this.posicao_y < 0)
     	{
-    		this.position_y = 0;
+    		this.posicao_y = 0;
 			//Fazendo bola bater e voltar
-			this.velocity_y *=-1;
+			this.velocidade_y *=-1;
     	}
 
     	//saida pela esquerda
-    	if(this.position_x > tela_tamanho_x - this.tamanho_x)
+    	if(this.posicao_x > tamanho_tela_x - this.size_x)
     	{
-    		this.position_x = tela_tamanho_x - this.tamanho_x;
+    		this.posicao_x = tamanho_tela_x - this.size_x;
 			//Fazendo bola bater e voltar
-			this.velocity_x *=-1;
+			this.velocidade_x *=-1;
     	}
 
     	//saida por baixo
-    	if(this.position_y > tela_tamanho_y - this.tamanho_y)
+    	if(this.posicao_y > tamanho_tela_y - this.tamanho_y)
     	{
-    		this.position_y = tela_tamanho_y- this.tamanho_y;
+    		this.posicao_y = tamanho_tela_y - this.tamanho_y;
 			//Fazendo bola bater e voltar
-			this.velocity_y *=-1;
+			this.velocidade_y *=-1;
     	}
     }
 
