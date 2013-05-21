@@ -1,4 +1,4 @@
-function SceneIntroducao()
+function Game1SceneIntroducao()
 {
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_1/Introducao.png"

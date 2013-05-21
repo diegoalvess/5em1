@@ -1,19 +1,19 @@
-function SceneLevel1()
+function Game1SceneLevel1()
 {
 	//Player
-	var player = new Paleta("setas");	
+	this.player = new Game1Paleta("setas");	
 	
 	//Inimigo
-	var inimigo = new PaletaInimigo();
+	this.inimigo = new Game1PaletaInimigo();
 	
 	//Bola
-	var bola = new Bola();
+	this.bola = new Game1Bola();
 	
 	//Pause
-	var paused = true;
+	this.paused = true;
    
     //Colocando a imagem de background
-    var background = new Background("Imagens/FundoBackground.png");
+    this.background = new Game1Background("imgs/game_1/FundoBackground.png");
 	
     //Efeito sonoro
     //this.efeito_sonoro = new Audio();
@@ -22,43 +22,43 @@ function SceneLevel1()
     
 	//Array de blocos
 	//Blocos1 - blocos do lado do player
-	var bloco1 = new Array();
+	this.bloco1 = new Array();
 	for(var i = 0 ; i < 2; i++) 
     {
-    	bloco1[i] = new Bloco("Imagens/Bloco.png");
-    	bloco1[i].posicao_x = 150;
-    	bloco1[i].posicao_y = tela_tamanho_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
+    	this.bloco1[i] = new Game1Bloco("imgs/game_1/Bloco.png");
+    	this.bloco1[i].posicao_x = 150;
+    	this.bloco1[i].posicao_y = tamanho_tela_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
     }
 	
 	//Blocos2 - blocos do lado do inimigo
-	var bloco2 = new Array();
+	this.bloco2 = new Array();
 	for(var i = 0 ; i < 2; i++) 
     {
-    	bloco2[i] = new Bloco("Imagens/Bloco.png");
-    	bloco2[i].posicao_x = 1000;
-    	bloco2[i].posicao_y = tela_tamanho_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
+    	this.bloco2[i] = new Game1Bloco("imgs/game_1/Bloco.png");
+    	this.bloco2[i].posicao_x = 1000;
+    	this.bloco2[i].posicao_y = tamanho_tela_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
     }
 	
 	//Bloco3 - blocos das laterais
-	var bloco3 = new Array();
+	this.bloco3 = new Array();
 	for(var i = 0 ; i < 2; i++) 
     {
-    	bloco3[i] = new Bloco("Imagens/Bloco.png");
-    	bloco3[i].posicao_x = tela_tamanho_x/2;
-    	bloco3[i].posicao_y = tela_tamanho_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
+    	this.bloco3[i] = new Game1Bloco("imgs/game_1/Bloco.png");
+    	this.bloco3[i].posicao_x = tamanho_tela_x/2;
+    	this.bloco3[i].posicao_y = tamanho_tela_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
     }
 	
 	//Bloco4 - blocos centrais
-	var bloco4 = new Array();
+	this.bloco4 = new Array();
 	for(var i = 0 ; i < 2; i++) 
     {
-    	bloco4[i] = new Bloco("Imagens/Bloco.png");
-    	bloco4[i].posicao_x = tela_tamanho_x/2;
-    	bloco4[i].posicao_y = (tela_tamanho_y/2-50) + (i * 0); //numero depois de * espacamento entre os inimigos
+    	this.bloco4[i] = new Game1Bloco("imgs/game_1/Bloco.png");
+    	this.bloco4[i].posicao_x = tamanho_tela_x/2;
+    	this.bloco4[i].posicao_y = (tamanho_tela_y/2-50) + (i * 0); //numero depois de * espacamento entre os inimigos
     }
 	
 	//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
-	var blocos = bloco1.concat(bloco2, bloco3, bloco4);
+	this.blocos = this.bloco1.concat(this.bloco2, this.bloco3, this.bloco4);
 	
     this.update=function()
     {
@@ -72,80 +72,80 @@ function SceneLevel1()
     	//this.efeito_sonoro.play();
     	
     	//Background se movendo
-    	background.update();
+    	this.background.update();
     	
     	//Player
-    	player.update();
+    	this.player.update();
     	
     	//Inimigo
-    	inimigo.update();
+    	this.inimigo.update();
     	
     	//Bola
-    	bola.update();
+    	this.bola.update();
 		
 		//Bloco
-		for(var i = 0 ; i < blocos.length; i++)
+		for(var i = 0 ; i < this.blocos.length; i++)
     	{
-    		blocos[i].update();
+    		this.blocos[i].update();
    		}
 		
 		//Paleta Inimigo Se movimentando de acordo com a bola
-		if (bola.posicao_y > inimigo.posicao_y )
+		if (this.bola.posicao_y > this.inimigo.posicao_y )
 		{
-			inimigo.posicao_y += inimigo.velocidade_y;
+			this.inimigo.posicao_y += this.inimigo.velocidade_y;
 		}
 		
 		else	
 		{
-			inimigo.posicao_y -= inimigo.velocidade_y;
+			this.inimigo.posicao_y -= this.inimigo.velocidade_y;
 		}
 		
 		
 		//Fazendo colisão da bola com a paleta player
-		if( Collide( bola.posicao_x,
-					bola.posicao_y,
-					bola.tamanho_x,
-					bola.tamanho_y,
-					player.posicao_x,
-					player.posicao_y,
-					player.tamanho_x,
-					player.tamanho_y ) ) //se a bola colidiu com o player
+		if( Collide( this.bola.posicao_x,
+					this.bola.posicao_y,
+					this.bola.tamanho_x,
+					this.bola.tamanho_y,
+					this.player.posicao_x,
+					this.player.posicao_y,
+					this.player.tamanho_x,
+					this.player.tamanho_y ) ) //se a bola colidiu com o player
 				{
 					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
-					//bola.velocidade_x ++;
-					bola.velocidade_x *= -1;
+					//this.bola.velocidade_x ++;
+					this.bola.velocidade_x *= -1;
 				}
 		
     	//Fazendo colisão da bola com a paleta Inimigo
-		if( Collide( bola.posicao_x,
-					bola.posicao_y,
-					bola.tamanho_x,
-					bola.tamanho_y,
-					inimigo.posicao_x,
-					inimigo.posicao_y,
-					inimigo.tamanho_x,
-					inimigo.tamanho_y ) ) //se a bola colidiu com o inimigo
+		if( Collide( this.bola.posicao_x,
+					this.bola.posicao_y,
+					this.bola.tamanho_x,
+					this.bola.tamanho_y,
+					this.inimigo.posicao_x,
+					this.inimigo.posicao_y,
+					this.inimigo.tamanho_x,
+					this.inimigo.tamanho_y ) ) //se a bola colidiu com o inimigo
 				{
 					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
 					//bola.velocidade_x ++;
-					bola.velocidade_x *= -1;
+					this.bola.velocidade_x *= -1;
 				}
 		
 		//Fazendo colisão da bola com os blocos
-		if(blocos[i])
+		if(this.blocos[i])
 		{
-			if( Collide( bola.posicao_x,
-						bola.posicao_y,
-						bola.tamanho_x,
-						bola.tamanho_y,
-						blocos[i].posicao_x,
-						blocos[i].posicao_y,
-						blocos[i].tamanho_x,
-						blocos[i].tamanho_y ) ) //se a bola colidiu com o bloco
+			if( Collide( this.bola.posicao_x,
+						this.bola.posicao_y,
+						this.bola.tamanho_x,
+						this.bola.tamanho_y,
+						this.blocos[i].posicao_x,
+						this.blocos[i].posicao_y,
+						this.blocos[i].tamanho_x,
+						this.blocos[i].tamanho_y ) ) //se a bola colidiu com o bloco
 					{
 						//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
 						//bola.velocidade_x ++;
-						bola.velocidade_x *= -1;
+						this.bola.velocidade_x *= -1;
 					}
 		}
     };
@@ -153,21 +153,21 @@ function SceneLevel1()
     this.draw=function()
     { 	
     	//Desenhando fundo
-    	background.draw();
+    	this.background.draw();
     	
     	//Desenhando player
-    	player.draw();
+    	this.player.draw();
     	
     	//Desenhando inimigo
-    	inimigo.draw();
+    	this.inimigo.draw();
     	
     	//Desenhando bola
-    	bola.draw();
+    	this.bola.draw();
 		  	
 		//Desenhando bloco
-		for(var i = 0 ; i < blocos.length; i++)
+		for(var i = 0 ; i < this.blocos.length; i++)
     	{
-    		blocos[i].draw();    		 
+    		this.blocos[i].draw();    		 
    		} 
     };
     
@@ -181,13 +181,13 @@ function SceneLevel1()
  	 //Tecla desceu
     this.key_down=function(key)
     {
-		player.key_down(key);
+		this.player.key_down(key);
     };
     
     //Tecla subiu
     this.key_up=function(key)
     {
-    	player.key_up(key);
+    	this.player.key_up(key);
 	};	
 	
 	//Função de colisão

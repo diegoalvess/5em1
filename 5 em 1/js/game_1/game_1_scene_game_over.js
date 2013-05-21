@@ -1,7 +1,7 @@
-function ScenePerdeu()
+function Game1ScenePerdeu()
 {
 	this.imagem = new Image();
-	this.imagem.src = "Imagens/Fimperdeu.png"
+	this.imagem.src = "imgs/game_1/Fimperdeu.png"
 	this.loaded = false;
     
 

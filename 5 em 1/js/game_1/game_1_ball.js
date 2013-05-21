@@ -1,5 +1,5 @@
 //ball.js
-function Game1Ball()
+function Game1Bola()
 {
 	//Pontos
 	var pontos_direita = 0;
