@@ -1,4 +1,4 @@
-function Background(source)
+function Game1Background(source)
 {
 	this.imagem = new Image();
 	this.imagem.src = source;

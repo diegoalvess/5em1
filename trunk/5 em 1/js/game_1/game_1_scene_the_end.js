@@ -1,7 +1,7 @@
-function SceneGanhou()
+function Game1SceneGanhou()
 {
 	this.imagem = new Image();
-	this.imagem.src = "Imagens/Fimganhou.png"
+	this.imagem.src = "imgs/game_1/Fimganhou.png"
 	this.loaded = false;
     
 

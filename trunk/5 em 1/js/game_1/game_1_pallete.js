@@ -1,5 +1,5 @@
 //paleta.js
-function Game1Pallete (player_tecla)
+function Game1Paleta (player_tecla)
 {
 	this.player_tecla = player_tecla;
 
@@ -17,8 +17,7 @@ function Game1Pallete (player_tecla)
 	//Teclas
 	this.sobe = false;
 	this.desce = false;
-    
-	
+    	
     this.update=function()
     {
 		//Movendo paleta
