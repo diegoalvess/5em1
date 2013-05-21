@@ -1,4 +1,4 @@
-function Game2Paleta()
+function Game2Paleta(player_position_x)
 {
 	this.img = new Image();
 	this.img.src="imgs/game_2/paleta.png";
@@ -40,9 +40,9 @@ function Game2Paleta()
        	}
              	
   
-       	if(this.posicao_x > 850 - this.tamanho_x)
+       	if(this.posicao_x > 750 - this.tamanho_x)
        	{
-       		this.posicao_x = 850 - this.tamanho_x;
+       		this.posicao_x = 750 - this.tamanho_x;
         }
     
     	
@@ -59,34 +59,32 @@ function Game2Paleta()
     }//FIM DO DRAW
     
      this.key_down = function(key)
-             {
-             	if(key.keyCode=="37")
-				{
-					
+     {
+     	
+     			console.log("sahuewhudwudeu");
+     	
+             	if(key.keyCode== "37")
+				{					
 					this.esquerda = true;//verdadeiro
 				}
 			
-				if(key.keyCode=="39")
+				if(key.keyCode== "39")
 				{
 					this.direita = true;//verdadeiro
 				}
-				/*
-				if(key.keyCode == "32")
-				{
-					bola.followplayer = false;
-				}*/	
+	
 				
 			
-			}
+		}
              
              this.key_up = function(key)
             { 
-             	if(key.keyCode=="37")
+             	if(key.keyCode== "37")
 				{
 					this.esquerda = false;
 				}
 			
-				if(key.keyCode=="39")
+				if(key.keyCode== "39")
 				{
 					this.direita = false;//verdadeiro
 				}	

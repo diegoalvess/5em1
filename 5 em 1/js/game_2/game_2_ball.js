@@ -16,7 +16,7 @@ function Game2Ball()
     this.tamanho_x = 40;
     this.tamanho_y = 40;
     this.posicao_x = 400;
-    this.posicao_y = 633;
+    this.posicao_y = 540;
     this.velocity_x = 10;
     this.velocity_y = -10;
     //this.velocity_MAX = 13;
@@ -28,19 +28,20 @@ function Game2Ball()
 		if(this.followplayer)
 		{
 			this.posicao_x = player_position_x - this.tamanho_x/2;
-			this.posicao_y = 633;
+			this.posicao_y = 540;
 		}
     	
     	//MOVENDO A BOLA
     	this.posicao_x += this.velocity_x;	
 
-    	this.posicao_y += this.velocity_y;	
+    	this.posicao_y -= this.velocity_y;	
     	
     	//COLIDINDO A BOLA
     	//colidindo com a esquerda, dando o desconto da imagem de fundo
     	if(this.posicao_x < 60)
 		{
-			this.velocity_x *=-1;	
+			this.velocity_x *=-1;
+			this.posicao_y -= 1;	
 		}
 		
 		//colidindo com cima...
@@ -50,18 +51,13 @@ function Game2Ball()
 		}
 				
 		//colidindo com a direita
-    	if(this.posicao_x > 850 - this.tamanho_x)//TO DO REFACTOR
+    	if(this.posicao_x > 750 - this.tamanho_x)//TO DO REFACTOR
 		{
 			this.velocity_x *=-1;	
 			
 		}
 				
-		//colidindo com baixo
-    	if(this.posicao_y > 768 - this.tamanho_y)//TO DO REFACTOR
-		{
-		//	this.velocity_y *=-1;	
-		}
-		
+
 		
 	
     };
@@ -75,9 +71,9 @@ function Game2Ball()
  
  	this.key_down = function (key)
  	{
- 		if(key.keyCode == 32)
+ 		if(key.keyCode == "32")
  		{
- 			bola.followplayer = false;
+ 			this.followplayer = false;
  		}
  	}
  }
