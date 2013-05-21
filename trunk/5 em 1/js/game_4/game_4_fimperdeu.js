@@ -28,7 +28,8 @@ function Game4ScenePerdeu()
     
     this.update=function()
     {
-    	//this.efeito_sonoro.play();
+    	this.efeito_sonoro.play();
+    	game_4.level1.efeito_sonoro.pause();
     };
     
     this.draw=function()
@@ -44,7 +45,15 @@ function Game4ScenePerdeu()
     	if(this.button_back.clicked(mouse))
     	{
     		currentScene = SCENE.INTRO;
-    		game_4.currentScene = game_4.SCENE.INTRO;
+    		game_4.currentScene = game_4.SCENE.INTRODUCAO;
+    		//voltar a vida/energia
+    		//zerar pontos
+    		//limpar a lista de tiros (jogador e dos inimigos
+    		//repocidfshnvionar os inimigos inicial
+    		//zerar as listas e repopular a lista de inimigos
+    		
+	    	game_4.level1.reset();
+    		
     	}
     	
     };

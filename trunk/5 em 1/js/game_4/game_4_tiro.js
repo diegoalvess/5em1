@@ -17,7 +17,7 @@ function Game4Tiro(posicao_x, posicao_y, velocidade_x)
     this.velocidade_x = velocidade_x;                    //Math.floor((Math.random()*10)+1);
     this.velocidade_y =  0;                  //-Math.floor((Math.random()*10)+1)
     
-    this.dano = 5;
+    this.dano = 10;
     
     this.update=function()
     {

@@ -32,7 +32,7 @@ function Game4Player(player_tecla)
     this.efeito_sonoro.src = "sounds/game_4/Tiro.mp3"
     this.efeito_sonoro.load();
      
-    this.max_energy = 1; 
+    this.max_energy = 100; 
 	this.current_energy = this.max_energy;
 	
 	this.lives = 3;
@@ -188,12 +188,4 @@ function Game4Player(player_tecla)
 			}	
     	}  		
     }    
-    
-    /*if(apertando_espaco)
-	{
-		//criando um tiro extra na lista
-		Tiros.push(new Tiro(Player.posicao_x+Player.tamanho_x/2, Player.posicao_y));
-	}
-	*/		
-    
 }
