@@ -32,8 +32,8 @@ function Game4Button(arquivo, tam_x, tam_y, pos_x, pos_y)
     	
     	//colisão
     	if(Collide(
-    		mouse.x-588,
-    		mouse.y-28,
+    		mouse.x,
+    		mouse.y,
     		1,
     		1,
     		this.posicao_x,

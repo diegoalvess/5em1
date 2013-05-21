@@ -20,7 +20,7 @@ function Game4SceneLevel1()
 	
 	    
     //Background
-    this.background = new Game4Background("imgs/game_4/FundoBackground.png", 2732, 768, -15);
+    this.background = new Game4Background("imgs/game_4/FundoBackground.png", 1600, 600, -15);
     this.background.posicao_x = tamanho_tela_x - this.background.tamanho_x;
     
     this.background2 = new Game4Background("imgs/game_4/FundoBackground2.png", 4098, 768, -10);
@@ -158,7 +158,7 @@ function Game4SceneLevel1()
     	this.background.update();
     	
     	//Background2 se movendo
-    	this.background2.update();
+    	//this.background2.update();
     	
     	//Player
     	this.player.update();

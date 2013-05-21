@@ -5,7 +5,7 @@ function Game_4()
 
 				
 		//Pausa
-		//this.paused = false;
+		this.paused = false;
 		
 		//Introducao
 		this.introducao = new Game4SceneIntroducao();
@@ -120,11 +120,13 @@ function Game_4()
 				}
 				break;
 				
-				case SCENE.FIMFIMPERDEU:
+				case this.SCENE.FIMPERDEU:
 				{
 					this.fimperdeu.mouse_down(mouse);
 				}
 				break;
+				
+
 								
 			}
 		}		

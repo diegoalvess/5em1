@@ -3,20 +3,17 @@
 <html> 
 
 	<head>
-	    <center>
 	    <title>
-        5 em 1
-                
+       		5 em 1
         </title>
-       	</center>       
 
 		<script src="js/scene_intro.js"></script>
 		<script src="js/scene_credit.js"></script>
 		<script src="js/button.js"></script>
 		<script src="js/background.js"></script>
 		
-		<!--pong--!>
-		<!--<script src="js/game_1/game_1_background.js"></script>
+		<!--pong-->
+		<script src="js/game_1/game_1_background.js"></script>
 		<script src="js/game_1/game_1_ball.js"></script>
 		<script src="js/game_1/game_1_pallete.js"></script>
 		<script src="js/game_1/game_1_scene_game_over.js"></script>
@@ -24,7 +21,7 @@
 		<script src="js/game_1/game_1_scene_level_1.js"></script>
 		<script src="js/game_1/game_1_scene_menu.js"></script>
 		<script src="js/game_1/game_1_scene_the_end.js"></script>
-		<script src="js/game_1/game_1.js"></script>-->
+		<script src="js/game_1/game_1.js"></script>
 
 		<!--arkanoid-->
 		<script src="js/game_2/game_2_background.js"></script>
@@ -57,11 +54,9 @@
 		<script src="js/game_4/game_4_fimganhou.js"></script>
 		<script src="js/game_4/game_4_player.js"></script>
 		<script src="js/game_4/game_4_inimigo.js"></script>
-		<script src="js/game_4/game_4_scenecreditos.js"></script>
 		<script src="js/game_4/game_4_scenelevel1.js"></script>
 		<script src="js/game_4/game_4_fimperdeu.js"></script>
 		<script src="js/game_4/game_4_interface.js"></script>
-		<script src="js/game_4/game_4_menu.js"></script>
 		<script src="js/game_4/game_4_animacao.js"></script>
 		<script src="js/game_4/game_4_tiro.js"></script>
 		<script src="js/game_4/game_4.js"></script>
@@ -81,7 +76,6 @@
    </head>
         
 		<body>
-				<center>
 				
 				<canvas width="800" height="600" id="main" style="border:1px solid #000000;"></canvas>
 		</body>
@@ -99,7 +93,7 @@
 	
 	var credit = new SceneCredit();
 	
-	<!--var game_1 = new Game_1();-->
+	var game_1 = new Game_1();
 	
 	var game_2 = new Game_2();
 	
