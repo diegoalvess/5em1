@@ -5,27 +5,27 @@ function SceneIntro()
 	this.background.src="imgs/menuindex.png";
 	this.loaded = false;		
     
-    this.button_game_1 = new Button("imgs/button_game_1.png", 295, 82);
+    this.button_game_1 = new Button("imgs/button_game_1.png", 159, 75);
     this.button_game_1.position_x = 150;
     this.button_game_1.position_y = 30;
     
-    this.button_game_2 = new Button("imgs/button_game_2.png", 295, 82);
+    this.button_game_2 = new Button("imgs/button_game_2.png", 159, 75);
     this.button_game_2.position_x = 150;
     this.button_game_2.position_y = 120;
         
-    this.button_game_3 = new Button("imgs/button_game_3.png", 295, 82);
+    this.button_game_3 = new Button("imgs/button_game_3.png", 159, 75);
     this.button_game_3.position_x = 150;
     this.button_game_3.position_y = 210;
     
-    this.button_game_4 = new Button("imgs/button_game_4.png", 295, 82);
+    this.button_game_4 = new Button("imgs/button_game_4.png", 159, 75);
     this.button_game_4.position_x = 150;
     this.button_game_4.position_y = 300;
     
-    this.button_game_5 = new Button("imgs/button_game_5.png", 295, 82);
+    this.button_game_5 = new Button("imgs/button_game_5.png", 159, 75);
     this.button_game_5.position_x = 150;
     this.button_game_5.position_y = 400;
             
-    this.button_credit = new Button("imgs/button_credit.png", 290, 82);
+    this.button_credit = new Button("imgs/button_credit.png", 159, 75);
     this.button_credit.position_x = 150;
     this.button_credit.position_y = 500;
     
