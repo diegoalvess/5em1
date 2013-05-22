@@ -1,4 +1,4 @@
-function Game2Button(arquivo, tam_x, tam_y, pos_x, pos_y)
+function Game3Button(arquivo, tam_x, tam_y, pos_x, pos_y)
 {
 	this.imagem = new Image();
 	this.imagem.src = arquivo;

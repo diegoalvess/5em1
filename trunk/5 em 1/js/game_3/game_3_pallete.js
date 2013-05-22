@@ -1,7 +1,7 @@
 function Player(player_tecla)
 {
 	this.imagem = new Image();
-	this.imagem.src="imagens/nave.png";
+	this.imagem.src="imgs/game_3/nave.png";
 	this.carregada = false;
 
 	this.imagem.onload = function() 
@@ -13,7 +13,7 @@ function Player(player_tecla)
 
 	this.tamanho_x = 60;
 	this.tamanho_y = 40;
-	this.posicao_x = tela_tamanho_x/2 - this.tamanho_y/2;
+	this.posicao_x = tamanho_tela_x/2 - this.tamanho_y/2;
 	this.posicao_y = 700;
 	this.velocidade_x = 10;
 	this.visible = true;
@@ -38,7 +38,7 @@ function Player(player_tecla)
 		if(this.apertou_espaco)
     	{	
 			//this.efeito_sonoro.play();
-    		this.Tiros.push(new Tiro(this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2));
+    		this.Tiros.push(new Tiro(this.posicao_x+ this.tamanho_x/2, this.posicao_y-this.tamanho_y));
     		console.log("APERTEI ESPACO");  
     	}
 		
@@ -79,15 +79,15 @@ function Player(player_tecla)
     	}
     	
     	//saida pela esquerda
-    	if(this.posicao_x > tela_tamanho_x - this.tamanho_x)
+    	if(this.posicao_x > tamanho_tela_x - this.tamanho_x)
     	{
-    		this.posicao_x = tela_tamanho_x - this.tamanho_x;
+    		this.posicao_x = tamanho_tela_x - this.tamanho_x;
     	}
     	
     	//saida por baixo
-    	if(this.posicao_y > tela_tamanho_y - this.tamanho_y)
+    	if(this.posicao_y > tamanho_tela_y - this.tamanho_y)
     	{
-    		this.posicao_y = tela_tamanho_y- this.tamanho_y;
+    		this.posicao_y = tamanho_tela_y- this.tamanho_y;
     	}
     }
 	
