@@ -163,12 +163,9 @@ function Game4SceneLevel1()
     	//Background se movendo
     	this.background.update();
     	
-<<<<<<< .mine
     	//Background2 se movendo
     	this.background2.update();
     	
-=======
->>>>>>> .r69
     	//Player
     	this.player.update();
     	
