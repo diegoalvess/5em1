@@ -7,8 +7,7 @@ function Game2Paleta(player_position_x)
 		
 	this.img.onload = function()
 	{
-		loaded = true; 
-		console.log("carregamento pela classe PALETA" + loaded);
+		loaded = true;
 	};
 	
 	this.tamanho_x = 200;

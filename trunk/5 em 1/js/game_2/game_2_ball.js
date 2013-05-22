@@ -9,8 +9,7 @@ function Game2Ball()
 	
 	this.img.onload = function()
 	{
-		loaded = true; 
-		console.log("carregamento pela classe BALL " + loaded);
+		loaded = true;
 	};
 	
     this.tamanho_x = 40;
