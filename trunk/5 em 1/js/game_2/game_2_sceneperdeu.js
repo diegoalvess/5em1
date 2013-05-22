@@ -5,8 +5,8 @@ function Game2ScenePerdeu()
 	this.loaded = false;
     
 	//tamanho da tela
-    this.tamanho_x = 1024;
-    this.tamanho_y = 768;
+    this.tamanho_x = 800;
+    this.tamanho_y = 600;
 
     this.posicao_x = 0;
     this.posicao_y = 0;
