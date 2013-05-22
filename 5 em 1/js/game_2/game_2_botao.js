@@ -35,8 +35,8 @@ function Game2Button(arquivo, tam_x, tam_y, pos_x, pos_y)
     	    	
     	//colis�o
     	if(Collide(
-    		mouse.x-588,
-    		mouse.y-28,
+    		mouse.x-9,
+    		mouse.y-8,
     		1,
     		1,
     		this.posicao_x,

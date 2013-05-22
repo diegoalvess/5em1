@@ -46,21 +46,21 @@ function Game2SceneInstrucoes()
     {
     	//para mudar da tela pra algum lugar coloque o comando aqui
     	//fun��o do clique para o bot�o mudar de cena
-    	//switch(currentScene)
-		//{
-    			//if(botao_play.clicou == game_2.currentScene)
-    		//{
-    			game_2.currentScene = game_2.SCENE.LEVEL_1;
-    		//}
-    		//break;
     	
-    		//case
-    			//if(botao_back.clicou == game2.currentScene)
-    		//{
-    			//game_2.currentScene = SCENE.INTRO;
-    		//}
-    		//break;
-		//}*/   	
+    			
+    			if(this.botao_play.clicou (mouse))
+    		{
+    			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
+    			game_2.currentScene = game_2.SCENE.LEVEL_1;
+    		}
+    		
+    		/*
+    		if(this.botao_back.clicou (mouse))
+    		{
+    			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
+    			intro.currentScene = intro.SCENE.INTRO;
+    		}*/
+    			
     }
     
     
@@ -74,6 +74,7 @@ function Game2SceneInstrucoes()
     {
 		
     }; 
+    
     
 	
 }
