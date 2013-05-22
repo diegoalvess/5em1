@@ -75,6 +75,12 @@ function Game2SceneLevel1()
    		
    		this.vidas = 3;
    		
+   		this.player.posicao_x = (tamanho_tela_x  - this.player.tamanho_x)/2;
+    	this.player.posicao_y = (tamanho_tela_y - this.player.tamanho_y-2);
+   		
+   		
+   		//game_2.currentScene = game_2.SCENE.LEVEL_1;
+   		
 	};
 	
 	this.reset();
@@ -149,7 +155,7 @@ function Game2SceneLevel1()
 								this.pontos++;
 			
 									//FAZENDO APARECER A TELA DE VENCEDOR
-									if(this.pontos >= 50)
+									if(this.pontos >= 5)
 									{
 										game_2.currentScene = game_2.SCENE.FIMGANHOU;
 									}
@@ -230,6 +236,8 @@ function Game2SceneLevel1()
     	//SE O JOGADOR PERDER APARECERA A TELA DE PERDEDOR PARA VOLTAR PARA O MENU
     	//currentScene = SCENE.FIMPERDEU;
     	//this.efeito_sonoro.pause();
+    	
+    	console.log("mouse down game2 level1");
     };
      
  	

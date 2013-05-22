@@ -17,12 +17,12 @@ function Game2ScenePerdeu()
     this.efeito_sonoro.load();
     
     //imagem dos botoes							TAMANHO_X,TAMANHO_Y,POSICAO_X, POSICAO_Y
-   // this.botao_voltar = new Button("imgs/game_2/voltar_teste.png", 70, 70, tamanho_tela_x /2, (tamanho_tela_y-80));
+    this.botao_para_o_menu_do_jogo = new Game2Button("imgs/game_2/back.png", 70, 70, 250,500);
     
-   // this.imagem.onload = function()
-   // {
-	//	loaded = true; 
-	//}
+    this.imagem.onload = function()
+  	{
+		loaded = true; 
+	}
     
     this.update=function()
     {
@@ -34,18 +34,20 @@ function Game2ScenePerdeu()
     	screen.drawImage(this.imagem, 0, 0)
     	
     	//desenho dos  botoes
-		//this.botao_voltar.draw();
-    };
+		this.botao_para_o_menu_do_jogo.draw();
+    
+    }
     
     
     this.mouse_down=function(mouse)
-    {   	
-    	//console.log("djdsvkj gjsdfh");
-    	//if(this.botao_voltar.cliked(mouse))
-    	//{
-    	//	currentScene = SCENE.SCENEMENU;
-    	//	this.efeito_sonoro.play();	
-    	//}
+    {   
+    	//CLICANDO E INDO PARA O MENU PRINCIPAL	
+    	if(this.botao_para_o_menu_do_jogo.clicou(mouse))
+    		{
+    			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
+    			this.efeito_sonoro.play();
+    			game_2.currentScene = game_2.SCENE.INSTRUCOES;
+    		}
     	
     	
     };
