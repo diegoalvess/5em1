@@ -111,6 +111,8 @@ function Game_2()
 		//Funcionando teclado e mouse.
 		this.mouse_down = function(mouse)
 		{
+			console.log("mouse down game2");
+			
 			switch(this.currentScene)
 			{
 				case this.SCENE.INSTRUCOES:
@@ -127,6 +129,13 @@ function Game_2()
 				}
 				break;
 				
+				case this.SCENE.FIMGANHOU:
+				{
+					
+					this.fimganhou.mouse_down(mouse);
+				}
+				break;
+				
 				case this.SCENE.FIMPERDEU:
 				{
 					
@@ -134,12 +143,7 @@ function Game_2()
 				}
 				break;
 				
-				case SCENE.FIMGANHOU:
-				{
-					
-					this.fimganhou.mouse_down(mouse);
-				}
-				break;
+				
 								
 			}
 		}
@@ -167,6 +171,13 @@ function Game_2()
 				}
 				break;
 				
+				case SCENE.FIMGANHOU:
+				{
+					
+					//this.fimganhou.key_down(key);
+				}
+				break;
+				
 				case this.SCENE.FIMPERDEU:
 				{
 					
@@ -174,12 +185,7 @@ function Game_2()
 				}
 				break;
 				
-				case SCENE.FIMGANHOU:
-				{
-					
-					//this.fimganhou.key_down(key);
-				}
-				break;
+				
 								
 			}
 		};

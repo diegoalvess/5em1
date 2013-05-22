@@ -3,15 +3,15 @@ function Game2SceneInstrucoes()
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_2/Menu.png"//FAZER IMAGEM PARA INSTRUCAO
 	this.loaded = false;
-	this.tamanho_x = 1024;
-    this.tamanho_y = 768;
+	this.tamanho_x = 800;
+    this.tamanho_y = 600;
     
     this.posicao_x = 0;
     this.posicao_y = 0;
     
     //Som
     this.efeito_sonoro = new Audio();
-    this.efeito_sonoro.src = "sounds/game_2/click.mp3"
+    this.efeito_sonoro.src = "sounds/game_2/click.mp3";
     this.efeito_sonoro.load();
     
     
@@ -51,15 +51,18 @@ function Game2SceneInstrucoes()
     		if(this.botao_play.clicou (mouse))
     		{
     			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
+    			this.efeito_sonoro.play();
     			game_2.currentScene = game_2.SCENE.LEVEL_1;
+    			
     		}
     		
-    		/*
+    		
     		if(this.botao_back.clicou (mouse))
     		{
     			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
-    			intro.currentScene = intro.SCENE.INTRO;
-    		}*/
+    			this.efeito_sonoro.play();
+    			currentScene = SCENE.INTRO;
+    		}
     			
     }
     
