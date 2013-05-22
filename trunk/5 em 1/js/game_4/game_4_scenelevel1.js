@@ -17,8 +17,6 @@ function Game4SceneLevel1()
 	//Pause
 	this.paused = false;
 	
-	//Sorteio do Tiros Inimigos
-	this.sorteio = 0.01;
 	
 	//
 	this.visible = true;	
@@ -147,12 +145,19 @@ function Game4SceneLevel1()
     for(var i = 0 ; i < 1; i++) 
     {
     	this.wave11[i] = new Game4Inimigo("imgs/game_4/inimigos/Mestre.png");
-    	this.wave11[i].posicao_x = 1400*11;
-    	this.wave11[i].posicao_y = tamanho_tela_y/20 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave11[i].tamanho_x = 256;
+    	this.wave11[i].tamanho_y = 256;
+    	this.wave11[i].velocidade_x = -5;
+    	this.wave11[i].velocidade_y = 0;
+    	this.wave11[i].posicao_x = 1000;
+    	this.wave11[i].posicao_y = tamanho_tela_y/2 - this.wave11[i].tamanho_y/2
+    	this.wave11[i].currentBehaviour = BEHAVIOUR.BOSS;
+    	this.wave11[i].chancetiro = 0;
     }
 	
     //Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
-    this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10, this.wave11);
+    //this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10, this.wave11);
+    this.waves = this.wave11.concat(this.wave11);
         
     };//Reset
 	
@@ -187,10 +192,26 @@ function Game4SceneLevel1()
     		{
     			if(this.waves[i].visible)
     			{
-    				if(Math.random()< this.sorteio)
+    				if(Math.random()< this.waves[i].chancetiro)
     				{
-    					this.Tiros_inimigos.push(new Game4Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/2, -15));
+    					if(this.waves[i].currentBehaviour == BEHAVIOUR.BOSS)
+    					{
+    						this.Tiros_inimigos.push(new Game4Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/2, -15));
+    						this.Tiros_inimigos.push(new Game4Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/3, -15));
+    						this.Tiros_inimigos.push(new Game4Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/4, -15));
+    						this.Tiros_inimigos.push(new Game4Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/5, -15));
+    						
+    						this.Tiros_inimigos.push(new Game4Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y, -15));
+    						this.Tiros_inimigos.push(new Game4Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y, -15));
+    					
+    					}
+    					else
+    					{
+    						this.Tiros_inimigos.push(new Game4Tiro(this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/2, -15));
+    					}
     				}
+    			
+    			
     			}
     		}
     		

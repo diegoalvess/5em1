@@ -12,11 +12,12 @@ function Game4Inimigo(source,hp)
     this.velocidade_x = 10;
 	this.velocidade_y = 5;
 	
+	this.chancetiro = 0.01;
 	
 	this.max_energy = 10; 
 	this.current_energy = this.max_energy;
 	
-	BEHAVIOUR = {MOVERIGHT: 0, UPANDDOWN: 1 }
+	BEHAVIOUR = {MOVERIGHT: 0, UPANDDOWN: 1, BOSS:2 }
 	
 	this.currentBehaviour = BEHAVIOUR.MOVERIGHT;
 	
@@ -43,7 +44,15 @@ function Game4Inimigo(source,hp)
     			this.up_down();
     			
     		break;
+    		
+    		case BEHAVIOUR.BOSS:
+    			
+    			this.boss();
+    			
+    		break;
     	}
+    	
+    	
     	    	    	
     };
     
@@ -81,6 +90,21 @@ function Game4Inimigo(source,hp)
     	}*/
     
     }
+    
+    this.boss = function()
+    {
+    	this.posicao_x += this.velocidade_x;
+    	this.posicao_y += this.velocidade_y;
+    	
+    	if(this.posicao_x <= 550)
+    	{
+    		this.velocidade_x = 0;
+    		this.chancetiro = 0.05
+    		
+    	}
+    	    	
+	}
+    
     };
 
 
