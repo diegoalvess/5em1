@@ -39,7 +39,7 @@
 		<script src="js/game_2/game_2.js"></script>
 		
 		
-		<!--invaders--!>
+		<!--invaders-->
 		<!--<script src="js/game_3/game_3_background.js"></script>
 		<script src="js/game_3/game_3_pallete.js"></script>
 		<script src="js/game_3/game_3_scene_game_over.js"></script>
@@ -51,7 +51,7 @@
 		
 		
 		<!--shooter--> 
-	<!--	<script src="js/game_4/game_4_sceneintroducao.js"></script>
+		<script src="js/game_4/game_4_sceneintroducao.js"></script>
 		<script src="js/game_4/game_4_background.js"></script>
 		<script src="js/game_4/game_4_fimganhou.js"></script>
 		<script src="js/game_4/game_4_player.js"></script>
@@ -61,7 +61,7 @@
 		<script src="js/game_4/game_4_interface.js"></script>
 		<script src="js/game_4/game_4_animacao.js"></script>
 		<script src="js/game_4/game_4_tiro.js"></script>
-		<script src="js/game_4/game_4.js"></script>-->
+		<script src="js/game_4/game_4.js"></script>
 
 
 		
@@ -95,11 +95,11 @@
 	
 	var credit = new SceneCredit();
 	
-	//var game_1 = new Game_1();//
+	//var game_1 = new Game_1();
 	
 	var game_2 = new Game_2();
 	
-	//var game_4 = new Game_4();//
+	var game_4 = new Game_4();
 	
 	
 	var SCENE = { INTRO: 0, CREDITS: 1, GAME_1: 2, GAME_2: 3, GAME_3: 4, GAME_4: 5, GAME_5: 6 }
@@ -149,12 +149,12 @@
 			{
 				credit.update();
 			}
-		/*	break;
+			break;
 			case SCENE.GAME_1:
 			{
 				game_1.update();
 			}
-			break;*/
+			break;
 			case SCENE.GAME_2:
 			{
 				game_2.update();
@@ -196,11 +196,11 @@
 				credit.draw();
 			}
 			break;
-		/*	case SCENE.GAME_1:
+			case SCENE.GAME_1:
 			{
 				game_1.draw();
 			}
-			break;*/
+			break;
 			case SCENE.GAME_2:
 			{
 				game_2.draw();
@@ -250,11 +250,11 @@
 				credit.key_down(key);
 			}
 			break;
-			/*case SCENE.GAME_1:
+			case SCENE.GAME_1:
 			{
 				game_1.key_down(key);	
 			}
-			break;*/
+			break;
 			case SCENE.GAME_2:
 			{
 				game_2.key_down(key);	
@@ -265,11 +265,11 @@
 				game_3.key_down(key);	
 			}
 			break;
-			/*case SCENE.GAME_4:
+			case SCENE.GAME_4:
 			{
 				game_4.key_down(key);	
 			}
-			break;*/
+			break;
 			case SCENE.GAME_5:
 			{
 				game_5.key_down(key);	
@@ -293,11 +293,11 @@
 				credit.key_up(key);
 			}
 			break;
-			/*case SCENE.GAME_1:
+			case SCENE.GAME_1:
 			{
 				game_1.key_up(key);
 			}
-			break;*/
+			break;
 			case SCENE.GAME_2:
 			{
 				game_2.key_up(key);
@@ -308,11 +308,11 @@
 				game_3.key_up(key);
 			}
 			break;
-			/*case SCENE.GAME_4:
+			case SCENE.GAME_4:
 			{
 				game_4.key_up(key);
 			}
-			break;*/
+			break;
 			case SCENE.GAME_5:
 			{
 				game_5.key_up(key);
@@ -346,11 +346,11 @@
 				credit.mouse_down(mouse);
 			}
 			break;
-			/*case SCENE.GAME_1:
+			case SCENE.GAME_1:
 			{
 				game_1.mouse_down(mouse);
 			}
-			break;*/
+			break;
 			case SCENE.GAME_2:
 			{
 				game_2.mouse_down(mouse);
@@ -361,11 +361,11 @@
 				game_3.mouse_down(mouse);
 			}
 			break;
-			/*case SCENE.GAME_4:
+			case SCENE.GAME_4:
 			{
 				game_4.mouse_down(mouse);
 			}
-			break;*/
+			break;
 			case SCENE.GAME_5:
 			{
 				game_5.mouse_down(mouse);
