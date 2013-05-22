@@ -29,8 +29,12 @@ function Game1SceneGanhou()
     
     this.mouse_down=function(mouse)
     {   	
-    	//para mudar da tela pra algum lugar coloque o comando aqui
-    	//currentScene = SCENE.[adicionar tela aqui depois];
+		if(this.botaoback.clicou (mouse))
+    	{
+    		console.log("cena intro mouse X " + mouse.x + " mouse Y " + mouse.y );
+    		currentScene = SCENE.INTRO;
+    		game_1.currentScene = game_1.SCENE.LEVEL_1;
+    	}	
     };
     
     

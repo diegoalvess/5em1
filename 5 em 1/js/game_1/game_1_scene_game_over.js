@@ -4,10 +4,8 @@ function Game1ScenePerdeu()
 	this.imagem.src = "imgs/game_1/Fimperdeu.png"
 	this.loaded = false;
     
-
     this.tamanho_x = 1500;
     this.tamanho_y = 1366;
-
     this.posicao_x = 0;
     this.posicao_y = 0;
     
@@ -16,6 +14,9 @@ function Game1ScenePerdeu()
     this.efeito_sonoro.src = "sounds/game_1/GameOver.mp3"
     this.efeito_sonoro.load();
     
+    //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
+    this.botaoback = new Game1Button("imgs/game_1/back.png", 248, 98, 300, 500 );
+    
     this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -23,20 +24,27 @@ function Game1ScenePerdeu()
     
     this.update=function()
     {
+    	//Game over (som)
     	this.efeito_sonoro.play();
     };
     
     this.draw=function()
     {  	
+    	//Desenhando fundo game_over
     	screen.drawImage(this.imagem, 0, 0)
+    	
+    	//Desenho botoes
+    	this.botaoback.draw();  	
     };
     
     
     this.mouse_down=function(mouse)
-    {   	
-    	//para mudar da tela pra algum lugar coloque o comando aqui
-    	//currentScene = SCENE.[adicionar tela aqui depois];
-    	this.efeito_sonoro.pause();
+    {
+		if(this.botaoback.clicou (mouse))
+    	{
+    		console.log("cena intro mouse X " + mouse.x + " mouse Y " + mouse.y );
+    		currentScene = SCENE.INTRO;
+    	}	
     };
     
     
