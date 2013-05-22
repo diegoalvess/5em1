@@ -1,7 +1,7 @@
 function Tiro(posicao_x, posicao_y)
 {
 	this.imagem = new Image();
-	this.imagem.src="Imagens/tiro.png";
+	this.imagem.src="imgs/game_3/tiro.png";
 	this.carregada = false;
 	this.visible = true;
 	
@@ -10,8 +10,8 @@ function Tiro(posicao_x, posicao_y)
 		loaded = true; 
 	};
 	
-	this.tamanho_x = 3;
-	this.tamanho_y = 15;
+	this.tamanho_x = 15;
+	this.tamanho_y = 26;
 	this.posicao_x = posicao_x;
 	this.posicao_y = posicao_y;
 	this.velocidade_x = 0;

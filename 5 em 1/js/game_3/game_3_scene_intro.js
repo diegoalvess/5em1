@@ -1,7 +1,7 @@
 function SceneIntroducao()
 {
 	this.imagem = new Image();
-	this.imagem.src = "Imagens/Introducao.png"
+	this.imagem.src = "imgs/Introducao.png"
 	this.loaded = false;
     
 
