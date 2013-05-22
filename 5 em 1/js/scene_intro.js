@@ -43,7 +43,7 @@ function SceneIntro()
 		this.button_game_2.draw();
 		this.button_game_3.draw();
 		this.button_game_4.draw();
-		this.button_game_5.draw();
+		//this.button_game_5.draw();
 	};
    
    	this.mouse_down=function(mouse)
@@ -74,10 +74,10 @@ function SceneIntro()
     		currentScene = SCENE.GAME_4;		
     	}
     	
-    	if(this.button_game_5.clicked(mouse))
+    	/*if(this.button_game_5.clicked(mouse))
     	{
     		currentScene = SCENE.GAME_5;		
-    	}
+    	}*/
     	
     };
    
