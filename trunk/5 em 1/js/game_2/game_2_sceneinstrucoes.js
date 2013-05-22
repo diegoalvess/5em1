@@ -48,7 +48,7 @@ function Game2SceneInstrucoes()
     	//fun��o do clique para o bot�o mudar de cena
     	
     			
-    			if(this.botao_play.clicou (mouse))
+    		if(this.botao_play.clicou (mouse))
     		{
     			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
     			game_2.currentScene = game_2.SCENE.LEVEL_1;

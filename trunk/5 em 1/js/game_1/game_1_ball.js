@@ -36,8 +36,8 @@ function Game1Bola()
 		this.ficandonatela();
 		
 		
-		//Fazendo o player visualizar tela de ganhou
-		if(this.pontosplayer >= 10)
+		//Fazendo o player ganhar e mostrar a tela de ganhou
+		if(this.pontosplayer >= 15)
 		{
 			game_1.currentScene = game_1.SCENE.FIMGANHOU;
 			
@@ -45,8 +45,8 @@ function Game1Bola()
 			this.reset();					
 		}	
 		
-		//Fazendo o player visualizar tela de perdeu
-		if(this.pontosinimigo >= 10)
+		//Fazendo o inimigo ganhar e mostrar tela de perdeu
+		if(this.pontosinimigo >= 15)
 		{
 			game_1.currentScene = game_1.SCENE.FIMPERDEU;
 			

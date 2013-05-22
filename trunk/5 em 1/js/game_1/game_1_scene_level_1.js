@@ -49,9 +49,6 @@ function Game1SceneLevel1()
     	{
     		return;  	
     	}
-		
-		//Som
-    	//this.efeito_sonoro.play();
     	
     	//Background se movendo
     	this.background.update();
