@@ -94,7 +94,15 @@
 		
 		</body>
    
-   	<script> 
+   	<script>
+   	var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+   	if (!is_chrome)//!?
+   	{
+   		document.write("<h2><br/>PLEASE USE THE <a href='http://www.google.com/intl/pt-BR/chrome/browser/'>GOOGLE CHROME</a> :) ;)</h2>");
+   	}
+   	else
+   	{
+   	 
    	var canvas = document.getElementById("main");
    	var screen = canvas.getContext("2d");
    	
@@ -403,7 +411,7 @@
 		}
 	}
 	
-
+   	}
 	</script>
 
 	</body>
