@@ -24,7 +24,7 @@ function Game1Paleta (player_tecla)
 		this.movendo();
 		
 		//Colidindo com as bordas
-		this.saindodatela();
+		this.ficandonatela();
 	}
 	
 	this.draw=function()
@@ -46,7 +46,7 @@ function Game1Paleta (player_tecla)
     }
     
 	//Colisão para não sair da tela
-    this.saindodatela=function()
+    this.ficandonatela=function()
     {
     	//saida pela direita
     	if(this.posicao_x < 0)

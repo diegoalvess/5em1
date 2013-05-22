@@ -14,11 +14,11 @@ function Game1PaletaInimigo()
     this.update=function()
     {
     	//Colidindo com as bordas
-		this.saindodatela();
+		this.ficandonatela();
     };
     
 	//Colisão para não sair da tela
-    this.saindodatela=function()
+    this.ficandonatela=function()
     {
     	//saida pela direita
     	if(this.posicao_x < 0)

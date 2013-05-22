@@ -15,10 +15,10 @@ function Game1SceneLevel1()
     //Colocando a imagem de background
     this.background = new Game1Background("imgs/game_1/FundoBackground.png");
 	
-    //Efeito sonoro
-    //this.efeito_sonoro = new Audio();
-    //this.efeito_sonoro.src = "Sons/Som1.mp3"
-    //this.efeito_sonoro.load();
+    //Efeito sonoro da borda
+    this.efeito_sonoro = new Audio();
+    this.efeito_sonoro.src = "sounds/game_1/paletascolisao.mp3"
+    this.efeito_sonoro.load();
     
 	//Array de blocos
 	//Blocos1 - blocos do lado do player
@@ -27,7 +27,7 @@ function Game1SceneLevel1()
     {
     	this.bloco1[i] = new Game1Bloco("imgs/game_1/Bloco.png");
     	this.bloco1[i].posicao_x = 150;
-    	this.bloco1[i].posicao_y = tamanho_tela_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
+    	this.bloco1[i].posicao_y = tamanho_tela_y/7 + (i * 300); //numero depois de * espacamento entre os inimigos
     }
 	
 	//Blocos2 - blocos do lado do inimigo
@@ -35,31 +35,13 @@ function Game1SceneLevel1()
 	for(var i = 0 ; i < 2; i++) 
     {
     	this.bloco2[i] = new Game1Bloco("imgs/game_1/Bloco.png");
-    	this.bloco2[i].posicao_x = 1000;
-    	this.bloco2[i].posicao_y = tamanho_tela_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
-    }
-	
-	//Bloco3 - blocos das laterais
-	this.bloco3 = new Array();
-	for(var i = 0 ; i < 2; i++) 
-    {
-    	this.bloco3[i] = new Game1Bloco("imgs/game_1/Bloco.png");
-    	this.bloco3[i].posicao_x = tamanho_tela_x/2;
-    	this.bloco3[i].posicao_y = tamanho_tela_y/10 + (i * 500); //numero depois de * espacamento entre os inimigos
-    }
-	
-	//Bloco4 - blocos centrais
-	this.bloco4 = new Array();
-	for(var i = 0 ; i < 2; i++) 
-    {
-    	this.bloco4[i] = new Game1Bloco("imgs/game_1/Bloco.png");
-    	this.bloco4[i].posicao_x = tamanho_tela_x/2;
-    	this.bloco4[i].posicao_y = (tamanho_tela_y/2-50) + (i * 0); //numero depois de * espacamento entre os inimigos
+    	this.bloco2[i].posicao_x = 630;
+    	this.bloco2[i].posicao_y = tamanho_tela_y/7 + (i * 300); //numero depois de * espacamento entre os inimigos
     }
 	
 	//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
-	this.blocos = this.bloco1.concat(this.bloco2, this.bloco3, this.bloco4);
-	
+	this.blocos = this.bloco1.concat(this.bloco2)	
+		
     this.update=function()
     {
     	//Pause
@@ -103,49 +85,52 @@ function Game1SceneLevel1()
 		
 		//Fazendo colisão da bola com a paleta player
 		if( Collide( this.bola.posicao_x,
-					this.bola.posicao_y,
-					this.bola.tamanho_x,
-					this.bola.tamanho_y,
-					this.player.posicao_x,
-					this.player.posicao_y,
-					this.player.tamanho_x,
-					this.player.tamanho_y ) ) //se a bola colidiu com o player
+					 this.bola.posicao_y,
+					 this.bola.tamanho_x,
+					 this.bola.tamanho_y,
+					 this.player.posicao_x,
+					 this.player.posicao_y,
+					 this.player.tamanho_x,
+					 this.player.tamanho_y ) ) //se a bola colidiu com o player
 				{
 					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
 					//this.bola.velocidade_x ++;
 					this.bola.velocidade_x *= -1;
+					this.efeito_sonoro.play();
 				}
 		
     	//Fazendo colisão da bola com a paleta Inimigo
 		if( Collide( this.bola.posicao_x,
-					this.bola.posicao_y,
-					this.bola.tamanho_x,
-					this.bola.tamanho_y,
-					this.inimigo.posicao_x,
-					this.inimigo.posicao_y,
-					this.inimigo.tamanho_x,
-					this.inimigo.tamanho_y ) ) //se a bola colidiu com o inimigo
+					 this.bola.posicao_y,
+					 this.bola.tamanho_x,
+					 this.bola.tamanho_y,
+					 this.inimigo.posicao_x,
+					 this.inimigo.posicao_y,
+					 this.inimigo.tamanho_x,
+					 this.inimigo.tamanho_y ) ) //se a bola colidiu com o inimigo
 				{
 					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
-					//bola.velocidade_x ++;
+					//this.bola.velocidade_x ++;
 					this.bola.velocidade_x *= -1;
+					this.efeito_sonoro.play();
 				}
 		
-		//Fazendo colisão da bola com os blocos
-		if(this.blocos[i])
+		//Fazendo colisão da bola com os blocos USE SEMPRE FOR for(var i = 0 ; i < this.blocos.length; i++) !p
+		for(var i = 0 ; i < this.blocos.length; i++)
 		{
 			if( Collide( this.bola.posicao_x,
-						this.bola.posicao_y,
-						this.bola.tamanho_x,
-						this.bola.tamanho_y,
-						this.blocos[i].posicao_x,
-						this.blocos[i].posicao_y,
-						this.blocos[i].tamanho_x,
-						this.blocos[i].tamanho_y ) ) //se a bola colidiu com o bloco
+						 this.bola.posicao_y,
+						 this.bola.tamanho_x,
+						 this.bola.tamanho_y,
+						 this.blocos[i].posicao_x,
+						 this.blocos[i].posicao_y,
+						 this.blocos[i].tamanho_x,
+						 this.blocos[i].tamanho_y ) ) //se a bola colidiu com o bloco
 					{
 						//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
 						//bola.velocidade_x ++;
 						this.bola.velocidade_x *= -1;
+						this.efeito_sonoro.play();
 					}
 		}
     };
@@ -168,7 +153,7 @@ function Game1SceneLevel1()
 		for(var i = 0 ; i < this.blocos.length; i++)
     	{
     		this.blocos[i].draw();    		 
-   		} 
+   		}  		
     };
     
     
