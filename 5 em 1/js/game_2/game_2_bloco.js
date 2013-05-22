@@ -13,8 +13,7 @@ function Game2Bloco(source, hp)
 
 	this.bloco_imagem.onload = function()			
 	{
-		loaded = true; 
-		console.log(loaded);
+		loaded = true;
 	};
 
 	this.tam_X = 60;

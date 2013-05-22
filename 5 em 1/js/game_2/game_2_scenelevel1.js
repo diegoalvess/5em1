@@ -203,7 +203,7 @@ function Game2SceneLevel1()
  		}
  		
  		//DESENHANDO PONTOS NA TELA
- 		 //DESENHO DOS PONTOS NO CAMPO//
+ 		//DESENHO DOS PONTOS NO CAMPO//
         screen.font = "45px Arial";
         screen.fillStyle="#FF0000";
         screen.fillText("Pontos " + this.pontos, 140, 35);
