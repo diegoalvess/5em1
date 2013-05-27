@@ -16,7 +16,7 @@ function Game3SceneLevel1()
 	this.blocos1 = new Array();	
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos1[i] = new Bloco("imgs/game_3/bloco1.png");
+        this.blocos1[i] = new Bloco("imgs/game_3/bloco1.png", );
         this.blocos1[i].posicao_y = 100        	
         this.blocos1[i].posicao_x = 200 + (i * (this.blocos1[i].tamanho_x + 10 ));  	
     }
@@ -25,7 +25,7 @@ function Game3SceneLevel1()
 	this.blocos2 = new Array();
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos2[i] = new Bloco("imgs/game_3/bloco2.png");
+        this.blocos2[i] = new Bloco("imgs/game_3/bloco2.png", );
         this.blocos2[i].posicao_y = 160       	
         this.blocos2[i].posicao_x = 200 + (i * (this.blocos2[i].tamanho_x + 10 ));  	
     }
@@ -34,7 +34,7 @@ function Game3SceneLevel1()
 	this.blocos3 = new Array();
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos3[i] = new Bloco("imgs/game_3/bloco3.png");
+        this.blocos3[i] = new Bloco("imgs/game_3/bloco3.png",);
         this.blocos3[i].posicao_y = 220     	
         this.blocos3[i].posicao_x = 200 + (i * (this.blocos3[i].tamanho_x + 10 ));  	
     }
@@ -43,7 +43,7 @@ function Game3SceneLevel1()
 	this.blocos4 = new Array();
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos4[i] = new Bloco("imgs/game_3/bloco4.png");
+        this.blocos4[i] = new Bloco("imgs/game_3/bloco4.png",);
         this.blocos4[i].posicao_y = 280      	
         this.blocos4[i].posicao_x = 200 + (i * (this.blocos4[i].tamanho_x + 10 ));  	
     }
@@ -52,7 +52,7 @@ function Game3SceneLevel1()
 	this.blocos5 = new Array();
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos5[i] = new Bloco("imgs/game_3/bloco5.png");
+        this.blocos5[i] = new Bloco("imgs/game_3/bloco5.png",);
         this.blocos5[i].posicao_y = 340 	
         this.blocos5[i].posicao_x = 200 + (i * (this.blocos5[i].tamanho_x + 10 ));  	
     }
@@ -73,28 +73,42 @@ function Game3SceneLevel1()
     	{
     		return;  	
     	}
-    	
-    	for(var u = 0; u < blocos.length; u++)
+
+	
+		for(var i = 0; i < this.player.tiros.length ; i++)
     	{
-    		
-    		if(blocos[u].visible)
+    		this.player.tiros[i].update();
+    	}
+
+
+    	for(var u = 0; u < blocos.length; u++)
+    	{    		
+    		for(var a = 0; a < this.player.tiros.length ; a++)
+			{
+			    		
+     		if(blocos[u].visible&&this.player.tiros[a].visible)
     		{   		
-    			if(Collide(
+    			if(Collide(		
+    				this.player.tiros[a].posicao_x,
+    				this.player.tiros[a].posicao_y,
+    				this.player.tiros[a].tamanho_x,
+    				this.player.tiros[a].tamanho_y,
     				blocos[u].posicao_x,
     				blocos[u].posicao_y,
     				blocos[u].tamanho_x,
-    				blocos[u].tamanho_y,
-    				this.player.Tiros.posicao_x,
-    				this.player.Tiros.posicao_y,
-    				this.player.Tiros.tamanho_x,
-    				this.player.Tiros.tamanho_y));
+    				blocos[u].tamanho_y
+    				))
     				{
-    					console.log("idsivdsv")
+    					//console.log("idsivdsv")
     					blocos[u].visible = false;
-    					this.player.Tiros.visible = false
+    					this.player.tiros[a].visible = false
+    					blocos[u].hp--
+    					  
     				}
     	
-    		}
+    			}
+    		
+			}
     	}
     	//Colidindo com as bordas
 		this.batendonatela();
@@ -113,12 +127,6 @@ function Game3SceneLevel1()
     	{
     		blocos[i].update();
    		}
-   		
-   		//Tiro
-		for(var i = 0; i < this.player.Tiros.length ; i++)
-    	{
-    		this.player.Tiros[i].update();
-    	}
     }
     
     this.draw=function()
@@ -136,9 +144,9 @@ function Game3SceneLevel1()
    		} 
    		
    		//Tiro
-   		for(var i = 0; i < this.player.Tiros.length ; i++)
+   		for(var i = 0; i < this.player.tiros.length ; i++)
     	{
-    		this.player.Tiros[i].draw();
+    		this.player.tiros[i].draw();
     	}
 		
     }
@@ -210,10 +218,10 @@ function Game3SceneLevel1()
 	//Função de colisão
 	function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
 	{
-		if((x1+w1<x2) 
-			||(x1>x2+w2) 
-			||(y1+h1<y2) 
-			||(y1>y2+h2)) 
+		if((x1+w1<x2) // SE RECT ESQUERDO RECT2
+			||(x1>x2+w2) //SE RECT DIREITO RECT2
+			||(y1+h1<y2) //SE RECT CIMA RECT2
+			||(y1>y2+h2)) //SE RECT BAIXO RECT2
 		{
 			return false; 
 		}
