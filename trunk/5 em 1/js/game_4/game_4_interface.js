@@ -1,17 +1,17 @@
-function Game4Interface()
+function Game4Interface(soucer, tam_x, tam_y, pos_x, pos_y)
 {
 	this.imagem = new Image();
-	this.imagem.src = "imgs/game_4/barra de energia.png";
+	this.imagem.src = soucer;
 	//this.loaded = false;
 	
 	this.visible = true;
 	
-	this.tamanho_x_src = 300;
-    this.tamanho_y_src = 25;
+	this.tamanho_x_src = tam_x;
+    this.tamanho_y_src = tam_y;
     this.posicao_x_src = 0;
     this.posicao_y_src = 0;
-    this.posicao_x_dst = 5; //mudar posicao na tela aqui
-    this.posicao_y_dst = 5; //mudar posicao na tela aqui
+    this.posicao_x_dst = pos_x; //mudar posicao na tela aqui
+    this.posicao_y_dst = pos_y; //mudar posicao na tela aqui
     this.tamanho_x_dst = this.tamanho_x_src;
     this.tamanho_y_dst = this.tamanho_y_src;
     
@@ -37,7 +37,5 @@ function Game4Interface()
         			 	 this.posicao_y_dst, 
         			 	 (this.tamanho_x_dst*current_energy_value/max_energy_value)*this.escala_x,
         			 	 this.tamanho_y_dst*this.escala_y);
-		
-		//screen.drawImage(this.imagem, this.posicao_x, this.posicao_y);
-    };
+     };
 }

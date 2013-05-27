@@ -1,7 +1,7 @@
-function Game4Tiro(posicao_x, posicao_y, velocidade_x)
+function Game4Tiro(file, posicao_x, posicao_y, velocidade_x)
 {	
 	this.imagem = new Image();
-	this.imagem.src="imgs/game_4/Tiro.png";
+	this.imagem.src= file;
 	this.loaded = false;
 	this.visible = true;
 	
@@ -10,13 +10,14 @@ function Game4Tiro(posicao_x, posicao_y, velocidade_x)
 		loaded = true; 
 	};
 	
-	this.tamanho_x = 10;
-    this.tamanho_y = 20;
+	this.tamanho_x = 64;
+    this.tamanho_y = 27;
     this.posicao_x = posicao_x;
     this.posicao_y = posicao_y - this.tamanho_y/2;
     this.velocidade_x = velocidade_x;                    //Math.floor((Math.random()*10)+1);
     this.velocidade_y =  0;                  //-Math.floor((Math.random()*10)+1)
     
+    this.boss_sorteio = 0.1
     this.dano = 10;
     
     this.update=function()
