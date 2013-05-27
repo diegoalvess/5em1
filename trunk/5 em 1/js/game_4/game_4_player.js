@@ -30,6 +30,7 @@ function Game4Player(player_tecla)
 	this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_4/Tiro.mp3"
     this.efeito_sonoro.load();
+    this.efeito_sonoro.volume = 0.1
      
     this.max_energy = 100; 
 	this.current_energy = this.max_energy;

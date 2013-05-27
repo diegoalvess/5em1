@@ -1,19 +1,16 @@
-function ScenePerdeu()
+function Game3ScenePerdeu()
 {
 	this.imagem = new Image();
-	this.imagem.src = "Imagens/Fimperdeu.png"
+	this.imagem.src = "imgs/game_3/Fimperdeu.png"
 	this.loaded = false;
-    
-
-    this.tamanho_x = 1500;
-    this.tamanho_y = 1366;
-
+    this.tamanho_x = 800;
+    this.tamanho_y = 600;
     this.posicao_x = 0;
     this.posicao_y = 0;
     
     //Som
     this.efeito_sonoro = new Audio();
-    this.efeito_sonoro.src = "Sons/GameOver.mp3"
+    this.efeito_sonoro.src = "sounds/game_3/GameOver.mp3"
     this.efeito_sonoro.load();
     
     this.imagem.onload = function()

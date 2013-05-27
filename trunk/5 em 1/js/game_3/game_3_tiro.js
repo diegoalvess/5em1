@@ -1,7 +1,7 @@
 function Tiro(posicao_x, posicao_y)
 {
 	this.imagem = new Image();
-	this.imagem.src="imgs/game_3/tiro.png";
+	this.imagem.src="imgs/game_3/tiroup.png";
 	this.carregada = false;
 	this.visible = true;
 	

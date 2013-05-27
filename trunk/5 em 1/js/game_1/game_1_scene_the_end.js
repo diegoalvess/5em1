@@ -13,17 +13,12 @@ function Game1SceneGanhou()
 		loaded = true; 
 	};
     
-    //Efeito sonoro
-    this.efeito_sonoro = new Audio();
-    this.efeito_sonoro.src = "sounds/game_1/somvenceu.mp3"
-    this.efeito_sonoro.load(); 
-    
     //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
     this.botaoback = new Game1Button("imgs/game_1/back.png", 248, 98, 10, 505 );
     
     this.update=function()
     {
-    	this.efeito_sonoro.play();
+    	
     };
     
     this.draw=function()

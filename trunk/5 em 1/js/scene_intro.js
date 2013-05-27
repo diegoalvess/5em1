@@ -1,6 +1,5 @@
 function SceneIntro()
 {	
-
 	this.background = new Image();
 	this.background.src="imgs/menuindex.png";
 	this.loaded = false;		
@@ -29,6 +28,12 @@ function SceneIntro()
     this.button_credit.position_x = 150;
     this.button_credit.position_y = 500;
     
+    //Efeito de som dos botoes
+    this.efeito_sonoro = new Audio();
+    this.efeito_sonoro.src = "sounds/index sounds/Efeitomenu.wav"
+    this.efeito_sonoro.load();
+    this.efeito_sonoro.volume = 1.0
+        
 	this.update=function()
    	{
 
@@ -51,32 +56,38 @@ function SceneIntro()
     	
     	if(this.button_credit.clicked(mouse))
     	{
-    		currentScene = SCENE.CREDIT;		
+    		currentScene = SCENE.CREDIT;
+    		this.efeito_sonoro.play();		
     	}
     	
     	if(this.button_game_1.clicked(mouse))
     	{
-    		currentScene = SCENE.GAME_1;		
+    		currentScene = SCENE.GAME_1;
+    		this.efeito_sonoro.play();		
     	}
 
 		if(this.button_game_2.clicked(mouse))
     	{
-    		currentScene = SCENE.GAME_2;		
+    		currentScene = SCENE.GAME_2;
+    		this.efeito_sonoro.play();		
     	}
     	
     	if(this.button_game_3.clicked(mouse))
     	{
-    		currentScene = SCENE.GAME_3;		
+    		currentScene = SCENE.GAME_3;
+    		this.efeito_sonoro.play();		
     	}
     	
     	if(this.button_game_4.clicked(mouse))
     	{
-    		currentScene = SCENE.GAME_4;		
+    		currentScene = SCENE.GAME_4;
+    		this.efeito_sonoro.play();		
     	}
     	
     	/*if(this.button_game_5.clicked(mouse))
     	{
-    		currentScene = SCENE.GAME_5;		
+    		currentScene = SCENE.GAME_5;
+    		this.efeito_sonoro.play();		
     	}*/
     	
     };

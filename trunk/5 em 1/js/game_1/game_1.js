@@ -193,11 +193,8 @@ function Game_1()
 		screen.fillStyle="#000000";
 		screen.fillText("GAME_1", 20, 20);
 		
-		this.ball.draw();
-		this.pallete.draw();
-
 	}
 	
-	*/
+*/
 
 }
