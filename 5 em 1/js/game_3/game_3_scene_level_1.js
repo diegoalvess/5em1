@@ -153,7 +153,7 @@ function Game3SceneLevel1()
 		
 		 screen.font = "45px Arial";
         screen.fillStyle="#FFFFFF";
-        screen.fillText(" 0000" + this.pontos, 140, 40);
+        screen.fillText(" 0000" + this.pontos, 120, 40);
     
     }
     
@@ -176,7 +176,6 @@ function Game3SceneLevel1()
     		}
     
     	}
-    	
     	
 			//dizendo o que a variavel de descer e inverter os inimigos vai fazer	
 			if(this.godownandreversedirection == true)
@@ -202,7 +201,6 @@ function Game3SceneLevel1()
 			}    	
 	}
 
-    
     this.mouse_down=function(mouse)
     {
     	//currentScene = SCENE.FIMGANHOU;
@@ -219,21 +217,5 @@ function Game3SceneLevel1()
     this.key_up=function(key)
     {
     	this.player.key_up(key);
-	};	
-	
-	//Função de colisão
-	function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
-	{
-		if((x1+w1<x2) // SE RECT ESQUERDO RECT2
-			||(x1>x2+w2) //SE RECT DIREITO RECT2
-			||(y1+h1<y2) //SE RECT CIMA RECT2
-			||(y1>y2+h2)) //SE RECT BAIXO RECT2
-		{
-			return false; 
-		}
-		else	
-		{
-			return true; 
-		}
-	}	
+	};		
 }

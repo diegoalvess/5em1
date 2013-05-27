@@ -5,8 +5,8 @@ function SceneCredit()
 	this.loaded = false;		
 	
     this.button_back = new Button("imgs/button_back.png", 160, 75);
-    this.button_back.position_x = 500;
-    this.button_back.position_y = 500;
+    this.button_back.position_x = 320;
+    this.button_back.position_y = 520;
     
 	this.update=function()
    	{

@@ -6,7 +6,8 @@
 	    <title>
        		5 em 1
         </title>
-
+		
+		<!--Index-->
 		<script src="js/scene_intro.js"></script>
 		<script src="js/scene_credit.js"></script>
 		<script src="js/button.js"></script>
@@ -44,12 +45,13 @@
 		<script src="js/game_3/game_3_pallete.js"></script>
 		<script src="js/game_3/game_3_scene_intro.js"></script>
 		<script src="js/game_3/game_3_scene_level_1.js"></script>
-		<script src="js/game_3/game_3_scene_menu.js"></script>
 		<script src="js/game_3/game_3_scene_the_end.js"></script>
-		<script src="js/game_3/game_3.js"></script>
+		<script src="js/game_3/game_3_scene_game_over.js"></script>
 		<script src="js/game_3/game_3.js"></script>
 		<script src="js/game_3/game_3_block.js"></script>
-		<script src="js/game_3/tiro.js"></script>
+		<script src="js/game_3/game_3_tiro.js"></script>
+		<script src="js/game_3/game_3_button.js"></script>
+		
 		
 		
 		<!--shooter--> 
@@ -344,8 +346,48 @@
 
 		}
 	}
+	
 	function mouse_move(mouse)
 	{
+		switch(currentScene)
+		{			
+			case SCENE.INTRO:
+			{
+				intro.mouse_move(mouse);
+			}
+			break;
+			case SCENE.CREDIT:
+			{
+				credit.mouse_move(mouse);
+			}
+			break;
+			case SCENE.GAME_1:
+			{
+				game_1.mouse_move(mouse);
+			}
+			break;
+			case SCENE.GAME_2:
+			{
+				game_2.mouse_move(mouse);
+			}
+			break;
+			case SCENE.GAME_3:
+			{
+				game_3.mouse_move(mouse);
+			}
+			break;
+			case SCENE.GAME_4:
+			{
+				game_4.mouse_move(mouse);
+			}
+			break;
+			case SCENE.GAME_5:
+			{
+				game_5.mouse_move(mouse);
+			}
+			break;
+
+		}
 
 	}
 

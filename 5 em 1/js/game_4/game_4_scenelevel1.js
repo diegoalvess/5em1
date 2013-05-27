@@ -1,11 +1,9 @@
-function Game4SceneLevel1()
+ function Game4SceneLevel1()
 {		
-	
-	    
 	this.reset=function()
 	{
 		
-		//Player
+	//Player
 	this.player = new Game4Player("setas");	
 	
 	//Barra de energia player
@@ -33,6 +31,7 @@ function Game4SceneLevel1()
     this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_4/Som1.mp3"
     this.efeito_sonoro.load();
+    this.efeito_sonoro.volume = 1.0
 	
 	//Wave1
 	this.wave1 = new Array();
@@ -170,9 +169,8 @@ function Game4SceneLevel1()
     	{
     		return; 	
     	}
-		
 				
-    	//this.efeito_sonoro.play();
+    	this.efeito_sonoro.play();
     	
     	//Background se movendo
     	this.background.update();

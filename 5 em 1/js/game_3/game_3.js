@@ -2,30 +2,23 @@ function Game_3()
 {
 		//Pausa
 		this.paused = false;
-		
-		//Introducao
-		//this.introducao = new SceneIntroducao();
-
-		//Creditos
-		//this.creditos = new SceneCreditos();
 
 		//Level
 		this.level1 = new Game3SceneLevel1();
 		
 		//FimGanhou 
-		//this.fimganhou = new SceneGanhou();
+		this.fimganhou = new Game3SceneGanhou();
 		
 		//FimPerdeu
-		//this.fimperdeu = new ScenePerdeu();
+		this.fimperdeu = new Game3ScenePerdeu();
 		
-		//Menu
-		//this.menu = new SceneMenu();
-	
+		this.introducao = new Game3SceneIntroducao();		
+		
 		//Fluxo das telas
 		this.SCENE = { INTRODUCAO: 0, LEVEL_1: 1, FIMGANHOU: 2, FIMPERDEU: 3}
 				
 		//Para mudar aonde o jogo comeca, ou seja qual cena, mude aqui
-		this.currentScene = this.SCENE.LEVEL_1;
+		this.currentScene = this.SCENE.INTRODUCAO;
 
 		this.update=function()
 		{	
@@ -34,7 +27,7 @@ function Game_3()
 				//introducao
 				case this.SCENE.INTRODUCAO:
 				{
-					//this.introducao.update();		
+					this.introducao.update();		
 				}
 				break;
 								
@@ -48,14 +41,14 @@ function Game_3()
 				//FimGanhou
 				case this.SCENE.FIMGANHOU:
 				{
-					//this.fimganhou.update();
+					this.fimganhou.update();
 				}
 				break;
 				
 				//FimPerdeu
 				case this.SCENE.FIMPERDEU:
 				{
-					//this.fimperdeu.update();
+					this.fimperdeu.update();
 				}
 				break;
 				
@@ -70,7 +63,7 @@ function Game_3()
 			{
 				case this.SCENE.INTRODUCAO:
 				{
-					//this.introducao.draw();
+					this.introducao.draw();
 				}
 				break;
 						
@@ -82,13 +75,13 @@ function Game_3()
 				
 				case this.SCENE.FIMGANHOU:
 				{
-					//this.fimganhou.draw();
+					this.fimganhou.draw();
 				}
 				break;
 				
 				case this.SCENE.FIMPERDEU:
 				{
-					//this.fimperdeu.draw();
+					this.fimperdeu.draw();
 				}
 				break;
 				
@@ -103,7 +96,7 @@ function Game_3()
 			{
 				case this.SCENE.INTRODUCAO:
 				{
-					//this.introducao.mouse_down(mouse);
+					this.introducao.mouse_down(mouse);
 				}
 				break;
 				
@@ -115,13 +108,13 @@ function Game_3()
 				
 				case this.SCENE.FIMPERDEU:
 				{
-					//this.fimperdeu.mouse_down(mouse);
+					this.fimperdeu.mouse_down(mouse);
 				}
 				break;
 				
 				case SCENE.FIMGANHOU:
 				{
-					//this.fimganhou.mouse_down(mouse);
+					this.fimganhou.mouse_down(mouse);
 				}
 				break;
 								
@@ -138,15 +131,35 @@ function Game_3()
 			this.level1.key_up(key);
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		this.mouse_move = function(mouse)
+		{
+			switch(this.currentScene)
+			{
+				case this.SCENE.INTRODUCAO:
+				{
+					this.introducao.mouse_move(mouse);
+				}
+				break;
+				
+				case this.SCENE.LEVEL_1:
+				{
+					this.level1.mouse_move(mouse);
+				}
+				break;
+				
+				case this.SCENE.FIMPERDEU:
+				{
+					this.fimperdeu.mouse_move(mouse);
+				}
+				break;
+				
+				case SCENE.FIMGANHOU:
+				{
+					this.fimganhou.mouse_move(mouse);
+				}
+				break;
+								
+			}
+		}
 				
 }
