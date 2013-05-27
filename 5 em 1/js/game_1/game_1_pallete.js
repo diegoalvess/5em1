@@ -12,7 +12,7 @@ function Game1Paleta (player_tecla)
     this.posicao_x = 10
     this.posicao_y = 400
     this.velocidade_x = 0;
-    this.velocidade_y = 10;
+    this.velocidade_y = 7;
 	
 	//Teclas
 	this.sobe = false;
