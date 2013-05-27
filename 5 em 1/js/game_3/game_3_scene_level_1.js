@@ -122,50 +122,51 @@ function Game3SceneLevel1()
     }
     
     this.saindodatela=function()
-{
+	{
     	for(var i = 0 ; i < blocos.length; i++)
-    {
-    	//saida pela esquerda
-    	if(blocos[i].posicao_x < 0)
     	{
-    		blocos[i].posicao_x = 0;
-    		this.godownandreversedirection = true;
+    		//saida pela esquerda
+    		if(blocos[i].posicao_x < 0)
+    		{
+    		
+    			this.godownandreversedirection = true;
+    		}
+    	
+    		//saida pela direita
+    		if(blocos[i].posicao_x > tamanho_tela_x - blocos[i].tamanho_x)
+    		{
+    			
+    			this.godownandreversedirection = true;
+    		}
+    
     	}
     	
-    	//saida pela direita
-    	if(blocos[i].posicao_x > tamanho_tela_x - blocos[i].tamanho_x)
-    	{
-    		blocos[i].posicao_x = tamanho_tela_x - blocos[i].tamanho_x;
-    		this.godownandreversedirection = true;
-    	}
-    
-	//dizendo o que a variavel de descer e inverter os inimigos vai fazer	
-	if(this.godownandreversedirection == true)
-	{
-		//
-		{
-			blocos[i].posicao_y += 20;
-			
-			if(blocos[i].velocidade_x > 0)
-			{   
-				blocos[i].velocidade_x++;
-			}
-			else
+    	
+			//dizendo o que a variavel de descer e inverter os inimigos vai fazer	
+			if(this.godownandreversedirection == true)
 			{
-				blocos[i].velocidade_x--;	
-			}
+				for(var j = 0 ; j < blocos.length; j++)
+    			{		
+					blocos[j].posicao_y += 8;
 			
-				blocos[i].velocidade_x *= -1;
+					if(blocos[j].velocidade_x > 0)
+					{   
+						//blocos[j].velocidade_x++;
+					}
+					else
+					{
+						//blocos[j].velocidade_x--;	
+					}
 			
-				this.godownandreversedirection = false;
+					blocos[j].velocidade_x *= -1;
+			
+					this.godownandreversedirection = false;
+    			}
 
-			}
+			}    	
 	}
-   
-	}
-	
-	
-}    
+
+    
     this.mouse_down=function(mouse)
     {
     	//currentScene = SCENE.FIMGANHOU;
