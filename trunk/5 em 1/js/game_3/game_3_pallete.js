@@ -25,7 +25,7 @@ function Player(player_tecla)
 	this.apertou_espaco = false;
 	
 	//Conjunto de tiros
-	this.Tiros = new Array();
+	this.tiros = new Array();
 
 	this.update=function()
 	{
@@ -38,7 +38,7 @@ function Player(player_tecla)
 		if(this.apertou_espaco)
     	{	
 			//this.efeito_sonoro.play();
-    		this.Tiros.push(new Tiro(this.posicao_x+ this.tamanho_x/2, this.posicao_y-this.tamanho_y));
+    		this.tiros.push(new Tiro(this.posicao_x+ this.tamanho_x/2, this.posicao_y-this.tamanho_y));
     		console.log("APERTEI ESPACO");  
     	}
 		
