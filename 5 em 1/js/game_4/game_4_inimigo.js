@@ -12,17 +12,17 @@ function Game4Inimigo(source,hp)
     this.velocidade_x = 10;
 	this.velocidade_y = 5;
 	
+	this.chancetiroboss = 0.01
 	this.chancetiro = 0.01;
 	
-	this.max_energy = 10; 
+	this.max_energy = hp;
+		 
 	this.current_energy = this.max_energy;
 	
 	BEHAVIOUR = {MOVERIGHT: 0, UPANDDOWN: 1, BOSS:2 }
 	
 	this.currentBehaviour = BEHAVIOUR.MOVERIGHT;
-	
-	//this.pontos = this.hp*2;
-		
+			
 	this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -99,8 +99,8 @@ function Game4Inimigo(source,hp)
     	if(this.posicao_x <= 550)
     	{
     		this.velocidade_x = 0;
-    		this.chancetiro = 0.05
-    		
+    		this.chancetiroboss = 0.01;
+    		game_4.level1.hp_boss.visible = true;
     	}
     	    	
 	}

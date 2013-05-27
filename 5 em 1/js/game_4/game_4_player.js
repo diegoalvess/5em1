@@ -1,5 +1,4 @@
 function Game4Player(player_tecla)
-
 {
 	this.imagem = new Image();
 	this.imagem.src="imgs/game_4/Player.png"
@@ -52,7 +51,7 @@ function Game4Player(player_tecla)
     		if(this.visible)
     		{
 				this.efeito_sonoro.play();
-    			this.Tiros.push(new Game4Tiro(this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2, 15));  
+    			this.Tiros.push(new Game4Tiro("imgs/game_4/Tiro.png",this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2, 15));  
     		}
     	}
     	
