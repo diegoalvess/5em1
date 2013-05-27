@@ -152,8 +152,8 @@ function Game3SceneLevel1()
 		
 		
 		 screen.font = "45px Arial";
-        screen.fillStyle="#FF0000";
-        screen.fillText("0 " + this.pontos, 140, 35);
+        screen.fillStyle="#FFFFFF";
+        screen.fillText(" 0000" + this.pontos, 140, 40);
     
     }
     
