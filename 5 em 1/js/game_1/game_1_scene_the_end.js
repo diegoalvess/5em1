@@ -3,11 +3,8 @@ function Game1SceneGanhou()
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_1/Fimganhou.png"
 	this.loaded = false;
-    
-
-    this.tamanho_x = 1500;
-    this.tamanho_y = 1366;
-
+    this.tamanho_x = 800;
+    this.tamanho_y = 600;
     this.posicao_x = 0;
     this.posicao_y = 0;
     
@@ -16,14 +13,26 @@ function Game1SceneGanhou()
 		loaded = true; 
 	};
     
+    //Efeito sonoro
+    this.efeito_sonoro = new Audio();
+    this.efeito_sonoro.src = "sounds/game_1/somvenceu.mp3"
+    this.efeito_sonoro.load(); 
+    
+    //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
+    this.botaoback = new Game1Button("imgs/game_1/back.png", 248, 98, 10, 505 );
+    
     this.update=function()
     {
-    	
+    	this.efeito_sonoro.play();
     };
     
     this.draw=function()
     {  	
+    	//Desenhando fundo_the_end 
     	screen.drawImage(this.imagem, 0, 0)
+    	
+    	//Desenho botoes
+    	this.botaoback.draw();
     };
     
     

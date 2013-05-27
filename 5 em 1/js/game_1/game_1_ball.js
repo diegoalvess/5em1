@@ -7,12 +7,10 @@ function Game1Bola()
 
     this.tamanho_x = 40;
     this.tamanho_y = 40;
-    this.posicao_x = 40
-    this.posicao_y = 40
+    this.posicao_x = 450
+    this.posicao_y = 350
     this.velocidade_x = 7;
     this.velocidade_y = 7;
-    this.velocidade_max_x = 15;
-    this.velocidade_max_y = 15;
     
     this.reset=function()
 	{   
@@ -27,7 +25,8 @@ function Game1Bola()
 	this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_1/borda.mp3"
     this.efeito_sonoro.load();
-      
+    this.efeito_sonoro.volume = 0.1
+    
     this.update=function()
     {
     	//Movendo a bola
@@ -35,8 +34,7 @@ function Game1Bola()
     	this.posicao_y += this.velocidade_y;
 
     	//Colidindo com as bordas
-		this.ficandonatela();
-		
+		this.ficandonatela();	
 		
 		//Fazendo o player ganhar e mostrar a tela de ganhou
 		if(this.pontosplayer >= 15)
@@ -48,7 +46,7 @@ function Game1Bola()
 		}	
 		
 		//Fazendo o inimigo ganhar e mostrar tela de perdeu
-		if(this.pontosinimigo >= 1)
+		if(this.pontosinimigo >= 15)
 		{
 			game_1.currentScene = game_1.SCENE.FIMPERDEU;
 			

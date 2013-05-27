@@ -14,11 +14,6 @@ function Game1ScenePerdeu()
     this.efeito_sonoro.src = "sounds/game_1/GameOver.mp3"
     this.efeito_sonoro.load();
     
-    this.efeito_sonoro2 = new Audio();
-    this.efeito_sonoro2.src = "sounds/game_1/GameOver2.mp3"
-    this.efeito_sonoro2.load();
-    
-    
     //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
     this.botaoback = new Game1Button("imgs/game_1/back.png", 248, 98, 300, 500 );
     
@@ -31,8 +26,6 @@ function Game1ScenePerdeu()
     {
     	//Game over (som)
     	this.efeito_sonoro.play();
-    	
-    	this.efeito_sonoro2.play();
     };
     
     this.draw=function()
@@ -49,9 +42,11 @@ function Game1ScenePerdeu()
     {
 		if(this.botaoback.clicou (mouse))
     	{
-    		console.log("cena intro mouse X " + mouse.x + " mouse Y " + mouse.y );
+    		
     		currentScene = SCENE.INTRO;
-    	}	
+    	}
+    	
+    	console.log("cena introgameover mouse X " + mouse.x + " mouse Y " + mouse.y );	
     };
     
     

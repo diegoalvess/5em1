@@ -113,7 +113,7 @@ function Game_1()
 				}
 				break;
 				
-				case SCENE.FIMFIMPERDEU:
+				case this.SCENE.FIMPERDEU:
 				{
 					this.fimperdeu.mouse_down(mouse);
 				}
