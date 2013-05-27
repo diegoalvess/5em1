@@ -44,6 +44,9 @@
 		<script src="js/game_3/game_3_pallete.js"></script>
 		<script src="js/game_3/game_3_scene_intro.js"></script>
 		<script src="js/game_3/game_3_scene_level_1.js"></script>
+		<script src="js/game_3/game_3_scene_menu.js"></script>
+		<script src="js/game_3/game_3_scene_the_end.js"></script>
+		<script src="js/game_3/game_3.js"></script>
 		<script src="js/game_3/game_3.js"></script>
 		<script src="js/game_3/game_3_block.js"></script>
 		<script src="js/game_3/tiro.js"></script>
@@ -113,7 +116,7 @@
 	
 	var credit = new SceneCredit();
 	
-	//var game_1 = new Game_1();
+	var game_1 = new Game_1();
 	
 	var game_2 = new Game_2();
 	
@@ -368,12 +371,12 @@
 			break;
 			case SCENE.GAME_1:
 			{
+				console.log("cena introindex mouse X " + mouse.x + " mouse Y " + mouse.y );
 				game_1.mouse_down(mouse);
 			}
 			break;
 			case SCENE.GAME_2:
 			{
-				console.log("mouse down index");
 				game_2.mouse_down(mouse);
 			}
 			break;

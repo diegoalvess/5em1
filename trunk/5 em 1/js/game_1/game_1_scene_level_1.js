@@ -15,10 +15,18 @@ function Game1SceneLevel1()
     //Colocando a imagem de background
     this.background = new Game1Background("imgs/game_1/FundoBackground.png");
 	
-    //Efeito sonoro da borda
+    //Efeito sonoros 
+    
+    //Efeito sonoro de borda
     this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_1/paletascolisao.mp3"
     this.efeito_sonoro.load();
+    this.efeito_sonoro.volume = 0.1   
+    
+    //Efeito sonoro de fundo
+   	this.efeito_sonoro2 = new Audio();
+    this.efeito_sonoro2.src = "sounds/game_1/Efeitodefundo.wav"
+    this.efeito_sonoro2.load();
     
 	//Array de blocos
 	//Blocos1 - blocos do lado do player
@@ -47,8 +55,11 @@ function Game1SceneLevel1()
     	//Pause
     	if(paused)
     	{
-    		return;  	
+    		return;	
     	}
+    	
+    	//Efeito sonoro de fundo
+    	this.efeito_sonoro2.play();
     	
     	//Background se movendo
     	this.background.update();
@@ -372,8 +383,7 @@ function Game1SceneLevel1()
     
     this.mouse_down=function(mouse)
     {
-    	//currentScene = SCENE.FIMGANHOU;
-    	//this.efeito_sonoro.pause();
+		
     };
      
  	 //Tecla desceu
