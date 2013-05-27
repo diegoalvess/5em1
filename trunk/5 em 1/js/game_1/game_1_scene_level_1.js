@@ -74,13 +74,42 @@ function Game1SceneLevel1()
 			this.inimigo.posicao_y += this.inimigo.velocidade_y;
 		}
 		
-		else	
+		if (this.bola.posicao_y < this.inimigo.posicao_y+this.inimigo.tamanho_y )
 		{
 			this.inimigo.posicao_y -= this.inimigo.velocidade_y;
 		}
 		
-		
-		//Fazendo colisão da bola com a paleta player
+		////////////////////////COLISAO PLAYER////////////////////////
+			
+		//Fazendo colisão da bola com a paleta player nas laterais
+		if( Collide( this.bola.posicao_x,
+					 this.bola.posicao_y,
+					 this.bola.tamanho_x,
+					 this.bola.tamanho_y,
+					 this.player.posicao_x,
+					 this.player.posicao_y+10,
+					 this.player.tamanho_x,
+					 this.player.tamanho_y-20 ) ) //se a bola colidiu com o player
+		{
+					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
+					//this.bola.velocidade_x ++;
+					this.bola.velocidade_x *= -1;
+					this.efeito_sonoro.play();
+					
+					//Colocanndo liminte na velocidade
+					if(this.bola.velocidade_x >= 10)	
+					{
+						this.bola.velocidade_x = 10
+					}
+					
+					if(this.bola.velocidade_y >= 10)	
+					{
+						this.bola.velocidade_y = 10
+					}
+					
+		}
+				
+		//Fazendo colisão da bola com a paleta player em cima -------------------------------
 		if( Collide( this.bola.posicao_x,
 					 this.bola.posicao_y,
 					 this.bola.tamanho_x,
@@ -88,15 +117,85 @@ function Game1SceneLevel1()
 					 this.player.posicao_x,
 					 this.player.posicao_y,
 					 this.player.tamanho_x,
-					 this.player.tamanho_y ) ) //se a bola colidiu com o player
-				{
+					 10 ) ) //se a bola colidiu com o player
+		{
+					//Invertendo velocidade da colisao de cima
+					this.bola.velocidade_y++;
+					
+					this.bola.velocidade_y *= -1;
+					this.efeito_sonoro.play();
+					
+					//Colocanndo liminte na velocidade
+					if(this.bola.velocidade_x >= 10)	
+					{
+						this.bola.velocidade_x = 10
+					}
+					
+					if(this.bola.velocidade_y >= 10)	
+					{
+						this.bola.velocidade_y = 10
+					}
+		}
+		
+		//Fazendo colisão da bola com a paleta player embaixo --------
+		if( Collide( this.bola.posicao_x,
+					 this.bola.posicao_y,
+					 this.bola.tamanho_x,
+					 this.bola.tamanho_y,
+					 this.player.posicao_x,
+					 this.player.posicao_y+this.player.tamanho_y-10,
+					 this.player.tamanho_x,
+					 10 ) ) //se a bola colidiu com o player
+		{
+					this.bola.velocidade_y--;
+					
+					this.bola.velocidade_y *= -1;
+					this.efeito_sonoro.play();
+					
+					//Colocanndo liminte na velocidade
+					if(this.bola.velocidade_x >= 10)	
+					{
+						this.bola.velocidade_x = 10
+					}
+					
+					if(this.bola.velocidade_y >= 10)	
+					{
+						this.bola.velocidade_y = 10
+					}
+		}
+		
+		
+		/////////////////////COLISAO INIMIGO/////////////////////
+		
+    	//Fazendo colisão da bola com a paleta Inimigo nas laterais
+		if( Collide( this.bola.posicao_x,
+					 this.bola.posicao_y,
+					 this.bola.tamanho_x,
+					 this.bola.tamanho_y,
+					 this.inimigo.posicao_x,
+					 this.inimigo.posicao_y+10,
+					 this.inimigo.tamanho_x,
+					 this.inimigo.tamanho_y-20 ) ) //se a bola colidiu com o inimigo
+		{
 					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
 					//this.bola.velocidade_x ++;
 					this.bola.velocidade_x *= -1;
 					this.efeito_sonoro.play();
-				}
+					
+					//Colocanndo liminte na velocidade
+					if(this.bola.velocidade_x >= 10)	
+					{
+						this.bola.velocidade_x = 10
+					}
+					
+					if(this.bola.velocidade_y >= 10)	
+					{
+						this.bola.velocidade_y = 10
+					}
+		}
 		
-    	//Fazendo colisão da bola com a paleta Inimigo
+		
+		//Fazendo colisão da bola com a paleta Inimigo em cima -----------------------
 		if( Collide( this.bola.posicao_x,
 					 this.bola.posicao_y,
 					 this.bola.tamanho_x,
@@ -104,15 +203,88 @@ function Game1SceneLevel1()
 					 this.inimigo.posicao_x,
 					 this.inimigo.posicao_y,
 					 this.inimigo.tamanho_x,
-					 this.inimigo.tamanho_y ) ) //se a bola colidiu com o inimigo
-				{
-					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
-					//this.bola.velocidade_x ++;
-					this.bola.velocidade_x *= -1;
+					 10 ) ) //se a bola colidiu com o inimigo
+		{
+					//Invertendo velocidade da colisao de cima
+					this.bola.velocidade_y ++;
+					
+					this.bola.velocidade_y *= -1;
 					this.efeito_sonoro.play();
-				}
+					
+					//Colocanndo liminte na velocidade
+					if(this.bola.velocidade_x >= 10)	
+					{
+						this.bola.velocidade_x = 10
+					}
+					
+					if(this.bola.velocidade_y >= 10)	
+					{
+						this.bola.velocidade_y = 10
+					}
+		}
 		
-		//Fazendo colisão da bola com os blocos USE SEMPRE FOR for(var i = 0 ; i < this.blocos.length; i++) !p
+		//Fazendo colisão da bola com a paleta Inimigo embaixo ------
+		if( Collide( this.bola.posicao_x,
+					 this.bola.posicao_y,
+					 this.bola.tamanho_x,
+					 this.bola.tamanho_y,
+					 this.inimigo.posicao_x,
+					 this.inimigo.posicao_y+this.inimigo.tamanho_y-10,
+					 this.inimigo.tamanho_x,
+					 10 ) ) //se a bola colidiu com o inimigo
+		{
+					//Invertendo velocidade da colisao de baixo
+					this.bola.velocidade_y--;
+					
+					this.bola.velocidade_y *= -1;
+					this.efeito_sonoro.play();
+					
+					//Colocanndo liminte na velocidade
+					if(this.bola.velocidade_x >= 10)	
+					{
+						this.bola.velocidade_x = 10
+					}
+					
+					if(this.bola.velocidade_y >= 10)	
+					{
+						this.bola.velocidade_y = 10
+					}
+		}
+		
+		/////////////////////////////////COLISAO BLOCOS//////////////////////////////
+		
+		//Fazendo colisão da bola com os blocos nas laterais
+		for(var i = 0 ; i < this.blocos.length; i++)
+		{
+			if( Collide( this.bola.posicao_x,
+						 this.bola.posicao_y,
+						 this.bola.tamanho_x,
+						 this.bola.tamanho_y,
+						 this.blocos[i].posicao_x,
+						 this.blocos[i].posicao_y+10,
+						 this.blocos[i].tamanho_x,
+						 this.blocos[i].tamanho_y-20 ) ) //se a bola colidiu com o bloco
+					{
+						//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
+						//bola.velocidade_x ++;
+						this.bola.velocidade_x *= -1;
+						this.efeito_sonoro.play();
+						
+						//Colocanndo liminte na velocidade
+						if(this.bola.velocidade_x >= 10)	
+						{
+							this.bola.velocidade_x = 10
+						}
+					
+						if(this.bola.velocidade_y >= 10)	
+						{
+							this.bola.velocidade_y = 10
+						}
+
+					}
+		}
+		
+		//Fazendo colisão da bola com os blocos em cima
 		for(var i = 0 ; i < this.blocos.length; i++)
 		{
 			if( Collide( this.bola.posicao_x,
@@ -122,14 +294,58 @@ function Game1SceneLevel1()
 						 this.blocos[i].posicao_x,
 						 this.blocos[i].posicao_y,
 						 this.blocos[i].tamanho_x,
-						 this.blocos[i].tamanho_y ) ) //se a bola colidiu com o bloco
+						 10 ) ) //se a bola colidiu com o bloco
 					{
-						//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
-						//bola.velocidade_x ++;
-						this.bola.velocidade_x *= -1;
+						//Invertendo velocidade da colisao de cima
+						this.bola.velocidade_y ++;
+						
+						this.bola.velocidade_y *= -1;
 						this.efeito_sonoro.play();
+
+						//Colocanndo liminte na velocidade
+						if(this.bola.velocidade_x >= 10)	
+						{
+							this.bola.velocidade_x = 10
+						}
+					
+						if(this.bola.velocidade_y >= 10)	
+						{
+							this.bola.velocidade_y = 10
+						}
 					}
 		}
+		
+		//Fazendo colisão da bola com os blocos em embaixo
+		for(var i = 0 ; i < this.blocos.length; i++)
+		{
+			if( Collide( this.bola.posicao_x,
+						 this.bola.posicao_y,
+						 this.bola.tamanho_x,
+						 this.bola.tamanho_y,
+						 this.blocos[i].posicao_x,
+						 this.blocos[i].posicao_y+this.blocos[i].tamanho_y-10,
+						 this.blocos[i].tamanho_x,
+						 10 ) ) //se a bola colidiu com o bloco
+					{
+						//Invertendo velocidade da colisao de baixo
+						this.bola.velocidade_y--;
+						
+						this.bola.velocidade_y *= -1;
+						this.efeito_sonoro.play();
+						
+						//Colocanndo liminte na velocidade
+						if(this.bola.velocidade_x >= 10)	
+						{
+							this.bola.velocidade_x = 10
+						}
+					
+						if(this.bola.velocidade_y >= 10)	
+						{
+							this.bola.velocidade_y = 10
+						}
+					}
+		}
+
     };
     
     this.draw=function()

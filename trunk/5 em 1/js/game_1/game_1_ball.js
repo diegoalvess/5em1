@@ -9,8 +9,10 @@ function Game1Bola()
     this.tamanho_y = 40;
     this.posicao_x = 40
     this.posicao_y = 40
-    this.velocidade_x = 5;
-    this.velocidade_y = 5;
+    this.velocidade_x = 7;
+    this.velocidade_y = 7;
+    this.velocidade_max_x = 15;
+    this.velocidade_max_y = 15;
     
     this.reset=function()
 	{   
@@ -46,7 +48,7 @@ function Game1Bola()
 		}	
 		
 		//Fazendo o inimigo ganhar e mostrar tela de perdeu
-		if(this.pontosinimigo >= 15)
+		if(this.pontosinimigo >= 1)
 		{
 			game_1.currentScene = game_1.SCENE.FIMPERDEU;
 			

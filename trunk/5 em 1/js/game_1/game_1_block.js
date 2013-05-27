@@ -8,8 +8,8 @@ function Game1Bloco(source)
 	//this.hp = hp;
 	//this.pontos = this.hp*2
 	
-	this.tamanho_x = 50;
-    this.tamanho_y = 100;
+	this.tamanho_x = 40;
+    this.tamanho_y = 120;
     this.posicao_x = 0
     this.posicao_y = 0
     this.velocidade_x = 0;
