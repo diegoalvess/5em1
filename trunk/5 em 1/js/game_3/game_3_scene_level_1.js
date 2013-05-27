@@ -74,8 +74,30 @@ function Game3SceneLevel1()
     		return;  	
     	}
     	
+    	for(var u = 0; u < blocos.length; u++)
+    	{
+    		
+    		if(blocos[u].visible)
+    		{   		
+    			if(Collide(
+    				blocos[u].posicao_x,
+    				blocos[u].posicao_y,
+    				blocos[u].tamanho_x,
+    				blocos[u].tamanho_y,
+    				this.player.Tiros.posicao_x,
+    				this.player.Tiros.posicao_y,
+    				this.player.Tiros.tamanho_x,
+    				this.player.Tiros.tamanho_y));
+    				{
+    					console.log("idsivdsv")
+    					blocos[u].visible = false;
+    					this.player.Tiros.visible = false
+    				}
+    	
+    		}
+    	}
     	//Colidindo com as bordas
-		this.saindodatela();
+		this.batendonatela();
 		
 		//Som
     	//this.efeito_sonoro.play();
@@ -121,7 +143,7 @@ function Game3SceneLevel1()
 		
     }
     
-    this.saindodatela=function()
+    this.batendonatela=function()
 	{
     	for(var i = 0 ; i < blocos.length; i++)
     	{
