@@ -11,12 +11,14 @@ function Game3SceneLevel1()
     
     //Fazendo inimigos descerem na tela
     this.godownandreversedirection = false;
+    
+    this.pontos = 0;
 	
 	//Blocos1
 	this.blocos1 = new Array();	
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos1[i] = new Bloco("imgs/game_3/bloco1.png", );
+        this.blocos1[i] = new Bloco("imgs/game_3/bloco1.png" );
         this.blocos1[i].posicao_y = 100        	
         this.blocos1[i].posicao_x = 200 + (i * (this.blocos1[i].tamanho_x + 10 ));  	
     }
@@ -25,7 +27,7 @@ function Game3SceneLevel1()
 	this.blocos2 = new Array();
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos2[i] = new Bloco("imgs/game_3/bloco2.png", );
+        this.blocos2[i] = new Bloco("imgs/game_3/bloco2.png");
         this.blocos2[i].posicao_y = 160       	
         this.blocos2[i].posicao_x = 200 + (i * (this.blocos2[i].tamanho_x + 10 ));  	
     }
@@ -34,7 +36,7 @@ function Game3SceneLevel1()
 	this.blocos3 = new Array();
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos3[i] = new Bloco("imgs/game_3/bloco3.png",);
+        this.blocos3[i] = new Bloco("imgs/game_3/bloco3.png");
         this.blocos3[i].posicao_y = 220     	
         this.blocos3[i].posicao_x = 200 + (i * (this.blocos3[i].tamanho_x + 10 ));  	
     }
@@ -43,7 +45,7 @@ function Game3SceneLevel1()
 	this.blocos4 = new Array();
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos4[i] = new Bloco("imgs/game_3/bloco4.png",);
+        this.blocos4[i] = new Bloco("imgs/game_3/bloco4.png");
         this.blocos4[i].posicao_y = 280      	
         this.blocos4[i].posicao_x = 200 + (i * (this.blocos4[i].tamanho_x + 10 ));  	
     }
@@ -52,7 +54,7 @@ function Game3SceneLevel1()
 	this.blocos5 = new Array();
 	for(var i = 0; i < 10; i++)
     {	
-        this.blocos5[i] = new Bloco("imgs/game_3/bloco5.png",);
+        this.blocos5[i] = new Bloco("imgs/game_3/bloco5.png");
         this.blocos5[i].posicao_y = 340 	
         this.blocos5[i].posicao_x = 200 + (i * (this.blocos5[i].tamanho_x + 10 ));  	
     }
@@ -102,8 +104,7 @@ function Game3SceneLevel1()
     					//console.log("idsivdsv")
     					blocos[u].visible = false;
     					this.player.tiros[a].visible = false
-    					blocos[u].hp--
-    					  
+    					this.pontos++ ;    					  
     				}
     	
     			}
@@ -149,6 +150,11 @@ function Game3SceneLevel1()
     		this.player.tiros[i].draw();
     	}
 		
+		
+		 screen.font = "45px Arial";
+        screen.fillStyle="#FF0000";
+        screen.fillText("0 " + this.pontos, 140, 35);
+    
     }
     
     this.batendonatela=function()
