@@ -1,5 +1,8 @@
 function Game1SceneLevel1()
 {
+	this.reset=function()
+	{
+	
 	//Player
 	this.player = new Game1Paleta("setas");	
 	
@@ -50,6 +53,10 @@ function Game1SceneLevel1()
 	//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
 	this.blocos = this.bloco1.concat(this.bloco2)	
 		
+	}//FIM DO RESET
+	
+	this.reset();	
+	
     this.update=function()
     {
     	//Pause
@@ -386,7 +393,7 @@ function Game1SceneLevel1()
 		
     };
      
- 	 //Tecla desceu
+ 	//Tecla desceu
     this.key_down=function(key)
     {
 		this.player.key_down(key);
