@@ -60,7 +60,7 @@ function Game2Paleta(player_position_x)
      this.key_down = function(key)
      {
      	
-     			console.log("sahuewhudwudeu");
+     			
      	
              	if(key.keyCode== "37")
 				{					

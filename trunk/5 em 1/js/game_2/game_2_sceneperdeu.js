@@ -16,8 +16,13 @@ function Game2ScenePerdeu()
     this.efeito_sonoro.src = "sounds/game_2/click.mp3"
     this.efeito_sonoro.load();
     
+    //Som
+    this.voce_Perdeu = new Audio();
+    this.voce_Perdeu.src = "sounds/game_2/Som_Perdeu.mp3"
+    this.voce_Perdeu.load();
+    
     //imagem dos botoes							TAMANHO_X,TAMANHO_Y,POSICAO_X, POSICAO_Y
-    this.botao_para_o_menu_do_jogo = new Game2Button("imgs/game_2/back.png", 70, 70, 250,500);
+    this.botao_para_o_menu_do_jogo = new Game2Button("imgs/game_2/back.png", 251, 82, 250,500);
     
     this.imagem.onload = function()
   	{
@@ -44,9 +49,10 @@ function Game2ScenePerdeu()
     	//CLICANDO E INDO PARA O MENU PRINCIPAL	
     	if(this.botao_para_o_menu_do_jogo.clicou(mouse))
     		{
-    			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
+    			
     			this.efeito_sonoro.play();
     			game_2.currentScene = game_2.SCENE.INSTRUCOES;
+    			game_2.level1.reset();
     		}
     	
     	
