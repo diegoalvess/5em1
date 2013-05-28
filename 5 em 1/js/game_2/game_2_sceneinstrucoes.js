@@ -14,6 +14,7 @@ function Game2SceneInstrucoes()
     this.efeito_sonoro.src = "sounds/game_2/click.mp3";
     this.efeito_sonoro.load();
     
+   
     
     //imagem dos botoes												TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
    	this.botao_play = new Game2Button("imgs/game_2/play.png", 251, 82, 500, 300 );
@@ -28,7 +29,7 @@ function Game2SceneInstrucoes()
     
     this.update=function()
     {
-    	console.log("aaaa")
+    	
     };
     
     this.draw=function()
@@ -50,7 +51,7 @@ function Game2SceneInstrucoes()
     			
     		if(this.botao_play.clicou (mouse))
     		{
-    			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
+    			
     			this.efeito_sonoro.play();
     			game_2.currentScene = game_2.SCENE.LEVEL_1;
     			
@@ -59,7 +60,7 @@ function Game2SceneInstrucoes()
     		
     		if(this.botao_back.clicou (mouse))
     		{
-    			console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
+    			
     			this.efeito_sonoro.play();
     			currentScene = SCENE.INTRO;
     		}

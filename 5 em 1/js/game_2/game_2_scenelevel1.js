@@ -1,5 +1,13 @@
 function Game2SceneLevel1()
 {
+	this.reset=function()
+	{
+		 //Som
+    this.musica_de_fundo = new Audio();
+    this.musica_de_fundo.src = "sounds/game_2/Musica_de_Fundo.mp3";
+    this.musica_de_fundo.load();
+	//this.musica_de_fundo.play();
+	
 	//Player
 	this.player = new Game2Paleta();	
 	
@@ -30,9 +38,7 @@ function Game2SceneLevel1()
 	
 	// VIDAS
 	this.vidas = 3;
-				
-	this.reset=function()
-	{
+	
 		//criação dos blocos
 		for(var i = 0; i < 10; i++)
 		{	
@@ -81,13 +87,14 @@ function Game2SceneLevel1()
    		
    		//game_2.currentScene = game_2.SCENE.LEVEL_1;
    		
-	};
+	}//FIM DO RESET
 	
 	this.reset();
 	
     this.update=function()
     {
-    	console.log("GAME 2 FASE 1 UPDATE")
+    	 //Som
+    	this.musica_de_fundo.play();
     	
     	//Pause
     	if(paused)
@@ -115,8 +122,22 @@ function Game2SceneLevel1()
 			this.listas[i].update(); 
 		}
 		
-		//Fazendo colis�o da bola com a paleta player
-			
+		//Fazendo colis�o da bola com a paleta player parte de cima			
+		if(Collide(
+					this.bola.posicao_x,
+					this.bola.posicao_y,
+					this.bola.tamanho_x,
+					this.bola.tamanho_y,
+					this.player.posicao_x+10,
+					this.player.posicao_y,
+					this.player.tamanho_x,
+					this.player.tamanho_y-20))
+			{
+
+				this.bola.velocity_y *= -1;
+			}
+
+		//Fazendo colis�o da bola com a paleta player parte da esquerda			
 		if(Collide(
 					this.bola.posicao_x,
 					this.bola.posicao_y,
@@ -124,13 +145,25 @@ function Game2SceneLevel1()
 					this.bola.tamanho_y,
 					this.player.posicao_x,
 					this.player.posicao_y,
-					this.player.tamanho_x,
+					9,
 					this.player.tamanho_y))
 			{
-
-				this.bola.velocity_y *= -1;
+				this.bola.velocity_x *= -1;
 			}
-			
+		
+		//Fazendo colis�o da bola com a paleta player parte da direita			
+		if(Collide(
+					this.bola.posicao_x,
+					this.bola.posicao_y,
+					this.bola.tamanho_x,
+					this.bola.tamanho_y,
+					this.player.posicao_x+this.player.tamanho_x-20,
+					this.player.posicao_y,
+					9,
+					this.player.tamanho_y))
+			{
+				this.bola.velocity_x *= -1;
+			}
 		
 		
 		//COLISAO COM OS BLOCOS
@@ -157,7 +190,9 @@ function Game2SceneLevel1()
 									//FAZENDO APARECER A TELA DE VENCEDOR
 									if(this.pontos >= 5)
 									{
+										this.musica_de_fundo.pause();
 										game_2.currentScene = game_2.SCENE.FIMGANHOU;
+										game_2.fimganhou.voce_ganhou.play();
 									}
 							}
 														
@@ -177,7 +212,9 @@ function Game2SceneLevel1()
 				//FAZENDO O A TELA DE PERDEDOR APARECER 0 
 				if(this.vidas <= 0)
 				{
+					this.musica_de_fundo.pause();
 					game_2.currentScene = game_2.SCENE.FIMPERDEU;
+					game_2.fimperdeu.voce_Perdeu.play();
 					this.reset();					
 				}
 							
@@ -222,7 +259,7 @@ function Game2SceneLevel1()
 		
 		
 		
-		console.log("GAME 2 FASE 1 DRAW")
+		
     	
 		
     }//FIM DO DRAW
@@ -237,13 +274,13 @@ function Game2SceneLevel1()
     	//currentScene = SCENE.FIMPERDEU;
     	//this.efeito_sonoro.pause();
     	
-    	console.log("mouse down game2 level1");
+    	
     };
      
  	
     this.key_down=function(key)
     {
-    	console.log("sahuewhudwudeu wfdf");
+    	
     	
 		this.player.key_down(key);
     	

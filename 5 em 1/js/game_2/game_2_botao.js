@@ -29,9 +29,9 @@ function Game2Button(arquivo, tam_x, tam_y, pos_x, pos_y)
    	//vari�vel de clique do bot�o
     this.clicou = function(mouse)
     {
-    	console.log("MOUSE X: " + mouse.x + " MOUSE Y " + mouse.y);
+    	//console.log("MOUSE X: " + mouse.x + " MOUSE Y " + mouse.y);
     	
-    	console.log("IMAGEM: " + this.imagem.src + " POS X " + this.posicao_x + " POS Y " + this.posicao_y + " TAM X " + this.tamanho_x + " TAM Y " + this.tamanho_y);
+    	//console.log("IMAGEM: " + this.imagem.src + " POS X " + this.posicao_x + " POS Y " + this.posicao_y + " TAM X " + this.tamanho_x + " TAM Y " + this.tamanho_y);
     	    	
     	//colis�o
     	if(Collide(

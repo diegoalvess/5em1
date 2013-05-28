@@ -17,6 +17,11 @@ function Game2SceneGanhou()
     this.efeito_sonoro.src = "sounds/game_2/click.mp3"
     this.efeito_sonoro.load();
     
+    //Som
+    this.voce_ganhou = new Audio();
+   	this.voce_ganhou.src = "sounds/game_2/Som_Venceu.mp3"
+    this.voce_ganhou.load();
+    
     //imagem dos botoes							
    	
 	this.botao_para_o_menu_principal = new Game2Button("imgs/game_2/back.png", 251, 82, 250, 500);
@@ -45,14 +50,14 @@ function Game2SceneGanhou()
     this.mouse_down=function(mouse)
     {   	
        	//CLICANDO NO BOTAO PARA IR PARA CENA DE INSTRUCAO DO JOGO
-       	console.log("chega aqui");
+       	
        	
     	if(this.botao_para_o_menu_principal.clicou(mouse))
     	{
     		this.efeito_sonoro.play();
     		currentScene = SCENE.INTRO;
     		game_2.currentScene = game_2.SCENE.INSTRUCOES;
-    		
+    		game_2.level1.reset();
     	}
     	
     };

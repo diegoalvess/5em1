@@ -107,7 +107,7 @@ function Game_2()
 		//Funcionando teclado e mouse.
 		this.mouse_down = function(mouse)
 		{
-			console.log("mouse down game2");
+			
 			
 			switch(this.currentScene)
 			{
