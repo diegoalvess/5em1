@@ -1,9 +1,5 @@
 function Game_2()
 {
-			
-//http://www.maujor.com/blog/2012/07/16/api-fullscreen/
-
-				
 		//Pausa
 		this.paused = false;
 		

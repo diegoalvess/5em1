@@ -43,7 +43,7 @@ function Game1SceneIntroducao()
     	//para mudar da tela pra algum lugar coloque o comando aqui
     	if(this.botaoplay.clicou (mouse))
     	{
-    		game_1.currentScene = game_1.SCENE.LEVEL_1;
+    		this.game_1.currentScene = game_1.SCENE.LEVEL_1;
     		this.efeito_sonoro.play(); 		
     	}
     	
