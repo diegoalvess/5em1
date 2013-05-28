@@ -10,7 +10,7 @@ function Game1SceneIntroducao()
     
     //Imagem dos botoes							TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
     this.botaoplay = new Game1Button("imgs/game_1/play.png", 248, 98, 550, 300 );
-    this.botaoback = new Game1Button("imgs/game_1/back.png", 248, 98, 550, 430 ); 
+    this.botaoback = new Game1Button("imgs/game_1/back.png", 250, 97, 550, 430 ); 
     
     //Efeito Sonoro
 	this.efeito_sonoro = new Audio();
@@ -37,13 +37,12 @@ function Game1SceneIntroducao()
     	this.botaoback.draw();
     };
     
-    
     this.mouse_down=function(mouse)
     {   
     	//para mudar da tela pra algum lugar coloque o comando aqui
     	if(this.botaoplay.clicou (mouse))
     	{
-    		this.game_1.currentScene = game_1.SCENE.LEVEL_1;
+    		game_1.currentScene = game_1.SCENE.LEVEL_1;
     		this.efeito_sonoro.play(); 		
     	}
     	
@@ -53,8 +52,7 @@ function Game1SceneIntroducao()
     		this.efeito_sonoro.play(); 
     	}	
     };
-    
-    
+     
     this.key_down=function(key)
     {
 		

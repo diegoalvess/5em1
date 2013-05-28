@@ -39,7 +39,6 @@
 		<script src="js/game_2/game_2_sceneperdeu.js"></script>
 		<script src="js/game_2/game_2.js"></script>
 		
-		
 		<!--invaders-->
 		<script src="js/game_3/game_3_background.js"></script>
 		<script src="js/game_3/game_3_pallete.js"></script>
@@ -52,8 +51,7 @@
 		<script src="js/game_3/game_3_tiro.js"></script>
 		<script src="js/game_3/game_3_button.js"></script>
 		
-		
-		
+
 		<!--shooter--> 
 		<script src="js/game_4/game_4_sceneintroducao.js"></script>
 		<script src="js/game_4/game_4_background.js"></script>
@@ -68,8 +66,6 @@
 		<script src="js/game_4/game_4.js"></script>
 		<script src="js/game_4/game_4_button.js"></script>
 
-
-		
 		<!--quinto jogo-->
 		<!--<script src="js/game_5/game_5_background.js"></script>
 		<script src="js/game_5/game_5_scene_game_over.js"></script>
@@ -78,8 +74,7 @@
 		<script src="js/game_5/game_5_scene_menu.js"></script>
 		<script src="js/game_5/game_5_scene_the_end.js"></script>
 		<script src="js/game_5/game_5.js"></script>-->		
-
-		        
+  
    </head>
         
 		<body>
@@ -110,33 +105,40 @@
    	var canvas = document.getElementById("main");
    	var screen = canvas.getContext("2d");
    	
+	//Tamanho de tela
    	var tamanho_tela_x = 800;
    	var tamanho_tela_y = 600;
-        
+	
+	//Pause
     var paused = false;
-        
+    
+	//Intro INDEX
     var intro = new SceneIntro();
 	
+	//Credito INDEX
 	var credit = new SceneCredit();
 	
+	//PONG
 	var game_1 = new Game_1();
 	
+	//ARKANOID
 	var game_2 = new Game_2();
 	
+	//INVADERS
 	var game_3 = new Game_3();
 	
+	//SPACE SHOOTER
 	var game_4 = new Game_4();
-	
 	
 	var SCENE = { INTRO: 0, CREDITS: 1, GAME_1: 2, GAME_2: 3, GAME_3: 4, GAME_4: 5, GAME_5: 6 }
 	
+	//COMEÇANDO COM INTRODUÇÃO DO INDEX = MENU PRINCIPAL
 	var currentScene = SCENE.INTRO;
 	
 	load();
 
 	function load()
 	{	
-
 		if((true))//to do...
 		{
 
@@ -149,7 +151,6 @@
 		}
 	}
 
-	
 	function loop()
 	{
 		update();
@@ -158,7 +159,6 @@
 
 		setTimeout(loop, 30 );
 	}
-
 
 	function update()
 	{	
@@ -204,7 +204,6 @@
 		}
 		
 	}
-
 
 	function draw()
 	{
@@ -397,7 +396,6 @@
 
 	}
 
-
 	function mouse_down(mouse)
 	{
 		switch(currentScene)
@@ -457,7 +455,7 @@
 		}
 	}
 	
-   	}
+	}
 	</script>
 
 	</body>
