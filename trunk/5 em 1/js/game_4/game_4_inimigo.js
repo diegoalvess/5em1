@@ -10,7 +10,9 @@ function Game4Inimigo(source,hp)
     this.posicao_x = 0;
     this.posicao_y = 0;
     this.velocidade_x = 10;
-	this.velocidade_y = 5;
+	this.velocidade_y = 50;
+	
+	this.movendoCimaBaixo = false;
 	
 	this.chancetiroboss = 0.01
 	this.chancetiro = 0.01;
@@ -48,7 +50,7 @@ function Game4Inimigo(source,hp)
     		case BEHAVIOUR.BOSS:
     			
     			this.boss();
-    			
+ 
     		break;
     	}
     	
@@ -82,13 +84,7 @@ function Game4Inimigo(source,hp)
     
      this.up_down=function()
     {
-    	this.posicao_x -= this.velocidade_x;
-    	
-    	/*if (this.posicao_x -= tamanho_tela_x = 1000)    	
-    	{
-    		this.posicao_x == tamanho_tela_x/2
-    	}*/
-    
+    	this.posicao_x -= this.velocidade_x;    
     }
     
     this.boss = function()
@@ -96,15 +92,25 @@ function Game4Inimigo(source,hp)
     	this.posicao_x += this.velocidade_x;
     	this.posicao_y += this.velocidade_y;
     	
-    	if(this.posicao_x <= 550)
+    	if(this.posicao_x <= 550 && !this.movendoCimaBaixo)
     	{
+    		this.movendoCimaBaixo = true;
+    		
     		this.velocidade_x = 0;
-    		this.chancetiroboss = 0.01;
-    		game_4.level1.hp_boss.visible = true;
+			this.velocidade_y = 5;
     	}
-    	    	
+    	
+    	if(this.posicao_y >= tamanho_tela_y - this.tamanho_y)
+		{
+			this.velocidade_y *= -1;
+		}
+		if(this.posicao_y <= 0)
+		{
+			this.velocidade_y *= -1;
+		}
+		
+    	this.chancetiroboss = 0.01;
+    		
 	}
     
     };
-
-

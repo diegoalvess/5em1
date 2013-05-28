@@ -34,7 +34,8 @@ function Game4ScenePerdeu()
     
     this.draw=function()
     {  	
-    	screen.drawImage(this.imagem, 0, 0)
+    	screen.drawImage(this.imagem, 0, 0);
+    	
     	this.button_back.draw();
     };
     
