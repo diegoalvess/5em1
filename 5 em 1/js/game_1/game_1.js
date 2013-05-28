@@ -121,4 +121,21 @@ function Game_1()
 			break;
 		}
 	}
+	
+	
+	//Tecla desceu
+	this.key_down=function(key)
+	{
+		this.level1.key_down(key);
+	}
+	
+	//Tecla subiu
+	this.key_up=function(key)
+	{
+		this.level1.key_up(key);
+	}
+	
+	
+	
+	
 }
