@@ -143,20 +143,20 @@
 	this.wave11 = new Array();
     for(var i = 0 ; i < 1; i++) 
     {
-    	this.wave11[i] = new Game4Inimigo("imgs/game_4/inimigos/Mestre.png", 1000);
+    	this.wave11[i] = new Game4Inimigo("imgs/game_4/inimigos/Mestre.png", 10);
     	this.wave11[i].tamanho_x = 256;
     	this.wave11[i].tamanho_y = 256;
     	this.wave11[i].velocidade_x = -5;
     	this.wave11[i].velocidade_y = 0;
-    	this.wave11[i].posicao_x = 1000*11;
+    	this.wave11[i].posicao_x = 1000;
     	this.wave11[i].posicao_y = tamanho_tela_y/2 - this.wave11[i].tamanho_y/2
     	this.wave11[i].currentBehaviour = BEHAVIOUR.BOSS;
     	this.wave11[i].chancetiro = 0;
     }
 	
     //Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
-    this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10, this.wave11);
-    //this.waves = this.wave11.concat(this.wave11);
+    //this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10, this.wave11);
+    this.waves = this.wave11.concat(this.wave11);
         
     };//Reset
 	
@@ -226,8 +226,9 @@
     						// tiro de 1/4 baixo 						
     						if(Math.random() < this.waves[i].chancetiroboss )
     						{
-    						//this.Tiros_inimigos.push(new Game4Tiro("imgs/game_4/Tiro.png", this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/2, -15));
+    						this.Tiros_inimigos.push(new Game4Tiro("imgs/game_4/Tiroinimigo.png", this.waves[i].posicao_x, this.waves[i].posicao_y + 190, -15));
     						}
+    						 	
     						
     						}//fechando o quarto if
     			
@@ -301,6 +302,12 @@
         			if(this.waves[i].current_energy <=0)		
 					{
 						this.waves[i].visible = false;
+						
+    					if(this.waves[i].currentBehaviour == BEHAVIOUR.BOSS)
+    					{
+    						game_4.level1.hp_boss.visible = true;
+    						game_4.currentScene = game_4.SCENE.FIMGANHOU
+    					}
 					}
 					//Removendo o tiro da lista
 					if(this.player.Tiros[j].visible == false)
