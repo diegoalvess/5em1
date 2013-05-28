@@ -7,6 +7,8 @@ function Bloco(source, hp)
 	this.hp = hp;
 	this.pontos = this.hp*2;
 	
+	this.chancetiro = 0.002;
+	
 	this.imagem.onload = function() 
 	{
 		carregada = true; 

@@ -13,6 +13,10 @@ function Game3ScenePerdeu()
     this.efeito_sonoro.src = "sounds/game_3/GameOver.mp3"
     this.efeito_sonoro.load();
     
+    
+    //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
+    this.botaoback = new Game1Button("imgs/game_3/back_ligado.png", 248, 98, 340, 450 );
+    
     this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -25,14 +29,24 @@ function Game3ScenePerdeu()
     
     this.draw=function()
     {  	
+    	//Desenho de fundo
     	screen.drawImage(this.imagem, 0, 0)
+    	
+    	//Desenho botoes
+    	this.botaoback.draw();
+    	
     };
     
     
     this.mouse_down=function(mouse)
     {   	
-    	//para mudar da tela pra algum lugar coloque o comando aqui
-    	//currentScene = SCENE.[adicionar tela aqui depois];
+    	if(this.botaoback.clicou (mouse))
+    	{
+    		
+    		currentScene = SCENE.INTRO;
+    		game_3.level1.reset();
+    	}
+    	
     	this.efeito_sonoro.pause();
     };
     
