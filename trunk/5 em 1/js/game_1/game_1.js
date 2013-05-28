@@ -2,7 +2,7 @@ function Game_1()
 {	
 	//Pausa
 	//this.paused = false;
-		
+	
 	//Introducao
 	this.introducao = new Game1SceneIntroducao();
 

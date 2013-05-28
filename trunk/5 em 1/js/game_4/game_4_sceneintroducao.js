@@ -9,8 +9,8 @@ function Game4SceneIntroducao()
     this.posicao_y = 0;
 	
 	//Imagem dos botoes							TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
-    this.botaoplay = new Game4Button("imgs/game_4/play.png", 246, 157, 275, 260 );
-    this.botaoback = new Game4Button("imgs/game_4/back.png", 246, 157, 290, 370 ); 
+    this.botaoplay = new Game4Button("imgs/game_4/play.png", 246, 157, 150, 350 );
+    this.botaoback = new Game4Button("imgs/game_4/back.png", 246, 157, 420, 350 ); 
 	
     //Efeito Sonoro
 	this.efeito_sonoro = new Audio();
@@ -42,7 +42,7 @@ function Game4SceneIntroducao()
 		//para mudar da tela pra algum lugar coloque o comando aqui
     	if(this.botaoplay.clicou (mouse))
     	{
-			this.game_4.currentScene = game_4.SCENE.LEVEL_1;
+			game_4.currentScene = game_4.SCENE.LEVEL_1;
     		this.efeito_sonoro.play(); 		
     	}
     	
