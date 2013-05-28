@@ -15,7 +15,7 @@ function Game1ScenePerdeu()
     this.efeito_sonoro.load();
     
     //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
-    this.botaoback = new Game1Button("imgs/game_1/back.png", 248, 98, 300, 500 );
+    this.botaoback = new Game1Button("imgs/game_1/back.png", 148, 137, 340, 450 );
     
     this.imagem.onload = function()
 	{

@@ -1,7 +1,7 @@
-function Tiro(posicao_x, posicao_y)
+function Game3Tiro(file, posicao_x, posicao_y, velocidade_y)
 {
 	this.imagem = new Image();
-	this.imagem.src="imgs/game_3/tiroup.png";
+	this.imagem.src= file;
 	this.carregada = false;
 	this.visible = true;
 	
@@ -15,7 +15,7 @@ function Tiro(posicao_x, posicao_y)
 	this.posicao_x = posicao_x;
 	this.posicao_y = posicao_y;
 	this.velocidade_x = 0;
-	this.velocidade_y = -10;
+	this.velocidade_y = 10 * velocidade_y;
 
 	this.update=function()
 	{
