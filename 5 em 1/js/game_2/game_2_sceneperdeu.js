@@ -52,6 +52,7 @@ function Game2ScenePerdeu()
     			
     			this.efeito_sonoro.play();
     			game_2.currentScene = game_2.SCENE.INSTRUCOES;
+    			this.voce_Perdeu.pause();
     			game_2.level1.reset();
     		}
     	

@@ -128,15 +128,15 @@ function Game2SceneLevel1()
 					this.bola.posicao_y,
 					this.bola.tamanho_x,
 					this.bola.tamanho_y,
-					this.player.posicao_x+10,
+					this.player.posicao_x,//+10,
 					this.player.posicao_y,
-					this.player.tamanho_x,
-					this.player.tamanho_y-20))
+					this.player.tamanho_x,//-20,
+					10))
 			{
 
 				this.bola.velocity_y *= -1;
 			}
-
+/*
 		//Fazendo colis�o da bola com a paleta player parte da esquerda			
 		if(Collide(
 					this.bola.posicao_x,
@@ -144,11 +144,11 @@ function Game2SceneLevel1()
 					this.bola.tamanho_x,
 					this.bola.tamanho_y,
 					this.player.posicao_x,
-					this.player.posicao_y,
-					9,
-					this.player.tamanho_y))
+					this.player.posicao_y+10,
+					10,
+					this.player.tamanho_y-10))
 			{
-				this.bola.velocity_x *= -1;
+				this.bola.velocity_x *= 1;
 			}
 		
 		//Fazendo colis�o da bola com a paleta player parte da direita			
@@ -157,15 +157,15 @@ function Game2SceneLevel1()
 					this.bola.posicao_y,
 					this.bola.tamanho_x,
 					this.bola.tamanho_y,
-					this.player.posicao_x+this.player.tamanho_x-20,
-					this.player.posicao_y,
-					9,
-					this.player.tamanho_y))
+					this.player.posicao_x+this.player.tamanho_x-10,
+					this.player.posicao_y+10,
+					10,
+					this.player.tamanho_y-10))
 			{
-				this.bola.velocity_x *= -1;
+				this.bola.velocity_x *= 1;
 			}
 		
-		
+*/		
 		//COLISAO COM OS BLOCOS
 		for(var i = 0 ; i < this.listas.length; i++)
 			{
@@ -188,7 +188,7 @@ function Game2SceneLevel1()
 								this.pontos++;
 			
 									//FAZENDO APARECER A TELA DE VENCEDOR
-									if(this.pontos >= 5)
+									if(this.pontos >= 50)
 									{
 										this.musica_de_fundo.pause();
 										game_2.currentScene = game_2.SCENE.FIMGANHOU;
