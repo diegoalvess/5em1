@@ -23,7 +23,7 @@ function Tiro(posicao_x, posicao_y)
 		this.posicao_x += this.velocidade_x;
 		this.posicao_y += this.velocidade_y;
 	
-		if(this.posicao_y < 0)
+		if(this.posicao_y < 50)
 		{
 			this.visible = false;
 		}

@@ -7,10 +7,10 @@ function Game_3()
 		this.level1 = new Game3SceneLevel1();
 		
 		//FimGanhou 
-		this.fimganhou = new Game3SceneGanhou();
+		//this.fimganhou = new Game3SceneGanhou();
 		
 		//FimPerdeu
-		this.fimperdeu = new Game3ScenePerdeu();
+		//this.fimperdeu = new Game3ScenePerdeu();
 		
 		this.introducao = new Game3SceneIntroducao();		
 		
@@ -39,18 +39,18 @@ function Game_3()
 				break;
 				
 				//FimGanhou
-				case this.SCENE.FIMGANHOU:
-				{
-					this.fimganhou.update();
-				}
-				break;
+				//case this.SCENE.FIMGANHOU:
+				//{
+				//	this.fimganhou.update();
+				//}
+				//break;
 				
 				//FimPerdeu
-				case this.SCENE.FIMPERDEU:
-				{
-					this.fimperdeu.update();
-				}
-				break;
+				//case this.SCENE.FIMPERDEU:
+				//{
+				//	this.fimperdeu.update();
+				//}
+				//break;
 				
 				
 			}//fechar switch
@@ -73,17 +73,17 @@ function Game_3()
 				}
 				break;
 				
-				case this.SCENE.FIMGANHOU:
-				{
-					this.fimganhou.draw();
-				}
-				break;
+				//case this.SCENE.FIMGANHOU:
+				//{
+				//	this.fimganhou.draw();
+				//}
+				//break;
 				
-				case this.SCENE.FIMPERDEU:
-				{
-					this.fimperdeu.draw();
-				}
-				break;
+				//case this.SCENE.FIMPERDEU:
+				//{
+				//	this.fimperdeu.draw();
+				//}
+				//break;
 				
 			}
 			
@@ -106,17 +106,17 @@ function Game_3()
 				}
 				break;
 				
-				case this.SCENE.FIMPERDEU:
-				{
-					this.fimperdeu.mouse_down(mouse);
-				}
-				break;
+				//case this.SCENE.FIMPERDEU:
+				//{
+					//this.fimperdeu.mouse_down(mouse);
+				//}
+				//break;
 				
-				case SCENE.FIMGANHOU:
-				{
-					this.fimganhou.mouse_down(mouse);
-				}
-				break;
+				//case SCENE.FIMGANHOU:
+				//{
+				//	this.fimganhou.mouse_down(mouse);
+				//}
+				//break;
 								
 			}
 		}
@@ -147,17 +147,17 @@ function Game_3()
 				}
 				break;
 				
-				case this.SCENE.FIMPERDEU:
-				{
-					this.fimperdeu.mouse_move(mouse);
-				}
-				break;
+				//case this.SCENE.FIMPERDEU:
+				//{
+				//	this.fimperdeu.mouse_move(mouse);
+				//}
+				//break;
 				
-				case SCENE.FIMGANHOU:
-				{
-					this.fimganhou.mouse_move(mouse);
-				}
-				break;
+				//case SCENE.FIMGANHOU:
+				//{
+				//	this.fimganhou.mouse_move(mouse);
+				//}
+				//break;
 								
 			}
 		}
