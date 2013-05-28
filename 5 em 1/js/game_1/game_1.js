@@ -96,9 +96,9 @@ function Game_1()
 			
 		switch(this.currentScene)
 		{
-			case this.SCENE.INSTRUCOES:
+			case this.SCENE.INTRODUCAO:
 			{
-				this.instrucao.mouse_down(mouse);
+				this.introducao.mouse_down(mouse);
 			}
 			break;
 				
