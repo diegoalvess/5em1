@@ -14,7 +14,7 @@ function Game4Inimigo(source,hp)
 	
 	this.movendoCimaBaixo = false;
 	
-	this.chancetiroboss = 0.01
+	this.chancetiroboss = 0.1;
 	this.chancetiro = 0.01;
 	
 	this.max_energy = hp;
@@ -95,6 +95,8 @@ function Game4Inimigo(source,hp)
     	if(this.posicao_x <= 550 && !this.movendoCimaBaixo)
     	{
     		this.movendoCimaBaixo = true;
+    		
+    		game_4.level1.hp_boss.visible = true;
     		
     		this.velocidade_x = 0;
 			this.velocidade_y = 5;
