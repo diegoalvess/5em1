@@ -1,9 +1,5 @@
 function Game_4()
 {
-			
-//http://www.maujor.com/blog/2012/07/16/api-fullscreen/
-
-				
 		//Pausa
 		this.paused = false;
 		
@@ -18,9 +14,6 @@ function Game_4()
 		
 		//FimPerdeu
 		this.fimperdeu = new Game4ScenePerdeu();
-		
-		//Menu
-		//this.menu = new SceneMenu();
 	
 		//Fluxo das telas
 		this.SCENE = { INTRODUCAO: 0, LEVEL_1: 1, FIMGANHOU: 2, FIMPERDEU: 3}
@@ -38,7 +31,7 @@ function Game_4()
 					this.introducao.update();		
 				}
 				break;
-								
+
 				//level1
 				case this.SCENE.LEVEL_1:
 				{
@@ -59,8 +52,6 @@ function Game_4()
 					this.fimperdeu.update();
 				}
 				break;
-				
-				
 			}//fechar switch
 			
 		}//fechar update
@@ -125,9 +116,6 @@ function Game_4()
 					this.fimperdeu.mouse_down(mouse);
 				}
 				break;
-				
-
-								
 			}
 		}		
 		

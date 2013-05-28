@@ -89,4 +89,36 @@ function Game_1()
 		}
 			
 	}
+	
+	this.mouse_down = function(mouse)
+	{
+		console.log("mouse down game2");
+			
+		switch(this.currentScene)
+		{
+			case this.SCENE.INSTRUCOES:
+			{
+				this.instrucao.mouse_down(mouse);
+			}
+			break;
+				
+			case this.SCENE.LEVEL_1:
+			{	
+				this.level1.mouse_down(mouse);
+			}
+			break;
+				
+			case this.SCENE.FIMGANHOU:
+			{
+				this.fimganhou.mouse_down(mouse);
+			}
+			break;
+				
+			case this.SCENE.FIMPERDEU:
+			{	
+				this.fimperdeu.mouse_down(mouse);
+			}
+			break;
+		}
+	}
 }
