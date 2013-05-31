@@ -8,10 +8,10 @@
         </title>
 		
 		<!--Index-->
-		<script src="js/scene_intro.js"></script>
-		<script src="js/scene_credit.js"></script>
-		<script src="js/button.js"></script>
-		<script src="js/background.js"></script>
+		<script src="js/IndexJs/scene_intro.js"></script>
+		<script src="js/IndexJs/scene_credit.js"></script>
+		<script src="js/IndexJs/button.js"></script>
+		<script src="js/IndexJs/background.js"></script>
 		
 		<!--pong-->
 		<script src="js/game_1/game_1_background.js"></script>
@@ -49,8 +49,7 @@
 		<script src="js/game_3/game_3.js"></script>
 		<script src="js/game_3/game_3_block.js"></script>
 		<script src="js/game_3/game_3_tiro.js"></script>
-		<script src="js/game_3/game_3_button.js"></script>
-		
+		<script src="js/game_3/game_3_button.js"></script>	
 
 		<!--shooter--> 
 		<script src="js/game_4/game_4_sceneintroducao.js"></script>
@@ -67,13 +66,10 @@
 		<script src="js/game_4/game_4_button.js"></script>
 
 		<!--quinto jogo-->
-		<!--<script src="js/game_5/game_5_background.js"></script>
-		<script src="js/game_5/game_5_scene_game_over.js"></script>
+		<script src="js/game_5/game_5_background.js"></script>
 		<script src="js/game_5/game_5_scene_intro.js"></script>
-		<script src="js/game_5/game_5_scene_level_1.js"></script>
-		<script src="js/game_5/game_5_scene_menu.js"></script>
-		<script src="js/game_5/game_5_scene_the_end.js"></script>
-		<script src="js/game_5/game_5.js"></script>-->		
+		<script src="js/game_5/game_5.js"></script>
+		<script src="js/game_5/game_5_button.js"></script>
   
    </head>
         
@@ -97,7 +93,7 @@
    	var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
    	if (!is_chrome)//!?
    	{
-   		document.write("<h2><br/>PLEASE USE THE <a href='http://www.google.com/intl/pt-BR/chrome/browser/'>GOOGLE CHROME</a> :) ;)</h2>");
+   		document.write("<h2><br/>PLEASE USE THE <a href='http://www.google.com/intl/pt-BR/chrome/browser/'>GOOGLE CHROME</a> :) </h2>");
    	}
    	else
    	{
@@ -130,6 +126,9 @@
 	//SPACE SHOOTER
 	var game_4 = new Game_4();
 	
+	//Quinto jogo
+	var game_5 = new Game_5();
+	
 	var SCENE = { INTRO: 0, CREDITS: 1, GAME_1: 2, GAME_2: 3, GAME_3: 4, GAME_4: 5, GAME_5: 6 }
 	
 	//COMEÇANDO COM INTRODUÇÃO DO INDEX = MENU PRINCIPAL
@@ -139,24 +138,25 @@
 
 	function load()
 	{	
-		if((true))//to do...
+		if((true))
 		{
-
 			loop();
 		}
 		else
 		{
-
 			setTimeout(load, 30 );
 		}
 	}
 
 	function loop()
 	{
+		//Atualizando
 		update();
-
+		
+		//Desenhando
 		draw();
-
+		
+		//Loop
 		setTimeout(loop, 30 );
 	}
 
@@ -164,8 +164,6 @@
 	{	
 		switch(currentScene)
 		{
-			//pause...
-			
 			case SCENE.INTRO:
 			{
 				intro.update();	
@@ -300,7 +298,6 @@
 				game_5.key_down(key);	
 			}
 			break;
-
 		}
 	}
 
@@ -343,7 +340,6 @@
 				game_5.key_up(key);
 			}
 			break;
-
 		}
 	}
 	
@@ -386,9 +382,7 @@
 				//game_5.mouse_move(mouse);
 			}
 			break;
-
 		}
-
 	}
 
 	function mouse_up(mouse)
@@ -435,7 +429,6 @@
 				game_5.mouse_down(mouse);
 			}
 			break;
-
 		}
 	}
 
