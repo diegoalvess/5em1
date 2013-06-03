@@ -4,6 +4,7 @@ function SceneCredit()
 	this.background.src="imgs/menucreditos.png";
 	this.loaded = false;		
 	
+	//Botão back
     this.button_back = new Button("imgs/button_back.png", 160, 75);
     this.button_back.position_x = 320;
     this.button_back.position_y = 520;
