@@ -14,12 +14,17 @@ function Game3SceneLevel1()
     
     //Fazendo inimigos descerem na tela
     this.godownandreversedirection = false;
-    
-    this.pontos = 0;
-    
+    this.pontos = 0; 
     this.vidas = 3;
-    
+  	
+  	//Tiros Inimigos
     this.Tiros_inimigos = new Array();
+	
+	//Efeito sonoro de borda
+    this.efeito_sonoro = new Audio();
+    this.efeito_sonoro.src = "sounds/game_3/Background.mp3"
+    this.efeito_sonoro.load();
+    this.efeito_sonoro.volume = 0.8
 	
 	//Blocos1
 	this.blocos1 = new Array();	
@@ -81,6 +86,9 @@ function Game3SceneLevel1()
     	{
     		return;  	
     	}
+    	
+    	//Som
+    	this.efeito_sonoro.play();
     	
     	for(var i = 0; i < this.blocos.length ; i++)
     	{
@@ -157,7 +165,9 @@ function Game3SceneLevel1()
         				this.vidas--;
         				if(this.vidas == 0)
         				{
+        					//Fazendo player perder e ir para cena de fim perdeu
         					game_3.currentScene = game_3.SCENE.FIMPERDEU;
+        					this.efeito_sonoro.pause();
         				}
         			}
 
@@ -166,16 +176,15 @@ function Game3SceneLevel1()
 			}
 		}
 		
+		//Fazendo player ganhar e ir para cena de fim ganhou
 		if(this.pontos == 50)
 		{
 			game_3.currentScene = game_3.SCENE.FIMGANHOU;
+			this.efeito_sonoro.pause();
 		}
     	
     	//Colidindo com as bordas
 		this.batendonatela();
-		
-		//Som
-    	//this.efeito_sonoro.play();
     	
     	//Background se movendo
     	this.background.update();
@@ -217,11 +226,11 @@ function Game3SceneLevel1()
     	}
 		
 		
-		 screen.font = "45px Arial";
+		screen.font = "45px Arial";
         screen.fillStyle="#FFFFFF";
         screen.fillText(" 0000" + this.pontos, 120, 40);
         
-         screen.font = "25px Arial";
+        screen.font = "25px Arial";
         screen.fillStyle="#FFFFFF";
         screen.fillText("" + this.vidas, 767.5, 26);
     
@@ -274,7 +283,6 @@ function Game3SceneLevel1()
     this.mouse_down=function(mouse)
     {
     	//currentScene = SCENE.FIMGANHOU;
-    	//this.efeito_sonoro.pause();
     };
      
  	 //Tecla desceu
