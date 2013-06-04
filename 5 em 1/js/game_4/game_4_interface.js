@@ -2,7 +2,6 @@ function Game4Interface(souce, tam_x, tam_y, pos_x, pos_y)
 {
 	this.imagem = new Image();
 	this.imagem.src = souce;
-	//this.loaded = false;
 	
 	this.visible = true;
 	
@@ -25,7 +24,6 @@ function Game4Interface(souce, tam_x, tam_y, pos_x, pos_y)
     
     this.draw=function(max_energy_value, current_energy_value, life_value)
     {  	
-		//screen.fillText("Energia: " + current_energy_value + "    Vidas: " + life_value, 20, 20);
 		
 		if(this.visible)
 		{
@@ -43,12 +41,10 @@ function Game4Interface(souce, tam_x, tam_y, pos_x, pos_y)
 		//screen.fillStyle="#FFFFFF";
 		//screen.fillText("x"+life_value, this.posicao_x_dst + this.tamanho_x_dst + 20, this.posicao_y_dst + 20 );
 		
-		for(var i = 0 ; i < life_value ; i++)
-		{
-			screen.drawImage(game_4.level1.player.imagem, 0, 0, 100, 50, (this.posicao_x_dst + this.tamanho_x_dst) + (i * 50), this.posicao_y_dst, 50, 25);
-			
-		}
-		
+			for(var i = 0 ; i < life_value ; i++)
+			{
+			//screen.drawImage(game_4.level1.player.imagem, 0, 0, 100, 50, (this.posicao_x_dst + this.tamanho_x_dst) + (i * 50), this.posicao_y_dst, 50, 25);
+			}
 		}		
      };
 }
