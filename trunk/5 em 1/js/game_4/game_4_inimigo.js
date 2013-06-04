@@ -10,7 +10,7 @@ function Game4Inimigo(source,hp)
     this.posicao_x = 0;
     this.posicao_y = 0;
     this.velocidade_x = 10;
-	this.velocidade_y = 50;
+	this.velocidade_y = 10;
 	
 	this.movendoCimaBaixo = false;
 	
@@ -84,7 +84,10 @@ function Game4Inimigo(source,hp)
     
      this.up_down=function()
     {
-    	this.posicao_x -= this.velocidade_x;    
+    	console.log("asdsds" + this.velocidade_y);
+    	this.posicao_x -= this.velocidade_x;
+    	this.posicao_y -= this.velocidade_y;
+    	    
     }
     
     this.boss = function()
