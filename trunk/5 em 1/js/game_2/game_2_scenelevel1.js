@@ -2,7 +2,7 @@ function Game2SceneLevel1()
 {
 	this.reset=function()
 	{
-		 //Som
+	//Som
     this.musica_de_fundo = new Audio();
     this.musica_de_fundo.src = "sounds/game_2/Musica_de_Fundo.mp3";
     this.musica_de_fundo.load();
@@ -83,9 +83,6 @@ function Game2SceneLevel1()
    		
    		this.player.posicao_x = (tamanho_tela_x  - this.player.tamanho_x)/2;
     	this.player.posicao_y = (tamanho_tela_y - this.player.tamanho_y-2);
-   		
-   		
-   		//game_2.currentScene = game_2.SCENE.LEVEL_1;
    		
 	}//FIM DO RESET
 	
@@ -207,8 +204,7 @@ function Game2SceneLevel1()
 			{
 				this.vidas--;
 				this.bola.followplayer = true;
-								
-				
+
 				//FAZENDO O A TELA DE PERDEDOR APARECER 0 
 				if(this.vidas <= 0)
 				{
@@ -217,12 +213,9 @@ function Game2SceneLevel1()
 					game_2.fimperdeu.voce_Perdeu.play();
 					this.reset();					
 				}
-							
-			}
-			
 
-    	
-			
+			}
+
 	}//FIM SO UPDATE
     
     this.draw=function()
@@ -235,9 +228,6 @@ function Game2SceneLevel1()
     	
     	//Desenhando bola
     	this.bola.draw();
-    	
-    	//this.listas.draw();
-    	
     	
     	//DESENHANDO TODOS OS BLOCOS
     	for(var i = 0 ; i <this.listas.length; i++)
@@ -254,38 +244,19 @@ function Game2SceneLevel1()
         screen.font = "45px Arial";
         screen.fillStyle="#FF0000";
         screen.fillText("Vidas " + this.vidas, 540, 35);
-        
-        
-		
-		
-		
-		
-    	
-		
+
     }//FIM DO DRAW
     
     
     this.mouse_down=function(mouse)
     {
-    	//SE O JOGADOR GANHAR APARECERA A TELA DO JOGADOR VENCEDOR PARA VOLTAR PARA O MENU
-    	//currentScene = SCENE.FIMGANHOU;
-    	
-    	//SE O JOGADOR PERDER APARECERA A TELA DE PERDEDOR PARA VOLTAR PARA O MENU
-    	//currentScene = SCENE.FIMPERDEU;
-    	//this.efeito_sonoro.pause();
-    	
-    	
+	
     };
-     
- 	
+
     this.key_down=function(key)
     {
-    	
-    	
 		this.player.key_down(key);
-    	
     	this.bola.key_down(key);
-    
     };
     
     this.key_up=function(key)
@@ -318,6 +289,4 @@ function Game2SceneLevel1()
 			this.paused = !paused;
 		}
 	}
-	
-			
 }//FIM DA FASE1
