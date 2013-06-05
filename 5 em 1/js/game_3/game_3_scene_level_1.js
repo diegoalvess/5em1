@@ -2,81 +2,79 @@ function Game3SceneLevel1()
 {
 	this.reset=function()
  	{
- 		
-	//Player
-	this.player = new Game3Player("setas");	
+		//Player
+		this.player = new Game3Player("setas");	
 	
-	//Pause
-	this.paused = true;
+		//Pause
+		this.paused = true;
    
-    //Colocando a imagem de background
-    this.background = new Game3Background("imgs/game_3/FundoBackground.png");
+		//Colocando a imagem de background
+		this.background = new Game3Background("imgs/game_3/FundoBackground.png");
     
-    //Fazendo inimigos descerem na tela
-    this.godownandreversedirection = false;
-    this.pontos = 0; 
-    this.vidas = 3;
+		//Fazendo inimigos descerem na tela
+		this.godownandreversedirection = false;
+		this.pontos = 0; 
+		this.vidas = 5;
   	
-  	//Tiros Inimigos
-    this.Tiros_inimigos = new Array();
+		//Tiros Inimigos
+		this.Tiros_inimigos = new Array();
 	
-	//Efeito sonoro de borda
-    this.efeito_sonoro = new Audio();
-    this.efeito_sonoro.src = "sounds/game_3/Background.mp3"
-    this.efeito_sonoro.load();
-    this.efeito_sonoro.volume = 0.8
+		//Efeito sonoro de borda
+		this.efeito_sonoro = new Audio();
+		this.efeito_sonoro.src = "sounds/game_3/Background.mp3"
+		this.efeito_sonoro.load();
+		this.efeito_sonoro.volume = 0.8
+		
+		//Blocos1
+		this.blocos1 = new Array();	
+		for(var i = 0; i < 10; i++)
+		{	
+			this.blocos1[i] = new Bloco("imgs/game_3/bloco1.png",5 );
+			this.blocos1[i].posicao_y = 100        	
+			this.blocos1[i].posicao_x = 200 + (i * (this.blocos1[i].tamanho_x + 10 ));  	
+		}
 	
-	//Blocos1
-	this.blocos1 = new Array();	
-	for(var i = 0; i < 10; i++)
-    {	
-        this.blocos1[i] = new Bloco("imgs/game_3/bloco1.png",5 );
-        this.blocos1[i].posicao_y = 100        	
-        this.blocos1[i].posicao_x = 200 + (i * (this.blocos1[i].tamanho_x + 10 ));  	
-    }
+		//Blocos2
+		this.blocos2 = new Array();
+		for(var i = 0; i < 10; i++)
+		{	
+			this.blocos2[i] = new Bloco("imgs/game_3/bloco2.png",4);
+			this.blocos2[i].posicao_y = 160       	
+			this.blocos2[i].posicao_x = 200 + (i * (this.blocos2[i].tamanho_x + 10 ));  	
+		}
 	
-	//Blocos2
-	this.blocos2 = new Array();
-	for(var i = 0; i < 10; i++)
-    {	
-        this.blocos2[i] = new Bloco("imgs/game_3/bloco2.png",4);
-        this.blocos2[i].posicao_y = 160       	
-        this.blocos2[i].posicao_x = 200 + (i * (this.blocos2[i].tamanho_x + 10 ));  	
-    }
-	
-	//Blocos3
-	this.blocos3 = new Array();
-	for(var i = 0; i < 10; i++)
-    {	
-        this.blocos3[i] = new Bloco("imgs/game_3/bloco3.png",3);
-        this.blocos3[i].posicao_y = 220     	
-        this.blocos3[i].posicao_x = 200 + (i * (this.blocos3[i].tamanho_x + 10 ));  	
-    }
+		//Blocos3
+		this.blocos3 = new Array();
+		for(var i = 0; i < 10; i++)
+		{		
+			this.blocos3[i] = new Bloco("imgs/game_3/bloco3.png",3);
+			this.blocos3[i].posicao_y = 220     	
+			this.blocos3[i].posicao_x = 200 + (i * (this.blocos3[i].tamanho_x + 10 ));  	
+		}
     
-    //Blocos4
-	this.blocos4 = new Array();
-	for(var i = 0; i < 10; i++)
-    {	
-        this.blocos4[i] = new Bloco("imgs/game_3/bloco4.png",2);
-        this.blocos4[i].posicao_y = 280      	
-        this.blocos4[i].posicao_x = 200 + (i * (this.blocos4[i].tamanho_x + 10 ));  	
-    }
+		//Blocos4
+		this.blocos4 = new Array();
+		for(var i = 0; i < 10; i++)
+		{	
+			this.blocos4[i] = new Bloco("imgs/game_3/bloco4.png",2);
+			this.blocos4[i].posicao_y = 280      	
+			this.blocos4[i].posicao_x = 200 + (i * (this.blocos4[i].tamanho_x + 10 ));  	
+		}
      
-    //Blocos5
-	this.blocos5 = new Array();
-	for(var i = 0; i < 10; i++)
-    {	
-        this.blocos5[i] = new Bloco("imgs/game_3/bloco5.png",1);
-        this.blocos5[i].posicao_y = 340 	
-        this.blocos5[i].posicao_x = 200 + (i * (this.blocos5[i].tamanho_x + 10 ));  	
-    }
+		//Blocos5
+		this.blocos5 = new Array();
+		for(var i = 0; i < 10; i++)
+		{	
+			this.blocos5[i] = new Bloco("imgs/game_3/bloco5.png",1);
+			this.blocos5[i].posicao_y = 340 	
+			this.blocos5[i].posicao_x = 200 + (i * (this.blocos5[i].tamanho_x + 10 ));  	
+		}
 	
-	//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
-      this.blocos = this.blocos1.concat(this.blocos2, this.blocos3, this.blocos4, this.blocos5)
-
+		//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
+		this.blocos = this.blocos1.concat(this.blocos2, this.blocos3, this.blocos4, this.blocos5)
+		
 	};
-    
- 	
+	
  	this.reset();
  	
     this.update=function()
@@ -98,7 +96,6 @@ function Game3SceneLevel1()
     		}
 
     	}
-	
 	
 		//Tiros inimigos
     	for(var i = 0; i < this.Tiros_inimigos.length ; i++)
@@ -136,10 +133,9 @@ function Game3SceneLevel1()
     						this.blocos[u].visible = false;
     						this.pontos++ ;
     					}
-    					
- 						
+
     					this.player.tiros[a].visible = false
-    					   					  
+
     				}
     	
     			}
@@ -165,14 +161,16 @@ function Game3SceneLevel1()
         				this.vidas--;
         				if(this.vidas == 0)
         				{
+							//Resetando o jogo
+							this.reset();
+						
         					//Fazendo player perder e ir para cena de fim perdeu
         					game_3.currentScene = game_3.SCENE.FIMPERDEU;
         					this.efeito_sonoro.pause();
+							
+
         				}
         			}
-
-    	
-    	
 			}
 		}
 		
@@ -181,6 +179,9 @@ function Game3SceneLevel1()
 		{
 			game_3.currentScene = game_3.SCENE.FIMGANHOU;
 			this.efeito_sonoro.pause();
+			
+			//Resetando o jogo
+			this.reset();
 		}
     	
     	//Colidindo com as bordas

@@ -1,11 +1,11 @@
 function SceneCredit()
 {
 	this.background = new Image();
-	this.background.src="imgs/menucreditos.png";
+	this.background.src="imgs/index/menucreditos.png";
 	this.loaded = false;		
 	
 	//Botão back
-    this.button_back = new Button("imgs/button_back.png", 160, 75);
+    this.button_back = new Button("imgs/index/button_back.png", 160, 75);
     this.button_back.position_x = 320;
     this.button_back.position_y = 520;
     
