@@ -13,13 +13,13 @@ function Game3SceneLevel1()
     
 		//Fazendo inimigos descerem na tela
 		this.godownandreversedirection = false;
-		this.pontos = 0; 
+		this.pontos = 50; 
 		this.vidas = 5;
   	
 		//Tiros Inimigos
 		this.Tiros_inimigos = new Array();
 	
-		//Efeito sonoro de borda
+		//Efeito sonoro de fundo
 		this.efeito_sonoro = new Audio();
 		this.efeito_sonoro.src = "sounds/game_3/Background.mp3"
 		this.efeito_sonoro.load();
@@ -142,7 +142,7 @@ function Game3SceneLevel1()
     		
 			}
     	}
-    	//tiro do inimigo coledindo com o player
+    	//tiro do inimigo colidindo com o player
     	for(var j = 0; j < this.Tiros_inimigos.length; j++)
 		{
 			if(this.player.visible&&this.Tiros_inimigos[j].visible)
@@ -167,8 +167,6 @@ function Game3SceneLevel1()
         					//Fazendo player perder e ir para cena de fim perdeu
         					game_3.currentScene = game_3.SCENE.FIMPERDEU;
         					this.efeito_sonoro.pause();
-							
-
         				}
         			}
 			}
@@ -283,10 +281,10 @@ function Game3SceneLevel1()
 
     this.mouse_down=function(mouse)
     {
-    	//currentScene = SCENE.FIMGANHOU;
+	
     };
      
- 	 //Tecla desceu
+ 	//Tecla desceu
     this.key_down=function(key)
     {    	
 		this.player.key_down(key);

@@ -9,7 +9,7 @@ function Game3SceneGanhou()
     this.posicao_y = 0;
     
     //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
-    this.botaoback = new Game1Button("imgs/game_3/back_ligado.png", 148, 137, 400, 400 );
+    this.botaoback = new Game1Button("imgs/game_3/back_ligado.png", 148, 137, 340, 450 );
     
     this.imagem.onload = function()
 	{

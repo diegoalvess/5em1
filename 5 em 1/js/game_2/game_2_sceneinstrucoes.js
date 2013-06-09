@@ -5,7 +5,6 @@ function Game2SceneInstrucoes()
 	this.loaded = false;
 	this.tamanho_x = 800;
     this.tamanho_y = 600;
-    
     this.posicao_x = 0;
     this.posicao_y = 0;
     
@@ -13,14 +12,10 @@ function Game2SceneInstrucoes()
     this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_2/click.mp3";
     this.efeito_sonoro.load();
-    
    
-    
-    //imagem dos botoes												TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
+    //imagem dos botoes								TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
    	this.botao_play = new Game2Button("imgs/game_2/play.png", 251, 82, 500, 300 );
-   	
-   	this.botao_back = new Game2Button("imgs/game_2/back.png", 251, 82, 500, 500 );
-   	    
+   	this.botao_back = new Game2Button("imgs/game_2/back.png", 251, 82, 500, 450 );
     
     this.imagem.onload = function()
 	{
@@ -34,6 +29,7 @@ function Game2SceneInstrucoes()
     
     this.draw=function()
     {
+		//desenho imagem de fundo
 		screen.drawImage(this.imagem, 0, 0)
 		
 		//desenho dos  botoes
@@ -45,40 +41,26 @@ function Game2SceneInstrucoes()
     
     this.mouse_down=function(mouse)
     {
-    	//para mudar da tela pra algum lugar coloque o comando aqui
-    	//fun��o do clique para o bot�o mudar de cena
-    	
-    			
     		if(this.botao_play.clicou (mouse))
     		{
-    			
     			this.efeito_sonoro.play();
     			game_2.currentScene = game_2.SCENE.LEVEL_1;
-    			
     		}
-    		
-    		
+
     		if(this.botao_back.clicou (mouse))
     		{
-    			
     			this.efeito_sonoro.play();
     			currentScene = SCENE.INTRO;
     		}
-    			
     }
-    
-    
+
     this.key_down=function(key)
     {
 
     };
-    
-    
+
 	this.key_up=function(key)
     {
 		
     }; 
-    
-    
-	
 }
