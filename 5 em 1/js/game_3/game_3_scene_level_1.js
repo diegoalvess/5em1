@@ -13,7 +13,7 @@ function Game3SceneLevel1()
     
 		//Fazendo inimigos descerem na tela
 		this.godownandreversedirection = false;
-		this.pontos = 50; 
+		this.pontos = 0; 
 		this.vidas = 5;
   	
 		//Tiros Inimigos
