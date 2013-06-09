@@ -20,8 +20,7 @@ function SceneCredit()
    		this.button_back.draw();  				
 		
    	};
-   
-   
+	
    	this.mouse_down=function(mouse)
    	{
    		if(this.button_back.clicked(mouse))
@@ -31,7 +30,6 @@ function SceneCredit()
    	};
    
    	this.key_down=function(key)
-   
    	{
    		
    	};
