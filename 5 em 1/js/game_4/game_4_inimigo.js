@@ -24,6 +24,10 @@ function Game4Inimigo(source,hp)
 	BEHAVIOUR = {MOVERIGHT: 0, UPANDDOWN: 1, BOSS:2 }
 	
 	this.currentBehaviour = BEHAVIOUR.MOVERIGHT;
+	
+	this.moveYActive = false;
+	
+	
 			
 	this.imagem.onload = function()
 	{
@@ -33,6 +37,12 @@ function Game4Inimigo(source,hp)
 
     this.update=function()
     {
+    	//Ativando a posicado X somente quando chegar na tela 
+    	if(this.posicao_x <= tamanho_tela_x)
+    	{
+    		this.moveYActive = true;
+    	}
+    	
     	switch(this.currentBehaviour)
     	{
     		case BEHAVIOUR.MOVERIGHT:
@@ -84,16 +94,27 @@ function Game4Inimigo(source,hp)
     
      this.up_down=function()
     {
-    	console.log("asdsds" + this.velocidade_y);
     	this.posicao_x -= this.velocidade_x;
-    	this.posicao_y -= this.velocidade_y;
-    	    
+    	
+    	// Se active estiver true realize a operacao abaixo
+    	if(this.moveYActive)
+    	{
+    		//movendo o inimigo a parti de cima tamanho_y = 0
+    		this.posicao_y += this.velocidade_y;
+    	} 
+    	
     }
     
     this.boss = function()
     {
+    		
     	this.posicao_x += this.velocidade_x;
-    	this.posicao_y += this.velocidade_y;
+    	
+    	if(this.moveYActive)
+    	{
+    		//movendo o inimigo a parti de cima tamanho_y = 0
+    		this.posicao_y += this.velocidade_y;
+    	} 
     	
     	if(this.posicao_x <= 550 && !this.movendoCimaBaixo)
     	{
@@ -105,17 +126,21 @@ function Game4Inimigo(source,hp)
 			this.velocidade_y = 5;
     	}
     	
+    	/*
+    	//Boss batendo em baixo
     	if(this.posicao_y >= tamanho_tela_y - this.tamanho_y)
 		{
 			this.velocidade_y *= -1;
 		}
-		if(this.posicao_y <= 0)
+		//Boss batendo em cima
+		if(this.posicao_y >= 0)
 		{
 			this.velocidade_y *= -1;
 		}
+    	*/
 		
-    	this.chancetiroboss = 0.01;
+    	this.chancetiroboss = 0.02;
     		
 	}
     
-    };
+};
