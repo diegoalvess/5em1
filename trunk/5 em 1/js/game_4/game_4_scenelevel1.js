@@ -54,6 +54,7 @@
     	this.wave2[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo2.png", 10);
     	this.wave2[i].posicao_x = 1400*2 + (i * 60);
     	this.wave2[i].posicao_y = (tamanho_tela_y/2) + (i * 55); //numero depois de * espacamento entre os inimigos
+    	//this.wave2[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
     
 	for(var i = 5 ; i < 9; i++) 
@@ -61,87 +62,97 @@
     	this.wave2[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo2.png", 10);
     	this.wave2[i].posicao_x = (1400*2)-240 + (i * 60);
     	this.wave2[i].posicao_y = ((tamanho_tela_y/2)+240) - (i * 55); //numero depois de * espacamento entre os inimigos
+    	//this.wave2[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
     
 	//Wave3
     this.wave3 = new Array();
-	for(var i = 0 ; i < 5; i++) 
+	/*for(var i = 0 ; i < 5; i++) 
     {
-    	this.wave3[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo4.png", 10);
-    	this.wave3[i].posicao_x = (1400*3) - ( i * 120 );
+    	this.wave3[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo3.png", 10);
+    	this.wave3[i].posicao_x = (1400*3) - ( i * 50 );
     	this.wave3[i].posicao_y = tamanho_tela_y/20; //numero depois de * espacamento entre os inimigos
+    	//this.wave3[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
     
 	for(var i = 0 ; i < 5; i++) 
     {
-    	this.wave3[i+5] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo4.png", 10);
-    	this.wave3[i+5].posicao_x = (1500*3) - ( i * 120 );
+    	this.wave3[i+5] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo3.png", 10);
+    	this.wave3[i+5].posicao_x = (1500*3) - ( i * 50 );
     	this.wave3[i+5].posicao_y = tamanho_tela_y/10*9; //numero depois de * espacamento entre os inimigos
+    	//this.wave3[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
 
-    }
+    }*/
     
 	//Wave4
     this.wave4 = new Array();
-    for(var i = 0 ; i < 10; i++) 
+    for(var i = 0 ; i < 9; i++) 
     {
     	this.wave4[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo4.png", 10);
     	this.wave4[i].posicao_x = 1400*4;
-    	this.wave4[i].posicao_y = tamanho_tela_y/20 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave4[i].velocidade_y = 5;
+    	this.wave4[i].posicao_y = 20 + ( i * 55); //numero depois de * espacamento entre os inimigos
     	this.wave4[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
     
 	//Wave5
     this.wave5 = new Array();
-    for(var i = 0 ; i < 10; i++) 
+    for(var i = 0 ; i < 9; i++) 
     {
     	this.wave5[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo5.png", 10);
     	this.wave5[i].posicao_x = 1400*5;
-    	this.wave5[i].posicao_y = tamanho_tela_y/20 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave5[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave5[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
     
 	//Wave6
     this.wave6 = new Array();
-    for(var i = 0 ; i < 10; i++) 
+    for(var i = 0 ; i < 9; i++) 
     {
     	this.wave6[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo6.png", 10);
     	this.wave6[i].posicao_x = 1400*6;
-    	this.wave6[i].posicao_y = tamanho_tela_y/20 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave6[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave6[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
     
 	//Wave7
     this.wave7 = new Array();
-    for(var i = 0 ; i < 10; i++) 
+    for(var i = 0 ; i < 9; i++) 
     {
     	this.wave7[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo7.png", 10);
     	this.wave7[i].posicao_x = 1400*7;
-    	this.wave7[i].posicao_y = tamanho_tela_y/20 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave7[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave7[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
     
 	//Wave8
     this.wave8 = new Array();
-    for(var i = 0 ; i < 10; i++) 
+    for(var i = 0 ; i < 9; i++) 
     {
     	this.wave8[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo8.png", 10);
     	this.wave8[i].posicao_x = 1400*8;
-    	this.wave8[i].posicao_y = tamanho_tela_y/20 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave8[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave8[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
     
 	//Wave9
     this.wave9 = new Array();
-    for(var i = 0 ; i < 10; i++) 
+    for(var i = 0 ; i < 9; i++) 
     {
     	this.wave9[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo9.png", 10);
     	this.wave9[i].posicao_x = 1400*9;
-    	this.wave9[i].posicao_y = tamanho_tela_y/20 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave9[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave9[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
 	
 	//Wave10
     this.wave10 = new Array();
-    for(var i = 0 ; i < 10; i++) 
+    for(var i = 0 ; i < 9; i++) 
     {
     	this.wave10[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo10.png", 10);
     	this.wave10[i].posicao_x = 1400*10;
-    	this.wave10[i].posicao_y = tamanho_tela_y/20 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave10[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.wave10[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
 	
 	//Mestre
@@ -153,17 +164,17 @@
     	this.wave11[i].tamanho_y = 256;
     	this.wave11[i].velocidade_x = -5;
     	this.wave11[i].velocidade_y = 0;
-    	this.wave11[i].posicao_x = 1000*11  ;
-    	this.wave11[i].posicao_y = tamanho_tela_y/2 - this.wave11[i].tamanho_y/2
+    	this.wave11[i].posicao_x = 1000*10;
+    	this.wave11[i].posicao_y = 300 - this.wave11[i].tamanho_y/2;
     	this.wave11[i].currentBehaviour = BEHAVIOUR.BOSS;
-    	this.wave11[i].chancetiroboss = 0.1;
+    	this.wave11[i].chancetiroboss = 0.2;
     }
 	
     //Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
     this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10, this.wave11);
-    //this.waves = this.wave1.concat();
+    //this.wave11 = this.wave11.concat();
         
-    };//Reset
+    };//fim Reset
 	
 	this.reset();
 	
@@ -186,20 +197,24 @@
     	//Player
     	this.player.update();
     	
+
     	//Inimigo BOSS
     	for(var i = 0 ; i < this.waves.length; i++)
     	{
     		this.waves[i].update();
     		
-    		if(this.waves[i].posicao_y < 0 && this.waves[i].visible)
-    		{
-    			this.wavesinvert = true;
-    		}
-    		if(this.waves[i].posicao_y > 600 - 64 && this.waves[i].visible)
+    		//fazendo as waves colidindo parte de cima
+    		if(this.waves[i].posicao_y < 0 && this.waves[i].visible && (this.waves[i].posicao_x <= tamanho_tela_x && this.waves[i].posicao_x > 0))
     		{
     			this.wavesinvert = true;
     		}
     		
+    		//baixo
+    		if(this.waves[i].posicao_y > tamanho_tela_y - this.waves[i].tamanho_y && this.waves[i].visible && (this.waves[i].posicao_x <= tamanho_tela_x && this.waves[i].posicao_x > 0))
+    		{
+    			this.wavesinvert = true;
+    		}
+    		    		
 			if(this.waves[i].posicao_x < tamanho_tela_x && this.waves[i].posicao_x > 0)
     		{
     			if(this.waves[i].visible)
@@ -208,7 +223,8 @@
     						{
     							this.Tiros_inimigos.push(new Game4Tiro("imgs/game_4/Tiroinimigo.png",this.waves[i].posicao_x, this.waves[i].posicao_y + this.waves[i].tamanho_y/2, -15));
     						}
-		
+    						
+							//Tiro do Boss
     						if(this.waves[i].currentBehaviour == BEHAVIOUR.BOSS)
     						{
     						
@@ -251,7 +267,7 @@
     	    	}//fechando o if(this.waves[i].posicao_x
     	}//fechando o for
     	
-    	if(this.wavesinvert == true)
+    	if(this.wavesinvert)
     	{
     		for(var i = 0 ; i < this.waves.length; i++)
     		{
@@ -289,9 +305,10 @@
         			this.waves[i].tamanho_x,
         			this.waves[i].tamanho_y))
 			{
-				this.player.current_energy--;
+				this.player.current_energy -= 10;
 				
 				this.waves[i].visible = false;
+				
 				
 				if(this.player.current_energy <= 0)
 				{
