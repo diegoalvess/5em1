@@ -50,28 +50,28 @@ function Game2SceneLevel1()
 		for(var i = 0; i < 10; i++)
 		{
 			this.listablocos2[i] = new Game2Bloco("imgs/game_2/bloco4.png", 4);
-			this.listablocos2[i].psc_Y = 120
+			this.listablocos2[i].psc_Y = 130
 			this.listablocos2[i].psc_X = 75 + (i * (this.listablocos2[i].tam_X + 5)) 	
 		}	
 		
 		for(var i = 0; i < 10; i++)
 		{
 			this.listablocos3[i] = new Game2Bloco("imgs/game_2/bloco3.png", 3);
-			this.listablocos3[i].psc_Y = 140
+			this.listablocos3[i].psc_Y = 160
 			this.listablocos3[i].psc_X = 75 + (i * (this.listablocos3[i].tam_X + 5)) 
 		}
 		
 		for(var i = 0; i < 10; i++)
 		{
 			this.listablocos4[i] = new Game2Bloco("imgs/game_2/bloco2.png", 2);
-			this.listablocos4[i].psc_Y = 160
+			this.listablocos4[i].psc_Y = 190
 			this.listablocos4[i].psc_X = 75 + (i * (this.listablocos4[i].tam_X + 5)) 
 		}
 		
 		for(var i = 0; i < 10; i++)
 		{
 			this.listablocos5[i] = new Game2Bloco("imgs/game_2/bloco1.png", 1);
-			this.listablocos5[i].psc_Y = 180
+			this.listablocos5[i].psc_Y = 220
 			this.listablocos5[i].psc_X = 75 + (i * (this.listablocos5[i].tam_X + 5)) 
 		}
    
@@ -120,20 +120,21 @@ function Game2SceneLevel1()
 		}
 		
 		//Fazendo colis�o da bola com a paleta player parte de cima			
+		
 		if(Collide(
 					this.bola.posicao_x,
 					this.bola.posicao_y,
 					this.bola.tamanho_x,
 					this.bola.tamanho_y,
-					this.player.posicao_x,//+10,
+					this.player.posicao_x,
 					this.player.posicao_y,
-					this.player.tamanho_x,//-20,
+					this.player.tamanho_x,
 					10))
 			{
 
 				this.bola.velocity_y *= -1;
 			}
-/*
+
 		//Fazendo colis�o da bola com a paleta player parte da esquerda			
 		if(Collide(
 					this.bola.posicao_x,
@@ -145,8 +146,10 @@ function Game2SceneLevel1()
 					10,
 					this.player.tamanho_y-10))
 			{
-				this.bola.velocity_x *= 1;
+				this.bola.posicao_x = this.player.posicao_x - this.bola.tamanho_x - 10;// + this.player.velocidade_x;
+				this.bola.velocity_x *= -1;
 			}
+		
 		
 		//Fazendo colis�o da bola com a paleta player parte da direita			
 		if(Collide(
@@ -158,12 +161,13 @@ function Game2SceneLevel1()
 					this.player.posicao_y+10,
 					10,
 					this.player.tamanho_y-10))
-			{
-				this.bola.velocity_x *= 1;
+			{				
+				this.bola.posicao_x = this.player.posicao_x + this.player.tamanho_x + 10;// - this.player.velocidade_x;
+				this.bola.velocity_x *= -1;
 			}
 		
-*/		
-		//COLISAO COM OS BLOCOS
+		
+		//COLISAO COM OS BLOCOS EM CIMA E EM BAIXO
 		for(var i = 0 ; i < this.listas.length; i++)
 			{
 				if(this.listas[i].visible)
@@ -184,6 +188,84 @@ function Game2SceneLevel1()
 								this.listas[i].visible = false;
 								this.pontos++;
 			
+									//FAZENDO APARECER A TELA DE VENCEDOR
+									if(this.pontos >= 50)
+									{
+										this.musica_de_fundo.pause();
+										game_2.currentScene = game_2.SCENE.FIMGANHOU;
+										game_2.fimganhou.voce_ganhou.play();
+									}
+							}
+														
+							this.bola.velocity_y *= -1;
+														
+						}
+				}
+			}
+			
+			//COLISAO COM OS BLOCOS NA ESQUERDA
+			for(var i = 0 ; i < this.listas.length; i++)
+			{
+				if(this.listas[i].visible)
+				{
+					if(Collide(
+								this.bola.posicao_x,
+							   	this.bola.posicao_y,
+							   	this.bola.tamanho_x,
+						       	this.bola.tamanho_y,
+						       	this.listas[i].psc_X,
+							   	this.listas[i].psc_Y,
+							   	this.listas[i].tam_X,
+							   	this.listas[i].tam_Y-10))
+						{
+							this.listas[i].hp--;
+							if(this.listas[i].hp <=0)
+							{
+								this.listas[i].visible = false;
+								this.pontos++;
+								
+								//this.bola.posicao_x = this.player.posicao_x - this.bola.tamanho_x - 10;// + this.player.velocidade_x;
+								this.bola.velocity_x *= -1;
+								
+									//FAZENDO APARECER A TELA DE VENCEDOR
+									if(this.pontos >= 50)
+									{
+										this.musica_de_fundo.pause();
+										game_2.currentScene = game_2.SCENE.FIMGANHOU;
+										game_2.fimganhou.voce_ganhou.play();
+									}
+							}
+														
+							this.bola.velocity_y *= -1;
+														
+						}
+				}
+			}
+			
+			//COLISAO COM OS BLOCOS NA DIREITA
+			for(var i = 0 ; i < this.listas.length; i++)
+			{
+				if(this.listas[i].visible)
+				{
+					if(Collide(
+								this.bola.posicao_x,
+							   	this.bola.posicao_y,
+							   	this.bola.tamanho_x,
+						       	this.bola.tamanho_y,
+						       	this.listas[i].psc_X,
+							   	this.listas[i].psc_Y,//+this.bola.posicao_y,
+							   	this.listas[i].tam_X+this.bola.tamanho_x,
+							   	this.listas[i].tam_Y-this.bola.posicao_y))//+this.bola.tamnho_x + 10))
+						{
+							this.listas[i].hp--;
+							if(this.listas[i].hp <=0)
+							{
+								this.listas[i].visible = false;
+								this.pontos++;
+								
+								//this.bola.posicao_x = this.player.posicao_x - this.bola.tamanho_x - 10;// + this.player.velocidade_x;
+								this.bola.velocity_x *= 1;
+								
 									//FAZENDO APARECER A TELA DE VENCEDOR
 									if(this.pontos >= 50)
 									{

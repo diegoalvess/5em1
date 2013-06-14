@@ -2,7 +2,7 @@
 function Game2Ball()
 {
 	this.img = new Image();
-	this.img.src="imgs/game_2/bola.png";
+	this.img.src="imgs/game_2/bola_finalizada.png";
 	this.loaded = false;
 	this.visible = true;
 	this.followplayer = true;
@@ -12,8 +12,8 @@ function Game2Ball()
 		loaded = true;
 	};
 	
-    this.tamanho_x = 40;
-    this.tamanho_y = 40;
+    this.tamanho_x = 35;
+    this.tamanho_y = 35;
     this.posicao_x = 400;
     this.posicao_y = 540;
     this.velocity_x = 10;
