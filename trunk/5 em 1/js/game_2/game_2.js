@@ -9,8 +9,11 @@ function Game_2()
 		//Creditos
 		//this.creditos = new SceneCreditos();
 
-		//Level
+		//Level 1
 		this.level1 = new Game2SceneLevel1();
+		
+		//Level 2
+		this.level2 = new Game2SceneLevel2();
 		
 		//FimGanhou 
 		this.fimganhou = new Game2SceneGanhou();
@@ -22,7 +25,7 @@ function Game_2()
 		//this.menu = new SceneMenu();
 	
 		//Fluxo das telas
-		this.SCENE = { INSTRUCOES: 0, LEVEL_1: 1, FIMGANHOU: 2, FIMPERDEU: 3}
+		this.SCENE = { INSTRUCOES: 0, LEVEL_1: 1, LEVEL_2: 2, FIMGANHOU: 3, FIMPERDEU: 4}
 				
 		//Para mudar aonde o jogo comeca, ou seja qual cena, mude aqui
 		this.currentScene = this.SCENE.INSTRUCOES;
@@ -44,6 +47,14 @@ function Game_2()
 				{
 					
 					this.level1.update();
+				}
+				break;
+				
+				//level2
+				case this.SCENE.LEVEL_2:
+				{
+					
+					this.level2.update();
 				}
 				break;
 				
@@ -86,6 +97,14 @@ function Game_2()
 				}
 				break;
 				
+				//level2
+				case this.SCENE.LEVEL_2:
+				{
+					
+					this.level2.draw();
+				}
+				break;
+				
 				case this.SCENE.FIMGANHOU:
 				{
 					
@@ -122,6 +141,14 @@ function Game_2()
 				{
 					
 					this.level1.mouse_down(mouse);
+				}
+				break;
+				
+				//level2
+				case this.SCENE.LEVEL_2:
+				{
+					
+					this.level2.mouse_down(mouse);
 				}
 				break;
 				
@@ -167,6 +194,14 @@ function Game_2()
 				}
 				break;
 				
+				//level2
+				case this.SCENE.LEVEL_2:
+				{
+					
+					this.level2.key_down(key);
+				}
+				break;
+				
 				case SCENE.FIMGANHOU:
 				{
 					
@@ -201,6 +236,14 @@ function Game_2()
 				{
 					
 					this.level1.key_up(key);
+				}
+				break;
+				
+				//level2
+				case this.SCENE.LEVEL_2:
+				{
+					
+					this.level2.key_up(key);
 				}
 				break;
 				
