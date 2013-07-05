@@ -40,6 +40,7 @@ function Game2SceneLevel1()
 	this.vidas = 3;
 	
 		//criação dos blocos
+		//BLOCOS CINZAS
 		for(var i = 0; i < 10; i++)
 		{	
 			this.listablocos1[i] = new Game2Bloco("imgs/game_2/bloco5.png", 5);				
@@ -47,6 +48,7 @@ function Game2SceneLevel1()
  			this.listablocos1[i].psc_X = 75 + (i * (this.listablocos1[i].tam_X + 5)); 			
 		}		
 		
+		//BLOCO VERDE
 		for(var i = 0; i < 10; i++)
 		{
 			this.listablocos2[i] = new Game2Bloco("imgs/game_2/bloco4.png", 4);
@@ -54,6 +56,7 @@ function Game2SceneLevel1()
 			this.listablocos2[i].psc_X = 75 + (i * (this.listablocos2[i].tam_X + 5)) 	
 		}	
 		
+		//BLOCOS AZUIS
 		for(var i = 0; i < 10; i++)
 		{
 			this.listablocos3[i] = new Game2Bloco("imgs/game_2/bloco3.png", 3);
@@ -61,6 +64,7 @@ function Game2SceneLevel1()
 			this.listablocos3[i].psc_X = 75 + (i * (this.listablocos3[i].tam_X + 5)) 
 		}
 		
+		//BLOCOS AMARELOS
 		for(var i = 0; i < 10; i++)
 		{
 			this.listablocos4[i] = new Game2Bloco("imgs/game_2/bloco2.png", 2);
@@ -68,6 +72,7 @@ function Game2SceneLevel1()
 			this.listablocos4[i].psc_X = 75 + (i * (this.listablocos4[i].tam_X + 5)) 
 		}
 		
+		//BLOCOS VERMELHOS
 		for(var i = 0; i < 10; i++)
 		{
 			this.listablocos5[i] = new Game2Bloco("imgs/game_2/bloco1.png", 1);
@@ -192,8 +197,8 @@ function Game2SceneLevel1()
 									if(this.pontos >= 50)
 									{
 										this.musica_de_fundo.pause();
-										game_2.currentScene = game_2.SCENE.FIMGANHOU;
-										game_2.fimganhou.voce_ganhou.play();
+										game_2.currentScene = game_2.SCENE.LEVEL_2;
+										//game_2.fimganhou.voce_ganhou.play();
 									}
 							}
 														
@@ -231,8 +236,8 @@ function Game2SceneLevel1()
 									if(this.pontos >= 50)
 									{
 										this.musica_de_fundo.pause();
-										game_2.currentScene = game_2.SCENE.FIMGANHOU;
-										game_2.fimganhou.voce_ganhou.play();
+										game_2.currentScene = game_2.SCENE.LEVEL_2;
+										//game_2.fimganhou.voce_ganhou.play();
 									}
 							}
 														
@@ -270,8 +275,8 @@ function Game2SceneLevel1()
 									if(this.pontos >= 50)
 									{
 										this.musica_de_fundo.pause();
-										game_2.currentScene = game_2.SCENE.FIMGANHOU;
-										game_2.fimganhou.voce_ganhou.play();
+										game_2.currentScene = game_2.SCENE.LEVEL_2;
+										//game_2.fimganhou.voce_ganhou.play();
 									}
 							}
 														
@@ -281,7 +286,7 @@ function Game2SceneLevel1()
 				}
 			}
 			
-			//FAZENDO A VIDA DIMINUIR E VOLTAR PARA A PALETA
+			//FAZENDO A VIDA DIMINUIR E BOLA VOLTAR PARA A PALETA
 			if(this.bola.posicao_y > tamanho_tela_y)
 			{
 				this.vidas--;
@@ -298,7 +303,7 @@ function Game2SceneLevel1()
 
 			}
 
-	}//FIM SO UPDATE
+	}//FIM DO UPDATE
     
     this.draw=function()
     { 	
@@ -368,7 +373,8 @@ function Game2SceneLevel1()
 	{
 		if (key.keyCode == 112 )
 		{
-			this.paused = !paused;
+			console.log("APERTANDO PPPPPPPPPPPPPPPPPPPPPPPPPP")
+			this.paused = paused;
 		}
 	}
 }//FIM DA FASE1
