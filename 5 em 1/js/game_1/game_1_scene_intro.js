@@ -18,6 +18,7 @@ function Game1SceneIntroducao()
     this.Letraposicao_x = 0;
     this.Letraposicao_y = 35;
 	this.Letravelocidade_x = 5;
+	this.Letravelocidade_y = 5;
 	
     //Imagem dos botoes							TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
     this.botaoplay = new Game1Button("imgs/game_1/play.png", 248, 98, 550, 300 );
@@ -42,6 +43,7 @@ function Game1SceneIntroducao()
     {
     	//Movendo a letra
     	this.Letraposicao_x += this.Letravelocidade_x;
+		this.Letraposicao_y += this.Letravelocidade_y;
 		
 		//Colidindo com as bordas
 		this.ficandonatela();
@@ -76,6 +78,22 @@ function Game1SceneIntroducao()
 			//Fazendo bater e voltar
 			this.Letravelocidade_x *=-1;
 		}
+		
+		//saida por cima
+    	if(this.Letraposicao_y < 0)
+    	{
+    		this.Letraposicao_y = 0;
+			//Fazendo bater e voltar
+			this.Letravelocidade_y *=-1;
+    	}
+		
+		//saida por baixo
+    	if(this.Letraposicao_y > 245 - this.Letratamanho_y)
+    	{
+    		this.Letraposicao_y = 245 - this.Letratamanho_y;
+			//Fazendo bater e voltar
+			this.Letravelocidade_y *=-1;
+    	}
 	}
 	
     this.mouse_down=function(mouse)
