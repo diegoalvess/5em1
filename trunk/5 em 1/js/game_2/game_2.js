@@ -1,5 +1,7 @@
 function Game_2()
 {
+	this.game2completo = false;
+	
 		//Pausa
 		this.paused = false;
 		

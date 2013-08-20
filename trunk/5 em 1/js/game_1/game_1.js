@@ -3,6 +3,8 @@ function Game_1()
 	//Pausa
 	//this.paused = false;
 	
+	this.game1completo = false;
+	
 	//Introducao
 	this.introducao = new Game1SceneIntroducao();
 

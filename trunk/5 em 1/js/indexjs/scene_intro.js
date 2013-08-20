@@ -5,6 +5,10 @@ function SceneIntro()
 	this.background.src="imgs/index/menuindex.png";
 	this.loaded = false;		
     
+    this.jogo5liberado = false;
+    
+    this.game5aparecer = false;
+    
 	//Criando botões
     this.button_game_1 = new Button("imgs/index/button_game_1.png", 159, 75);
     this.button_game_1.position_x = 100;
@@ -25,6 +29,11 @@ function SceneIntro()
     this.button_game_5 = new Button("imgs/index/button_game_5.png", 159, 75);
     this.button_game_5.position_x = 100;
     this.button_game_5.position_y = 400;
+    
+    //botao 5 pronto pra jogar
+    this.button_game_6 = new Button("imgs/index/button_game_5aberto.png", 159, 75);
+    this.button_game_6.position_x = 100;
+    this.button_game_6.position_y = 400;
             
     this.button_credit = new Button("imgs/index/button_credit.png", 159, 75);
     this.button_credit.position_x = 100;
@@ -45,6 +54,11 @@ function SceneIntro()
 	this.update=function()
    	{
 		this.efeito_sonoro2.play();
+		
+		if(game_1.game1completo == true && game_2.game2completo == true && game_3.game3completo == true && game_4.game4completo == true)
+		{
+			this.game5aparecer = true;
+		}
    	};
    
    	this.draw=function()
@@ -58,7 +72,11 @@ function SceneIntro()
 		this.button_game_2.draw();
 		this.button_game_3.draw();
 		this.button_game_4.draw();
+		this.button_game_6.draw();
+		if(game_4.game4completo == false)
+		{
 		this.button_game_5.draw();
+		}
 	};
    
    	this.mouse_down=function(mouse)
@@ -97,7 +115,7 @@ function SceneIntro()
 			this.efeito_sonoro2.pause();				
     	}
     	
-    	if(this.button_game_5.clicked(mouse))
+    	if(this.button_game_5.clicked(mouse) && this.game5aparecer == false)
     	{
     		currentScene = SCENE.GAME_5;
     		this.efeito_sonoro.play();
