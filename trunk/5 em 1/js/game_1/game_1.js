@@ -6,8 +6,14 @@ function Game_1()
 	//Introducao
 	this.introducao = new Game1SceneIntroducao();
 
-	//Level
+	//Level1
 	this.level1 = new Game1SceneLevel1();
+	
+	//Level2
+	this.level2 = new Game1SceneLevel2();
+	
+	//Level3
+	this.level3 = new Game1SceneLevel3();
 		
 	//FimGanhou 
 	this.fimganhou = new Game1SceneGanhou();
@@ -16,7 +22,7 @@ function Game_1()
 	this.fimperdeu = new Game1ScenePerdeu();
 	
 	//Fluxo das telas
-	this.SCENE = { INTRODUCAO: 0, LEVEL_1: 1, FIMGANHOU: 2, FIMPERDEU: 3}
+	this.SCENE = { INTRODUCAO: 0, LEVEL_1: 1, LEVEL_2: 2, LEVEL_3: 3, FIMGANHOU: 4, FIMPERDEU: 5}
 				
 	//Para mudar aonde o jogo comeca, ou seja qual cena, mude aqui
 	this.currentScene = this.SCENE.INTRODUCAO;
@@ -36,6 +42,20 @@ function Game_1()
 			case this.SCENE.LEVEL_1:
 			{
 				this.level1.update();
+			}
+			break;
+			
+			//level2
+			case this.SCENE.LEVEL_2:
+			{
+				this.level2.update();
+			}
+			break;
+			
+			//level3
+			case this.SCENE.LEVEL_3:
+			{
+				this.level3.update();
 			}
 			break;
 			
@@ -73,6 +93,18 @@ function Game_1()
 				this.level1.draw();
 			}
 			break;
+			
+			case this.SCENE.LEVEL_2:
+			{
+				this.level2.draw();
+			}
+			break;
+			
+			case this.SCENE.LEVEL_3:
+			{
+				this.level3.draw();
+			}
+			break;
 				
 			case this.SCENE.FIMGANHOU:
 			{
@@ -91,9 +123,7 @@ function Game_1()
 	}
 	
 	this.mouse_down = function(mouse)
-	{
-		console.log("mouse down game2");
-			
+	{	
 		switch(this.currentScene)
 		{
 			case this.SCENE.INTRODUCAO:
@@ -105,6 +135,12 @@ function Game_1()
 			case this.SCENE.LEVEL_1:
 			{	
 				this.level1.mouse_down(mouse);
+			}
+			break;
+			
+			case this.SCENE.LEVEL_2:
+			{
+				this.level2.mouse_down(mouse);
 			}
 			break;
 				
@@ -123,19 +159,27 @@ function Game_1()
 	}
 	
 	
-	//Tecla desceu
+	//Tecla desceu level2
 	this.key_down=function(key)
 	{
 		this.level1.key_down(key);
 	}
 	
-	//Tecla subiu
+	//Tecla subiu level1
 	this.key_up=function(key)
 	{
 		this.level1.key_up(key);
 	}
 	
-	
-	
-	
+	//Tecla subiu level2
+	this.key_down=function(key)
+	{
+		this.level2.key_down(key);
+	}
+
+	//Tecla subiu level2
+	this.key_up=function(key)
+	{
+		this.level2.key_up(key);
+	}
 }
