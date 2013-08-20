@@ -40,7 +40,7 @@
 	for(var i = 0 ; i < 9; i++) 
     {
     	this.wave1[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo1.png", 10);
-    	this.wave1[i].posicao_x = 700;
+    	this.wave1[i].posicao_x = 1400;
     	this.wave1[i].velocidade_y = 5;
     	this.wave1[i].posicao_y = tamanho_tela_y/20 + (i * 55); //numero depois de * espacamento entre os inimigos
     	this.wave1[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
