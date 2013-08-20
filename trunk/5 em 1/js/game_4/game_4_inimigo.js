@@ -27,7 +27,7 @@ function Game4Inimigo(source,hp)
 	
 	this.moveYActive = false;
 	
-	
+	this.nome;
 			
 	this.imagem.onload = function()
 	{

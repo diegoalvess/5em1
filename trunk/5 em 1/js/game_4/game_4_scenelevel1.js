@@ -155,6 +155,34 @@
     	this.wave10[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
     }
 	
+	//WaveExtras
+    this.waveextras1 = new Array();
+    for(var i = 0 ; i < 9; i++) 
+    {
+    	this.waveextras1[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo1.png", 10);
+    	this.waveextras1[i].posicao_x = 1400*15;
+    	this.waveextras1[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.waveextras1[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
+    }
+	
+	this.waveextras2 = new Array();
+    for(var i = 0 ; i < 9; i++) 
+    {
+    	this.waveextras2[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo2.png", 10);
+    	this.waveextras2[i].posicao_x = 1400*16;
+    	this.waveextras2[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.waveextras2[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
+    }
+	
+	this.waveextras3 = new Array();
+    for(var i = 0 ; i < 9; i++) 
+    {
+    	this.waveextras2[i] = new Game4Inimigo("imgs/game_4/inimigos/Inimigo3.png", 10);
+    	this.waveextras2[i].posicao_x = 1400*17;
+    	this.waveextras2[i].posicao_y = 0 + (i * 50); //numero depois de * espacamento entre os inimigos
+    	this.waveextras2[i].currentBehaviour = BEHAVIOUR.UPANDDOWN;
+    }
+	
 	//Mestre
 	this.wave11 = new Array();
     for(var i = 0 ; i < 1; i++) 
@@ -168,11 +196,12 @@
     	this.wave11[i].posicao_y = 300 - this.wave11[i].tamanho_y/2;
     	this.wave11[i].currentBehaviour = BEHAVIOUR.BOSS;
     	this.wave11[i].chancetiroboss = 0.2;
+		this.wave11[i].nome = "boss";
     }
 	
     //Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
-    this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10, this.wave11);
-    //this.wave11 = this.wave11.concat();
+    this.waves = this.wave1.concat(this.wave2, this.wave3, this.wave4, this.wave5, this.wave6, this.wave7, this.wave8, this.wave9, this.wave10, this.wave11, this.waveextras1, this.waveextras2, this.waveextras3);
+    //this.waves = this.wave11.concat();
         
     };//fim Reset
 	
@@ -307,8 +336,10 @@
 			{
 				this.player.current_energy -= 10;
 				
-				this.waves[i].visible = false;
-				
+				if(this.waves[i].nome != "boss")
+				{
+					this.waves[i].visible = false;
+				}
 				
 				if(this.player.current_energy <= 0)
 				{
