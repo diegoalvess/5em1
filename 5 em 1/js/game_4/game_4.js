@@ -1,5 +1,6 @@
 function Game_4()
-{
+{	
+	this.game4completo = false;
 		//Pausa
 		this.paused = false;
 		

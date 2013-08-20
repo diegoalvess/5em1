@@ -33,7 +33,7 @@ function Game2SceneGanhou()
     
     this.update=function()
     {
-    	
+    	game_2.game2completo = true;	
     };
     
     this.draw=function()

@@ -22,7 +22,7 @@ function Game4SceneGanhou()
     
     this.update=function()
     {
-    	
+    	game_4.game4completo = true;
     };
     
     this.draw=function()
