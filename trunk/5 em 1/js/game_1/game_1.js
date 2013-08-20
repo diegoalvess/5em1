@@ -146,6 +146,12 @@ function Game_1()
 			}
 			break;
 				
+			case this.SCENE.LEVEL_3:
+			{
+				this.level3.mouse_down(mouse);
+			}
+			break;
+				
 			case this.SCENE.FIMGANHOU:
 			{
 				this.fimganhou.mouse_down(mouse);
@@ -161,7 +167,7 @@ function Game_1()
 	}
 	
 	
-	//Tecla desceu level2
+	//Tecla desceu level1
 	this.key_down=function(key)
 	{
 		this.level1.key_down(key);
@@ -173,15 +179,28 @@ function Game_1()
 		this.level1.key_up(key);
 	}
 	
-	//Tecla subiu level2
+	//Tecla desceu level2
 	this.key_down=function(key)
 	{
 		this.level2.key_down(key);
 	}
-
+	
 	//Tecla subiu level2
 	this.key_up=function(key)
 	{
 		this.level2.key_up(key);
 	}
+	
+	//Tecla desceu level2
+	this.key_down=function(key)
+	{
+		this.level3.key_down(key);
+	}
+	
+	//Tecla subiu level2
+	this.key_up=function(key)
+	{
+		this.level3.key_up(key);
+	}
+	
 }

@@ -14,9 +14,7 @@ function Game1Bola()
     
     this.reset=function()
 	{   
-   		//Pontos
-   		this.pontosplayer = 0;
-   		this.pontosinimigo = 0;
+   		
    	};
 	
 	this.reset();
@@ -35,39 +33,11 @@ function Game1Bola()
 
     	//Colidindo com as bordas
 		this.ficandonatela();	
-		
-		//Fazendo o player ganhar e ir para level 2
-		if(this.pontosplayer >= 15)
-		{
-			game_1.currentScene = game_1.SCENE.LEVEL_2;
-			
-			//Resetando o jogo zerando pontos
-			this.reset();					
-		}	
-		
-		//Fazendo o inimigo ganhar e mostrar tela de perdeu
-		if(this.pontosinimigo >= 15)
-		{
-			game_1.currentScene = game_1.SCENE.FIMPERDEU;
-			
-			//Resetando o jogo zerando pontos
-			this.reset();					
-		}									
     };
 
     this.draw=function()
     {
     	screen.drawImage(this.image, this.posicao_x, this.posicao_y)
-    	  	   		
-   		//Pontos player
-   		screen.font = "40px Arial";
-		screen.fillStyle="#000000";
-		screen.fillText("Pontos " + this.pontosplayer, 45, 52); //posicao x e y 
-		
-		//Pontos Inimigo
-		screen.font = "40px Arial";
-		screen.fillStyle="#000000";
-		screen.fillText("Pontos " + this.pontosinimigo, 605, 52); //posicao x e y  	
     };
 
 	//Colisão para nao sair da tela
@@ -76,6 +46,9 @@ function Game1Bola()
     	//saida pela direita
     	if(this.posicao_x < 0)
     	{
+			//pontos do inimigo
+			pontosinimigo++;
+			
     		this.posicao_x = 0;
 			//Fazendo bola bater e voltar
 			this.velocidade_x *=-1;
@@ -99,6 +72,9 @@ function Game1Bola()
     	//saida pela esquerda
     	if(this.posicao_x > tamanho_tela_x - this.tamanho_x)
     	{
+			//pontos do player
+			pontosplayer++;
+			
     		this.posicao_x = tamanho_tela_x - this.tamanho_x;
 			//Fazendo bola bater e voltar
 			this.velocidade_x *=-1;

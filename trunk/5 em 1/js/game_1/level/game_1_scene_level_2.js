@@ -3,6 +3,10 @@ function Game1SceneLevel2()
 	this.reset=function()
 	{
 	
+	//Pontos
+   	pontosplayer = 0;
+   	pontosinimigo = 0;
+	
 	//Player
 	this.player = new Game1Paleta("setas");	
 	
@@ -16,7 +20,7 @@ function Game1SceneLevel2()
 	this.paused = false;
    
     //Colocando a imagem de background
-    this.background = new Game1Background("imgs/game_1/FundoBackground2.png");
+    this.background = new Game1Background("imgs/game_1/FundoBackgroundFase2.png");
 	
     //Efeito sonoros 
     
@@ -64,6 +68,27 @@ function Game1SceneLevel2()
     	{
     		return;	
     	}
+		
+		//Fazendo o player ganhar e ir para level 3
+		if(pontosplayer >= 20)
+		{
+			game_1.currentScene = game_1.SCENE.LEVEL_3;
+			
+			//Parando fundo da fase2
+			this.efeito_sonoro2.pause();
+			
+			//Parando som da bola da fase2
+			this.efeito_sonoro.pause();
+		}	
+		
+		//Fazendo o inimigo ganhar e mostrar tela de perdeu
+		if(pontosinimigo >= 20)
+		{
+			game_1.currentScene = game_1.SCENE.FIMPERDEU;
+			
+			//Resetando o jogo zerando pontos
+			this.reset();					
+		}
     	
     	//Efeito sonoro de fundo
     	this.efeito_sonoro2.play();
@@ -371,6 +396,16 @@ function Game1SceneLevel2()
     	//Desenhando fundo
     	this.background.draw();
     	
+		//Pontos player
+   		screen.font = "40px Arial";
+		screen.fillStyle="#000000";
+		screen.fillText("Pontos " + pontosplayer, 45, 52); //posicao x e y 
+		
+		//Pontos Inimigo
+		screen.font = "40px Arial";
+		screen.fillStyle="#000000";
+		screen.fillText("Pontos " + pontosinimigo, 605, 52); //posicao x e y
+		
     	//Desenhando player
     	this.player.draw();
     	
