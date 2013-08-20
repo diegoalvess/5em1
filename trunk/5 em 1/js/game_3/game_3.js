@@ -92,6 +92,7 @@ function Game_3()
 		//Funcionando teclado e mouse.
 		this.mouse_down = function(mouse)
 		{
+			console.log("DDDDDDDDD");
 			switch(this.currentScene)
 			{
 				case this.SCENE.INTRODUCAO:
@@ -112,8 +113,9 @@ function Game_3()
 				}
 				break;
 				
-				case SCENE.FIMGANHOU:
-				{
+				case this.SCENE.FIMGANHOU:
+				{					
+    				console.log("CCCCCCCC");
 					this.fimganhou.mouse_down(mouse);
 				}
 				break;
@@ -141,23 +143,24 @@ function Game_3()
 				}
 				break;
 				
-				//case this.SCENE.LEVEL_1:
-				//{
-					//this.level1.mouse_move(mouse);
-				//}
-				//break;
+				case this.SCENE.LEVEL_1:
+				{
+					this.level1.mouse_move(mouse);
+				}
+				break;
 				
-				//case this.SCENE.FIMPERDEU:
-				//{
-				//	this.fimperdeu.mouse_move(mouse);
-				//}
-				//break;
+				case this.SCENE.FIMPERDEU:
+				{
+					this.fimperdeu.mouse_move(mouse);
+				}
+				break;
 				
-				//case SCENE.FIMGANHOU:
-				//{
-				//	this.fimganhou.mouse_move(mouse);
-				//}
-				//break;
+				case SCENE.FIMGANHOU:
+				{
+					
+					this.fimganhou.mouse_move(mouse);
+				}
+				break;
 								
 			}
 		}

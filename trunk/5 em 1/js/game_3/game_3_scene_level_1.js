@@ -87,15 +87,14 @@ function Game3SceneLevel1()
     	
     	//Som
     	this.efeito_sonoro.play();
-    	
+    	    	
     	for(var i = 0; i < this.blocos.length ; i++)
     	{
-    		if(Math.random()<  this.blocos[i].chancetiro)
+      		if((Math.random() < this.blocos[i].chancetiro) && this.blocos[i].visible)
     		{
-    			this.Tiros_inimigos.push(new Game3Tiro("imgs/game_3/tiroup.png", this.blocos[i].posicao_x +  + this.blocos[i].tamanho_x/2, this.blocos[i].posicao_y, 1));
-    		}
-
-    	}
+    			this.Tiros_inimigos.push(new Game3Tiro("imgs/game_3/tiroup.png", this.blocos[i].posicao_x +  + this.blocos[i].tamanho_x/2, this.blocos[i].posicao_y, 0.5));
+   			}
+   		}
 	
 		//Tiros inimigos
     	for(var i = 0; i < this.Tiros_inimigos.length ; i++)
@@ -173,7 +172,7 @@ function Game3SceneLevel1()
 		}
 		
 		//Fazendo player ganhar e ir para cena de fim ganhou
-		if(this.pontos == 50)
+		if(this.pontos == 1)
 		{
 			game_3.currentScene = game_3.SCENE.FIMGANHOU;
 			this.efeito_sonoro.pause();
@@ -260,7 +259,7 @@ function Game3SceneLevel1()
 			{
 				for(var j = 0 ; j < this.blocos.length; j++)
     			{		
-					this.blocos[j].posicao_y += 20;
+					this.blocos[j].posicao_y += 5;
 			
 					if(this.blocos[j].velocidade_x > 0)
 					{   
@@ -280,6 +279,11 @@ function Game3SceneLevel1()
 	}
 
     this.mouse_down=function(mouse)
+    {
+	
+    };
+    
+    this.mouse_move=function(mouse)
     {
 	
     };
