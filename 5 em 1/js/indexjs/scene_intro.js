@@ -11,32 +11,32 @@ function SceneIntro()
     
 	//Criando botões
     this.button_game_1 = new Button("imgs/index/button_game_1.png", 159, 75);
-    this.button_game_1.position_x = 100;
+    this.button_game_1.position_x = 50;
     this.button_game_1.position_y = 30;
     
     this.button_game_2 = new Button("imgs/index/button_game_2.png", 159, 75);
-    this.button_game_2.position_x = 100;
+    this.button_game_2.position_x = 50;
     this.button_game_2.position_y = 120;
         
     this.button_game_3 = new Button("imgs/index/button_game_3.png", 159, 75);
-    this.button_game_3.position_x = 100;
+    this.button_game_3.position_x = 50;
     this.button_game_3.position_y = 210;
     
     this.button_game_4 = new Button("imgs/index/button_game_4.png", 159, 75);
-    this.button_game_4.position_x = 100;
+    this.button_game_4.position_x = 50;
     this.button_game_4.position_y = 300;
     
     this.button_game_5 = new Button("imgs/index/button_game_5.png", 159, 75);
-    this.button_game_5.position_x = 100;
+    this.button_game_5.position_x = 50;
     this.button_game_5.position_y = 400;
     
     //botao 5 pronto pra jogar
     this.button_game_6 = new Button("imgs/index/button_game_5aberto.png", 159, 75);
-    this.button_game_6.position_x = 100;
+    this.button_game_6.position_x = 50;
     this.button_game_6.position_y = 400;
             
     this.button_credit = new Button("imgs/index/button_credit.png", 159, 75);
-    this.button_credit.position_x = 100;
+    this.button_credit.position_x = 50;
     this.button_credit.position_y = 500;
     
     //Efeito de som dos botoes
