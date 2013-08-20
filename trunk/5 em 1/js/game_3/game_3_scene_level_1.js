@@ -14,7 +14,7 @@ function Game3SceneLevel1()
 		//Fazendo inimigos descerem na tela
 		this.godownandreversedirection = false;
 		this.pontos = 0; 
-		this.vidas = 5;
+		this.vidas = 3;
   	
 		//Tiros Inimigos
 		this.Tiros_inimigos = new Array();
@@ -73,7 +73,7 @@ function Game3SceneLevel1()
 		//Variaveis das waves(para adicionar uma nova wave crie um novo Array(); e adicione aqui depois!)
 		this.blocos = this.blocos1.concat(this.blocos2, this.blocos3, this.blocos4, this.blocos5)
 		
-	};
+	}//fim do reset
 	
  	this.reset();
  	
@@ -85,14 +85,32 @@ function Game3SceneLevel1()
     		return;  	
     	}
     	
+		//fazendo os blocos aumentarem a velocidade depois que passarem da "posiçao" y
+		/*for(var k = 0; k < this.blocos.length; k++)
+		{
+			if(this.blocos[k].position_y >= 250)
+			{
+					this.blocos[k].velocidade_x += 11;
+			}
+		}*/
+		
+		//Fazendo o jogador perder quando os blocos passaram de uma certa "posiçao" y
+		for(var b = 0; b < this.blocos.length; b++)
+		{
+			if((this.blocos[b].posicao_y >= 500)&& this.blocos[b].visible)
+			{
+				game_3.currentScene = game_3.SCENE.FIMPERDEU;
+				this.reset();
+			}
+		}
     	//Som
     	this.efeito_sonoro.play();
     	    	
-    	for(var i = 0; i < this.blocos.length ; i++)
+    	for(var i = 0; i < this.blocos.length; i++)
     	{
       		if((Math.random() < this.blocos[i].chancetiro) && this.blocos[i].visible)
     		{
-    			this.Tiros_inimigos.push(new Game3Tiro("imgs/game_3/tiroup.png", this.blocos[i].posicao_x +  + this.blocos[i].tamanho_x/2, this.blocos[i].posicao_y, 0.5));
+    			this.Tiros_inimigos.push(new Game3Tiro("imgs/game_3/tiroup.png", this.blocos[i].posicao_x +  + this.blocos[i].tamanho_x/2, this.blocos[i].posicao_y, 0.75));
    			}
    		}
 	
@@ -158,6 +176,7 @@ function Game3SceneLevel1()
         			{
         				this.Tiros_inimigos[j].visible = false;
         				this.vidas--;
+						
         				if(this.vidas == 0)
         				{
 							//Resetando o jogo
@@ -172,7 +191,7 @@ function Game3SceneLevel1()
 		}
 		
 		//Fazendo player ganhar e ir para cena de fim ganhou
-		if(this.pontos == 1)
+		if(this.pontos == 50)
 		{
 			game_3.currentScene = game_3.SCENE.FIMGANHOU;
 			this.efeito_sonoro.pause();
@@ -259,16 +278,7 @@ function Game3SceneLevel1()
 			{
 				for(var j = 0 ; j < this.blocos.length; j++)
     			{		
-					this.blocos[j].posicao_y += 5;
-			
-					if(this.blocos[j].velocidade_x > 0)
-					{   
-						//blocos[j].velocidade_x++;
-					}
-					else
-					{
-						//blocos[j].velocidade_x--;	
-					}
+					this.blocos[j].posicao_y += 12.8;
 			
 					this.blocos[j].velocidade_x *= -1;
 			

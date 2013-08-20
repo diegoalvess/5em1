@@ -140,6 +140,7 @@ function Game_3()
 			{
 				case this.SCENE.INTRODUCAO:
 				{
+					console.log("sssssss")
 					this.introducao.mouse_move(mouse);
 				}
 				break;
@@ -156,9 +157,9 @@ function Game_3()
 				}
 				break;
 				
-				case SCENE.FIMGANHOU:
+				case this.SCENE.FIMGANHOU:
 				{
-					
+				console.log("sahud")
 					this.fimganhou.mouse_move(mouse);
 				}
 				break;

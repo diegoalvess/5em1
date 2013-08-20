@@ -38,7 +38,7 @@ function Game3Player(player_tecla)
 		if(this.apertou_espaco)
     	{	
 			//this.efeito_sonoro.play();
-    		this.tiros.push(new Game3Tiro("imgs/game_3/tiroup.png", this.posicao_x+ this.tamanho_x/2, this.posicao_y-this.tamanho_y, -1 ));
+    		this.tiros.push(new Game3Tiro("imgs/game_3/tiro_player.png", this.posicao_x+ this.tamanho_x/2, this.posicao_y-this.tamanho_y, -1 ));
     	}
 		
 		this.apertou_espaco = false; 	
