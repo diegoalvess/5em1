@@ -36,10 +36,10 @@ function Game1Bola()
     	//Colidindo com as bordas
 		this.ficandonatela();	
 		
-		//Fazendo o player ganhar e mostrar a tela de ganhou
+		//Fazendo o player ganhar e ir para level 2
 		if(this.pontosplayer >= 15)
 		{
-			game_1.currentScene = game_1.SCENE.FIMGANHOU;
+			game_1.currentScene = game_1.SCENE.LEVEL_2;
 			
 			//Resetando o jogo zerando pontos
 			this.reset();					
@@ -52,9 +52,7 @@ function Game1Bola()
 			
 			//Resetando o jogo zerando pontos
 			this.reset();					
-		}	
-		
-										
+		}									
     };
 
     this.draw=function()
@@ -72,7 +70,7 @@ function Game1Bola()
 		screen.fillText("Pontos " + this.pontosinimigo, 605, 52); //posicao x e y  	
     };
 
-	//Colisão para não sair da tela
+	//Colisão para nao sair da tela
     this.ficandonatela=function()
     {
     	//saida pela direita
