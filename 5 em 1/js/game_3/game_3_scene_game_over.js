@@ -33,13 +33,14 @@ function Game3SceneGanhou()
     
     this.mouse_down=function(mouse)
     {   	
-    	if(this.botaoback.clicou (mouse))
+    	console.log("BBBBBBB");
+    	if(this.botaoback.clicou(mouse))
     	{
-    		
+    		console.log("AAAAAA");
     		currentScene = SCENE.INTRO;
-    		
     		game_3.level1.reset();
     	}
+    	
     };
     
     
