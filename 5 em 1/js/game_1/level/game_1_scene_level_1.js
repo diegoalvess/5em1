@@ -10,6 +10,11 @@ function Game1SceneLevel1()
 	//Player
 	this.player = new Game1Paleta("setas");	
 	
+	//botão p/ voltar menu
+	this.botaopmenu = new Button("imgs/game_1/backpmenu.png");
+	this.botaopmenu.position_x = 745; 
+    this.botaopmenu.position_y = 555;
+	
 	//Inimigo
 	this.inimigo = new Game1PaletaInimigo();
 	
@@ -22,8 +27,7 @@ function Game1SceneLevel1()
     //Colocando a imagem de background
     this.background = new Game1Background("imgs/game_1/FundoBackgroundFase1.png");
 	
-    //Efeito sonoros 
-    
+    //Efeito sonoros    
     //Efeito sonoro de borda
     this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_1/paletascolisao.mp3"
@@ -276,6 +280,9 @@ function Game1SceneLevel1()
     	//Desenhando fundo
     	this.background.draw();
     	
+		//Desenhando Botaopmenu
+		this.botaopmenu.draw();
+		
 		//Pontos player
    		screen.font = "40px Arial";
 		screen.fillStyle="#000000";
@@ -299,7 +306,17 @@ function Game1SceneLevel1()
     
     this.mouse_down=function(mouse)
     {
-		
+		if(this.botaopmenu.clicked(mouse))
+    	{
+			//Vai para menu
+			currentScene = SCENE.INTRO;
+			
+			//Pausa musica do jogo
+			this.efeito_sonoro2.pause();
+			
+			//Reset no jogo
+			this.reset();
+		}
     };
      
  	//Tecla desceu

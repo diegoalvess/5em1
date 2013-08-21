@@ -29,6 +29,7 @@ function Game1SceneIntroducao()
     this.efeito_sonoro.src = "sounds/game_1/Efeitomenu.wav"
     this.efeito_sonoro.load();
     
+	
     this.imagem.onload = function()
 	{
 		loaded = true; 
