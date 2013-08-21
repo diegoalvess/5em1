@@ -21,7 +21,7 @@ function Game3SceneGanhou()
     
     this.update=function()
     {
-    	
+    	completouJogo3 = true;
     };
     
     this.draw=function()

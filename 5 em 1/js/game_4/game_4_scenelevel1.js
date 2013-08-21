@@ -514,7 +514,8 @@
     
     this.mouse_down=function(mouse)
     {
-    	//currentScene = SCENE.FIMGANHOU;
+    	game_4.currentScene = game_4.SCENE.FIMGANHOU;
+
     	this.efeito_sonoro.pause();
     };
      

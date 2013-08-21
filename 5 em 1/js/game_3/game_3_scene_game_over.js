@@ -26,7 +26,7 @@ function Game3ScenePerdeu()
     
     this.update=function()
     {
-    	game_3.game3completo = true;
+    	
 		this.efeito_sonoro.play();
     };
     
