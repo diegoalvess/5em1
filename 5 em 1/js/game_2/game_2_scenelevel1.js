@@ -200,13 +200,13 @@ function Game2SceneLevel1()
 										game_2.currentScene = game_2.SCENE.LEVEL_2;
 										//game_2.fimganhou.voce_ganhou.play();
 									}
+								}
+														
+								this.bola.velocity_y *= -1;
 							}
-														
-							this.bola.velocity_y *= -1;
-														
-						}
-				}
+					}
 			}
+			
 			
 			//COLISAO COM OS BLOCOS NA ESQUERDA
 			for(var i = 0 ; i < this.listas.length; i++)
@@ -232,14 +232,14 @@ function Game2SceneLevel1()
 								//this.bola.posicao_x = this.player.posicao_x - this.bola.tamanho_x - 10;// + this.player.velocidade_x;
 								this.bola.velocity_x *= -1;
 								
-									//FAZENDO APARECER A TELA DE VENCEDOR
-									if(this.pontos >= 50)
-									{
-										this.musica_de_fundo.pause();
-										game_2.currentScene = game_2.SCENE.LEVEL_2;
-										//game_2.fimganhou.voce_ganhou.play();
+										//FAZENDO APARECER A TELA DE VENCEDOR
+										if(this.pontos >= 50)
+										{
+											this.musica_de_fundo.pause();
+											game_2.currentScene = game_2.SCENE.LEVEL_2;
+											//game_2.fimganhou.voce_ganhou.play();
+										}
 									}
-							}
 														
 							this.bola.velocity_y *= -1;
 														
@@ -271,13 +271,14 @@ function Game2SceneLevel1()
 								//this.bola.posicao_x = this.player.posicao_x - this.bola.tamanho_x - 10;// + this.player.velocidade_x;
 								this.bola.velocity_x *= 1;
 								
-									//FAZENDO APARECER A TELA DE VENCEDOR
-									if(this.pontos >= 50)
-									{
-										this.musica_de_fundo.pause();
-										game_2.currentScene = game_2.SCENE.LEVEL_2;
-										//game_2.fimganhou.voce_ganhou.play();
-									}
+								//FAZENDO APARECER A TELA DE VENCEDOR
+								if(this.pontos >= 50)
+								{
+									this.musica_de_fundo.pause();
+									game_2.currentScene = game_2.SCENE.LEVEL_2;
+									//game_2.fimganhou.voce_ganhou.play();
+								}
+																												
 							}
 														
 							this.bola.velocity_y *= -1;
@@ -304,6 +305,38 @@ function Game2SceneLevel1()
 			}
 
 	}//FIM DO UPDATE
+	
+	this.aumentando_velocidade=function()
+	{
+		if(pontos >= 43)
+		{
+			if(bola.velocity_y < 0 )
+			{
+				bola.velocity_y --;
+			}	
+			else(bola.velocity_y > 0)
+			{
+				bola.velocity_y ++;
+			}
+			
+			bola.velocity_y *= -1;
+		}
+		
+		if(pontos >= 43)
+		{
+			if(bola.velocity_x > 0)
+			{
+				bola.velocity_x ++;
+			}
+			else(bola.velocity_x < 0)
+			{
+				bola.velocity_x --;
+			}
+			
+			bola.velocity_x *= -1;
+		}
+	}
+		
     
     this.draw=function()
     { 	
@@ -326,11 +359,11 @@ function Game2SceneLevel1()
  		//DESENHO DOS PONTOS NO CAMPO//
         screen.font = "45px Arial";
         screen.fillStyle="#FF0000";
-        screen.fillText("Pontos " + this.pontos, 140, 35);
+        screen.fillText("Score " + this.pontos, 140, 35);
         
         screen.font = "45px Arial";
         screen.fillStyle="#FF0000";
-        screen.fillText("Vidas " + this.vidas, 540, 35);
+        screen.fillText("Lifes " + this.vidas, 540, 35);
 
     }//FIM DO DRAW
     
