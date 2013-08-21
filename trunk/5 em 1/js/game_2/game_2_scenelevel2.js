@@ -80,7 +80,7 @@ function Game2SceneLevel2()
 	this.paused = false;
 	
 	//	PONTOS
-	this.pontos = 0;
+	this.pontos = 50;
 	
 	// VIDAS
 	this.vidas = 3;
@@ -316,7 +316,7 @@ function Game2SceneLevel2()
    					  this.listablocos15,this.listablocos16, this.listablocos17, this.listablocos18,this.listablocos19,this.listablocos20,this.listablocos21,
    					  this.listablocos22,this.listablocos23,this.listablocos24,this.listablocos25);//,this.listablocos26,this.listablocos27,this.listablocos28);
    		   		
-   		this.pontos = 0;
+   		this.pontos = 50;
    		
    		this.vidas = 3;
    		
@@ -425,7 +425,7 @@ function Game2SceneLevel2()
 								this.pontos++;
 			
 									//FAZENDO APARECER A TELA DE VENCEDOR
-									if(this.pontos >= 77)
+									if(this.pontos >= 127)
 									{
 										this.musica_de_fundo.pause();
 										game_2.currentScene = game_2.SCENE.FIMGANHOU;
@@ -464,7 +464,7 @@ function Game2SceneLevel2()
 								this.bola.velocity_x *= -1;
 								
 									//FAZENDO APARECER A TELA DE VENCEDOR
-									if(this.pontos >= 77)
+									if(this.pontos >= 127)
 									{
 										this.musica_de_fundo.pause();
 										game_2.currentScene = game_2.SCENE.FIMGANHOU;
@@ -503,7 +503,7 @@ function Game2SceneLevel2()
 								this.bola.velocity_x *= 1;
 								
 									//FAZENDO APARECER A TELA DE VENCEDOR
-									if(this.pontos >= 77)
+									if(this.pontos >= 127)
 									{
 										this.musica_de_fundo.pause();
 										game_2.currentScene = game_2.SCENE.FIMGANHOU;

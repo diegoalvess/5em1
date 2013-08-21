@@ -16,8 +16,8 @@ function Game2Ball()
     this.tamanho_y = 35;
     this.posicao_x = 400;
     this.posicao_y = 540;
-    this.velocity_x = 10;
-    this.velocity_y = -10;
+    this.velocity_x = 15;
+    this.velocity_y = -15;
     //this.velocity_MAX = 13;
     
      this.update=function(player_position_x)
