@@ -80,10 +80,12 @@ function Game1Paleta (player_tecla)
     	{
     		if(key.keyCode == 38)
     		{
+    			
     			this.sobe = true;
     		}
     		else if(key.keyCode == 40)
     		{
+    			
     			this.desce = true;
     		}	
     	} 

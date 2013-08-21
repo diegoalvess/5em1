@@ -53,9 +53,13 @@ function Game1SceneLevel1()
     	}
     	
 		//Fazendo o player ganhar e ir para level 2
-		if(pontosplayer >= 10)
+		if(pontosplayer >= 5)
 		{
 			game_1.currentScene = game_1.SCENE.LEVEL_2;
+			
+			pontosplayer = 0;
+			
+			pontosinimigos = 0;
 			
 			//Parando fundo da fase1
 			this.efeito_sonoro2.pause();
@@ -65,7 +69,7 @@ function Game1SceneLevel1()
 		}	
 		
 		//Fazendo o inimigo ganhar e mostrar tela de perdeu
-		if(pontosinimigo >= 10)
+		if(pontosinimigo >= 2)
 		{
 			game_1.currentScene = game_1.SCENE.FIMPERDEU;
 			
@@ -286,12 +290,12 @@ function Game1SceneLevel1()
 		//Pontos player
    		screen.font = "40px Arial";
 		screen.fillStyle="#000000";
-		screen.fillText("Pontos " + pontosplayer, 45, 52); //posicao x e y 
+		screen.fillText("Score " + pontosplayer, 45, 52); //posicao x e y 
 		
 		//Pontos Inimigo
 		screen.font = "40px Arial";
 		screen.fillStyle="#000000";
-		screen.fillText("Pontos " + pontosinimigo, 605, 52); //posicao x e y  	
+		screen.fillText("Score " + pontosinimigo, 605, 52); //posicao x e y  	
 		
     	//Desenhando player
     	this.player.draw();
@@ -322,6 +326,7 @@ function Game1SceneLevel1()
  	//Tecla desceu
     this.key_down=function(key)
     {
+    	console.log("hauhilhxil");
 		this.player.key_down(key);
     };
     

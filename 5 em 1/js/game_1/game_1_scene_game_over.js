@@ -43,7 +43,9 @@ function Game1ScenePerdeu()
 		if(this.botaoback.clicou (mouse))
     	{
     		
-    		currentScene = SCENE.INTRO;
+    		game_1.currentScene = game_1.SCENE.INTRODUCAO;
+    		
+    		game_1.level1.reset();
     	}
     	
     	console.log("cena introgameover mouse X " + mouse.x + " mouse Y " + mouse.y );	
