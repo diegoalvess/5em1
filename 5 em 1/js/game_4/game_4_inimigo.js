@@ -6,7 +6,7 @@ function Game4Inimigo(source,hp)
 	this.visible = true;
 	
 	this.tamanho_x = 64;
-    this.tamanho_y = 64;
+    this.tamanho_y = 43;
     this.posicao_x = 0;
     this.posicao_y = 0;
     this.velocidade_x = 10;
