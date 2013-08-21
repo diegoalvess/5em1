@@ -15,7 +15,7 @@
    inkscape:version="0.48.4 r9939"
    width="27"
    height="64"
-   sodipodi:docname="tiroup.png">
+   sodipodi:docname="tiroup.svg">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -30,54 +30,6 @@
   </metadata>
   <defs
      id="defs6">
-    <filter
-       inkscape:collect="always"
-       id="filter3811"
-       x="-0.26649261"
-       width="1.5329852"
-       y="-0.057839166"
-       height="1.1156783">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.1391494"
-         id="feGaussianBlur3813" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter3815"
-       x="-0.11739474"
-       width="1.2347895"
-       y="-0.048339007"
-       height="1.096678">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.68941019"
-         id="feGaussianBlur3817" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter3854"
-       x="-0.403029"
-       width="1.806058"
-       y="-0.26179905"
-       height="1.5235981">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.4720095"
-         id="feGaussianBlur3856" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter3938"
-       x="-0.97502063"
-       width="2.9500413"
-       y="-0.21161705"
-       height="1.4232341">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="4.1678235"
-         id="feGaussianBlur3940" />
-    </filter>
     <filter
        inkscape:collect="always"
        id="filter3955"
@@ -101,6 +53,18 @@
          inkscape:collect="always"
          stdDeviation="0.97666443"
          id="feGaussianBlur3965" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3777"
+       x="-0.72741819"
+       width="2.4548364"
+       y="-0.47251537"
+       height="1.9450307">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.6567977"
+         id="feGaussianBlur3779" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -126,65 +90,41 @@
   <image
      width="27"
      height="64"
-     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAABACAYAAADrnQxhAAAABHNCSVQICAgIfAhkiAAABONJREFU
-WIWdmMuKJFUQhr+62jctsapl3AgiMyCIuBoQFNy6EXHnQ/QLiK/h04hLQRBRFzq6kMGN4ozY4+hM
-d1dVVro4EZ1/Rp6TWT0BSd4izh9/3PIyYkDm8zmLxWK0XC5ZrVacnp6yWq1YLpcsFov6+Ph4aAnO
-zs4AmA7ojWw/sQ1gI3aVbXvJeOD+BDgADoEjW/iW2R3Zvbk41SslZiMBes70RsDbwF3gB+B7YAas
-zWYD1M8CNjE2c9vGwIvA58AbwM/Ax8BjGlY7EvMiYC6ME2Mzt/3Y9p8Bd0znNvCpsZqSInBgwMWQ
-RjAPn4N5bt4CPqQpkgnwEfCu2UwtEgcloBzY2EBmdjwFXgA+MFCVE+ATmgKZGdikxC6CTY2VGxwD
-K+D9grPvAUvRn9JTneNwPDUPR2a0AF4FXi+AvUzK35HZT2ii0gumimNSDk6AN2lylbN/hxQBZ+dr
-dNhFMO+nCfC8eXwnGgW5bWBeUFMKLeVgI2GEGfqEuDUA9gopCoeyRjaUOTAP4cy2lwbAXiMV1TFN
-+HSWdsDcm4kdH9j51DzvkxMDm5Eigh07iRbYiHbnz2kG7EwMS+KO+sTxtTp5U2ZO2w2nlKswireM
-F4mHMgumMXaQocdPBPNq9rx3Jsk4s5+LwYiBx0ZYax7Ox1FB8+VNORLFv/YAqmmYafg6YA7ie22B
-0R5gj4JtsaA0fDHW7sCjjJ3KH+KYTxAlkAVzZQ3DDjgfAPtHnNOZ6Otcg8aBmRugDwfA/pNjBSyO
-KxdtxJ3tfxsA+z2Aefl31o9g2l+1befAZQ/YfZr2iKHM9hlB2cXZ3S8AXQAPRK8D0AcWxdndK9z/
-RRYfbP4cmANs5fwnmpdRlXuir+xqMtNH8+Oyo3nh9ONzus1dkV5W3b4K9tvgwDWYvskqsHr8TQD7
-FfhbFq9lD01kWmAxDBHMt69scff+a1L17gq2xQmirNywMu8qufad7R+S8uURqcQ+yvW1OIi3cqyh
-9fB8C/wJfEkqe41KLXZZ0Y+6mlRxnlgvEt92BvQF8KM56tdruoUVK/Q6Zw4Qw+bnvh+TCmWdcUZZ
-1WGdazBEURtUQ+jXdqSXGs1TRfoQdN0sK2WmBaLeaa9swv1tRn9He45mm1qb0PPm12PeYthjzra0
-Q9sBi8rbzDm0QaDJp+o62yJYBHRv3dAX2QQ2MV+ulxVl5otcimd+XXOzkeuu4+cbuuWfBVNmdVhI
-2UE7VNFWtywzDYOHRhffCCBBx20rmv7rDOEIps27Fm+VxVY2ZVbRBsuOrPjw1GeYhnJHk491ANLC
-6B3KEcwNLzOLaEGs5Z47dxVYd8D01a0W5Y0ZT2jGmLOa0J4szvIqRKAjkZl7XZEeIZHdhnbxxMmj
-RTQIhjBT49jkGtptsOn0VwnMK0kZ+LkCRlaeL6/ivZlpAcQ8KJg++56KUzcGc2YXsqDmznPk+8EQ
-9oFVpPJfGzsdwlXYX9Jul6KU/qT6QHZ2/qfN20EfqO5Ub75KzJSdh1MHsT7TPITeJr3S92FRAU/M
-8yd0w+cgV6Yz+GEx9F//klRpM9p/bzynV3a/2Mg3AattsUMSC/028Fxd7AO0DxiyYGS2pgnvXrLv
-L6OndCfKhV3fW/ZhBonFY5p/XFfAv+xRgc8CBukXhP+S9Sq8kdwErCaxmdL/96Ao/wMjs0VpM1px
-vgAAAABJRU5ErkJggg==
-"
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAABACAYAAADrnQxhAAAABHNCSVQICAgIfAhkiAAABONJREFU WIWdmMuKJFUQhr+62jctsapl3AgiMyCIuBoQFNy6EXHnQ/QLiK/h04hLQRBRFzq6kMGN4ozY4+hM d1dVVro4EZ1/Rp6TWT0BSd4izh9/3PIyYkDm8zmLxWK0XC5ZrVacnp6yWq1YLpcsFov6+Ph4aAnO zs4AmA7ojWw/sQ1gI3aVbXvJeOD+BDgADoEjW/iW2R3Zvbk41SslZiMBes70RsDbwF3gB+B7YAas zWYD1M8CNjE2c9vGwIvA58AbwM/Ax8BjGlY7EvMiYC6ME2Mzt/3Y9p8Bd0znNvCpsZqSInBgwMWQ RjAPn4N5bt4CPqQpkgnwEfCu2UwtEgcloBzY2EBmdjwFXgA+MFCVE+ATmgKZGdikxC6CTY2VGxwD K+D9grPvAUvRn9JTneNwPDUPR2a0AF4FXi+AvUzK35HZT2ii0gumimNSDk6AN2lylbN/hxQBZ+dr dNhFMO+nCfC8eXwnGgW5bWBeUFMKLeVgI2GEGfqEuDUA9gopCoeyRjaUOTAP4cy2lwbAXiMV1TFN +HSWdsDcm4kdH9j51DzvkxMDm5Eigh07iRbYiHbnz2kG7EwMS+KO+sTxtTp5U2ZO2w2nlKswireM F4mHMgumMXaQocdPBPNq9rx3Jsk4s5+LwYiBx0ZYax7Ox1FB8+VNORLFv/YAqmmYafg6YA7ie22B 0R5gj4JtsaA0fDHW7sCjjJ3KH+KYTxAlkAVzZQ3DDjgfAPtHnNOZ6Otcg8aBmRugDwfA/pNjBSyO KxdtxJ3tfxsA+z2Aefl31o9g2l+1befAZQ/YfZr2iKHM9hlB2cXZ3S8AXQAPRK8D0AcWxdndK9z/ RRYfbP4cmANs5fwnmpdRlXuir+xqMtNH8+Oyo3nh9ONzus1dkV5W3b4K9tvgwDWYvskqsHr8TQD7 FfhbFq9lD01kWmAxDBHMt69scff+a1L17gq2xQmirNywMu8qufad7R+S8uURqcQ+yvW1OIi3cqyh 9fB8C/wJfEkqe41KLXZZ0Y+6mlRxnlgvEt92BvQF8KM56tdruoUVK/Q6Zw4Qw+bnvh+TCmWdcUZZ 1WGdazBEURtUQ+jXdqSXGs1TRfoQdN0sK2WmBaLeaa9swv1tRn9He45mm1qb0PPm12PeYthjzra0 Q9sBi8rbzDm0QaDJp+o62yJYBHRv3dAX2QQ2MV+ulxVl5otcimd+XXOzkeuu4+cbuuWfBVNmdVhI 2UE7VNFWtywzDYOHRhffCCBBx20rmv7rDOEIps27Fm+VxVY2ZVbRBsuOrPjw1GeYhnJHk491ANLC 6B3KEcwNLzOLaEGs5Z47dxVYd8D01a0W5Y0ZT2jGmLOa0J4szvIqRKAjkZl7XZEeIZHdhnbxxMmj RTQIhjBT49jkGtptsOn0VwnMK0kZ+LkCRlaeL6/ivZlpAcQ8KJg++56KUzcGc2YXsqDmznPk+8EQ 9oFVpPJfGzsdwlXYX9Jul6KU/qT6QHZ2/qfN20EfqO5Ub75KzJSdh1MHsT7TPITeJr3S92FRAU/M 8yd0w+cgV6Yz+GEx9F//klRpM9p/bzynV3a/2Mg3AattsUMSC/028Fxd7AO0DxiyYGS2pgnvXrLv L6OndCfKhV3fW/ZhBonFY5p/XFfAv+xRgc8CBukXhP+S9Sq8kdwErCaxmdL/96Ao/wMjs0VpM1px vgAAAABJRU5ErkJggg== "
      id="image10"
      x="0"
      y="0" />
   <path
-     transform="matrix(1.1335064,0,0,1.0290152,-35.008192,-4.506745)"
-     style="opacity:0.91150447000000001;fill:#808000;stroke:none;filter:url(#filter3955)"
+     transform="matrix(1.1335064,0,0,-1.0290152,-35.008192,60.082181)"
+     style="opacity:0.91150447000000001;fill:#aa0000;stroke:none;filter:url(#filter3955)"
      d="M 21.380991,27.613962 C 20.863482,40.66674 18.159476,58.288777 16.420643,58.77539 14.430398,59.33236 11.873117,41.163207 11.12195,27.613962 10.399652,14.585456 13.418515,3.9798164 16.251471,3.9798164 c 2.832955,0 5.646536,10.5937976 5.12952,23.6341456 z"
      id="path2989"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="sssss"
-     inkscape:export-filename="D:\Trabalhos\5 em 1\5 em 1\imgs\game_3\tiro_player.png"
+     inkscape:export-filename="D:\Trabalhos\5 em 1\5 em 1\imgs\game_3\tiro_bloco.png"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90" />
   <path
      sodipodi:type="arc"
-     style="opacity:0.85398229999999986;fill:#ffff00;stroke:none;filter:url(#filter3963)"
+     style="opacity:0.85398229999999986;fill:#1a1a1a;stroke:none;filter:url(#filter3963)"
      id="path2987"
      sodipodi:cx="19.03196"
      sodipodi:cy="19.656015"
      sodipodi:rx="7.0470982"
      sodipodi:ry="17.114382"
      d="m 26.079058,19.656015 a 7.0470982,17.114382 0 1 1 -14.094197,0 7.0470982,17.114382 0 1 1 14.094197,0 z"
-     transform="matrix(0.66248423,0,0,0.95626098,-29.339238,-0.19493347)"
-     inkscape:export-filename="D:\Trabalhos\5 em 1\5 em 1\imgs\game_3\tiro_player.png"
+     transform="matrix(0.66248423,0,0,-0.95626098,-29.339238,55.77037)"
+     inkscape:export-filename="D:\Trabalhos\5 em 1\5 em 1\imgs\game_3\tiro_bloco.png"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90" />
   <path
-     transform="matrix(0.39285712,0,0,1.8073116,-21.326203,-4.5945988)"
-     style="opacity:0.8539823;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter3854)"
+     transform="matrix(0.39285712,0,0,-1.8073116,-21.326203,60.170035)"
+     style="opacity:0.85398229999999986;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter3777)"
      d="m 16.212248,8.006731 c 5.623628,3.043229 0.518943,9.372603 0.610138,9.604978 1.96722,5.012685 0.815454,-4.742234 -5.247189,-9.604978 -3.0164589,-2.4194506 -0.619307,-2.4958473 0.122027,-2.4958473 0.741334,0 0.783906,0.4767513 4.515024,2.4958473 z"
      id="path3819"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="sssss"
-     inkscape:export-filename="D:\Trabalhos\5 em 1\5 em 1\imgs\game_3\tiro_player.png"
+     inkscape:export-filename="D:\Trabalhos\5 em 1\5 em 1\imgs\game_3\tiro_bloco.png"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90" />
 </svg>

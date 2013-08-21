@@ -8,6 +8,14 @@ function Game3ScenePerdeu()
     this.posicao_x = 0;
     this.posicao_y = 0;
     
+	
+	
+	 //Som
+    this.efeito_sonoro = new Audio();
+    this.efeito_sonoro.src = "sounds/game_3/GameOver.mp3"
+    this.efeito_sonoro.load();
+	
+	
     //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
     this.botaoback = new Game3Button("imgs/game_3/back.png", 147, 137, 340, 450 );
     
@@ -19,6 +27,7 @@ function Game3ScenePerdeu()
     this.update=function()
     {
     	game_3.game3completo = true;
+		this.efeito_sonoro.play();
     };
     
     this.draw=function()
@@ -40,6 +49,7 @@ function Game3ScenePerdeu()
     		game_3.currentScene = game_3.SCENE.INTRODUCAO;
     		game_3.level1.reset();
     	}
+		this.efeito_sonoro.pause();
     	
     };
 	
