@@ -4,7 +4,7 @@ function Game_3()
 		//Pausa
 		this.paused = false;
 
-		//Level
+		//Level..
 		this.level1 = new Game3SceneLevel1();
 		
 		//FimGanhou 
