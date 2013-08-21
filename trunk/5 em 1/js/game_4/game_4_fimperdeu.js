@@ -11,7 +11,7 @@ function Game4ScenePerdeu()
     this.posicao_x = 0;
     this.posicao_y = 0;
     
-    this.button_back = new Button("imgs/game_4/button_back.png", 160, 75);
+    this.button_back = new Button("imgs/game_4/button_back.png",  246, 108);
     this.button_back.position_x = 500;
     this.button_back.position_y = 500;
 

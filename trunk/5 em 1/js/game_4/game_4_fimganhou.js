@@ -11,9 +11,9 @@ function Game4SceneGanhou()
     this.posicao_x = 0;
     this.posicao_y = 0;
     
-    this.button_back = new Button("imgs/button_back.png", 160, 75);
+    this.button_back = new Button("imgs/button_back.png", 246, 108);
     this.button_back.position_x = 500;
-    this.button_back.position_y = 400;
+    this.button_back.position_y = 500;
     
     this.imagem.onload = function()
 	{
