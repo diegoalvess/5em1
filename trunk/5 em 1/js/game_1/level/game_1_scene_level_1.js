@@ -53,7 +53,7 @@ function Game1SceneLevel1()
     	}
     	
 		//Fazendo o player ganhar e ir para level 2
-		if(pontosplayer >= 5)
+		if(pontosplayer >= 10)
 		{
 			game_1.currentScene = game_1.SCENE.LEVEL_2;
 			
@@ -69,7 +69,7 @@ function Game1SceneLevel1()
 		}	
 		
 		//Fazendo o inimigo ganhar e mostrar tela de perdeu
-		if(pontosinimigo >= 2)
+		if(pontosinimigo >= 10)
 		{
 			game_1.currentScene = game_1.SCENE.FIMPERDEU;
 			
