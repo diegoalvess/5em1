@@ -7,6 +7,8 @@ function Game3SceneLevel1()
 	
 		//Pause
 		this.paused = true;
+		
+		this.botaobacklvl = new Game3Button("imgs/game_3/botao_voltar_levels.png", 55, 34, 725, 50 );
    
 		//Colocando a imagem de background
 		this.background = new Game3Background("imgs/game_3/FundoBackground.png");
@@ -85,6 +87,8 @@ function Game3SceneLevel1()
     		return;  	
     	}
     	
+		this.efeito_sonoro.play();
+		
 		//fazendo os blocos aumentarem a velocidade depois que passarem da "posiçao" y
 		/*for(var k = 0; k < this.blocos.length; k++)
 		{
@@ -97,20 +101,22 @@ function Game3SceneLevel1()
 		//Fazendo o jogador perder quando os blocos passaram de uma certa "posiçao" y
 		for(var b = 0; b < this.blocos.length; b++)
 		{
-			if((this.blocos[b].posicao_y >= 500)&& this.blocos[b].visible)
+			if((this.blocos[b].posicao_y >= 450)&& this.blocos[b].visible)
 			{
 				game_3.currentScene = game_3.SCENE.FIMPERDEU;
+				this.efeito_sonoro.pause();
+				
 				this.reset();
 			}
 		}
     	//Som
-    	this.efeito_sonoro.play();
+    	
     	    	
     	for(var i = 0; i < this.blocos.length; i++)
     	{
       		if((Math.random() < this.blocos[i].chancetiro) && this.blocos[i].visible)
     		{
-    			this.Tiros_inimigos.push(new Game3Tiro("imgs/game_3/tiroup.png", this.blocos[i].posicao_x +  + this.blocos[i].tamanho_x/2, this.blocos[i].posicao_y, 0.75));
+    			this.Tiros_inimigos.push(new Game3Tiro("imgs/game_3/tiro_bloco.png", this.blocos[i].posicao_x +  + this.blocos[i].tamanho_x/2, this.blocos[i].posicao_y, 0.75));
    			}
    		}
 	
@@ -179,12 +185,13 @@ function Game3SceneLevel1()
 						
         				if(this.vidas == 0)
         				{
+						//Fazendo player perder e ir para cena de fim perdeu
+							game_3.currentScene = game_3.SCENE.FIMPERDEU;
+        					this.efeito_sonoro.pause();				
+				
 							//Resetando o jogo
 							this.reset();
-						
-        					//Fazendo player perder e ir para cena de fim perdeu
-        					game_3.currentScene = game_3.SCENE.FIMPERDEU;
-        					this.efeito_sonoro.pause();
+
         				}
         			}
 			}
@@ -223,6 +230,9 @@ function Game3SceneLevel1()
     	
     	//Desenhando player
     	this.player.draw();
+		
+		//Desenhando botao
+		this.botaobacklvl.draw();
     	
 		//Desenhando inimigos
     	for(var i = 0 ; i < this.blocos.length; i++)
@@ -289,7 +299,15 @@ function Game3SceneLevel1()
 	}
 
     this.mouse_down=function(mouse)
-    {
+    {	
+		//clicando no botao
+		if(this.botaobacklvl.clicou(mouse))
+    	{
+    		game_3.currentScene = game_3.SCENE.INTRODUCAO;
+    		this.efeito_sonoro.pause();
+			
+			this.reset();
+    	}
 	
     };
     
