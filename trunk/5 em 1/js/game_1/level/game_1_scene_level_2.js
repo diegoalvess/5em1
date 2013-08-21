@@ -406,12 +406,12 @@ function Game1SceneLevel2()
 		//Pontos player
    		screen.font = "40px Arial";
 		screen.fillStyle="#FFFFFF";
-		screen.fillText("Pontos " + pontosplayer, 45, 65); //posicao x e y 
+		screen.fillText("Score " + pontosplayer, 45, 65); //posicao x e y 
 		
 		//Pontos Inimigo
 		screen.font = "40px Arial";
 		screen.fillStyle="#FFFFFF";
-		screen.fillText("Pontos " + pontosinimigo, 590, 65); //posicao x e y
+		screen.fillText("Score " + pontosinimigo, 590, 65); //posicao x e y
 		
     	//Desenhando player
     	this.player.draw();
