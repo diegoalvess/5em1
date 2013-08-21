@@ -170,37 +170,65 @@ function Game_1()
 	//Tecla desceu level1
 	this.key_down=function(key)
 	{
-		this.level1.key_down(key);
+		switch(this.currentScene)
+		{
+			case this.SCENE.INTRODUCAO:
+			{
+				
+			}
+			break;
+			
+			case this.SCENE.LEVEL_1:
+			{
+				this.level1.key_down(key);
+			}
+			break;
+			
+			case this.SCENE.LEVEL_2:
+			{
+				this.level2.key_down(key);
+			}
+			break;
+			
+			case this.SCENE.LEVEL_3:
+			{
+				this.level3.key_down(key);
+			}
+			break;
+		}
+		
+		
 	}
 	
 	//Tecla subiu level1
 	this.key_up=function(key)
 	{
-		this.level1.key_up(key);
-	}
-	
-	//Tecla desceu level2
-	this.key_down=function(key)
-	{
-		this.level2.key_down(key);
-	}
-	
-	//Tecla subiu level2
-	this.key_up=function(key)
-	{
-		this.level2.key_up(key);
-	}
-	
-	//Tecla desceu level2
-	this.key_down=function(key)
-	{
-		this.level3.key_down(key);
-	}
-	
-	//Tecla subiu level2
-	this.key_up=function(key)
-	{
-		this.level3.key_up(key);
+		switch(this.currentScene)
+		{
+			case this.SCENE.INTRODUCAO:
+			{
+				
+			}
+			break;
+			
+			case this.SCENE.LEVEL_1:
+			{
+				this.level1.key_up(key);
+			}
+			break;
+			
+			case this.SCENE.LEVEL_2:
+			{
+				this.level2.key_up(key);
+			}
+			break;
+			
+			case this.SCENE.LEVEL_3:
+			{
+				this.level3.key_up(key);
+			}
+			break;
+		}
 	}
 	
 }
