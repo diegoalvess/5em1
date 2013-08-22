@@ -7,11 +7,15 @@ function Game2SceneLevel2()
     this.musica_de_fundo.src = "sounds/game_2/Musica_de_Fundo.mp3";
     this.musica_de_fundo.load();
 	
-	
 	//Player
 	this.player = new Game2Paleta();	
 	
-	 //Colocando a imagem de background
+	//botão p/ voltar menu
+	this.botaopmenu = new Button("imgs/game_2/backpmenu.png");
+	this.botaopmenu.position_x = 720; 
+    this.botaopmenu.position_y = 555;
+	
+	//Colocando a imagem de background
     this.background = new Game2Background();
 	
 	//Bola
@@ -541,6 +545,9 @@ function Game2SceneLevel2()
 		//Desenhando fundo
     	this.background.draw();
     	
+		//Desenhando Botaopmenu
+		this.botaopmenu.draw();
+		
     	//Desenhando player
     	this.player.draw();
     	
@@ -566,7 +573,17 @@ function Game2SceneLevel2()
 	
 	this.mouse_down=function(mouse)
     {
-	
+		if(this.botaopmenu.clicked(mouse))
+    	{
+			//Vai para menu
+			currentScene = SCENE.INTRO;
+			
+			//Pausa musica do jogo
+			this.musica_de_fundo.pause();
+			
+			//Reset no jogo
+			this.reset();
+		}
     };
 
     this.key_down=function(key)
