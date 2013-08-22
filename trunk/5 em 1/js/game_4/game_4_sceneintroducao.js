@@ -9,8 +9,8 @@ function Game4SceneIntroducao()
     this.posicao_y = 0;
 	
 	//Imagem dos botoes							TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
-    this.botaoplay = new Game4Button("imgs/game_4/play.png", 246, 108, 150, 350 );
-    this.botaoback = new Game4Button("imgs/game_4/back.png", 246, 108, 420, 350 ); 
+    this.botaoplay = new Game4Button("imgs/game_4/play.png", 246, 108, 150, 420 );
+    this.botaoback = new Game4Button("imgs/game_4/back.png", 246, 108, 420, 420 ); 
 	
     //Efeito Sonoro
 	this.efeito_sonoro = new Audio();
