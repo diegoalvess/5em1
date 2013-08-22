@@ -76,7 +76,8 @@ function Game1SceneLevel2()
 		//Fazendo o player ganhar e ir para level 3
 		if(pontosplayer >= 20)
 		{
-			game_1.currentScene = game_1.SCENE.LEVEL_3;
+			//Deixar ir para fase 3 ou terminar o jogo aqui? Caso for para fase3 mude SCENE.FIMGANHOU POR SCENE.LEVEL_3;
+			game_1.currentScene = game_1.SCENE.FIMGANHOU; 
 			
 			//Parando fundo da fase2
 			this.efeito_sonoro2.pause();

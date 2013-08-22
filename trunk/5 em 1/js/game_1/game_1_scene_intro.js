@@ -21,8 +21,8 @@ function Game1SceneIntroducao()
 	this.Letravelocidade_y = 5;
 	
     //Imagem dos botoes							TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
-    this.botaoplay = new Game1Button("imgs/game_1/play.png", 248, 98, 550, 300 );
-    this.botaoback = new Game1Button("imgs/game_1/back.png", 250, 97, 550, 430 ); 
+    this.botaoplay = new Game1Button("imgs/game_1/play.png", 248, 98, 590, 310 );
+    this.botaoback = new Game1Button("imgs/game_1/back.png", 250, 97, 590, 440 ); 
 	
     //Efeito Sonoro
 	this.efeito_sonoro = new Audio();

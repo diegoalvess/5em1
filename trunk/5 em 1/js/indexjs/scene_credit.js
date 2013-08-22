@@ -7,7 +7,7 @@ function SceneCredit()
 	//Botão back
     this.button_back = new Button("imgs/index/button_back.png", 160, 75);
     this.button_back.position_x = 320;
-    this.button_back.position_y = 520;
+    this.button_back.position_y = 510;
     
 	this.update=function()
    	{
