@@ -32,7 +32,7 @@ function SceneIntro()
     
     //botao 5 pronto pra jogar
  	this.button_game_5aberto = new Button("imgs/index/button_game_5aberto.png", 159, 75);
-    this.button_game_5aberto.position_x = 100;
+    this.button_game_5aberto.position_x = 50;
     this.button_game_5aberto.position_y = 400;
             
     this.button_credit = new Button("imgs/index/button_credit.png", 159, 75);
