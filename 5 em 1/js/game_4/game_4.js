@@ -20,7 +20,7 @@ function Game_4()
 		this.SCENE = { INTRODUCAO: 0, LEVEL_1: 1, FIMGANHOU: 2, FIMPERDEU: 3}
 				
 		//Para mudar aonde o jogo comeca, ou seja qual cena, mude aqui
-		this.currentScene = this.SCENE.INTRODUCAO;
+		this.currentScene = this.SCENE.FIMGANHOU;
 
 		this.update=function()
 		{	
