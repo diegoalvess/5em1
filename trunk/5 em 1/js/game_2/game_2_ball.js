@@ -42,10 +42,9 @@ function Game2Ball()
 			this.velocity_x *=-1;
 			this.posicao_y -= 1;	
 			
-			if(this.posicao_x > 60)
+			if(this.posicao_x < 60)
 			{
-				this.velocity_x *=1;
-				this.posicao_y -= -1;
+				this.vidas--;
 			}
 		}
 		
@@ -65,9 +64,9 @@ function Game2Ball()
 		{
 			this.velocity_x *=-1;	
 			
-			if(this.posicao_x > 750 - this.tamanho_x)
+			if(this.posicao_x < 750 - this.tamanho_x)
 			{
-				this.velocity_x *=1;
+				this.vidas--;
 			}
 		}
 				
