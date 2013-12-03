@@ -1,5 +1,6 @@
 function Game2Paleta(player_position_x)
-{
+{	
+	//Criando paleta
 	this.img = new Image();
 	this.img.src="imgs/game_2/paleta.png";
 	this.loaded = false;
@@ -10,6 +11,7 @@ function Game2Paleta(player_position_x)
 		loaded = true;
 	};
 	
+	//propriedades
 	this.tamanho_x = 200;
     this.tamanho_y = 20;
     this.posicao_x = (tamanho_tela_x  - this.tamanho_x)/2;
@@ -23,6 +25,7 @@ function Game2Paleta(player_position_x)
     
     this.update=function()
     {
+		//mover paleta
     	if(this.direita == true)
     	{
     		this.posicao_x += this.velocity_x;
@@ -51,39 +54,37 @@ function Game2Paleta(player_position_x)
        
     this.draw = function()
     {
-    	
+    	//desenhando paleta
     	if(this.visible)
     	screen.drawImage(this.img, this.posicao_x, this.posicao_y);
     
     }//FIM DO DRAW
     
+	//movendo a paleta
      this.key_down = function(key)
      {
-     	
-     			
-     	
-             	if(key.keyCode== "37")
+     	     	
+             	if(key.keyCode== "37") //seta esquerda
 				{					
 					this.esquerda = true;//verdadeiro
 				}
 			
-				if(key.keyCode== "39")
+				if(key.keyCode== "39") //seta direita
 				{
 					this.direita = true;//verdadeiro
 				}
 	
-				
-			
+							
 		}
              
              this.key_up = function(key)
             { 
-             	if(key.keyCode== "37")
+             	if(key.keyCode== "37") // seta esquerda
 				{
 					this.esquerda = false;
 				}
 			
-				if(key.keyCode== "39")
+				if(key.keyCode== "39") //seta direita
 				{
 					this.direita = false;//verdadeiro
 				}	

@@ -1,15 +1,17 @@
 function Game1Button(arquivo, tam_x, tam_y, pos_x, pos_y)
 {
+	//Criando botão
 	this.imagem = new Image();
 	this.imagem.src = arquivo;
 	this.loaded = false;
 	
-	//tamanho
+	//propriedades
 	this.tamanho_x = tam_x;
     this.tamanho_y = tam_y;
     this.posicao_x = pos_x;
     this.posicao_y = pos_y;
 
+	//carregando imagem
 	this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -30,7 +32,7 @@ function Game1Button(arquivo, tam_x, tam_y, pos_x, pos_y)
     this.clicou = function(mouse)
     {
     	
-    	//colisão
+    	//colisão com o mouse
     	if(Collide(
     		mouse.x,
     		mouse.y,

@@ -1,5 +1,6 @@
 function Game4SceneIntroducao()
 {
+	//criando cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_4/Introducao.png"
 	this.loaded = false;

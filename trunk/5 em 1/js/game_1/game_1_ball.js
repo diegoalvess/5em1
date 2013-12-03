@@ -1,10 +1,12 @@
 //ball.js
 function Game1Bola()
 {
+	//Criando bola
 	this.image = new Image();
 	this.image.src="imgs/game_1/ball.png";
 	this.loaded = false;
 
+	//Propriedades
     this.tamanho_x = 40;
     this.tamanho_y = 40;
     this.posicao_x = 450
@@ -37,7 +39,8 @@ function Game1Bola()
 
     this.draw=function()
     {
-    	screen.drawImage(this.image, this.posicao_x, this.posicao_y)
+    	//desenhando bola
+		screen.drawImage(this.image, this.posicao_x, this.posicao_y)
     };
 
 	//Colisão para nao sair da tela

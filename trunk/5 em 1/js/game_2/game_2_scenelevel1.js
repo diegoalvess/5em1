@@ -422,9 +422,8 @@ function Game2SceneLevel1()
 
 	function key_press(key)
 	{
-		if (key.keyCode == 112 )
+		if (key.keyCode == 112 ) //tecla "P"
 		{
-			console.log("APERTANDO PPPPPPPPPPPPPPPPPPPPPPPPPP")
 			this.paused = paused;
 		}
 	}

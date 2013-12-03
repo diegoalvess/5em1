@@ -1,16 +1,17 @@
 function Game4ScenePerdeu()
 {
+	//criando cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_4/Fimperdeu.png"
 	this.loaded = false;
     
-
+	//propriedades
     this.tamanho_x = 800;
     this.tamanho_y = 600;
-
     this.posicao_x = 0;
     this.posicao_y = 0;
     
+	//criando botão de voltar
     this.button_back = new Button("imgs/game_4/button_back.png",  246, 108);
     this.button_back.position_x = 270;
     this.button_back.position_y = 450;
@@ -28,6 +29,7 @@ function Game4ScenePerdeu()
     
     this.update=function()
     {
+		//Som
     	this.efeito_sonoro.play();
     	game_4.level1.efeito_sonoro.pause();
     };

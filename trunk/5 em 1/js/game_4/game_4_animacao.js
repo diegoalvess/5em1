@@ -1,10 +1,12 @@
 function animacao(file, size_x, size_y, position_x, position_y)
 {
+	//criando imagem
 	this.image = new Image();
 	this.image.src=file;
 	
 	this.visible = true;
-		
+	
+	//PROPRIEDADES
 	this.posicao_x_dst = position_x; 
     this.posicao_y_dst = position_y;
     
@@ -30,7 +32,7 @@ function animacao(file, size_x, size_y, position_x, position_y)
 	//  ||      ||        ||     ||
 	this.frames = number_frames_animation;	
 	
-
+	//animacao
     this.current_frame = 0;
 	// frames por segundo
 	this.fps = 12;	
@@ -84,7 +86,7 @@ function animacao(file, size_x, size_y, position_x, position_y)
 		this.last_draw_time = Date.now();
 		
 		
-		
+		//desenhando tiro
     	for(var i = 0; i < this.shoots.length; i++)
     	{
     		this.shoots[i].draw();

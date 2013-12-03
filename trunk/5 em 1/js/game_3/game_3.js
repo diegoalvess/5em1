@@ -23,7 +23,7 @@ function Game_3()
 
 		this.update=function()
 		{	
-			switch(this.currentScene)
+			switch(this.currentScene) //cena atual
 			{
 				//introducao
 				case this.SCENE.INTRODUCAO:
@@ -60,7 +60,8 @@ function Game_3()
 
 		this.draw=function()
 		{
-			switch(this.currentScene)
+			//desenhando as cenas
+			switch(this.currentScene) //cena atual
 			{
 				case this.SCENE.INTRODUCAO:
 				{
@@ -94,7 +95,7 @@ function Game_3()
 		this.mouse_down = function(mouse)
 		{
 			console.log("DDDDDDDDD");
-			switch(this.currentScene)
+			switch(this.currentScene) //cena atual
 			{
 				case this.SCENE.INTRODUCAO:
 				{

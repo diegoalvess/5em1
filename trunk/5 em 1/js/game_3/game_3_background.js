@@ -1,5 +1,6 @@
 function Game3Background(source)
 {
+	//criando background
 	this.imagem = new Image();
 	this.imagem.src = source;
 	this.loaded = false;
@@ -10,6 +11,7 @@ function Game3Background(source)
 		loaded = true; 
 	};
 	
+	//propriedades
 	this.tamanho_x = 1200;
     this.tamanho_y = 800;
     this.posicao_x = 0;
@@ -25,7 +27,8 @@ function Game3Background(source)
     
     this.draw=function()
     {
-    	if(this.visible)
+		//desenhando background
+		if(this.visible)
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y);
     };
 

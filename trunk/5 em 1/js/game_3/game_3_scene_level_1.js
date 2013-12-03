@@ -27,6 +27,7 @@ function Game3SceneLevel1()
 		this.efeito_sonoro.load();
 		this.efeito_sonoro.volume = 0.8
 		
+		//criando lista de blocos
 		//Blocos1
 		this.blocos1 = new Array();	
 		for(var i = 0; i < 10; i++)
@@ -149,7 +150,7 @@ function Game3SceneLevel1()
     				this.blocos[u].tamanho_x,
     				this.blocos[u].tamanho_y
     				))
-    				{	//bloco perdendo hp e sumindo
+    				{	//bloco perdendo hp, sumindo e ganhando pontos
     					this.blocos[u].hp--;
     					if(this.blocos[u].hp <= 0)
     					{
@@ -252,11 +253,12 @@ function Game3SceneLevel1()
     		this.player.tiros[i].draw();
     	}
 		
-		
+		//desenhando os pontos
 		screen.font = "45px Arial";
         screen.fillStyle="#FFFFFF";
         screen.fillText(" 0000" + this.pontos, 120, 40);
         
+		//desenhando as vidas
         screen.font = "25px Arial";
         screen.fillStyle="#FFFFFF";
         screen.fillText("" + this.vidas, 767.5, 26);

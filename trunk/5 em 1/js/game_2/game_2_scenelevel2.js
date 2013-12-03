@@ -18,10 +18,10 @@ function Game2SceneLevel2()
 	//Colocando a imagem de background
     this.background = new Game2Background();
 	
-	//Bola
+	//Criando bola
 	 this.bola = new Game2Ball();
 	
-	//Blocos
+	//Criando blocos
 	this.listablocos1 = new Array();
 	
 	this.listablocos2 = new Array();
@@ -88,6 +88,8 @@ function Game2SceneLevel2()
 	
 	// VIDAS
 	this.vidas = 3;
+	
+	//LISTA DE BLOCOS
 	
 		//BLOCO VERMELHO
 		for(var i = 0; i < 4; i++)
@@ -359,7 +361,7 @@ function Game2SceneLevel2()
 			this.listas[i].update(); 
 		}
 		
-		//Fazendo colis�o da bola com a paleta player parte de cima			
+		//Fazendo colisao da bola com a paleta player parte de cima			
 		
 		if(Collide(
 					this.bola.posicao_x,
@@ -425,8 +427,8 @@ function Game2SceneLevel2()
 							this.listas[i].hp--;
 							if(this.listas[i].hp <=0)
 							{
-								this.listas[i].visible = false;
-								this.pontos++;
+								this.listas[i].visible = false; //sumir o bloco colidido
+								this.pontos++; //aumentar pontos
 			
 									//FAZENDO APARECER A TELA DE VENCEDOR
 									if(this.pontos >= 127)
@@ -437,7 +439,7 @@ function Game2SceneLevel2()
 									}
 							}
 														
-							this.bola.velocity_y *= -1;
+							this.bola.velocity_y *= -1; // bola ricochetear 
 														
 						}
 				}
@@ -461,8 +463,8 @@ function Game2SceneLevel2()
 							this.listas[i].hp--;
 							if(this.listas[i].hp <=0)
 							{
-								this.listas[i].visible = false;
-								this.pontos++;
+								this.listas[i].visible = false; //sumir o bloco colidido
+								this.pontos++; //aumentar pontos
 								
 								//this.bola.posicao_x = this.player.posicao_x - this.bola.tamanho_x - 10;// + this.player.velocidade_x;
 								this.bola.velocity_x *= -1;
@@ -476,7 +478,7 @@ function Game2SceneLevel2()
 									}
 							}
 														
-							this.bola.velocity_y *= -1;
+							this.bola.velocity_y *= -1; // bola ricochetear
 														
 						}
 				}
@@ -605,7 +607,7 @@ function Game2SceneLevel2()
 			||(y1+h1<y2) //SE RECT1 CIMA RECT2//
 			||(y1>y2+h2)) //SE RECT1 BAIXO RECT2//
 		{
-			return false; //N�O COLIDIU//
+			return false; //NAO COLIDIU//
 		}
 		else	
 		{
@@ -617,7 +619,7 @@ function Game2SceneLevel2()
 
 	function key_press(key)
 	{
-		if (key.keyCode == 112 )
+		if (key.keyCode == 112 ) //tecla "P"
 		{
 			this.paused = !paused;
 		}

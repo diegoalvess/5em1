@@ -1,5 +1,6 @@
 function Bloco(source, hp)
 {
+	//criando bloco
 	this.imagem = new Image();
 	this.imagem.src= source;
 	this.carregada = false;
@@ -14,6 +15,7 @@ function Bloco(source, hp)
 		carregada = true; 
 	};
 	
+	//propriedades
 	this.tamanho_x = 50;
 	this.tamanho_y = 50;
 	this.posicao_x = 100;

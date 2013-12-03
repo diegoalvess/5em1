@@ -1,5 +1,6 @@
 function Game3ScenePerdeu()
 {
+	//criando cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_3/Fimperdeu.png"
 	this.loaded = false;
@@ -8,8 +9,6 @@ function Game3ScenePerdeu()
     this.posicao_x = 0;
     this.posicao_y = 0;
     
-	
-	
 	 //Som
     this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_3/GameOver.mp3"
@@ -26,8 +25,7 @@ function Game3ScenePerdeu()
     
     this.update=function()
     {
-    	
-		this.efeito_sonoro.play();
+    	this.efeito_sonoro.play();
     };
     
     this.draw=function()
@@ -42,6 +40,7 @@ function Game3ScenePerdeu()
     
     this.mouse_down=function(mouse)
     {   	
+		//voltando pra introdução
     	console.log("BBBBBBB");
     	if(this.botaoback.clicou(mouse))
     	{

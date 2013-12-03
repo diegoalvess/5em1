@@ -1,12 +1,13 @@
 function Game2SceneMenu()
 {
+	//criando cena
 	this.imagem = new Image();//BACKGROUND
 	this.imagem.src = "imgs/game_2/Menu_teste.png"
 	this.loaded = false;
-    
+	
+    //propriedades
     this.tamanho_x = 900;
     this.tamanho_y = 700;
-
     this.posicao_x = 0;
     this.posicao_y = 0;
     
@@ -15,10 +16,11 @@ function Game2SceneMenu()
     this.efeito_sonoro.src = "sounds/game_2/click.mp3"
     this.efeito_sonoro.load();
     
-    //variavel e imagem dos bot�es
+    //variavel e imagem dos botoes
    	this.botao_comecar = new Button("imgs/game_4/botaocomecar.png", 302, 85, 580, 300);    //this.botao_creditos = new Button("Imagens/botaocredito.png", 302, 85, 630, 480);
     this.botao_instru = new Button("imgs/game_2/instrucao_teste.png", 235, 57, 350, 550);
     
+	//imagem carregada
     this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -33,7 +35,7 @@ function Game2SceneMenu()
     {  	
     	screen.drawImage(this.imagem, 0, 0);
     	
-    	//desenho dos bot�es
+    	//desenho dos botoes
     	this.botao_comecar.draw();
     	this.botao_instru.draw(); 	
     };
@@ -43,7 +45,7 @@ function Game2SceneMenu()
     {   	
     		console.log("PASSE O MOUSE AQUI")
     		
-    	//fun��o do clique para o bot�o mudar de cena
+    	//funcao do clique para o botao mudar de cena
     	if(this.botao_comecar.clicou(mouse))
 		{
 			currentScene = SCENE.SCENELEVEL1;
