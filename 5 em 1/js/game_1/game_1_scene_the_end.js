@@ -1,5 +1,6 @@
 function Game1SceneGanhou()
 {
+	//criando a cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_1/Fimganhou.png"
 	this.loaded = false;
@@ -16,6 +17,7 @@ function Game1SceneGanhou()
     //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
     this.botaoback = new Game1Button("imgs/game_1/back.png", 248, 98, 10, 505 );
     
+	//variavel booleana jogo completo
     this.update=function()
     {
     	completouJogo1 = true;
@@ -33,6 +35,7 @@ function Game1SceneGanhou()
     
     this.mouse_down=function(mouse)
     {   	
+		//voltar para intro se clicado 
 		if(this.botaoback.clicou (mouse))
     	{
     		console.log("cena intro mouse X " + mouse.x + " mouse Y " + mouse.y );

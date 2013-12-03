@@ -1,13 +1,13 @@
 function Game2SceneGanhou()
 {
+	//criando
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_2/Win.png"
 	this.loaded = false;
     
-
+	//propriedades
     this.tamanho_x = 800;
     this.tamanho_y = 600;
-
     this.posicao_x = 0;
     this.posicao_y = 0;
     
@@ -26,6 +26,7 @@ function Game2SceneGanhou()
    	
 	this.botao_para_o_menu_principal = new Game2Button("imgs/game_2/back.png", 251, 82, 250, 500);
 	
+	//imagem carregada
 	this.imagem.onload = function()
 	{
 		loaded = true; 

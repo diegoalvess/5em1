@@ -35,6 +35,7 @@
     this.efeito_sonoro.load();
     this.efeito_sonoro.volume = 1.0
 	
+	//LISTA, ONDA DE INIMIGOS
 	//Wave1
 	this.wave1 = new Array();
 	for(var i = 0 ; i < 9; i++) 
@@ -257,7 +258,7 @@
 	
     this.update=function()
     {
-
+		//Pause
     	if(this.paused)
     	{
     		return; 	

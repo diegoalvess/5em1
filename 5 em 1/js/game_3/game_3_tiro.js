@@ -1,5 +1,6 @@
 function Game3Tiro(file, posicao_x, posicao_y, velocidade_y)
 {
+	//criando tiro
 	this.imagem = new Image();
 	this.imagem.src= file;
 	this.carregada = false;
@@ -10,6 +11,7 @@ function Game3Tiro(file, posicao_x, posicao_y, velocidade_y)
 		loaded = true; 
 	};
 	
+	//propriedades
 	this.tamanho_x = 15;
 	this.tamanho_y = 26;
 	this.posicao_x = posicao_x;
@@ -25,13 +27,14 @@ function Game3Tiro(file, posicao_x, posicao_y, velocidade_y)
 	
 		if(this.posicao_y < 50)
 		{
-			this.visible = false;
+			this.visible = false; //sumir tiro
 		}
 		
 	};
 	
 	this.draw=function()
     {  	
+		//desenhando tiro
     	if(this.visible)
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y)
     };

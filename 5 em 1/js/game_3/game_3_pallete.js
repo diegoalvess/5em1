@@ -1,5 +1,6 @@
 function Game3Player(player_tecla)
 {
+	//criando player
 	this.imagem = new Image();
 	this.imagem.src="imgs/game_3/nave.png";
 	this.carregada = false;
@@ -11,6 +12,7 @@ function Game3Player(player_tecla)
 	
 	this.player_tecla = player_tecla;
 
+	//propriedades
 	this.tamanho_x = 60;
 	this.tamanho_y = 40;
 	this.posicao_x = tamanho_tela_x/2 - this.tamanho_y/2;
@@ -46,6 +48,7 @@ function Game3Player(player_tecla)
 		
 	this.draw=function()
     {  	
+		//desenhando player
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y)
     };
 	
@@ -95,11 +98,11 @@ function Game3Player(player_tecla)
     {
     	if(this.player_tecla == "setas")
     	{
-    		if(key.keyCode == 39)
+    		if(key.keyCode == 39) //seta direita
     		{
     			this.direita = true;
     		}
-    		else if(key.keyCode == 37)
+    		else if(key.keyCode == 37) //seta esquerda
     		{
     			this.esquerda = true;
     		}
@@ -109,6 +112,7 @@ function Game3Player(player_tecla)
 			{
 				if(this.soltou_espaco)
 				{
+					//pro tiro não ficar descontrolado
 					this.apertou_espaco = true;
 					this.soltou_espaco = false;
 				}

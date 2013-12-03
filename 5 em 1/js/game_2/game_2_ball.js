@@ -1,6 +1,7 @@
 //ball.js
 function Game2Ball()
 {
+	//criando bola
 	this.img = new Image();
 	this.img.src="imgs/game_2/bola_finalizada.png";
 	this.loaded = false;
@@ -12,6 +13,7 @@ function Game2Ball()
 		loaded = true;
 	};
 	
+	//propriedades 
     this.tamanho_x = 35;
     this.tamanho_y = 35;
     this.posicao_x = 400;
@@ -44,7 +46,7 @@ function Game2Ball()
 			
 			if(this.posicao_x < 60)
 			{
-				this.vidas--;
+				this.vidas--; //perdendo vida
 			}
 		}
 		
@@ -66,7 +68,7 @@ function Game2Ball()
 			
 			if(this.posicao_x < 750 - this.tamanho_x)
 			{
-				this.vidas--;
+				this.vidas--; //perdendo vida
 			}
 		}
 				
@@ -84,7 +86,7 @@ function Game2Ball()
  
  	this.key_down = function (key)
  	{
- 		if(key.keyCode == "32")
+ 		if(key.keyCode == "32") //barra espaço
  		{
  			this.followplayer = false;
  		}

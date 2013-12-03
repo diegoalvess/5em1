@@ -1,16 +1,17 @@
 function Game4SceneGanhou()
 {
+	//criando cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_4/Fimganhou.png"
 	this.loaded = false;
     
-
+	//propriedades
     this.tamanho_x = 800;
     this.tamanho_y = 600;
-
     this.posicao_x = 0;
     this.posicao_y = 0;
     
+	//criando botao voltar
     this.button_back = new Button("imgs/game_4/button_back.png", 246, 108);
     this.button_back.position_x = 270;
     this.button_back.position_y = 450;
@@ -27,6 +28,7 @@ function Game4SceneGanhou()
     
     this.draw=function()
     {  	
+		//desenhando botao
     	screen.drawImage(this.imagem, 0, 0);
     	
     	this.button_back.draw();

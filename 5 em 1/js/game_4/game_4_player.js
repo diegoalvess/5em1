@@ -1,5 +1,6 @@
 function Game4Player(player_tecla)
 {
+	//criando o player
 	this.imagem = new Image();
 	this.imagem.src="imgs/game_4/Player.png"
 	
@@ -11,6 +12,7 @@ function Game4Player(player_tecla)
 	//Conjunto de tiros
 	this.Tiros = new Array();
 	
+	//propriedades
 	this.tamanho_x = 70;
     this.tamanho_y = 60;
     this.posicao_x = 30;
@@ -35,7 +37,7 @@ function Game4Player(player_tecla)
     this.max_energy = 100; 
 	this.current_energy = this.max_energy;
 	
-	this.lives = 3;
+	this.lives = 3; 
 	
     this.imagem.onload = function()
 	{
@@ -51,6 +53,7 @@ function Game4Player(player_tecla)
     	{
     		if(this.visible)
     		{
+				//Atirando
 				this.efeito_sonoro.play();
     			this.Tiros.push(new Game4Tiro("imgs/game_4/Tiro.png",this.posicao_x+this.tamanho_x, this.posicao_y+this.tamanho_y/2, 15));  
     		}
@@ -127,20 +130,21 @@ function Game4Player(player_tecla)
 
 		if(this.player_tecla)
     	{
-    		if(key.keyCode == 39)
+			//comandos mover
+    		if(key.keyCode == 39) //seta direita
     		{
     			this.direita = true;
     		}
-    		else if(key.keyCode == 37)
+    		else if(key.keyCode == 37) //seta esquerda
     		{
     			this.esquerda = true;
     		}
     	
-    		if(key.keyCode == 38)
+    		if(key.keyCode == 38) //seta cima
     		{
     			this.sobe = true;
     		}
-    		else if(key.keyCode == 40)
+    		else if(key.keyCode == 40) //seta baixo
     		{
     			this.desce = true;
     		}
@@ -150,6 +154,7 @@ function Game4Player(player_tecla)
 			{
 				if(this.soltou_espaco)
 				{
+					//atirar e controlar o tiro
 					this.apertou_espaco = true;
 					this.soltou_espaco = false;
 				}
@@ -162,20 +167,20 @@ function Game4Player(player_tecla)
     {
     	if(this.player_tecla == "setas")
     	{
-    		if(key.keyCode == 39)
+    		if(key.keyCode == 39) //seta direita
     		{
     			this.direita = false;
     		}
-    		else if(key.keyCode == 37)
+    		else if(key.keyCode == 37) //seta esquereda
     		{
     			this.esquerda = false;
     		}
     	
-    		if(key.keyCode == 38)
+    		if(key.keyCode == 38) //seta cima
     		{
     			this.sobe = false;
     		}
-    		else if(key.keyCode == 40)
+    		else if(key.keyCode == 40) //seta baixo
     		{
     			this.desce = false;
     		}
@@ -183,6 +188,7 @@ function Game4Player(player_tecla)
     		//Barra de espaço
 			if(key.keyCode == 32 )
 			{
+				//atirar e controlar o tiro
 				this.apertou_espaco = false;
 				this.soltou_espaco = true;
 			}	

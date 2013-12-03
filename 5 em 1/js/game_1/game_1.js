@@ -83,7 +83,8 @@ function Game_1()
 
 	this.draw=function()
 	{
-		switch(this.currentScene)
+		//Desenhando as cenas
+		switch(this.currentScene) //Cena atual
 		{
 			case this.SCENE.INTRODUCAO:
 			{
@@ -125,9 +126,10 @@ function Game_1()
 			
 	}
 	
+	//Mouse clique esquerdo
 	this.mouse_down = function(mouse)
 	{	
-		switch(this.currentScene)
+		switch(this.currentScene) //Cena atual
 		{
 			case this.SCENE.INTRODUCAO:
 			{
@@ -171,7 +173,7 @@ function Game_1()
 	//Tecla desceu level1
 	this.key_down=function(key)
 	{
-		switch(this.currentScene)
+		switch(this.currentScene) //Cena atual
 		{
 			case this.SCENE.INTRODUCAO:
 			{

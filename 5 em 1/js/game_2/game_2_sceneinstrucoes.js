@@ -1,5 +1,6 @@
 function Game2SceneInstrucoes()
 {
+	//criando cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_2/Menu.png"//FAZER IMAGEM PARA INSTRUCAO
 	this.loaded = false;
@@ -17,6 +18,7 @@ function Game2SceneInstrucoes()
    	this.botao_play = new Game2Button("imgs/game_2/play.png", 251, 82, 500, 300 );
    	this.botao_back = new Game2Button("imgs/game_2/back.png", 251, 82, 500, 450 );
     
+	//imagem carregada
     this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -38,7 +40,7 @@ function Game2SceneInstrucoes()
 	 	this.botao_back.draw();
     }
     
-    
+    //mouse clique esquerdo
     this.mouse_down=function(mouse)
     {
     		if(this.botao_play.clicou (mouse))

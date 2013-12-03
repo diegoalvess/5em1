@@ -4,7 +4,7 @@ function Game3Button(arquivo, tam_x, tam_y, pos_x, pos_y)
 	this.imagem.src = arquivo;
 	this.loaded = false;
 	
-	//tamanho
+	//propriedades
 	this.tamanho_x = tam_x;
     this.tamanho_y = tam_y;
     this.posicao_x = pos_x;

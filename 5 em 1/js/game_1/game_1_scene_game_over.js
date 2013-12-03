@@ -1,5 +1,6 @@
 function Game1ScenePerdeu()
 {
+	//Criando a cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_1/Fimperdeu.png"
 	this.loaded = false;
@@ -17,6 +18,7 @@ function Game1ScenePerdeu()
     //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y
     this.botaoback = new Game1Button("imgs/game_1/back.png", 148, 137, 340, 500 );
     
+	//carregando imagem
     this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -37,7 +39,7 @@ function Game1ScenePerdeu()
     	this.botaoback.draw();  	
     };
     
-    
+    //voltar para introdução se botaoback clicado
     this.mouse_down=function(mouse)
     {
 		if(this.botaoback.clicou (mouse))

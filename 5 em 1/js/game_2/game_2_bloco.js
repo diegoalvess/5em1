@@ -1,12 +1,13 @@
 function Game2Bloco(source, hp)
 {
+	//criando os blocos
 	this.bloco_imagem = new Image();
 	this.bloco_imagem.src = source;
-
 
 	this.loaded = false;
 	this.visible = true;
 	
+	//resistencia dos blocos
 	this.hp = hp;
 	this.pontos = this.hp*2
 	
@@ -16,6 +17,7 @@ function Game2Bloco(source, hp)
 		loaded = true;
 	};
 
+	//propriedades
 	this.tam_X = 60;
 	this.tam_Y = 20;
 	this.psc_X = 0;
@@ -31,6 +33,7 @@ function Game2Bloco(source, hp)
 	
 	this.draw=function()
 	{
+		//desenhando blocos
 		if(this.visible)
     	screen.drawImage(this.bloco_imagem, this.psc_X, this.psc_Y)
 	};

@@ -1,5 +1,6 @@
 function Game3SceneIntroducao()
 {
+	//criando cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_3/Introducao.png"
 	this.loaded = false;
@@ -65,6 +66,8 @@ function Game3SceneIntroducao()
     
     this.mouse_move=function(mouse)
     {
+		//mouse clique dando play ou voltando 
+		
 		if(this.botaoplay.clicou(mouse))
 		{
 			this.botaoplay.posicao_origem_x = 147;

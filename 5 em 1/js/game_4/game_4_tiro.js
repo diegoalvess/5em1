@@ -1,5 +1,6 @@
 function Game4Tiro(file, posicao_x, posicao_y, velocidade_x)
 {	
+	//criando tiro
 	this.imagem = new Image();
 	this.imagem.src= file;
 	this.loaded = false;
@@ -9,7 +10,7 @@ function Game4Tiro(file, posicao_x, posicao_y, velocidade_x)
 	{
 		loaded = true; 
 	};
-	
+	//propriedades
 	this.tamanho_x = 64;
     this.tamanho_y = 27;
     this.posicao_x = posicao_x;
@@ -37,6 +38,7 @@ function Game4Tiro(file, posicao_x, posicao_y, velocidade_x)
     
     this.draw=function()
     {  	
+		//desenhando tiro
     	if(this.visible)
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y)
     };

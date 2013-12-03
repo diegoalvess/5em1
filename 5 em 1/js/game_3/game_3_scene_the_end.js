@@ -1,5 +1,6 @@
 function Game3SceneGanhou()
 {
+	//criando cena
 	this.imagem = new Image();
 	this.imagem.src = "imgs/game_3/Fimganhou.png"
 	this.loaded = false;
@@ -7,8 +8,7 @@ function Game3SceneGanhou()
     this.tamanho_y = 600;
     this.posicao_x = 0;
     this.posicao_y = 0;
-    
-   
+       
     
     
     //Botao back                                TAMANHO_X,TAMANHO_Y,POSICAO_X,POSICAO_Y

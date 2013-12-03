@@ -119,7 +119,7 @@ function Game_4()
 				break;
 			}
 		}		
-		
+		//KEYDOWN
 		this.key_down = function(key)
 		{
 			switch(this.currentScene)
@@ -152,6 +152,7 @@ function Game_4()
 			}
 		}
 				
+		//KEYUP
 		this.key_up = function(key)
 		{
 			

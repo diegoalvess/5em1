@@ -1,5 +1,6 @@
 function Game4Inimigo(source,hp)
 {
+	//criando inimigos
 	this.imagem = new Image();
 	this.imagem.src = source;
 	this.loaded = false;
@@ -14,9 +15,11 @@ function Game4Inimigo(source,hp)
 	
 	this.movendoCimaBaixo = false;
 	
+	//dano dos tiro
 	this.chancetiroboss = 0.1;
 	this.chancetiro = 0.01;
 	
+	//variavel hp
 	this.max_energy = hp;
 		 
 	this.current_energy = this.max_energy;
@@ -29,6 +32,7 @@ function Game4Inimigo(source,hp)
 	
 	this.nome;
 			
+	//carregando imagem
 	this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -43,7 +47,7 @@ function Game4Inimigo(source,hp)
     		this.moveYActive = true;
     	}
     	
-    	switch(this.currentBehaviour)
+    	switch(this.currentBehaviour) //Onda de inimigo atual
     	{
     		case BEHAVIOUR.MOVERIGHT:
     			
@@ -70,6 +74,7 @@ function Game4Inimigo(source,hp)
     
     this.draw=function()
     {  	
+		//desenhando inimigos
    		if(this.visible)
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y)
     };
@@ -87,6 +92,7 @@ function Game4Inimigo(source,hp)
 		
     };
     
+	//inimigos movendo
     this.move_right=function()
     {
     	this.posicao_x -= this.velocidade_x;	
@@ -112,10 +118,11 @@ function Game4Inimigo(source,hp)
     	
     	if(this.moveYActive)
     	{
-    		//movendo o inimigo a parti de cima tamanho_y = 0
+    		//movendo o inimigo a partde cima tamanho_y = 0
     		this.posicao_y += this.velocidade_y;
     	} 
     	
+		//boss movendo
     	if(this.posicao_x <= 550 && !this.movendoCimaBaixo)
     	{
     		this.movendoCimaBaixo = true;

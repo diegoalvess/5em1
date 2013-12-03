@@ -1,9 +1,11 @@
 function Game1PaletaInimigo()
 {
+	//criando paleta inimiga
 	this.imagem = new Image();
 	this.imagem.src="imgs/game_1/paletainimigo.png";
 	this.loaded = false;
 	
+	//propriedades da paleta
 	this.tamanho_x = 40;
     this.tamanho_y = 120;
     this.posicao_x = 750
@@ -45,6 +47,7 @@ function Game1PaletaInimigo()
     	}
     }
 	
+	//desenhando a paleta
     this.draw=function()
     {  	
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y)

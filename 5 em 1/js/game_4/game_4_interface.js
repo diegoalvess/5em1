@@ -1,10 +1,12 @@
 function Game4Interface(souce, tam_x, tam_y, pos_x, pos_y)
 {
+	//criando tela
 	this.imagem = new Image();
 	this.imagem.src = souce;
 	
 	this.visible = true;
 	
+	//propriedades
 	this.tamanho_x_src = tam_x;
     this.tamanho_y_src = tam_y;
     this.posicao_x_src = 0;

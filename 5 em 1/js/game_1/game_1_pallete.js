@@ -3,10 +3,12 @@ function Game1Paleta (player_tecla)
 {
 	this.player_tecla = player_tecla;
 
+	//criando player
 	this.imagem = new Image();
 	this.imagem.src="imgs/game_1/paleta.png";
 	this.loaded = false;
 	
+	//propriedades da paleta
 	this.tamanho_x = 40;
     this.tamanho_y = 120;
     this.posicao_x = 10
@@ -29,6 +31,7 @@ function Game1Paleta (player_tecla)
 	
 	this.draw=function()
     {  	
+		//desenhando paleta
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y)
     };
 	
@@ -78,12 +81,12 @@ function Game1Paleta (player_tecla)
     {
 		if(this.player_tecla == "setas")
     	{
-    		if(key.keyCode == 38)
+    		if(key.keyCode == 38) //seta pra cima
     		{
     			
-    			this.sobe = true;
+    			this.sobe = true; 
     		}
-    		else if(key.keyCode == 40)
+    		else if(key.keyCode == 40) //seta pra baixo
     		{
     			
     			this.desce = true;
@@ -96,11 +99,11 @@ function Game1Paleta (player_tecla)
     {
     	if(this.player_tecla == "setas")
     	{
-    		if(key.keyCode == 38)
+    		if(key.keyCode == 38) //seta pra cima
     		{
     			this.sobe = false;
     		}
-    		else if(key.keyCode == 40)
+    		else if(key.keyCode == 40) //seta pra baixo
     		{
     			this.desce = false;
     		}   			

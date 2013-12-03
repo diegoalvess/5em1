@@ -1,5 +1,6 @@
 function Game2Button(arquivo, tam_x, tam_y, pos_x, pos_y)
 {
+	//criando botao
 	this.imagem = new Image();
 	this.imagem.src = arquivo;
 	this.loaded = false;
@@ -10,6 +11,7 @@ function Game2Button(arquivo, tam_x, tam_y, pos_x, pos_y)
     this.posicao_x = pos_x;
     this.posicao_y = pos_y;
 
+	//imagem carregada
 	this.imagem.onload = function()
 	{
 		loaded = true; 
@@ -22,18 +24,18 @@ function Game2Button(arquivo, tam_x, tam_y, pos_x, pos_y)
     
     this.draw=function()
     {  	
-    	//desenho do bot�o e sua respectiva posi��o
+    	//desenho do botao e sua respectiva posicao
     	screen.drawImage(this.imagem, this.posicao_x, this.posicao_y)
     };
     
-   	//vari�vel de clique do bot�o
+   	//variavel de clique do botao
     this.clicou = function(mouse)
     {
     	//console.log("MOUSE X: " + mouse.x + " MOUSE Y " + mouse.y);
     	
     	//console.log("IMAGEM: " + this.imagem.src + " POS X " + this.posicao_x + " POS Y " + this.posicao_y + " TAM X " + this.tamanho_x + " TAM Y " + this.tamanho_y);
     	    	
-    	//colis�o
+    	//colisao
     	if(Collide(
     		mouse.x-9,
     		mouse.y-8,

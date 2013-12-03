@@ -27,7 +27,6 @@ function Game1SceneLevel3()
     //Colocando a imagem de background
     this.background = new Game1Background("imgs/game_1/FundoBackgroundFase3.png");
 	
-    //Efeito sonoros
     //Efeito sonoro de borda
     this.efeito_sonoro = new Audio();
     this.efeito_sonoro.src = "sounds/game_1/paletascolisao.mp3"
@@ -39,7 +38,8 @@ function Game1SceneLevel3()
     this.efeito_sonoro2.src = "sounds/game_1/Efeitodefundo.wav"
     this.efeito_sonoro2.load();
 
-		//Array de blocos
+		//Array de blocos - Criando lista de blocos
+	
 	//Blocos1 - blocos do lado do player
 	this.bloco1 = new Array();
 	for(var i = 0 ; i < 2; i++) 
@@ -75,18 +75,6 @@ function Game1SceneLevel3()
     		return;	
     	}
     	
-		//Movendo blocos
-		//
-		// NAO TO CONSEGUINDO FAZER OS BLOCOS ANDAREM
-		//
-		// E O MEU PLAYER NA CENA 1 E 2 ESTÃO PARADOS
-		//
-		// APENAS O PLAYER DA CENA 3 ESTÁ ANDANDO!
-		//
-		// AJEITAR AMANHÃ SEM FALTA!
-		//
-		//this.blocos.length += this.this.blocos.length.velocidade_y;
-		
 		//Fazendo o player ganhar e ir para level Ganhou
 		if(pontosplayer >= 30)
 		{
@@ -140,8 +128,7 @@ function Game1SceneLevel3()
 					 this.player.tamanho_x,
 					 this.player.tamanho_y-20 ) ) //se a bola colidiu com o player
 		{
-					//Aumentar velocidade ao bater na paleta? Se sim, retire o comentário abaixo
-					//this.bola.velocidade_x ++;
+					this.bola.velocidade_x ++; //Aumentar velocidade se colidir com paleta
 					this.bola.velocidade_x *= -1;
 					this.efeito_sonoro.play();
 					
