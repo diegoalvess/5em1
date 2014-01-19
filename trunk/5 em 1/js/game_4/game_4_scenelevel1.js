@@ -236,7 +236,7 @@
 	this.wave11 = new Array();
     for(var i = 0 ; i < 1; i++) 
     {
-    	this.wave11[i] = new Game4Inimigo("imgs/game_4/inimigos/Mestre.png", 1000);
+    	this.wave11[i] = new Game4Inimigo("imgs/game_4/inimigos/Mestre.png", 2000);
     	this.wave11[i].tamanho_x = 256;
     	this.wave11[i].tamanho_y = 256;
     	this.wave11[i].velocidade_x = -5;
